@@ -1,0 +1,23 @@
+#!/bin/bash
+#SBATCH --job-name=gpt2_wiki_SAP
+#SBATCH --nodes=4
+#SBATCH --ntasks-per-node=2
+#SBATCH --cpus-per-task=1
+#SBATCH --gres=gpu:1
+#SBATCH	--mail-type=BEGIN,END
+#SBATCH --mail-user=sa6875@nyu.edu
+#SBATCH --output=log/gpt2_wiki.log
+
+SINGULARITY_IMAGE=/scratch/work/public/singularity/cuda11.3.0-cudnn8-devel-ubuntu20.04.sif
+OVERLAY_FILE=/scratch/sa6875/singularity/15gb_pytorch_huggingface.ext3 
+
+singularity exec --overlay $OVERLAY_FILE $SINGULARITY_IMAGE /bin/bash
+source /ext3/miniconda3/bin/activate
+
+cd /scratch/sa6875/SAP/surprisals/surprisals/
+
+python preprocess_csv.py
+python get_gpt2_full.py --input data/items_main.pivot.csv --output data/items_main.gpt2wiki.csv --tokenizer ../../models/wikitext-103_tokenizer/ --model ../../models/gpt2_40m_12-768-1024_a_02/ --cuda
+python postprocess_csv.py --input data/items_main.gpt2wiki.csv --output data/items_main.gpt2.post.csv
+
+exit
