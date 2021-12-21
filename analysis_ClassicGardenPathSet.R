@@ -32,11 +32,13 @@ summary(lmer_0_item72_RTacross3words)
 
 #testing reliability of itemwise GPE estimates (split-half analysis)
 splithalf0 <- arrange(rt.data[rt.data$ROI==0,],MD5,Type,item)
+#for each participant, divide the number of observations for each condition they have into two.
 numberpercondpersubj0 <- aggregate(splithalf0$Time,by=list(splithalf0$MD5,splithalf0$Type),FUN=length)
 numberpercondpersubj0$x1 <- round(numberpercondpersubj0$x/2)
 numberpercondpersubj0$x2 <- numberpercondpersubj0$x-numberpercondpersubj0$x1
 colnames(numberpercondpersubj0) <- c("MD5","Type","totalnumb","numb1","numb2")
 splithalf0$splitgroup <- NA
+#randomly assign "group1" to some observation of each condition for each participant (by using sample())
 for(i in 1:nrow(numberpercondpersubj0)){
   splithalf0[splithalf0$MD5==numberpercondpersubj0[i,'MD5']&splithalf0$Type==numberpercondpersubj0[i,'Type'],]$splitgroup <- sample(c(rep("first",numberpercondpersubj0[i,'numb1']),rep("second",numberpercondpersubj0[i,'numb2'])))
 }
