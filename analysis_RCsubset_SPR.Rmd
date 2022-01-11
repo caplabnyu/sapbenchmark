@@ -1,0 +1,137 @@
+---
+title: 'SAP Benchmark (SPR): RC subset'
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(lme4)
+library(tidyverse)
+library(ggplot2)
+```
+
+### Load in data
+
+```{r}
+
+rt.data <- read.csv("./preprocessed_data/RelativeClauseSet.csv", header=TRUE) %>%
+  filter(ROI %in% c(-2,-1,0,1,2)) %>%
+  filter(RT <= 7000) %>%
+  rename(participant = MD5)
+
+filler.data <- read.csv("./preprocessed_data/Fillers.csv", header = TRUE) %>%
+  filter(RT <=7000) %>%
+  rename(participant = MD5)
+
+```
+
+
+### Plotting the data
+
+Lets start by plotting the mean RTs for words in the critical positions
+
+```{r}
+
+rt.data_summ <- rt.data %>%
+  filter(WordPosition %in% c(2,3,4,5,6)) %>%
+  group_by(WordPosition, Type) %>%
+  summarise(mean_rt = mean(RT),
+            se_rt = sd(RT)/sqrt(n())) %>%
+  ungroup() 
+
+# %>%
+#   mutate(WordPosition = factor(WordPosition))
+
+
+ggplot(rt.data_summ, aes(x=WordPosition, y=mean_rt, colour=Type, shape=Type)) +
+  geom_point() +
+  geom_errorbar(aes(ymin=mean_rt - (2*se_rt), 
+                    ymax = mean_rt + (2*se_rt)),
+                width=.5,position=position_dodge(0.02)) + 
+  scale_x_continuous(breaks = c(2,3,4,5,6),
+                     labels = c("reporter", "that", "attacked \n the", "the \n senator", "senator \n attacked"))+
+  labs(x = '', y = 'Mean RT (ms)')
+
+
+## SRC: The girl that 
+
+```
+
+To ease the comparison of the same words with each other, we can align them. 
+
+```{r}
+
+rt.data_summ2 <- rt.data %>%
+  group_by(ROI, Type) %>%
+  summarise(mean_rt = mean(RT),
+            se_rt = sd(RT)/sqrt(n()))
+
+ggplot(rt.data_summ2, aes(x=ROI, y=mean_rt, colour=Type, shape=Type)) +
+  geom_point() +
+  geom_errorbar(aes(ymin=mean_rt - (2*se_rt), 
+                    ymax = mean_rt + (2*se_rt)),
+                width=.5,position=position_dodge(0.02)) + 
+  scale_x_continuous(breaks = c(-2,-1,0,1,2),
+                     labels = c("NOUN", "that", "VERB", "DET", "NOUN")) +
+  labs(x = '', y = 'Mean RT (ms)')
+
+## SRC: The girl that 
+
+```
+
+Even after alignment, the VERBs in both conditions are not directly comparable to each other -- since they occur in different positions. To account for the effect of word position, we can compute RTs with the effect of word position regressed out. 
+
+```{r}
+
+position_fit_lmer <- lmer(RT ~ scale(WordPosition) + (1+scale(WordPosition)| participant), filler.data)
+
+
+position_fit_lm <- lm(RT ~ scale(WordPosition), filler.data)
+
+
+summary(position_fit_lmer)
+
+summary(position_fit_lm)
+
+rt.data$corrected_rt <- rt.data$RT + rt.data$WordPosition*coef(position_fit_lm)["scale(WordPosition)"] 
+## Is this the correct way of computing corrected RT?? 
+## Also, find a better way of doing this with mixed effect model by subtracting by-participant slopes also?
+
+```
+
+
+```{r}
+
+rt.data_summ3 <- rt.data %>%
+  group_by(ROI, Type) %>%
+  summarise(mean_corrected_rt = mean(corrected_rt),
+            se_corrected_rt = sd(corrected_rt)/sqrt(n()))
+
+ggplot(rt.data_summ3, aes(x=ROI, y=mean_corrected_rt, colour=Type, shape=Type)) +
+  geom_point() +
+  geom_errorbar(aes(ymin=mean_corrected_rt - (2*se_corrected_rt), 
+                    ymax = mean_corrected_rt + (2*se_corrected_rt)),
+                width=.5,position=position_dodge(0.02)) + 
+  scale_x_continuous(breaks = c(-2,-1,0,1,2),
+                     labels = c("NOUN", "that", "VERB", "DET", "NOUN")) +
+  labs(x = '', y = 'Mean RT (ms)')
+
+```
+
+### Fitting mixed effects model
+
+
+```{r}
+
+verb_dat <- rt.data %>%
+  filter(ROI == 0) %>%
+  mutate(Type = factor(Type, levels = c('RC_Subj', 'RC_Obj')))
+
+contrasts(verb_dat$Type)
+
+fit1 <- lmer(corrected_rt ~ Type + (1 + Type | participant) + (1 + Type | item), data=verb_dat)
+
+summary(fit1)
+
+```
