@@ -171,6 +171,10 @@ ROI012 <- ROI012[!is.na(ROI012$MD5),]
 ROIcombined <- ROI012 %>% group_by(MD5,item,Type) %>% summarise(RTacross3words=mean(RT))
 
 rt.data <- left_join(rt.data,ROIcombined[,c('MD5','item','Type','RTacross3words')])
+onerowpertrial$trialnumber <- 1:92
+onerowpertrial$item <- as.factor(onerowpertrial$item)
+rt.data <- left_join(rt.data, onerowpertrial[,c('MD5','item','Type','trialnumber')])
+
 #write.csv(rt.data,"N2000_allconditions_preprocessed.csv",row.names=F)
 #write.csv(rt.data[rt.data$CONSTRUCTION%in%c("NPS","NPZ","MVRR"),],"ClassicGardenPathSet.csv",row.names=F)
 #write.csv(rt.data[rt.data$CONSTRUCTION=="RelativeClause",],"RelativeClauseSet.csv",row.names=F)
