@@ -1,6 +1,5 @@
 library(dplyr)
 library(lme4)
-#load(".RData")
 rt.data <- read.csv("ClassicGardenPathSet.csv",header=T)
 rt.data <- rt.data%>%filter(ROI%in%c(-2,-1,0,1,2)) %>%filter(RT<=7000)
 rt.data$SZM1 <- ifelse(
@@ -82,11 +81,11 @@ lm_prediction <- read.csv("lm_prediction.csv",header=T)
 
 
 #run the script for the brm versions and load them here
-load("brm_P0P1P2_AMBxCONSTR_item72_RTacross3words.RData")
+load("brms_results_GP.RData")
 library(brms)
 #ps_P0 <- posterior_summary(brm_P0_item72)
 randomslope_names_item72 <- rownames(ps_P0)[grepl("item72",rownames(ps_P0))][76:147]
-#rm(ps)
+#rm(ps_P0)
 #extract the posterior for each iteration
 psamp_P0_item72 <- posterior_samples(brm_P0_item72, fixed=TRUE, pars=c("b_AMBUAMB",randomslope_names_item72))
 #summing the posterior for fixed and random effect
@@ -233,7 +232,7 @@ Human <- ggplot(data=mean_3positions, aes(x=POSITION, y=MEAN, fill=CONSTRUCTION)
         legend.text = element_text(size=14),
         legend.title = element_text(size=14),
         legend.position="top")
-
+plot(Human)
 
 #plotting lm's mean surprisal difference
 library(reshape2)
