@@ -160,7 +160,7 @@ rt.data$ROI <- ifelse(
   )
 ) %>% as.factor()
 
-rt.data$AMBIG <- ifelse(rt.data$Type%in%c("FILLER1","FILLER2"),NA,ifelse(rt.data$Type %in% c("AGREE","NPS_UAMB","NPZ_UAMB","MVRR_UAMB","RC_Subj","AttachMulti"),"Unamb","Amb"))
+rt.data$AMBIG <- ifelse(rt.data$Type%in%c("FILLER1","FILLER2"),NA,ifelse(rt.data$Type %in% c("AGREE","NPS_UAMB","NPZ_UAMB","MVRR_UAMB","RC_Subj","AttachHigh","AttachLow"),"Unamb","Amb"))
 rt.data$AMBUAMB <- ifelse(rt.data$AMBIG=="Unamb",0,1)
 rt.data$item <- as.factor(rt.data$item)
 rt.data$MD5 <- as.factor(rt.data$MD5)
