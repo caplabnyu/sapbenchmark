@@ -1,0 +1,451 @@
+---
+title: 'SAP Benchmark (SPR): ClassicGP subset'
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(lme4)
+library(ggplot2)
+library(brms)
+library(reshape2)
+library(egg)
+library(gridExtra)
+library(grid)
+```
+
+
+### Load in data
+
+```{r}
+rt.data <- read.csv("ClassicGardenPathSet.csv", header=TRUE) %>%
+  filter(ROI %in% c(-2,-1,0,1,2)) %>%
+  filter(RT <= 7000)
+filler.data <- read.csv("Fillers.csv", header = TRUE) %>%
+  filter(RT <=7000)
+#column 'MD5' = participant's index
+```
+
+
+### Plotting the data
+
+Lets start by plotting the mean RTs for words in the critical positions
+
+```{r}
+rt.data_summ <- rt.data %>%
+  group_by(ROI, AMBIG, CONSTRUCTION) %>%
+  summarise(mean_rt = mean(RT),
+            se_rt = sd(RT)/sqrt(n())) %>%
+  ungroup() 
+
+ggplot(rt.data_summ, aes(x=ROI, y=mean_rt, colour=CONSTRUCTION, shape=AMBIG)) +
+  geom_point() +
+  geom_errorbar(aes(ymin=mean_rt - (2*se_rt), 
+                    ymax = mean_rt + (2*se_rt)),
+                width=.5,position=position_dodge(0.02)) +
+  labs(x = '', y = 'Mean RT (ms)')
+
+#all ambs (circles) are longer than their unamb counterparts (triangles)
+#pretarget regions (-1) were very comparable
+#pretarget regions (-2) interestingly differed for NPS and NPZ (possibly because of clause boundaries)
+```
+
+
+###recode some factors and set contrasts
+```{r}
+#itemwise (collapsing across constructions, 24*3=72)
+rt.data$item72 <- ifelse(rt.data$CONSTRUCTION=="NPS",as.numeric(as.character(rt.data$item)),
+                         ifelse(rt.data$CONSTRUCTION=="NPZ",as.numeric(as.character(rt.data$item))+24,as.numeric(as.character(rt.data$item))+48))
+rt.data$item72 <- as.factor(rt.data$item72)
+
+rt.data$SZM1 <- ifelse(
+  rt.data$CONSTRUCTION=="NPS",1,0
+)
+rt.data$SZM2 <- ifelse(
+  rt.data$CONSTRUCTION=="NPZ",1,0
+)
+
+```
+
+### Fitting mixed effects model (two factors and their interaction)
+```{r}
+#use || because the full models are too complex
+#one lmer for each word position
+lmer_0_AMBxCONSTR <- lmer(RT ~ AMBUAMB*(SZM1+SZM2)+(1+AMBUAMB*(SZM1+SZM2)||item)+(1+AMBUAMB*(SZM1+SZM2)||MD5),data=rt.data[rt.data$ROI==0,])
+#one significant interaction: NPS similar to MVRR, and NPZ larger than MVRR at ROI0
+summary(lmer_0_AMBxCONSTR)
+
+
+lmer_1_AMBxCONSTR <- lmer(RT ~ AMBUAMB*(SZM1+SZM2)+(1+AMBUAMB*(SZM1+SZM2)||item)+(1+AMBUAMB*(SZM1+SZM2)||MD5),data=rt.data[rt.data$ROI==1,])
+#two significant interactions: NPS smaller than MVRR, and NPZ also smaller than MVRR at ROI1
+summary(lmer_1_AMBxCONSTR)
+
+
+
+lmer_2_AMBxCONSTR <- lmer(RT ~ AMBUAMB*(SZM1+SZM2)+(1+AMBUAMB*(SZM1+SZM2)||item)+(1+AMBUAMB*(SZM1+SZM2)||MD5),data=rt.data[rt.data$ROI==2,])
+###two significant interactions: NPS smaller than MVRR, and NPZ also smaller than MVRR at ROI2
+summary(lmer_2_AMBxCONSTR)
+```
+
+### Fitting mixed effects model (one-factor,ambiguity, only)
+```{r}
+#Position 0
+lmer_0_item72 <- lmer(RT ~ AMBUAMB+(1+AMBUAMB|item72)+(1+AMBUAMB|MD5),data=rt.data[rt.data$ROI==0,])
+#point estimate of ambiguity effect across constructions = 76 ms at ROI0
+summary(lmer_0_item72)
+
+
+#averaging RT across Positions 0-2
+lmer_item72_RTacross3words <- lmer(RTacross3words ~ AMBUAMB+(1+AMBUAMB|item72)+(1+AMBUAMB|MD5),data=rt.data[rt.data$ROI==0&rt.data$RTacross3words<=7000/3,])
+#point estimate of ambiguity effect across constructions and positions = 90 ms
+summary(lmer_item72_RTacross3words)
+
+```
+
+
+###testing reliability of itemwise GPE estimates (split-half analysis)
+```{r}
+set.seed(1111)
+
+#create a new dataset sorting by MD5(worker_id), condition, and item
+splithalf0 <- arrange(rt.data[rt.data$ROI==0,],MD5,Type,item)
+
+#for each participant, divide the number of observations for each condition they have into two.
+numberpercondpersubj0 <- aggregate(splithalf0$Time,by=list(splithalf0$MD5,splithalf0$Type),FUN=length)
+numberpercondpersubj0$x1 <- round(numberpercondpersubj0$x/2)
+numberpercondpersubj0$x2 <- numberpercondpersubj0$x-numberpercondpersubj0$x1
+colnames(numberpercondpersubj0) <- c("MD5","Type","totalnumb","numb1","numb2")
+
+splithalf0$splitgroup <- NA
+#randomly assign "group1" to some observation of each condition for each participant (by using sample())
+for(i in 1:nrow(numberpercondpersubj0)){
+  splithalf0[splithalf0$MD5==numberpercondpersubj0[i,'MD5']&splithalf0$Type==numberpercondpersubj0[i,'Type'],]$splitgroup <- sample(c(rep("first",numberpercondpersubj0[i,'numb1']),rep("second",numberpercondpersubj0[i,'numb2'])))
+}
+
+#fit lmer for each half of the dataset
+lmer0_firsthalf <- lmer(RT ~ AMBUAMB+(1+AMBUAMB|item72)+(1+AMBUAMB|MD5),data=splithalf0[splithalf0$splitgroup=="first",])
+lmer0_secondhalf <- lmer(RT ~ AMBUAMB+(1+AMBUAMB|item72)+(1+AMBUAMB|MD5),data=splithalf0[splithalf0$splitgroup=="second",])
+cor.test(ranef(lmer0_firsthalf)[['item72']]$AMBUAMB,ranef(lmer0_secondhalf)[['item72']]$AMBUAMB)
+#NPS
+cor.test(ranef(lmer0_firsthalf)[['item72']]$AMBUAMB[1:24],ranef(lmer0_secondhalf)[['item72']]$AMBUAMB[1:24])
+#NPZ
+cor.test(ranef(lmer0_firsthalf)[['item72']]$AMBUAMB[25:48],ranef(lmer0_secondhalf)[['item72']]$AMBUAMB[25:48])
+#MVRR
+cor.test(ranef(lmer0_firsthalf)[['item72']]$AMBUAMB[49:72],ranef(lmer0_secondhalf)[['item72']]$AMBUAMB[49:72])
+
+#overall pretty high reliability of item-wise GP effects (note, however, results vary somewhat with different random seeds)
+```
+
+###Same analysis for ROI1 and ROI2
+```{r}
+#do this for ROI1 (spillover1)
+set.seed(1111)
+splithalf1 <- arrange(rt.data[rt.data$ROI==1,],MD5,Type,item)
+numberpercondpersubj1 <- aggregate(splithalf1$Time,by=list(splithalf1$MD5,splithalf1$Type),FUN=length)
+numberpercondpersubj1$x1 <- round(numberpercondpersubj1$x/2)
+numberpercondpersubj1$x2 <- numberpercondpersubj1$x-numberpercondpersubj1$x1
+colnames(numberpercondpersubj1) <- c("MD5","Type","totalnumb","numb1","numb2")
+splithalf1$splitgroup <- NA
+for(i in 1:nrow(numberpercondpersubj1)){
+  splithalf1[splithalf1$MD5==numberpercondpersubj1[i,'MD5']&splithalf1$Type==numberpercondpersubj1[i,'Type'],]$splitgroup <- sample(c(rep("first",numberpercondpersubj1[i,'numb1']),rep("second",numberpercondpersubj1[i,'numb2'])))
+}
+lmer1_firsthalf <- lmer(RT ~ AMBUAMB+(1+AMBUAMB|item72)+(1+AMBUAMB|MD5),data=splithalf1[splithalf1$splitgroup=="first",])
+lmer1_secondhalf <- lmer(RT ~ AMBUAMB+(1+AMBUAMB|item72)+(1+AMBUAMB|MD5),data=splithalf1[splithalf1$splitgroup=="second",])
+#high reliability for ROI1 too
+cor.test(ranef(lmer1_firsthalf)[['item72']]$AMBUAMB,ranef(lmer1_secondhalf)[['item72']]$AMBUAMB)
+
+
+#for ROI2 (spillover2)
+splithalf2 <- arrange(rt.data[rt.data$ROI==2,],MD5,Type,item)
+numberpercondpersubj2 <- aggregate(splithalf2$Time,by=list(splithalf2$MD5,splithalf2$Type),FUN=length)
+numberpercondpersubj2$x1 <- round(numberpercondpersubj2$x/2)
+numberpercondpersubj2$x2 <- numberpercondpersubj2$x-numberpercondpersubj2$x1
+colnames(numberpercondpersubj2) <- c("MD5","Type","totalnumb","numb1","numb2")
+splithalf2$splitgroup <- NA
+for(i in 1:nrow(numberpercondpersubj2)){
+  splithalf2[splithalf2$MD5==numberpercondpersubj2[i,'MD5']&splithalf2$Type==numberpercondpersubj2[i,'Type'],]$splitgroup <- sample(c(rep("first",numberpercondpersubj2[i,'numb1']),rep("second",numberpercondpersubj2[i,'numb2'])))
+}
+lmer2_firsthalf <- lmer(RT ~ AMBUAMB+(1+AMBUAMB|item72)+(1+AMBUAMB|MD5),data=splithalf2[splithalf2$splitgroup=="first",])
+lmer2_secondhalf <- lmer(RT ~ AMBUAMB+(1+AMBUAMB|item72)+(1+AMBUAMB|MD5),data=splithalf2[splithalf2$splitgroup=="second",])
+#high reliability for ROI2 too
+cor.test(ranef(lmer2_firsthalf)[['item72']]$AMBUAMB,ranef(lmer2_secondhalf)[['item72']]$AMBUAMB)
+```
+
+###compare empirical data with language models' predictions
+```{r}
+#load lm's results
+lm_prediction <- read.csv("lm_prediction.csv",header=T)
+
+#pre-run the script for the brm versions, and load them here
+load("brms_results_GP.RData")
+
+ps_P0 <- posterior_summary(brm_P0_item72)
+#extract only random item-slopes
+randomslope_names_item72 <- rownames(ps_P0)[grepl("item72",rownames(ps_P0))][76:147]
+#extract the posterior for each iteration
+psamp_P0_item72 <- posterior_samples(brm_P0_item72, fixed=TRUE, pars=c("b_AMBUAMB",randomslope_names_item72))
+#summing the posterior for fixed and random effect
+for(i in 2:73){
+  psamp_P0_item72[,i+72] =psamp_P0_item72[,1]+psamp_P0_item72[,i]
+}
+psamp_P0_item72 <- psamp_P0_item72[,74:145]; colnames(psamp_P0_item72) <- paste0("item",as.character(1:72))
+
+#total iterations = 6000
+#therefore, 150-5850 = 95% HDI posterior estimates
+model_based_predictions_P0_item72 <- data.frame(ITEM72_MEAN_P0 = colMeans(psamp_P0_item72))
+for(i in 1:72){
+  model_based_predictions_P0_item72$HDI_low_P0[i] <- sort(psamp_P0_item72[,i])[151]
+  model_based_predictions_P0_item72$HDI_high_P0[i] <- sort(psamp_P0_item72[,i])[5850]
+  model_based_predictions_P0_item72$SE_P0[i] <- (sort(psamp_P0_item72[,i])[5850]-sort(psamp_P0_item72[,i])[151])/4}
+model_based_predictions_P0_item72$item72 <- 1:72
+
+lm_prediction <- left_join(lm_prediction,model_based_predictions_P0_item72)
+#overall r = 0.5 (ignoring consturctions) for wiki lstm lm
+cor.test(lm_prediction$lstmsurprisaldiff_ambminusuamb, lm_prediction$ITEM72_MEAN_P0)
+#overall r = 0.4 (ignoring constructions) for GPT2
+cor.test(lm_prediction$gptsurprisaldiff_ambminusuamb, lm_prediction$ITEM72_MEAN_P0)
+
+
+
+#zoomming inside each construction for each lm
+cor.test(lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="MVRR"], lm_prediction$ITEM72_MEAN_P0[lm_prediction$Type=="MVRR"])
+cor.test(lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPS"], lm_prediction$ITEM72_MEAN_P0[lm_prediction$Type=="NPS"])
+cor.test(lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPZ"], lm_prediction$ITEM72_MEAN_P0[lm_prediction$Type=="NPZ"])
+cor.test(lm_prediction$gptsurprisaldiff_ambminusuamb[lm_prediction$Type=="MVRR"], lm_prediction$ITEM72_MEAN_P0[lm_prediction$Type=="MVRR"])
+cor.test(lm_prediction$gptsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPS"], lm_prediction$ITEM72_MEAN_P0[lm_prediction$Type=="NPS"])
+cor.test(lm_prediction$gptsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPZ"], lm_prediction$ITEM72_MEAN_P0[lm_prediction$Type=="NPZ"])
+
+```
+
+
+###The rest is just plotting
+```{r}
+#error bar = 95HDI
+#NPS
+NPS_itemgpe_by_lstmsurprisal <- ggplot(lm_prediction[lm_prediction$Type=="NPS",],aes(x=lstmsurprisaldiff_ambminusuamb,y=ITEM72_MEAN_P0))+
+  labs(title = "r = 0.51, (NPS)")+
+  xlab("")+
+  ylab("")+
+  geom_pointrange(aes(ymin=HDI_low_P0, ymax=HDI_high_P0),color="green4")+
+  theme(axis.text.x = element_text(size=13),
+        axis.text.y = element_text(size=12),
+        plot.title = element_text(size = 13))
+NPS_itemgpe_by_lstmsurprisal <- set_panel_size(NPS_itemgpe_by_lstmsurprisal,width=unit(5,"cm"),height=unit(5,"cm"))
+#NPZ
+NPZ_itemgpe_by_lstmsurprisal <- ggplot(lm_prediction[lm_prediction$Type=="NPZ",],aes(x=lstmsurprisaldiff_ambminusuamb,y=ITEM72_MEAN_P0))+
+  labs(title = "r = 0.12, (NPZ)")+
+  xlab("")+
+  ylab("")+
+  geom_pointrange(aes(ymin=HDI_low_P0, ymax=HDI_high_P0),color="blue")+
+  theme(axis.text.x = element_text(size=13),
+        axis.text.y = element_text(size=12),
+        plot.title = element_text(size = 13))
+NPZ_itemgpe_by_lstmsurprisal <- set_panel_size(NPZ_itemgpe_by_lstmsurprisal,width=unit(5,"cm"),height=unit(5,"cm"))
+#MVRR
+MVRR_itemgpe_by_lstmsurprisal <- ggplot(lm_prediction[lm_prediction$Type=="MVRR",],aes(x=lstmsurprisaldiff_ambminusuamb,y=ITEM72_MEAN_P0))+
+  labs(title = "r = 0.36, (Wiki-LSTM, MVRR)")+
+  xlab("")+
+  ylab("")+
+  geom_pointrange(aes(ymin=HDI_low_P0, ymax=HDI_high_P0),color="red")+
+  theme(axis.text.x = element_text(size=13),
+        axis.text.y = element_text(size=12),
+        plot.title = element_text(size = 13))
+MVRR_itemgpe_by_lstmsurprisal <- set_panel_size(MVRR_itemgpe_by_lstmsurprisal,width=unit(5,"cm"),height=unit(5,"cm"))
+
+#NPS
+NPS_itemgpe_by_gptsurprisal <- ggplot(lm_prediction[lm_prediction$Type=="NPS",],aes(x=gptsurprisaldiff_ambminusuamb,y=ITEM72_MEAN_P0))+
+  labs(title = "r = -0.01, (NPS)")+
+  xlab("")+
+  ylab("")+
+  geom_pointrange(aes(ymin=HDI_low_P0, ymax=HDI_high_P0),color="green4")+
+  theme(axis.text.x = element_text(size=13),
+        axis.text.y = element_text(size=12),
+        plot.title = element_text(size = 13))
+NPS_itemgpe_by_gptsurprisal <- set_panel_size(NPS_itemgpe_by_gptsurprisal,width=unit(5,"cm"),height=unit(5,"cm"))
+
+#NPZ
+NPZ_itemgpe_by_gptsurprisal <- ggplot(lm_prediction[lm_prediction$Type=="NPZ",],aes(x=gptsurprisaldiff_ambminusuamb,y=ITEM72_MEAN_P0))+
+  labs(title = "r = 0.35, (NPZ)")+
+  xlab("")+
+  ylab("")+
+  geom_pointrange(aes(ymin=HDI_low_P0, ymax=HDI_high_P0),color="blue")+
+  theme(axis.text.x = element_text(size=13),
+        axis.text.y = element_text(size=12),
+        plot.title = element_text(size = 13))
+NPZ_itemgpe_by_gptsurprisal <- set_panel_size(NPZ_itemgpe_by_gptsurprisal,width=unit(5,"cm"),height=unit(5,"cm"))
+
+#MVRR
+MVRR_itemgpe_by_gptsurprisal <- ggplot(lm_prediction[lm_prediction$Type=="MVRR",],aes(x=gptsurprisaldiff_ambminusuamb,y=ITEM72_MEAN_P0))+
+  labs(title = "r =-0.06, (GPT-2, MVRR)")+
+  xlab("")+
+  ylab("")+
+  geom_pointrange(aes(ymin=HDI_low_P0, ymax=HDI_high_P0),color="red")+
+  theme(axis.text.x = element_text(size=13),
+        axis.text.y = element_text(size=12),
+        plot.title = element_text(size = 13))
+MVRR_itemgpe_by_gptsurprisal <- set_panel_size(MVRR_itemgpe_by_gptsurprisal,width=unit(5,"cm"),height=unit(5,"cm"))
+
+
+grid.arrange(MVRR_itemgpe_by_lstmsurprisal,
+             NPS_itemgpe_by_lstmsurprisal,
+             NPZ_itemgpe_by_lstmsurprisal,
+             MVRR_itemgpe_by_gptsurprisal,
+             NPS_itemgpe_by_gptsurprisal,
+             NPZ_itemgpe_by_gptsurprisal,nrow=2,
+             bottom=textGrob("Surprisal difference at the disambiguating verb (ambig - unambig)", gp=gpar(fontsize=14)),
+             left=textGrob("Empirical Garden Path Effect at the disambiguating verb", gp=gpar(fontsize=14),rot=90))
+
+
+ggplot(lm_prediction,aes(x=item,y=ITEM72_MEAN_P0,color=Type))+
+  geom_point(size=2)+
+  xlab("Triplet Index")+
+  ylab("Garden path effect at the verb")+
+  ggtitle("Comparing GPEs within a triplet of three constructions")+
+  geom_errorbar(aes(ymin=HDI_low_P0,ymax=HDI_high_P0),width=.3)+
+  theme(axis.title=element_text(size=14,face="bold"),
+        axis.text = element_text(size=14),
+        legend.text = element_text(size=14),
+        legend.title = element_text(size=14))
+
+```
+
+
+###plotting human's mean GPE
+```{r}
+ps_P0_AMBxCONSTR <- posterior_summary(brm_P0_AMBxCONSTR)
+randomslope_names_AMBxCONSTR <- rownames(ps_P0_AMBxCONSTR)[which(grepl("r_item",rownames(ps_P0_AMBxCONSTR)))][-(1:15)]
+psamp_P0_AMBxCONSTR <- posterior_samples(brm_P0_AMBxCONSTR,fixed=TRUE,pars=c("b_AMBUAMB", "b_AMBUAMB:SZM1", "b_AMBUAMB:SZM2"))
+psamp_P1_AMBxCONSTR <- posterior_samples(brm_P1_AMBxCONSTR,fixed=TRUE,pars=c("b_AMBUAMB", "b_AMBUAMB:SZM1", "b_AMBUAMB:SZM2"))
+psamp_P2_AMBxCONSTR <- posterior_samples(brm_P2_AMBxCONSTR,fixed=TRUE,pars=c("b_AMBUAMB", "b_AMBUAMB:SZM1", "b_AMBUAMB:SZM2"))
+mean_3positions <- data.frame(CONSTRUCTION=c("MVRR","NPS","NPZ"),
+                               POSITION=c(rep(c("Disambiguating Verb","Spillover1","Spillover2"),each=3)),
+                               MEAN=c(mean(psamp_P0_AMBxCONSTR[,1]),mean((psamp_P0_AMBxCONSTR[,1]+psamp_P0_AMBxCONSTR[,2])),mean((psamp_P0_AMBxCONSTR[,1]+psamp_P0_AMBxCONSTR[,3])),mean(psamp_P1_AMBxCONSTR[,1]),mean((psamp_P1_AMBxCONSTR[,1]+psamp_P1_AMBxCONSTR[,2])),mean((psamp_P1_AMBxCONSTR[,1]+psamp_P1_AMBxCONSTR[,3])),mean(psamp_P2_AMBxCONSTR[,1]),mean((psamp_P2_AMBxCONSTR[,1]+psamp_P2_AMBxCONSTR[,2])),mean((psamp_P2_AMBxCONSTR[,1]+psamp_P2_AMBxCONSTR[,3]))),
+                               HDI_low=c(sort(psamp_P0_AMBxCONSTR[,1])[151],sort((psamp_P0_AMBxCONSTR[,1]+psamp_P0_AMBxCONSTR[,2]))[151],sort((psamp_P0_AMBxCONSTR[,1]+psamp_P0_AMBxCONSTR[,3]))[151],sort(psamp_P1_AMBxCONSTR[,1])[151],sort((psamp_P1_AMBxCONSTR[,1]+psamp_P1_AMBxCONSTR[,2]))[151],sort((psamp_P1_AMBxCONSTR[,1]+psamp_P1_AMBxCONSTR[,3]))[151],sort(psamp_P2_AMBxCONSTR[,1])[151],sort((psamp_P2_AMBxCONSTR[,1]+psamp_P2_AMBxCONSTR[,2]))[151],sort((psamp_P2_AMBxCONSTR[,1]+psamp_P2_AMBxCONSTR[,3]))[151]),
+                               HDI_high=c(sort(psamp_P0_AMBxCONSTR[,1])[5850],sort((psamp_P0_AMBxCONSTR[,1]+psamp_P0_AMBxCONSTR[,2]))[5850],sort((psamp_P0_AMBxCONSTR[,1]+psamp_P0_AMBxCONSTR[,3]))[5850],sort(psamp_P1_AMBxCONSTR[,1])[5850],sort((psamp_P1_AMBxCONSTR[,1]+psamp_P1_AMBxCONSTR[,2]))[5850],sort((psamp_P1_AMBxCONSTR[,1]+psamp_P1_AMBxCONSTR[,3]))[5850],sort(psamp_P2_AMBxCONSTR[,1])[5850],sort((psamp_P2_AMBxCONSTR[,1]+psamp_P2_AMBxCONSTR[,2]))[5850],sort((psamp_P2_AMBxCONSTR[,1]+psamp_P2_AMBxCONSTR[,3]))[5850]))
+mean_3positions <- mutate(mean_3positions,SE=(HDI_high-HDI_low)/4)
+Human <- ggplot(data=mean_3positions, aes(x=POSITION, y=MEAN, fill=CONSTRUCTION)) +
+  geom_bar(stat="identity",position=position_dodge())+
+  geom_errorbar(aes(ymin=MEAN-2*SE,ymax=MEAN+2*SE),width=.2,position=position_dodge(.9))+
+  xlab("Human data")+
+  ylab("Mean Garden Path Effect")+
+  theme(axis.title=element_text(size=14,face="bold"),
+        axis.text = element_text(size=14,face="bold"),
+        legend.text = element_text(size=14),
+        legend.title = element_text(size=14),
+        legend.position="top")
+plot(Human)
+```
+
+
+###Plotting lm's prediction
+```{r}
+lm_mean <- melt(lm_prediction[,c('item','Type','lstmsurprisaldiff_ambminusuamb','gptsurprisaldiff_ambminusuamb','lstmsurprisaldiff_ambminusuamb_spillover1','lstmsurprisaldiff_ambminusuamb_spillover2','gptsurprisaldiff_ambminusuamb_spillover1','gptsurprisaldiff_ambminusuamb_spillover2')],
+                    id.vars=c("item",'Type'),
+                    variable.name="DV",value.name="surprisaldiff")
+lm_mean$position <- ifelse(grepl("spillover1",lm_mean$DV),"Spillover1",
+                               ifelse(grepl("spillover2",lm_mean$DV),"Spillover2","Disambiguating Verb"))
+lm_mean$LM <- ifelse(grepl("gpt",lm_mean$DV),"GPT-2","Wiki-LSTM")
+A1 <- aggregate(lm_mean$surprisaldiff,
+                by=list(lm_mean$Type,lm_mean$LM,lm_mean$position),FUN=mean) %>% filter(Group.2=="Wiki-LSTM")
+A2 <- aggregate(lm_mean$surprisaldiff,
+                by=list(lm_mean$Type,lm_mean$LM,lm_mean$position),FUN=mean) %>% filter(Group.2=="GPT-2")
+lm_mean_wiki <- ggplot(data=A1[A1$Group.3=="Disambiguating Verb",], aes(x=Group.1, y=x)) +
+  geom_bar(stat="identity",position=position_dodge(),fill=c("#FF6666","#32CD32","#6495ED"))+
+  xlab("Wiki-LSTM (at Disambiguating Verb)")+
+  ylab("Mean Surprisal Difference")+
+  theme(legend.position = "none",
+        axis.title=element_text(size=14,face="bold"),
+        axis.text.x = element_text(size=0),
+        axis.text.y = element_text(size=14,face="bold"))
+lm_mean_gpt <- ggplot(data=A2[A2$Group.3=="Disambiguating Verb",], aes(x=Group.1, y=x)) +
+  geom_bar(stat="identity",position=position_dodge(),fill=c("#FF6666","#32CD32","#6495ED"))+
+  xlab("GPT-2 (at Disambiguating Verb)")+
+  ylab("Mean Surprisal Difference")+
+  theme(legend.position = "none",
+        axis.title=element_text(size=14,face="bold"),
+        axis.text.x = element_text(size=0),
+        axis.text.y = element_text(size=14,face="bold"))
+grid.arrange(lm_mean_wiki, lm_mean_gpt,nrow=2)
+```
+
+
+###inspect results if using RTacross3words (rather than word by word)
+```{r}
+psamp_RTacross3words <- posterior_samples(brm_P0_item72_RTacross3words, fixed=TRUE, pars=c("b_AMBUAMB",randomslope_names_item72))
+for(i in 2:73){
+  psamp_RTacross3words[,i+72] =psamp_RTacross3words[,1]+psamp_RTacross3words[,i]
+}
+psamp_RTacross3words <- psamp_RTacross3words[,74:145]; colnames(psamp_RTacross3words) <- paste0("item",as.character(1:72))
+model_based_predictions_item72_RTacross3words <- data.frame(ITEM72_MEAN_RTacross3words = colMeans(psamp_RTacross3words))
+for(i in 1:72){
+  model_based_predictions_item72_RTacross3words$HDI_low_RTacross3words[i] <- sort(psamp_RTacross3words[,i])[151]
+  model_based_predictions_item72_RTacross3words$HDI_high_RTacross3words[i] <- sort(psamp_RTacross3words[,i])[5850]
+  model_based_predictions_item72_RTacross3words$SE_RTacross3words[i] <- (sort(psamp_RTacross3words[,i])[5850]-sort(psamp_RTacross3words[,i])[151])/4}
+model_based_predictions_item72_RTacross3words$item72 <- 1:72
+
+
+#GPT2 performed better than Wiki-LSTM (contrary to the ROI0 results)
+#but both still do badly when zooming inside each construction
+lm_prediction <- left_join(lm_prediction,model_based_predictions_item72_RTacross3words)
+cor.test(lm_prediction$ITEM72_MEAN_RTacross3words,lm_prediction$lstmsurprisaldiff_ambminusuamb)
+cor.test(lm_prediction$ITEM72_MEAN_RTacross3words,lm_prediction$gptsurprisaldiff_ambminusuamb)
+cor.test(lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="MVRR"], lm_prediction$ITEM72_MEAN_RTacross3words[lm_prediction$Type=="MVRR"])
+cor.test(lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPS"], lm_prediction$ITEM72_MEAN_RTacross3words[lm_prediction$Type=="NPS"])
+cor.test(lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPZ"], lm_prediction$ITEM72_MEAN_RTacross3words[lm_prediction$Type=="NPZ"])
+cor.test(lm_prediction$gptsurprisaldiff_ambminusuamb[lm_prediction$Type=="MVRR"], lm_prediction$ITEM72_MEAN_RTacross3words[lm_prediction$Type=="MVRR"])
+cor.test(lm_prediction$gptsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPS"], lm_prediction$ITEM72_MEAN_RTacross3words[lm_prediction$Type=="NPS"])
+cor.test(lm_prediction$gptsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPZ"], lm_prediction$ITEM72_MEAN_RTacross3words[lm_prediction$Type=="NPZ"])
+```
+
+
+###look at timecourse effects (e.g., fatigue, adaptation)
+```{r}
+#look at syntactic-independent timecourse effects (i.e., look at filler sentences that had no specific syntactic structures)
+#averaging reading times across all positions for each filler sentnece
+
+filler_averaging_readingtime_bytrial <- filler.data %>% group_by(MD5,Sentence,item) %>% summarise(mean_rt = mean(RT,na.rm=T),
+            se_rt = sd(RT)/sqrt(n()))
+filler_averaging_readingtime_bytrial <- left_join(filler_averaging_readingtime_bytrial,distinct(filler.data,MD5,Sentence,trialnumber))
+
+summary(lmer(mean_rt~trialnumber+(1|item)+(1|MD5),data=filler_averaging_readingtime_bytrial))
+ggplot(filler_averaging_readingtime_bytrial, aes(x=trialnumber, y=mean_rt)) +
+    geom_smooth(method="lm")
+aggregate(filler_averaging_readingtime_bytrial$mean_rt,by=list(filler_averaging_readingtime_bytrial$trialnumber),FUN=mean)
+#significant speed-up as trial number went up
+```
+
+###look at syntactic adaption
+```{r}
+numbeachcell <- distinct(rt.data,MD5,Type,item,trialnumber) %>% group_by(MD5,Type) %>% mutate(numbeachcell=n()) %>% ungroup() %>%  arrange(MD5,Type,trialnumber) %>% distinct(MD5,Type,numbeachcell)
+Seq_each_cell_eachparticipant <-c()
+for(i in 1:nrow(numbeachcell)){
+  Seq_each_cell_eachparticipant <- c(Seq_each_cell_eachparticipant,1:as.numeric(numbeachcell[i,'numbeachcell']))
+}
+rt.data <- left_join(rt.data,distinct(rt.data,MD5,item) %>% mutate(seq_each_cell_eachparticipant=Seq_each_cell_eachparticipant))
+rt.data$seq_each_cell_eachparticipant <- as.factor(rt.data$seq_each_cell_eachparticipant)
+
+
+#takes forever to run the model with full random slopes
+lmer_0_AMBxCONSTRxSeq <- lmer(RT ~ AMBUAMB*(SZM1+SZM2)*seq_each_cell_eachparticipant +(1|item)+(1|MD5),data=rt.data[rt.data$ROI==0,])
+summary(lmer_0_AMBxCONSTRxSeq)
+
+rt.data$Type_sumcoded1 <- ifelse(rt.data$Type=="NPS_UAMB",5/6,-1/6)
+rt.data$Type_sumcoded2 <- ifelse(rt.data$Type=="NPZ_AMB",5/6,-1/6)
+rt.data$Type_sumcoded3 <- ifelse(rt.data$Type=="NPZ_UAMB",5/6,-1/6)
+rt.data$Type_sumcoded4 <- ifelse(rt.data$Type=="MVRR_AMB",5/6,-1/6)
+rt.data$Type_sumcoded5 <- ifelse(rt.data$Type=="MVRR_UAMB",5/6,-1/6)
+
+
+#takes forever to run the model with full random slopes
+
+
+lmer_0_TypexSeq <- lmer(RT ~ (Type_sumcoded1+Type_sumcoded2+Type_sumcoded3+Type_sumcoded4+Type_sumcoded5)*seq_each_cell_eachparticipant +(1|item)+(1|MD5),data=rt.data[rt.data$ROI==0,])
+summary(lmer_0_TypexSeq)
+
+#lmer_0_TypexSeq_full <- lmer(RT ~ (Type_sumcoded1+Type_sumcoded2+Type_sumcoded3+Type_sumcoded4+Type_sumcoded5)*seq_each_cell_eachparticipant +(1+(Type_sumcoded1+Type_sumcoded2+Type_sumcoded3+Type_sumcoded4+Type_sumcoded5)*seq_each_cell_eachparticipant||item)+(1+(Type_sumcoded1+Type_sumcoded2+Type_sumcoded3+Type_sumcoded4+Type_sumcoded5)*seq_each_cell_eachparticipant||MD5),data=rt.data[rt.data$ROI==0,])
+#summary(lmer_0_TypexSeq_full)
+
+
+
+```
