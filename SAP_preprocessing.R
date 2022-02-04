@@ -160,7 +160,7 @@ rt.data$ROI <- ifelse(
   )
 ) %>% as.factor()
 
-rt.data$AMBIG <- ifelse(rt.data$Type%in%c("FILLER1","FILLER2"),NA,ifelse(rt.data$Type %in% c("AGREE","NPS_UAMB","NPZ_UAMB","MVRR_UAMB","RC_Subj","AttachMulti"),"Unamb","Amb"))
+rt.data$AMBIG <- ifelse(rt.data$Type%in%c("FILLER1","FILLER2"),NA,ifelse(rt.data$Type %in% c("AGREE","NPS_UAMB","NPZ_UAMB","MVRR_UAMB","RC_Subj","AttachHigh","AttachLow"),"Unamb","Amb"))
 rt.data$AMBUAMB <- ifelse(rt.data$AMBIG=="Unamb",0,1)
 rt.data$item <- as.factor(rt.data$item)
 rt.data$MD5 <- as.factor(rt.data$MD5)
@@ -171,6 +171,10 @@ ROI012 <- ROI012[!is.na(ROI012$MD5),]
 ROIcombined <- ROI012 %>% group_by(MD5,item,Type) %>% summarise(RTacross3words=mean(RT))
 
 rt.data <- left_join(rt.data,ROIcombined[,c('MD5','item','Type','RTacross3words')])
+onerowpertrial$trialnumber <- 1:92
+onerowpertrial$item <- as.factor(onerowpertrial$item)
+rt.data <- left_join(rt.data, onerowpertrial[,c('MD5','item','Type','trialnumber')])
+
 #write.csv(rt.data,"N2000_allconditions_preprocessed.csv",row.names=F)
 #write.csv(rt.data[rt.data$CONSTRUCTION%in%c("NPS","NPZ","MVRR"),],"ClassicGardenPathSet.csv",row.names=F)
 #write.csv(rt.data[rt.data$CONSTRUCTION=="RelativeClause",],"RelativeClauseSet.csv",row.names=F)
