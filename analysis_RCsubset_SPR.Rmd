@@ -9,6 +9,8 @@ knitr::opts_chunk$set(echo = TRUE)
 library(lme4)
 library(tidyverse)
 library(ggplot2)
+library(brms)
+library(bayestestR)
 ```
 
 ### Load in data
@@ -84,20 +86,33 @@ Even after alignment, the VERBs in both conditions are not directly comparable t
 
 ```{r}
 
-position_fit_lmer <- lmer(RT ~ scale(WordPosition) + (1+scale(WordPosition)| participant), filler.data)
-
+position_fit_lmer <- lmer(RT ~ scale(WordPosition) + (1 + scale(WordPosition) | participant), filler.data)
+position_fit_lmer_nocor <- lmer(RT ~ scale(WordPosition) + (1 + scale(WordPosition) || participant), filler.data)
 
 position_fit_lm <- lm(RT ~ scale(WordPosition), filler.data)
 
-
 summary(position_fit_lmer)
-
+summary(position_fit_lmer_nocor)
 summary(position_fit_lm)
 
-rt.data$corrected_rt <- rt.data$RT + rt.data$WordPosition*coef(position_fit_lm)["scale(WordPosition)"] 
-## Is this the correct way of computing corrected RT?? 
-## Also, find a better way of doing this with mixed effect model by subtracting by-participant slopes also?
+rt.data$wordpos_predrt <- predict(position_fit_lmer_nocor, rt.data)
+rt.data$wordpos_predrt_lm <- predict(position_fit_lm, rt.data)
 
+rt.data$corrected_rt <- rt.data$RT - rt.data$wordpos_predrt
+rt.data$corrected_rt_lm <- rt.data$RT - rt.data$wordpos_predrt_lm
+
+```
+
+```{r}
+
+ggplot(rt.data, aes(x=wordpos_predrt, y = wordpos_predrt_lm)) +
+  geom_point()
+
+ggplot(rt.data, aes(x=corrected_rt, y = corrected_rt_lm)) +
+  geom_point()
+
+ggplot(rt.data, aes(x=corrected_rt, y = RT)) +
+  geom_point()
 ```
 
 
@@ -115,23 +130,331 @@ ggplot(rt.data_summ3, aes(x=ROI, y=mean_corrected_rt, colour=Type, shape=Type)) 
                 width=.5,position=position_dodge(0.02)) + 
   scale_x_continuous(breaks = c(-2,-1,0,1,2),
                      labels = c("NOUN", "that", "VERB", "DET", "NOUN")) +
-  labs(x = '', y = 'Mean RT (ms)')
+  labs(x = '', y = 'Mean corrected RT (ms)')
 
 ```
 
 ### Fitting mixed effects model
 
-
+**Pre-registered analysis**
 ```{r}
 
 verb_dat <- rt.data %>%
   filter(ROI == 0) %>%
-  mutate(Type = factor(Type, levels = c('RC_Subj', 'RC_Obj')))
+  mutate(Type = factor(Type, levels = c('RC_Subj', 'RC_Obj')),
+         Type_num = ifelse(Type == 'RC_Subj', 0, 1))
 
 contrasts(verb_dat$Type)
 
-fit1 <- lmer(corrected_rt ~ Type + (1 + Type | participant) + (1 + Type | item), data=verb_dat)
+## part intercept is 0 because we removed out this intercept through word pos correction
+fit1 <- lmer(corrected_rt ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item), data=verb_dat)
 
 summary(fit1)
 
+
 ```
+
+**Looking at other word positions**
+```{r}
+det_dat <- rt.data %>%
+  filter(ROI == 1) %>%
+  mutate(Type = factor(Type, levels = c('RC_Subj', 'RC_Obj')),
+         Type_num = ifelse(Type == 'RC_Subj', 0, 1))
+
+contrasts(det_dat$Type)
+
+## part intercept is 0 because we removed out this intercept through word pos correction
+fit2 <- lmer(corrected_rt ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item), data=det_dat)
+
+summary(fit2)
+
+
+noun_dat <- rt.data %>%
+  filter(ROI == 2) %>%
+  mutate(Type = factor(Type, levels = c('RC_Subj', 'RC_Obj')),
+         Type_num = ifelse(Type == 'RC_Subj', 0, 1))
+
+contrasts(noun_dat$Type)
+
+## part intercept is 0 because we removed out this intercept through word pos correction
+fit3 <- lmer(corrected_rt ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item), data=noun_dat)
+
+summary(fit3)
+
+```
+
+
+
+### Fitting BRMS model
+
+```{r}
+
+fit1_bayes <- brm(corrected_rt ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item),
+                  data=verb_dat,
+                  cores = 4,
+                  iter = 4000,
+                  seed = 117
+                  )
+
+```
+
+```{r}
+
+summary(fit1_bayes)
+
+hdi_fit1 <- data.frame(hdi(fit1_bayes, ci = 0.95, effects = 'all'))
+
+## Plot fixed effect HDI
+
+ggplot(subset(hdi_fit1, str_detect(Parameter, 'b_'))) +
+  geom_linerange(mapping=aes(x = Parameter,
+                             ymin = CI_low,
+                             ymax = CI_high)) +
+  labs(x='', y = 'Corrected RT ORC - Corrected RT SRC')
+
+## Plot by-item HDIs
+
+ggplot(subset(hdi_fit1, str_detect(Parameter, 'r_item.*Type_num]'))) +
+  geom_linerange(mapping=aes(x = gsub(".*?([0-9]+).*", "\\1", Parameter),
+                             ymin = CI_low,
+                             ymax = CI_high)) +
+  labs(x='Item id', y = 'Corrected RT ORC - Corrected RT SRC')
+
+
+## Plot by-part HDIs
+
+ggplot(subset(hdi_fit1, str_detect(Parameter, 'r_participant.*Type_num]'))) +
+  geom_linerange(mapping=aes(x = gsub(".*?([0-9]+).*", "\\1", Parameter),
+                             ymin = CI_low,
+                             ymax = CI_high, alpha=0.05)) +
+  labs(x='Part id', y = 'Corrected RT ORC - Corrected RT SRC')
+
+```
+
+
+
+```{r}
+
+fit2_bayes <- brm(corrected_rt ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item),
+                  data=det_dat,
+                  cores = 4,
+                  iter = 4000,
+                  seed = 117
+                  )
+
+```
+
+```{r}
+
+summary(fit2_bayes)
+
+hdi_fit2 <- data.frame(hdi(fit2_bayes, ci = 0.95, effects = 'all'))
+
+## Plot fixed effect HDI
+
+ggplot(subset(hdi_fit2, str_detect(Parameter, 'b_'))) +
+  geom_linerange(mapping=aes(x = Parameter,
+                             ymin = CI_low,
+                             ymax = CI_high)) +
+  labs(x='', y = 'Corrected RT ORC - Corrected RT SRC')
+
+## Plot by-item HDIs
+
+ggplot(subset(hdi_fit2, str_detect(Parameter, 'r_item.*Type_num]'))) +
+  geom_linerange(mapping=aes(x = gsub(".*?([0-9]+).*", "\\1", Parameter),
+                             ymin = CI_low,
+                             ymax = CI_high)) +
+  labs(x='Item id', y = 'Corrected RT ORC - Corrected RT SRC')
+
+
+## Plot by-part HDIs
+
+ggplot(subset(hdi_fit2, str_detect(Parameter, 'r_participant.*Type_num]'))) +
+  geom_linerange(mapping=aes(x = gsub(".*?([0-9]+).*", "\\1", Parameter),
+                             ymin = CI_low,
+                             ymax = CI_high, alpha=0.05)) +
+  labs(x='Part id', y = 'Corrected RT ORC - Corrected RT SRC')
+
+```
+
+
+
+```{r}
+
+fit3_bayes <- brm(corrected_rt ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item),
+                  data=noun_dat,
+                  cores = 4,
+                  iter = 4000,
+                  seed = 117
+                  )
+
+```
+
+```{r}
+
+summary(fit3_bayes)
+
+hdi_fit3 <- data.frame(hdi(fit1_bayes, ci = 0.95, effects = 'all'))
+
+## Plot fixed effect HDI
+
+ggplot(subset(hdi_fit3, str_detect(Parameter, 'b_'))) +
+  geom_linerange(mapping=aes(x = Parameter,
+                             ymin = CI_low,
+                             ymax = CI_high)) +
+  labs(x='', y = 'Corrected RT ORC - Corrected RT SRC')
+
+## Plot by-item HDIs
+
+ggplot(subset(hdi_fit3, str_detect(Parameter, 'r_item.*Type_num]'))) +
+  geom_linerange(mapping=aes(x = gsub(".*?([0-9]+).*", "\\1", Parameter),
+                             ymin = CI_low,
+                             ymax = CI_high)) +
+  labs(x='Item id', y = 'Corrected RT ORC - Corrected RT SRC')
+
+
+## Plot by-part HDIs
+
+ggplot(subset(hdi_fit3, str_detect(Parameter, 'r_participant.*Type_num]'))) +
+  geom_linerange(mapping=aes(x = gsub(".*?([0-9]+).*", "\\1", Parameter),
+                             ymin = CI_low,
+                             ymax = CI_high, alpha=0.05)) +
+  labs(x='Part id', y = 'Corrected RT ORC - Corrected RT SRC')
+
+```
+
+
+
+```{r}
+
+fit1_samples_summ <- posterior_samples(fit1_bayes) %>%
+  mutate(RT_subj  = b_Intercept,
+         RT_obj = b_Intercept + b_Type_num) %>%
+  select(RT_subj, RT_obj) %>%
+  gather(key = 'cond', value = 'RT', RT_subj, RT_obj) %>%
+  group_by(cond) %>%
+  summarise(mean = mean(RT),
+            lower = quantile(RT, 0.025)[[1]],
+            upper = quantile(RT, 0.975)[[1]]) %>%
+  mutate(region = 'Verb')
+
+
+fit2_samples_summ <- posterior_samples(fit2_bayes) %>%
+  mutate(RT_subj  = b_Intercept,
+         RT_obj = b_Intercept + b_Type_num)%>%
+  select(RT_subj, RT_obj) %>%
+  gather(key = 'cond', value = 'RT', RT_subj, RT_obj)%>%
+  group_by(cond) %>%
+  summarise(mean = mean(RT),
+            lower = quantile(RT, 0.025)[[1]],
+            upper = quantile(RT, 0.975)[[1]]) %>%
+  mutate(region = "Determiner")
+
+fit3_samples_summ <- posterior_samples(fit3_bayes) %>%
+  mutate(RT_subj  = b_Intercept,
+         RT_obj = b_Intercept + b_Type_num) %>%
+  select(RT_subj, RT_obj) %>%
+  gather(key = 'cond', value = 'RT', RT_subj, RT_obj) %>%
+  group_by(cond) %>%
+  summarise(mean = mean(RT),
+            lower = quantile(RT, 0.025)[[1]],
+            upper = quantile(RT, 0.975)[[1]]) %>%
+  mutate(region = "Noun")
+
+
+all_fit_samples_summ <- dplyr::bind_rows(fit1_samples_summ, fit2_samples_summ, fit3_samples_summ)
+
+ggplot(all_fit_samples_summ, aes(x=cond, y=mean, fill=cond)) +
+  geom_bar(stat="identity", postion= position_dodge() ) + 
+  geom_errorbar(aes(ymin=lower,
+                    ymax=upper), 
+                width=0.2) + 
+  facet_wrap(~region)
+
+
+```
+
+
+
+### Looking at differences by item
+
+```{r}
+
+split_by_randomeffect <- function(fit) {
+  post_samples <- posterior_samples(fit)
+  
+  intercept <- post_samples %>%
+    select(matches('r_item.*Intercept]')) %>%
+    mutate(sim = c(1:n())) %>%
+    gather(key='key', 'item_intercept', matches('r_item.*Intercept]')) %>%
+    mutate(item = gsub(".*?([0-9]+).*", "\\1", key))
+  
+  slope <- post_samples %>%
+    select(matches('r_item.*Type_num]')) %>%
+    #mutate(sim = c(1:n())) %>%
+    gather(key='key', 'item_slope', matches('r_item.*Type_num]')) %>%
+    mutate(item = gsub(".*?([0-9]+).*", "\\1", key)) %>%
+    select(-key)
+  
+  fixed <-  post_samples %>%
+    select('b_Intercept', 'b_Type_num') %>%
+    mutate(sim = c(1:n()))
+  
+  combined <- cbind(intercept, slope)
+  combined <- merge(combined, fixed, by='sim') 
+  combined <- combined[, !duplicated(colnames(combined))]
+
+  
+  
+  return(combined)
+  
+}
+
+
+fit1_split <- split_by_randomeffect(fit1_bayes)%>%
+  mutate(RT_SRC = b_Intercept + item_intercept,
+         RT_ORC = RT_SRC + b_Type_num + item_slope,
+         diff = RT_ORC - RT_SRC,
+         region = 'Verb') 
+
+fit2_split <- split_by_randomeffect(fit2_bayes)%>%
+  mutate(RT_SRC = b_Intercept + item_intercept,
+         RT_ORC = RT_SRC + b_Type_num + item_slope,
+         diff = RT_ORC - RT_SRC,
+         region = 'Determiner') 
+
+fit3_split <- split_by_randomeffect(fit3_bayes) %>%
+  mutate(RT_SRC = b_Intercept + item_intercept,
+         RT_ORC = RT_SRC + b_Type_num + item_slope,
+         diff = RT_ORC - RT_SRC,
+         region = 'Noun') 
+
+
+all_split <- dplyr::bind_rows(fit1_split, fit2_split, fit3_split) 
+
+
+all_split_summ <- all_split %>%
+  group_by(item, region) %>%
+  summarise(mean = mean(diff),
+            lower = quantile(diff, 0.025)[[1]],
+            upper = quantile(diff, 0.975)[[1]])
+  
+
+```
+
+
+```{r}
+
+ggplot(all_split_summ, aes(x=item, y=mean)) +
+  geom_point() + 
+  geom_errorbar(aes(ymin=lower,
+                    ymax=upper), 
+                width=0.2) + 
+  facet_wrap(~region)
+
+```
+
+
+### Surprisal analysis
+
+
