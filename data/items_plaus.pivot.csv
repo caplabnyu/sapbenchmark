@@ -1,0 +1,100 @@
+,triplet#,Sentence
+0,1,The suspect showed the file .
+1,1,The suspect changed the file .
+2,1,The suspect sent the file .
+3,2,The corrupt politician mentioned the bill .
+4,2,The corrupt politician signed the bill .
+5,2,The corrupt politician handed the bill .
+6,3,The woman maintained the mail .
+7,3,The woman moved the mail .
+8,3,The woman brought the mail .
+9,4,The boy found the chicken .
+10,4,The boy attacked the chicken .
+11,4,The boy fed the chicken .
+12,5,The new doctor demonstrated the operation .
+13,5,The new doctor left the operation .
+14,5,The new doctor offered the operation .
+15,6,The professor noticed the grant .
+16,6,The professor read the grant .
+17,6,The professor awarded the grant .
+18,7,The technician reported the service .
+19,7,The technician called the service .
+20,7,The technician refused the service .
+21,8,The mechanic observed the truck .
+22,8,The mechanic stopped the truck .
+23,8,The mechanic brought the truck .
+24,9,The guitarist knew the song .
+25,9,The guitarist began the song .
+26,9,The guitarist assigned the song .
+27,10,The player revealed the bonus .
+28,10,The player lost the bonus .
+29,10,The player paid the bonus .
+30,11,The recent hire claimed the job .
+31,11,The recent hire started the job .
+32,11,The recent hire offered the job .
+33,12,The assistant manager discovered the training .
+34,12,The assistant manager worked the training .
+35,12,The assistant manager assigned the training .
+36,13,The mayor showed the document .
+37,13,The mayor changed the document .
+38,13,The mayor sent the document .
+39,14,The basketball player mentioned the contract .
+40,14,The basketball player signed the contract .
+41,14,The basketball player handed the contract .
+42,15,The engineer maintained the equipment .
+43,15,The engineer moved the equipment .
+44,15,The engineer brought the equipment .
+45,16,The little girl found the lamb .
+46,16,The little girl attacked the lamb .
+47,16,The little girl fed the lamb .
+48,17,The yoga instructor demonstrated the position .
+49,17,The yoga instructor left the position .
+50,17,The yoga instructor offered the position .
+51,18,The governor noticed the contract .
+52,18,The governor read the contract .
+53,18,The governor awarded the contract .
+54,19,The patient reported the treatment .
+55,19,The patient called the treatment .
+56,19,The patient refused the treatment .
+57,20,The operator observed the machine .
+58,20,The operator stopped the machine .
+59,20,The operator brought the machine .
+60,21,The dancer knew the ballet .
+61,21,The dancer began the ballet .
+62,21,The dancer assigned the ballet .
+63,22,The contestant revealed the money .
+64,22,The contestant lost the money .
+65,22,The contestant paid the money .
+66,23,The new chef claimed the restaurant .
+67,23,The new chef started the restaurant .
+68,23,The new chef offered the restaurant .
+69,24,The apprentice baker discovered the oven .
+70,24,The apprentice baker worked the oven .
+71,24,The apprentice baker assigned the oven .
+72,73,The wealthy man starved .
+73,74,The chair melted .
+74,75,The dog hatched .
+75,76,The toddler lectured .
+76,77,The door jumped .
+77,78,The elephant barked .
+78,79,The chef was cooked the breakfast .
+79,80,The government was provided the birds .
+80,81,The artist was suggested the fire .
+81,82,The secretary was presented the rice .
+82,83,The infant was taught the cream .
+83,84,The clerk was granted the finger .
+84,85,The woman washed the magazine .
+85,86,The motorist parked the story .
+86,87,The cleaner ate the book .
+87,88,The folk singer sang the picture .
+88,89,The janitor read the sandwich .
+89,90,The handler follows the salon .
+90,91,The gardener built the chocolate .
+91,92,The judge edited the verdict .
+92,93,The guy painted the ice .
+93,94,The bookkeeper flushed the camera .
+94,95,The bear stole the password .
+95,96,The kid fired the waitress .
+96,97,The president caught the weather .
+97,98,The captain shot the cloud .
+98,99,The teenager dried the cake .

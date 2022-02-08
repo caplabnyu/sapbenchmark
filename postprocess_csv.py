@@ -14,7 +14,8 @@ out = []
 with open(args.input, "r") as in_f:
     reader = csv.DictReader(in_f)
     for row in reader:
-        if (int(row["word_pos"]) - int(row["disambPosition_0idx"])) in list(range(args.spillover + 1)):
+        crit_idx = int(row["disambPosition_0idx"])
+        if int(row["word_pos"]) in range(crit_idx, crit_idx+args.spillover+1):
             out.append(row)
 
 with open(args.output, "w") as out_f:
