@@ -1,0 +1,99 @@
+The suspect showed the file .
+The suspect changed the file .
+The suspect sent the file .
+The corrupt politician mentioned the bill .
+The corrupt politician signed the bill .
+The corrupt politician handed the bill .
+The woman maintained the mail .
+The woman moved the mail .
+The woman brought the mail .
+The boy found the chicken .
+The boy attacked the chicken .
+The boy fed the chicken .
+The new doctor demonstrated the operation .
+The new doctor left the operation .
+The new doctor offered the operation .
+The professor noticed the grant .
+The professor read the grant .
+The professor awarded the grant .
+The technician reported the service .
+The technician called the service .
+The technician refused the service .
+The mechanic observed the truck .
+The mechanic stopped the truck .
+The mechanic brought the truck .
+The guitarist knew the song .
+The guitarist began the song .
+The guitarist assigned the song .
+The player revealed the bonus .
+The player lost the bonus .
+The player paid the bonus .
+The recent hire claimed the job .
+The recent hire started the job .
+The recent hire offered the job .
+The assistant manager discovered the training .
+The assistant manager worked the training .
+The assistant manager assigned the training .
+The mayor showed the document .
+The mayor changed the document .
+The mayor sent the document .
+The basketball player mentioned the contract .
+The basketball player signed the contract .
+The basketball player handed the contract .
+The engineer maintained the equipment .
+The engineer moved the equipment .
+The engineer brought the equipment .
+The little girl found the lamb .
+The little girl attacked the lamb .
+The little girl fed the lamb .
+The yoga instructor demonstrated the position .
+The yoga instructor left the position .
+The yoga instructor offered the position .
+The governor noticed the contract .
+The governor read the contract .
+The governor awarded the contract .
+The patient reported the treatment .
+The patient called the treatment .
+The patient refused the treatment .
+The operator observed the machine .
+The operator stopped the machine .
+The operator brought the machine .
+The dancer knew the ballet .
+The dancer began the ballet .
+The dancer assigned the ballet .
+The contestant revealed the money .
+The contestant lost the money .
+The contestant paid the money .
+The new chef claimed the restaurant .
+The new chef started the restaurant .
+The new chef offered the restaurant .
+The apprentice baker discovered the oven .
+The apprentice baker worked the oven .
+The apprentice baker assigned the oven .
+The wealthy man starved .
+The chair melted .
+The dog hatched .
+The toddler lectured .
+The door jumped .
+The elephant barked .
+The chef was cooked the breakfast .
+The government was provided the birds .
+The artist was suggested the fire .
+The secretary was presented the rice .
+The infant was taught the cream .
+The clerk was granted the finger .
+The woman washed the magazine .
+The motorist parked the story .
+The cleaner ate the book .
+The folk singer sang the picture .
+The janitor read the sandwich .
+The handler follows the salon .
+The gardener built the chocolate .
+The judge edited the verdict .
+The guy painted the ice .
+The bookkeeper flushed the camera .
+The bear stole the password .
+The kid fired the waitress .
+The president caught the weather .
+The captain shot the cloud .
+The teenager dried the cake .
