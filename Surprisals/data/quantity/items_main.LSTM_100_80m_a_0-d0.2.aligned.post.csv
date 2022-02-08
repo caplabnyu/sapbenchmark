@@ -1,0 +1,433 @@
+,item,condition,disambPositionAmb,disambPositionUnamb,ambiguity,Sentence,disambPosition_0idx,surprisal,token,word,word_pos
+0,1,NPS_UAMB,6,7,ambiguous,The suspect showed the file deserved further investigation during the murder trial.,5,12.12313461303711,deserved,deserved,5
+0,1,NPS_UAMB,6,7,ambiguous,The suspect showed the file deserved further investigation during the murder trial.,5,6.996055603027344,further,further,6
+0,1,NPS_UAMB,6,7,ambiguous,The suspect showed the file deserved further investigation during the murder trial.,5,9.45580005645752,investigation,investigation,7
+1,1,NPZ_UAMB,7,7,ambiguous,Because the suspect changed the file deserved further investigation during the jury discussions.,6,12.799077987670898,deserved,deserved,6
+1,1,NPZ_UAMB,7,7,ambiguous,Because the suspect changed the file deserved further investigation during the jury discussions.,6,7.114445686340332,further,further,7
+1,1,NPZ_UAMB,7,7,ambiguous,Because the suspect changed the file deserved further investigation during the jury discussions.,6,9.823857307434082,investigation,investigation,8
+2,1,MVRR_UAMB,6,8,ambiguous,The suspect sent the file deserved further investigation given the new evidence.,5,14.521161079406738,deserved,deserved,5
+2,1,MVRR_UAMB,6,8,ambiguous,The suspect sent the file deserved further investigation given the new evidence.,5,7.034751892089844,further,further,6
+2,1,MVRR_UAMB,6,8,ambiguous,The suspect sent the file deserved further investigation given the new evidence.,5,9.321969032287598,investigation,investigation,7
+3,2,NPS_UAMB,7,8,ambiguous,The corrupt politician mentioned the bill received unwelcome attention from southern voters.,6,8.381661415100098,received,received,6
+3,2,NPS_UAMB,7,8,ambiguous,The corrupt politician mentioned the bill received unwelcome attention from southern voters.,6,11.65858268737793,unwelcome,unwelcome,7
+3,2,NPS_UAMB,7,8,ambiguous,The corrupt politician mentioned the bill received unwelcome attention from southern voters.,6,3.3958280086517334,attention,attention,8
+4,2,NPZ_UAMB,8,8,ambiguous,After the corrupt politician signed the bill received unwelcome attention from southern voters.,7,9.598057746887207,received,received,7
+4,2,NPZ_UAMB,8,8,ambiguous,After the corrupt politician signed the bill received unwelcome attention from southern voters.,7,12.081155776977539,unwelcome,unwelcome,8
+4,2,NPZ_UAMB,8,8,ambiguous,After the corrupt politician signed the bill received unwelcome attention from southern voters.,7,3.7744109630584717,attention,attention,9
+5,2,MVRR_UAMB,7,9,ambiguous,The corrupt politician handed the bill received unwelcome attention from southern voters.,6,9.900105476379395,received,received,6
+5,2,MVRR_UAMB,7,9,ambiguous,The corrupt politician handed the bill received unwelcome attention from southern voters.,6,11.870447158813477,unwelcome,unwelcome,7
+5,2,MVRR_UAMB,7,9,ambiguous,The corrupt politician handed the bill received unwelcome attention from southern voters.,6,3.422437906265259,attention,attention,8
+6,3,NPS_UAMB,6,7,ambiguous,The woman maintained the mail disappeared mysteriously from her front porch.,5,12.967935562133789,disappeared,disappeared,5
+6,3,NPS_UAMB,6,7,ambiguous,The woman maintained the mail disappeared mysteriously from her front porch.,5,14.571043968200684,mysteriously,mysteriously,6
+6,3,NPS_UAMB,6,7,ambiguous,The woman maintained the mail disappeared mysteriously from her front porch.,5,3.9864490032196045,from,from,7
+7,3,NPZ_UAMB,7,7,ambiguous,After the woman moved the mail disappeared mysteriously from the delivery system.,6,12.844694137573242,disappeared,disappeared,6
+7,3,NPZ_UAMB,7,7,ambiguous,After the woman moved the mail disappeared mysteriously from the delivery system.,6,14.413275718688965,mysteriously,mysteriously,7
+7,3,NPZ_UAMB,7,7,ambiguous,After the woman moved the mail disappeared mysteriously from the delivery system.,6,3.8679039478302,from,from,8
+8,3,MVRR_UAMB,6,8,ambiguous,The woman brought the mail disappeared mysteriously after reading the bad news in it.,5,12.998287200927734,disappeared,disappeared,5
+8,3,MVRR_UAMB,6,8,ambiguous,The woman brought the mail disappeared mysteriously after reading the bad news in it.,5,14.282833099365234,mysteriously,mysteriously,6
+8,3,MVRR_UAMB,6,8,ambiguous,The woman brought the mail disappeared mysteriously after reading the bad news in it.,5,3.408886432647705,after,after,7
+9,4,NPS_UAMB,6,7,ambiguous,The boy found the chicken stayed surprisingly happy in the new barn.,5,12.008420944213867,stayed,stayed,5
+9,4,NPS_UAMB,6,7,ambiguous,The boy found the chicken stayed surprisingly happy in the new barn.,5,12.339167594909668,surprisingly,surprisingly,6
+9,4,NPS_UAMB,6,7,ambiguous,The boy found the chicken stayed surprisingly happy in the new barn.,5,7.064849853515625,happy,happy,7
+10,4,NPZ_UAMB,7,7,ambiguous,Although the boy attacked the chicken stayed surprisingly happy as if nothing happened.,6,11.837590217590332,stayed,stayed,6
+10,4,NPZ_UAMB,7,7,ambiguous,Although the boy attacked the chicken stayed surprisingly happy as if nothing happened.,6,12.274131774902344,surprisingly,surprisingly,7
+10,4,NPZ_UAMB,7,7,ambiguous,Although the boy attacked the chicken stayed surprisingly happy as if nothing happened.,6,6.9327802658081055,happy,happy,8
+11,4,MVRR_UAMB,6,8,ambiguous,The boy fed the chicken stayed surprisingly happy despite having a mild allergic reaction.,5,12.809207916259766,stayed,stayed,5
+11,4,MVRR_UAMB,6,8,ambiguous,The boy fed the chicken stayed surprisingly happy despite having a mild allergic reaction.,5,12.487783432006836,surprisingly,surprisingly,6
+11,4,MVRR_UAMB,6,8,ambiguous,The boy fed the chicken stayed surprisingly happy despite having a mild allergic reaction.,5,7.042055130004883,happy,happy,7
+12,5,NPS_UAMB,7,8,ambiguous,The new doctor demonstrated the operation appeared increasingly likely to succeed.,6,10.79300594329834,appeared,appeared,6
+12,5,NPS_UAMB,7,8,ambiguous,The new doctor demonstrated the operation appeared increasingly likely to succeed.,6,10.722142219543457,increasingly,increasingly,7
+12,5,NPS_UAMB,7,8,ambiguous,The new doctor demonstrated the operation appeared increasingly likely to succeed.,6,6.705658912658691,likely,likely,8
+13,5,NPZ_UAMB,8,8,ambiguous,After the new doctor left the operation appeared increasingly likely to succeed.,7,11.43970012664795,appeared,appeared,7
+13,5,NPZ_UAMB,8,8,ambiguous,After the new doctor left the operation appeared increasingly likely to succeed.,7,11.177667617797852,increasingly,increasingly,8
+13,5,NPZ_UAMB,8,8,ambiguous,After the new doctor left the operation appeared increasingly likely to succeed.,7,7.134258270263672,likely,likely,9
+14,5,MVRR_UAMB,7,9,ambiguous,The new doctor offered the operation appeared increasingly likely to succeed in her career.,6,11.466641426086426,appeared,appeared,6
+14,5,MVRR_UAMB,7,9,ambiguous,The new doctor offered the operation appeared increasingly likely to succeed in her career.,6,10.910598754882812,increasingly,increasingly,7
+14,5,MVRR_UAMB,7,9,ambiguous,The new doctor offered the operation appeared increasingly likely to succeed in her career.,6,7.031207084655762,likely,likely,8
+15,6,NPS_UAMB,6,7,ambiguous,The professor noticed the grant gained more attention from marine biologists.,5,9.90718936920166,gained,gained,5
+15,6,NPS_UAMB,6,7,ambiguous,The professor noticed the grant gained more attention from marine biologists.,5,4.672201156616211,more,more,6
+15,6,NPS_UAMB,6,7,ambiguous,The professor noticed the grant gained more attention from marine biologists.,5,5.047928333282471,attention,attention,7
+16,6,NPZ_UAMB,7,7,ambiguous,After the professor read the grant gained more attention due to her excellent description.,6,10.963199615478516,gained,gained,6
+16,6,NPZ_UAMB,7,7,ambiguous,After the professor read the grant gained more attention due to her excellent description.,6,5.198394298553467,more,more,7
+16,6,NPZ_UAMB,7,7,ambiguous,After the professor read the grant gained more attention due to her excellent description.,6,5.398163795471191,attention,attention,8
+17,6,MVRR_UAMB,6,8,ambiguous,The professor awarded the grant gained more attention from marine biologists.,5,10.537749290466309,gained,gained,5
+17,6,MVRR_UAMB,6,8,ambiguous,The professor awarded the grant gained more attention from marine biologists.,5,4.958157539367676,more,more,6
+17,6,MVRR_UAMB,6,8,ambiguous,The professor awarded the grant gained more attention from marine biologists.,5,5.10244083404541,attention,attention,7
+18,7,NPS_UAMB,6,7,ambiguous,The technician reported the service stopped working almost immediately after the storm started.,5,10.409296035766602,stopped,stopped,5
+18,7,NPS_UAMB,6,7,ambiguous,The technician reported the service stopped working almost immediately after the storm started.,5,7.427014350891113,working,working,6
+18,7,NPS_UAMB,6,7,ambiguous,The technician reported the service stopped working almost immediately after the storm started.,5,8.50067138671875,almost,almost,7
+19,7,NPZ_UAMB,7,7,ambiguous,After the technician called the service stopped working almost immediately to his surprise.,6,11.328804969787598,stopped,stopped,6
+19,7,NPZ_UAMB,7,7,ambiguous,After the technician called the service stopped working almost immediately to his surprise.,6,7.5543742179870605,working,working,7
+19,7,NPZ_UAMB,7,7,ambiguous,After the technician called the service stopped working almost immediately to his surprise.,6,8.75809097290039,almost,almost,8
+20,7,MVRR_UAMB,6,8,ambiguous,The technician refused the service stopped working almost immediately after the argument.,5,11.5612211227417,stopped,stopped,5
+20,7,MVRR_UAMB,6,8,ambiguous,The technician refused the service stopped working almost immediately after the argument.,5,8.05557632446289,working,working,6
+20,7,MVRR_UAMB,6,8,ambiguous,The technician refused the service stopped working almost immediately after the argument.,5,8.582497596740723,almost,almost,7
+21,8,NPS_UAMB,6,7,ambiguous,The mechanic observed the truck needed several more hours to be repaired.,5,8.092555046081543,needed,needed,5
+21,8,NPS_UAMB,6,7,ambiguous,The mechanic observed the truck needed several more hours to be repaired.,5,8.290851593017578,several,several,6
+21,8,NPS_UAMB,6,7,ambiguous,The mechanic observed the truck needed several more hours to be repaired.,5,4.988622188568115,more,more,7
+22,8,NPZ_UAMB,7,7,ambiguous,Because the mechanic stopped the truck needed several more hours before it could be fully repaired.,6,8.92615032196045,needed,needed,6
+22,8,NPZ_UAMB,7,7,ambiguous,Because the mechanic stopped the truck needed several more hours before it could be fully repaired.,6,8.311103820800781,several,several,7
+22,8,NPZ_UAMB,7,7,ambiguous,Because the mechanic stopped the truck needed several more hours before it could be fully repaired.,6,5.063071250915527,more,more,8
+23,8,MVRR_UAMB,6,8,ambiguous,The mechanic brought the truck needed several more hours to fully repair it.,5,8.817890167236328,needed,needed,5
+23,8,MVRR_UAMB,6,8,ambiguous,The mechanic brought the truck needed several more hours to fully repair it.,5,8.368269920349121,several,several,6
+23,8,MVRR_UAMB,6,8,ambiguous,The mechanic brought the truck needed several more hours to fully repair it.,5,5.436511993408203,more,more,7
+24,9,NPS_UAMB,6,7,ambiguous,The guitarist knew the song failed dramatically because of the tensions within the band.,5,6.892661094665527,failed,failed,5
+24,9,NPS_UAMB,6,7,ambiguous,The guitarist knew the song failed dramatically because of the tensions within the band.,5,9.626948356628418,dramatically,dramatically,6
+24,9,NPS_UAMB,6,7,ambiguous,The guitarist knew the song failed dramatically because of the tensions within the band.,5,4.745663166046143,because,because,7
+25,9,NPZ_UAMB,7,7,ambiguous,After the guitarist began the song failed dramatically because he skipped the sound check.,6,10.127872467041016,failed,failed,6
+25,9,NPZ_UAMB,7,7,ambiguous,After the guitarist began the song failed dramatically because he skipped the sound check.,6,10.113028526306152,dramatically,dramatically,7
+25,9,NPZ_UAMB,7,7,ambiguous,After the guitarist began the song failed dramatically because he skipped the sound check.,6,5.178891181945801,because,because,8
+26,9,MVRR_UAMB,6,8,ambiguous,The guitarist assigned the song failed dramatically because he never practiced enough.,5,11.218573570251465,failed,failed,5
+26,9,MVRR_UAMB,6,8,ambiguous,The guitarist assigned the song failed dramatically because he never practiced enough.,5,10.60374927520752,dramatically,dramatically,6
+26,9,MVRR_UAMB,6,8,ambiguous,The guitarist assigned the song failed dramatically because he never practiced enough.,5,4.881350517272949,because,because,7
+27,10,NPS_UAMB,6,7,ambiguous,The player revealed the bonus remained essentially the same as in the original contract.,5,9.120267868041992,remained,remained,5
+27,10,NPS_UAMB,6,7,ambiguous,The player revealed the bonus remained essentially the same as in the original contract.,5,8.894309997558594,essentially,essentially,6
+27,10,NPS_UAMB,6,7,ambiguous,The player revealed the bonus remained essentially the same as in the original contract.,5,2.3680877685546875,the,the,7
+28,10,NPZ_UAMB,7,7,ambiguous,Although the player lost the bonus remained essentially the same as in the original contract.,6,10.909666061401367,remained,remained,6
+28,10,NPZ_UAMB,7,7,ambiguous,Although the player lost the bonus remained essentially the same as in the original contract.,6,9.038321495056152,essentially,essentially,7
+28,10,NPZ_UAMB,7,7,ambiguous,Although the player lost the bonus remained essentially the same as in the original contract.,6,2.3201818466186523,the,the,8
+29,10,MVRR_UAMB,6,8,ambiguous,The player paid the bonus remained essentially the same despite his sudden fame and wealth.,5,12.303034782409668,remained,remained,5
+29,10,MVRR_UAMB,6,8,ambiguous,The player paid the bonus remained essentially the same despite his sudden fame and wealth.,5,9.717110633850098,essentially,essentially,6
+29,10,MVRR_UAMB,6,8,ambiguous,The player paid the bonus remained essentially the same despite his sudden fame and wealth.,5,2.488037109375,the,the,7
+30,11,NPS_UAMB,7,8,ambiguous,The recent hire claimed the job prepared many students for careers in media.,6,10.29952621459961,prepared,prepared,6
+30,11,NPS_UAMB,7,8,ambiguous,The recent hire claimed the job prepared many students for careers in media.,6,6.7701735496521,many,many,7
+30,11,NPS_UAMB,7,8,ambiguous,The recent hire claimed the job prepared many students for careers in media.,6,7.357012748718262,students,students,8
+31,11,NPZ_UAMB,8,8,ambiguous,Once the recent hire started the job prepared many students for careers in media.,7,11.761017799377441,prepared,prepared,7
+31,11,NPZ_UAMB,8,8,ambiguous,Once the recent hire started the job prepared many students for careers in media.,7,8.783212661743164,many,many,8
+31,11,NPZ_UAMB,8,8,ambiguous,Once the recent hire started the job prepared many students for careers in media.,7,6.819950580596924,students,students,9
+32,11,MVRR_UAMB,7,9,ambiguous,The recent hire offered the job prepared many students for careers in media.,6,11.061407089233398,prepared,prepared,6
+32,11,MVRR_UAMB,7,9,ambiguous,The recent hire offered the job prepared many students for careers in media.,6,8.94210433959961,many,many,7
+32,11,MVRR_UAMB,7,9,ambiguous,The recent hire offered the job prepared many students for careers in media.,6,6.69430685043335,students,students,8
+33,12,NPS_UAMB,7,8,ambiguous,The assistant manager discovered the training seemed unnecessarily demanding for new staff.,6,11.290216445922852,seemed,seemed,6
+33,12,NPS_UAMB,7,8,ambiguous,The assistant manager discovered the training seemed unnecessarily demanding for new staff.,6,11.508394241333008,unnecessarily,unnecessarily,7
+33,12,NPS_UAMB,7,8,ambiguous,The assistant manager discovered the training seemed unnecessarily demanding for new staff.,6,7.308553218841553,demanding,demanding,8
+34,12,NPZ_UAMB,8,8,ambiguous,While the assistant manager worked the training seemed unnecessarily demanding to him.,7,13.60230541229248,seemed,seemed,7
+34,12,NPZ_UAMB,8,8,ambiguous,While the assistant manager worked the training seemed unnecessarily demanding to him.,7,12.00333023071289,unnecessarily,unnecessarily,8
+34,12,NPZ_UAMB,8,8,ambiguous,While the assistant manager worked the training seemed unnecessarily demanding to him.,7,7.400810241699219,demanding,demanding,9
+35,12,MVRR_UAMB,7,9,ambiguous,The assistant manager assigned the training seemed unnecessarily demanding to new staff.,6,13.834856033325195,seemed,seemed,6
+35,12,MVRR_UAMB,7,9,ambiguous,The assistant manager assigned the training seemed unnecessarily demanding to new staff.,6,11.869260787963867,unnecessarily,unnecessarily,7
+35,12,MVRR_UAMB,7,9,ambiguous,The assistant manager assigned the training seemed unnecessarily demanding to new staff.,6,7.373963356018066,demanding,demanding,8
+36,13,NPS_UAMB,6,7,ambiguous,The mayor showed the document provided sufficient evidence to prove her innocence.,5,8.939661026000977,provided,provided,5
+36,13,NPS_UAMB,6,7,ambiguous,The mayor showed the document provided sufficient evidence to prove her innocence.,5,9.618898391723633,sufficient,sufficient,6
+36,13,NPS_UAMB,6,7,ambiguous,The mayor showed the document provided sufficient evidence to prove her innocence.,5,4.9798736572265625,evidence,evidence,7
+37,13,NPZ_UAMB,7,7,ambiguous,Although the mayor changed the document provided sufficient evidence for what he had promised.,6,10.040498733520508,provided,provided,6
+37,13,NPZ_UAMB,7,7,ambiguous,Although the mayor changed the document provided sufficient evidence for what he had promised.,6,9.796521186828613,sufficient,sufficient,7
+37,13,NPZ_UAMB,7,7,ambiguous,Although the mayor changed the document provided sufficient evidence for what he had promised.,6,5.04463005065918,evidence,evidence,8
+38,13,MVRR_UAMB,6,8,ambiguous,The mayor sent the document provided sufficient evidence that it was simply blackmail.,5,10.009523391723633,provided,provided,5
+38,13,MVRR_UAMB,6,8,ambiguous,The mayor sent the document provided sufficient evidence that it was simply blackmail.,5,10.79136848449707,sufficient,sufficient,6
+38,13,MVRR_UAMB,6,8,ambiguous,The mayor sent the document provided sufficient evidence that it was simply blackmail.,5,5.139509677886963,evidence,evidence,7
+39,14,NPS_UAMB,7,8,ambiguous,The basketball player mentioned the contract created another controversy in the NBA.,6,8.436229705810547,created,created,6
+39,14,NPS_UAMB,7,8,ambiguous,The basketball player mentioned the contract created another controversy in the NBA.,6,9.373964309692383,another,another,7
+39,14,NPS_UAMB,7,8,ambiguous,The basketball player mentioned the contract created another controversy in the NBA.,6,9.945676803588867,controversy,controversy,8
+40,14,NPZ_UAMB,8,8,ambiguous,After the basketball player signed the contract created another controversy in the NBA.,7,9.077024459838867,created,created,7
+40,14,NPZ_UAMB,8,8,ambiguous,After the basketball player signed the contract created another controversy in the NBA.,7,9.350164413452148,another,another,8
+40,14,NPZ_UAMB,8,8,ambiguous,After the basketball player signed the contract created another controversy in the NBA.,7,10.473830223083496,controversy,controversy,9
+41,14,MVRR_UAMB,7,9,ambiguous,The basketball player handed the contract created another controversy in the NBA.,6,9.290437698364258,created,created,6
+41,14,MVRR_UAMB,7,9,ambiguous,The basketball player handed the contract created another controversy in the NBA.,6,9.398597717285156,another,another,7
+41,14,MVRR_UAMB,7,9,ambiguous,The basketball player handed the contract created another controversy in the NBA.,6,10.640864372253418,controversy,controversy,8
+42,15,NPS_UAMB,6,7,ambiguous,The engineer maintained the equipment required constant supervision from senior technicians.,5,7.860563278198242,required,required,5
+42,15,NPS_UAMB,6,7,ambiguous,The engineer maintained the equipment required constant supervision from senior technicians.,5,11.986825942993164,constant,constant,6
+42,15,NPS_UAMB,6,7,ambiguous,The engineer maintained the equipment required constant supervision from senior technicians.,5,10.51810359954834,supervision,supervision,7
+43,15,NPZ_UAMB,7,7,ambiguous,After the engineer moved the equipment required constant supervision from senior technicians.,6,9.40216064453125,required,required,6
+43,15,NPZ_UAMB,7,7,ambiguous,After the engineer moved the equipment required constant supervision from senior technicians.,6,12.202713966369629,constant,constant,7
+43,15,NPZ_UAMB,7,7,ambiguous,After the engineer moved the equipment required constant supervision from senior technicians.,6,10.699670791625977,supervision,supervision,8
+44,15,MVRR_UAMB,6,8,ambiguous,The engineer brought the equipment required constant supervision from senior technicians.,5,8.52904224395752,required,required,5
+44,15,MVRR_UAMB,6,8,ambiguous,The engineer brought the equipment required constant supervision from senior technicians.,5,11.940386772155762,constant,constant,6
+44,15,MVRR_UAMB,6,8,ambiguous,The engineer brought the equipment required constant supervision from senior technicians.,5,10.481809616088867,supervision,supervision,7
+45,16,NPS_UAMB,7,8,ambiguous,The little girl found the lamb remained relatively calm despite the absence of its mother.,6,10.36762809753418,remained,remained,6
+45,16,NPS_UAMB,7,8,ambiguous,The little girl found the lamb remained relatively calm despite the absence of its mother.,6,7.647741794586182,relatively,relatively,7
+45,16,NPS_UAMB,7,8,ambiguous,The little girl found the lamb remained relatively calm despite the absence of its mother.,6,7.439905166625977,calm,calm,8
+46,16,NPZ_UAMB,8,8,ambiguous,When the little girl attacked the lamb remained relatively calm despite the sudden assault.,7,10.224413871765137,remained,remained,7
+46,16,NPZ_UAMB,8,8,ambiguous,When the little girl attacked the lamb remained relatively calm despite the sudden assault.,7,7.7461256980896,relatively,relatively,8
+46,16,NPZ_UAMB,8,8,ambiguous,When the little girl attacked the lamb remained relatively calm despite the sudden assault.,7,7.3645524978637695,calm,calm,9
+47,16,MVRR_UAMB,7,9,ambiguous,The little girl fed the lamb remained relatively calm despite having asked for beef.,6,11.52129077911377,remained,remained,6
+47,16,MVRR_UAMB,7,9,ambiguous,The little girl fed the lamb remained relatively calm despite having asked for beef.,6,7.587160110473633,relatively,relatively,7
+47,16,MVRR_UAMB,7,9,ambiguous,The little girl fed the lamb remained relatively calm despite having asked for beef.,6,7.460598945617676,calm,calm,8
+48,17,NPS_UAMB,7,8,ambiguous,The yoga instructor demonstrated the position demanded immense physical effort from everyone.,6,11.61349105834961,demanded,demanded,6
+48,17,NPS_UAMB,7,8,ambiguous,The yoga instructor demonstrated the position demanded immense physical effort from everyone.,6,13.165253639221191,immense,immense,7
+48,17,NPS_UAMB,7,8,ambiguous,The yoga instructor demonstrated the position demanded immense physical effort from everyone.,6,7.123159885406494,physical,physical,8
+49,17,NPZ_UAMB,8,8,ambiguous,Before the yoga instructor left the position demanded immense physical effort from everyone.,7,12.771366119384766,demanded,demanded,7
+49,17,NPZ_UAMB,8,8,ambiguous,Before the yoga instructor left the position demanded immense physical effort from everyone.,7,13.803878784179688,immense,immense,8
+49,17,NPZ_UAMB,8,8,ambiguous,Before the yoga instructor left the position demanded immense physical effort from everyone.,7,7.475729465484619,physical,physical,9
+50,17,MVRR_UAMB,7,9,ambiguous,The yoga instructor offered the position demanded immense physical effort from everyone.,6,12.068754196166992,demanded,demanded,6
+50,17,MVRR_UAMB,7,9,ambiguous,The yoga instructor offered the position demanded immense physical effort from everyone.,6,13.265702247619629,immense,immense,7
+50,17,MVRR_UAMB,7,9,ambiguous,The yoga instructor offered the position demanded immense physical effort from everyone.,6,7.157173156738281,physical,physical,8
+51,18,NPS_UAMB,6,7,ambiguous,The governor noticed the contract received sweeping support across the entire state.,5,7.944404602050781,received,received,5
+51,18,NPS_UAMB,6,7,ambiguous,The governor noticed the contract received sweeping support across the entire state.,5,10.729325294494629,sweeping,sweeping,6
+51,18,NPS_UAMB,6,7,ambiguous,The governor noticed the contract received sweeping support across the entire state.,5,5.637116432189941,support,support,7
+52,18,NPZ_UAMB,7,7,ambiguous,While the governor read the contract received sweeping support from the audience at the rally.,6,9.128064155578613,received,received,6
+52,18,NPZ_UAMB,7,7,ambiguous,While the governor read the contract received sweeping support from the audience at the rally.,6,11.092829704284668,sweeping,sweeping,7
+52,18,NPZ_UAMB,7,7,ambiguous,While the governor read the contract received sweeping support from the audience at the rally.,6,5.564948558807373,support,support,8
+53,18,MVRR_UAMB,6,8,ambiguous,The governor awarded the contract received sweeping support across the entire state.,5,9.446159362792969,received,received,5
+53,18,MVRR_UAMB,6,8,ambiguous,The governor awarded the contract received sweeping support across the entire state.,5,11.344249725341797,sweeping,sweeping,6
+53,18,MVRR_UAMB,6,8,ambiguous,The governor awarded the contract received sweeping support across the entire state.,5,5.608055114746094,support,support,7
+54,19,NPS_UAMB,6,7,ambiguous,The patient reported the treatment continued causing uncomfortable side effects like nausea.,5,10.074074745178223,continued,continued,5
+54,19,NPS_UAMB,6,7,ambiguous,The patient reported the treatment continued causing uncomfortable side effects like nausea.,5,9.52454662322998,causing,causing,6
+54,19,NPS_UAMB,6,7,ambiguous,The patient reported the treatment continued causing uncomfortable side effects like nausea.,5,12.097121238708496,uncomfortable,uncomfortable,7
+55,19,NPZ_UAMB,7,7,ambiguous,Before the patient called the treatment continued causing uncomfortable side effects like nausea.,6,10.251434326171875,continued,continued,6
+55,19,NPZ_UAMB,7,7,ambiguous,Before the patient called the treatment continued causing uncomfortable side effects like nausea.,6,10.185860633850098,causing,causing,7
+55,19,NPZ_UAMB,7,7,ambiguous,Before the patient called the treatment continued causing uncomfortable side effects like nausea.,6,12.173894882202148,uncomfortable,uncomfortable,8
+56,19,MVRR_UAMB,6,8,ambiguous,The patient refused the treatment continued causing uncomfortable scenes in the ER.,5,10.972381591796875,continued,continued,5
+56,19,MVRR_UAMB,6,8,ambiguous,The patient refused the treatment continued causing uncomfortable scenes in the ER.,5,9.808452606201172,causing,causing,6
+56,19,MVRR_UAMB,6,8,ambiguous,The patient refused the treatment continued causing uncomfortable scenes in the ER.,5,12.187570571899414,uncomfortable,uncomfortable,7
+57,20,NPS_UAMB,6,7,ambiguous,The operator observed the machine started working efficiently all of a sudden.,5,9.85340404510498,started,started,5
+57,20,NPS_UAMB,6,7,ambiguous,The operator observed the machine started working efficiently all of a sudden.,5,6.696423053741455,working,working,6
+57,20,NPS_UAMB,6,7,ambiguous,The operator observed the machine started working efficiently all of a sudden.,5,11.438481330871582,efficiently,efficiently,7
+58,20,NPZ_UAMB,7,7,ambiguous,Once the operator stopped the machine started working efficiently without any supervision.,6,11.58012580871582,started,started,6
+58,20,NPZ_UAMB,7,7,ambiguous,Once the operator stopped the machine started working efficiently without any supervision.,6,7.012743949890137,working,working,7
+58,20,NPZ_UAMB,7,7,ambiguous,Once the operator stopped the machine started working efficiently without any supervision.,6,11.77132511138916,efficiently,efficiently,8
+59,20,MVRR_UAMB,6,8,ambiguous,The operator brought the machine started working efficiently with the added automation.,5,11.863298416137695,started,started,5
+59,20,MVRR_UAMB,6,8,ambiguous,The operator brought the machine started working efficiently with the added automation.,5,6.998241424560547,working,working,6
+59,20,MVRR_UAMB,6,8,ambiguous,The operator brought the machine started working efficiently with the added automation.,5,11.427801132202148,efficiently,efficiently,7
+60,21,NPS_UAMB,6,7,ambiguous,The dancer knew the ballet achieved incredible success for a small local production.,5,9.210082054138184,achieved,achieved,5
+60,21,NPS_UAMB,6,7,ambiguous,The dancer knew the ballet achieved incredible success for a small local production.,5,11.544529914855957,incredible,incredible,6
+60,21,NPS_UAMB,6,7,ambiguous,The dancer knew the ballet achieved incredible success for a small local production.,5,4.128643989562988,success,success,7
+61,21,NPZ_UAMB,7,7,ambiguous,Once the dancer began the ballet achieved incredible success for a show with a new performer.,6,11.639930725097656,achieved,achieved,6
+61,21,NPZ_UAMB,7,7,ambiguous,Once the dancer began the ballet achieved incredible success for a show with a new performer.,6,13.240388870239258,incredible,incredible,7
+61,21,NPZ_UAMB,7,7,ambiguous,Once the dancer began the ballet achieved incredible success for a show with a new performer.,6,5.319637298583984,success,success,8
+62,21,MVRR_UAMB,6,8,ambiguous,The dancer assigned the ballet achieved incredible success for a new performer.,5,12.483647346496582,achieved,achieved,5
+62,21,MVRR_UAMB,6,8,ambiguous,The dancer assigned the ballet achieved incredible success for a new performer.,5,13.070802688598633,incredible,incredible,6
+62,21,MVRR_UAMB,6,8,ambiguous,The dancer assigned the ballet achieved incredible success for a new performer.,5,5.547922134399414,success,success,7
+63,22,NPS_UAMB,6,7,ambiguous,The contestant revealed the money became unavailable to him when the show\'s budget shrank.,5,7.952198028564453,became,became,5
+63,22,NPS_UAMB,6,7,ambiguous,The contestant revealed the money became unavailable to him when the show\'s budget shrank.,5,9.512319564819336,unavailable,unavailable,6
+63,22,NPS_UAMB,6,7,ambiguous,The contestant revealed the money became unavailable to him when the show\'s budget shrank.,5,2.7097229957580566,to,to,7
+64,22,NPZ_UAMB,7,7,ambiguous,After the contestant lost the money became unavailable despite his previous three wins in a row.,6,10.355423927307129,became,became,6
+64,22,NPZ_UAMB,7,7,ambiguous,After the contestant lost the money became unavailable despite his previous three wins in a row.,6,8.802934646606445,unavailable,unavailable,7
+64,22,NPZ_UAMB,7,7,ambiguous,After the contestant lost the money became unavailable despite his previous three wins in a row.,6,8.023442268371582,despite,despite,8
+65,22,MVRR_UAMB,6,8,ambiguous,The contestant paid the money became unavailable and suddenly terminated his contract.,5,11.922367095947266,became,became,5
+65,22,MVRR_UAMB,6,8,ambiguous,The contestant paid the money became unavailable and suddenly terminated his contract.,5,8.940004348754883,unavailable,unavailable,6
+65,22,MVRR_UAMB,6,8,ambiguous,The contestant paid the money became unavailable and suddenly terminated his contract.,5,3.0074806213378906,and,and,7
+66,23,NPS_UAMB,7,8,ambiguous,The new chef claimed the restaurant separated mediocre cooks from gifted ones.,6,11.294671058654785,separated,separated,6
+66,23,NPS_UAMB,7,8,ambiguous,The new chef claimed the restaurant separated mediocre cooks from gifted ones.,6,13.571048736572266,mediocre,mediocre,7
+66,23,NPS_UAMB,7,8,ambiguous,The new chef claimed the restaurant separated mediocre cooks from gifted ones.,6,13.579596519470215,cooks,cooks,8
+67,23,NPZ_UAMB,8,8,ambiguous,Once the new chef started the restaurant separated mediocre cooks from gifted ones.,7,12.160735130310059,separated,separated,7
+67,23,NPZ_UAMB,8,8,ambiguous,Once the new chef started the restaurant separated mediocre cooks from gifted ones.,7,15.342694282531738,mediocre,mediocre,8
+67,23,NPZ_UAMB,8,8,ambiguous,Once the new chef started the restaurant separated mediocre cooks from gifted ones.,7,15.314931869506836,cooks,cooks,9
+68,23,MVRR_UAMB,7,9,ambiguous,The new chef offered the restaurant separated mediocre cooks from gifted ones.,6,10.992918968200684,separated,separated,6
+68,23,MVRR_UAMB,7,9,ambiguous,The new chef offered the restaurant separated mediocre cooks from gifted ones.,6,14.58307933807373,mediocre,mediocre,7
+68,23,MVRR_UAMB,7,9,ambiguous,The new chef offered the restaurant separated mediocre cooks from gifted ones.,6,14.977622032165527,cooks,cooks,8
+69,24,NPS_UAMB,7,8,ambiguous,The apprentice baker discovered the oven produced smaller cakes because it heated too fast.,6,8.7162446975708,produced,produced,6
+69,24,NPS_UAMB,7,8,ambiguous,The apprentice baker discovered the oven produced smaller cakes because it heated too fast.,6,11.139209747314453,smaller,smaller,7
+69,24,NPS_UAMB,7,8,ambiguous,The apprentice baker discovered the oven produced smaller cakes because it heated too fast.,6,11.196232795715332,cakes,cakes,8
+70,24,NPZ_UAMB,8,8,ambiguous,When the apprentice baker worked the oven produced smaller cakes because he lacked experience.,7,10.17509651184082,produced,produced,7
+70,24,NPZ_UAMB,8,8,ambiguous,When the apprentice baker worked the oven produced smaller cakes because he lacked experience.,7,11.60763931274414,smaller,smaller,8
+70,24,NPZ_UAMB,8,8,ambiguous,When the apprentice baker worked the oven produced smaller cakes because he lacked experience.,7,11.499258995056152,cakes,cakes,9
+71,24,MVRR_UAMB,7,9,ambiguous,The apprentice baker assigned the oven produced smaller cakes because he lacked experience.,6,10.268925666809082,produced,produced,6
+71,24,MVRR_UAMB,7,9,ambiguous,The apprentice baker assigned the oven produced smaller cakes because he lacked experience.,6,11.70305061340332,smaller,smaller,7
+71,24,MVRR_UAMB,7,9,ambiguous,The apprentice baker assigned the oven produced smaller cakes because he lacked experience.,6,11.577107429504395,cakes,cakes,8
+72,1,NPS_UAMB,6,7,unambiguous,The suspect showed that the file deserved further investigation during the murder trial.,6,9.413926124572754,deserved,deserved,6
+72,1,NPS_UAMB,6,7,unambiguous,The suspect showed that the file deserved further investigation during the murder trial.,6,6.123795986175537,further,further,7
+72,1,NPS_UAMB,6,7,unambiguous,The suspect showed that the file deserved further investigation during the murder trial.,6,8.283618927001953,investigation,investigation,8
+73,1,NPZ_UAMB,7,7,unambiguous,"Because the suspect changed, the file deserved further investigation during the jury discussions.",6,11.013184547424316,deserved,deserved,6
+73,1,NPZ_UAMB,7,7,unambiguous,"Because the suspect changed, the file deserved further investigation during the jury discussions.",6,6.049630165100098,further,further,7
+73,1,NPZ_UAMB,7,7,unambiguous,"Because the suspect changed, the file deserved further investigation during the jury discussions.",6,8.429106712341309,investigation,investigation,8
+74,1,MVRR_UAMB,6,8,unambiguous,The suspect who was sent the file deserved further investigation given the new evidence.,7,14.516334533691406,deserved,deserved,7
+74,1,MVRR_UAMB,6,8,unambiguous,The suspect who was sent the file deserved further investigation given the new evidence.,7,6.913189888000488,further,further,8
+74,1,MVRR_UAMB,6,8,unambiguous,The suspect who was sent the file deserved further investigation given the new evidence.,7,8.59280776977539,investigation,investigation,9
+75,2,NPS_UAMB,7,8,unambiguous,The corrupt politician mentioned that the bill received unwelcome attention from southern voters.,7,6.16055965423584,received,received,7
+75,2,NPS_UAMB,7,8,unambiguous,The corrupt politician mentioned that the bill received unwelcome attention from southern voters.,7,11.340559005737305,unwelcome,unwelcome,8
+75,2,NPS_UAMB,7,8,unambiguous,The corrupt politician mentioned that the bill received unwelcome attention from southern voters.,7,3.340759515762329,attention,attention,9
+76,2,NPZ_UAMB,8,8,unambiguous,"After the corrupt politician signed, the bill received unwelcome attention from southern voters.",7,6.068694591522217,received,received,7
+76,2,NPZ_UAMB,8,8,unambiguous,"After the corrupt politician signed, the bill received unwelcome attention from southern voters.",7,11.771583557128906,unwelcome,unwelcome,8
+76,2,NPZ_UAMB,8,8,unambiguous,"After the corrupt politician signed, the bill received unwelcome attention from southern voters.",7,3.6926989555358887,attention,attention,9
+77,2,MVRR_UAMB,7,9,unambiguous,The corrupt politician who was handed the bill received unwelcome attention from southern voters.,8,10.183690071105957,received,received,8
+77,2,MVRR_UAMB,7,9,unambiguous,The corrupt politician who was handed the bill received unwelcome attention from southern voters.,8,11.87063217163086,unwelcome,unwelcome,9
+77,2,MVRR_UAMB,7,9,unambiguous,The corrupt politician who was handed the bill received unwelcome attention from southern voters.,8,3.634493589401245,attention,attention,10
+78,3,NPS_UAMB,6,7,unambiguous,The woman maintained that the mail disappeared mysteriously from her front porch.,6,9.245405197143555,disappeared,disappeared,6
+78,3,NPS_UAMB,6,7,unambiguous,The woman maintained that the mail disappeared mysteriously from her front porch.,6,13.171186447143555,mysteriously,mysteriously,7
+78,3,NPS_UAMB,6,7,unambiguous,The woman maintained that the mail disappeared mysteriously from her front porch.,6,3.936753273010254,from,from,8
+79,3,NPZ_UAMB,7,7,unambiguous,"After the woman moved, the mail disappeared mysteriously from the delivery system.",6,10.039006233215332,disappeared,disappeared,6
+79,3,NPZ_UAMB,7,7,unambiguous,"After the woman moved, the mail disappeared mysteriously from the delivery system.",6,13.523714065551758,mysteriously,mysteriously,7
+79,3,NPZ_UAMB,7,7,unambiguous,"After the woman moved, the mail disappeared mysteriously from the delivery system.",6,3.822657346725464,from,from,8
+80,3,MVRR_UAMB,6,8,unambiguous,The woman who was brought the mail disappeared mysteriously after reading the bad news in it.,7,12.549206733703613,disappeared,disappeared,7
+80,3,MVRR_UAMB,6,8,unambiguous,The woman who was brought the mail disappeared mysteriously after reading the bad news in it.,7,14.185919761657715,mysteriously,mysteriously,8
+80,3,MVRR_UAMB,6,8,unambiguous,The woman who was brought the mail disappeared mysteriously after reading the bad news in it.,7,3.4255549907684326,after,after,9
+81,4,NPS_UAMB,6,7,unambiguous,The boy found that the chicken stayed surprisingly happy in the new barn.,6,9.360414505004883,stayed,stayed,6
+81,4,NPS_UAMB,6,7,unambiguous,The boy found that the chicken stayed surprisingly happy in the new barn.,6,11.656614303588867,surprisingly,surprisingly,7
+81,4,NPS_UAMB,6,7,unambiguous,The boy found that the chicken stayed surprisingly happy in the new barn.,6,7.27459716796875,happy,happy,8
+82,4,NPZ_UAMB,7,7,unambiguous,"Although the boy attacked, the chicken stayed surprisingly happy as if nothing happened.",6,9.038418769836426,stayed,stayed,6
+82,4,NPZ_UAMB,7,7,unambiguous,"Although the boy attacked, the chicken stayed surprisingly happy as if nothing happened.",6,11.553389549255371,surprisingly,surprisingly,7
+82,4,NPZ_UAMB,7,7,unambiguous,"Although the boy attacked, the chicken stayed surprisingly happy as if nothing happened.",6,7.180730819702148,happy,happy,8
+83,4,MVRR_UAMB,6,8,unambiguous,The boy who was fed the chicken stayed surprisingly happy despite having a mild allergic reaction.,7,12.743232727050781,stayed,stayed,7
+83,4,MVRR_UAMB,6,8,unambiguous,The boy who was fed the chicken stayed surprisingly happy despite having a mild allergic reaction.,7,12.605955123901367,surprisingly,surprisingly,8
+83,4,MVRR_UAMB,6,8,unambiguous,The boy who was fed the chicken stayed surprisingly happy despite having a mild allergic reaction.,7,6.89003849029541,happy,happy,9
+84,5,NPS_UAMB,7,8,unambiguous,The new doctor demonstrated that the operation appeared increasingly likely to succeed.,7,7.349992752075195,appeared,appeared,7
+84,5,NPS_UAMB,7,8,unambiguous,The new doctor demonstrated that the operation appeared increasingly likely to succeed.,7,9.42979621887207,increasingly,increasingly,8
+84,5,NPS_UAMB,7,8,unambiguous,The new doctor demonstrated that the operation appeared increasingly likely to succeed.,7,6.202215194702148,likely,likely,9
+85,5,NPZ_UAMB,8,8,unambiguous,"After the new doctor left, the operation appeared increasingly likely to succeed.",7,7.331185340881348,appeared,appeared,7
+85,5,NPZ_UAMB,8,8,unambiguous,"After the new doctor left, the operation appeared increasingly likely to succeed.",7,10.450778007507324,increasingly,increasingly,8
+85,5,NPZ_UAMB,8,8,unambiguous,"After the new doctor left, the operation appeared increasingly likely to succeed.",7,6.752110481262207,likely,likely,9
+86,5,MVRR_UAMB,7,9,unambiguous,The new doctor who was offered the operation appeared increasingly likely to succeed in her career.,8,11.443502426147461,appeared,appeared,8
+86,5,MVRR_UAMB,7,9,unambiguous,The new doctor who was offered the operation appeared increasingly likely to succeed in her career.,8,11.184666633605957,increasingly,increasingly,9
+86,5,MVRR_UAMB,7,9,unambiguous,The new doctor who was offered the operation appeared increasingly likely to succeed in her career.,8,7.137456893920898,likely,likely,10
+87,6,NPS_UAMB,6,7,unambiguous,The professor noticed that the grant gained more attention from marine biologists.,6,7.842623710632324,gained,gained,6
+87,6,NPS_UAMB,6,7,unambiguous,The professor noticed that the grant gained more attention from marine biologists.,6,4.057580947875977,more,more,7
+87,6,NPS_UAMB,6,7,unambiguous,The professor noticed that the grant gained more attention from marine biologists.,6,4.445829391479492,attention,attention,8
+88,6,NPZ_UAMB,7,7,unambiguous,"After the professor read, the grant gained more attention due to her excellent description.",6,7.501924514770508,gained,gained,6
+88,6,NPZ_UAMB,7,7,unambiguous,"After the professor read, the grant gained more attention due to her excellent description.",6,4.57835578918457,more,more,7
+88,6,NPZ_UAMB,7,7,unambiguous,"After the professor read, the grant gained more attention due to her excellent description.",6,4.212685585021973,attention,attention,8
+89,6,MVRR_UAMB,6,8,unambiguous,The professor who was awarded the grant gained more attention from marine biologists.,7,11.062503814697266,gained,gained,7
+89,6,MVRR_UAMB,6,8,unambiguous,The professor who was awarded the grant gained more attention from marine biologists.,7,5.376193046569824,more,more,8
+89,6,MVRR_UAMB,6,8,unambiguous,The professor who was awarded the grant gained more attention from marine biologists.,7,5.584135055541992,attention,attention,9
+90,7,NPS_UAMB,6,7,unambiguous,The technician reported that the service stopped working almost immediately after the storm started.,6,8.217879295349121,stopped,stopped,6
+90,7,NPS_UAMB,6,7,unambiguous,The technician reported that the service stopped working almost immediately after the storm started.,6,6.131862640380859,working,working,7
+90,7,NPS_UAMB,6,7,unambiguous,The technician reported that the service stopped working almost immediately after the storm started.,6,8.297475814819336,almost,almost,8
+91,7,NPZ_UAMB,7,7,unambiguous,"After the technician called, the service stopped working almost immediately to his surprise.",6,8.067266464233398,stopped,stopped,6
+91,7,NPZ_UAMB,7,7,unambiguous,"After the technician called, the service stopped working almost immediately to his surprise.",6,6.255226135253906,working,working,7
+91,7,NPZ_UAMB,7,7,unambiguous,"After the technician called, the service stopped working almost immediately to his surprise.",6,8.467528343200684,almost,almost,8
+92,7,MVRR_UAMB,6,8,unambiguous,The technician who was refused the service stopped working almost immediately after the argument.,7,11.384523391723633,stopped,stopped,7
+92,7,MVRR_UAMB,6,8,unambiguous,The technician who was refused the service stopped working almost immediately after the argument.,7,7.938477039337158,working,working,8
+92,7,MVRR_UAMB,6,8,unambiguous,The technician who was refused the service stopped working almost immediately after the argument.,7,8.728821754455566,almost,almost,9
+93,8,NPS_UAMB,6,7,unambiguous,The mechanic observed that the truck needed several more hours to be repaired.,6,6.2427978515625,needed,needed,6
+93,8,NPS_UAMB,6,7,unambiguous,The mechanic observed that the truck needed several more hours to be repaired.,6,6.8384528160095215,several,several,7
+93,8,NPS_UAMB,6,7,unambiguous,The mechanic observed that the truck needed several more hours to be repaired.,6,4.017239093780518,more,more,8
+94,8,NPZ_UAMB,7,7,unambiguous,"Because the mechanic stopped, the truck needed several more hours before it could be fully repaired.",6,6.709142684936523,needed,needed,6
+94,8,NPZ_UAMB,7,7,unambiguous,"Because the mechanic stopped, the truck needed several more hours before it could be fully repaired.",6,7.132969379425049,several,several,7
+94,8,NPZ_UAMB,7,7,unambiguous,"Because the mechanic stopped, the truck needed several more hours before it could be fully repaired.",6,4.064969062805176,more,more,8
+95,8,MVRR_UAMB,6,8,unambiguous,The mechanic who was brought the truck needed several more hours to fully repair it.,7,9.025440216064453,needed,needed,7
+95,8,MVRR_UAMB,6,8,unambiguous,The mechanic who was brought the truck needed several more hours to fully repair it.,7,8.226953506469727,several,several,8
+95,8,MVRR_UAMB,6,8,unambiguous,The mechanic who was brought the truck needed several more hours to fully repair it.,7,5.445655822753906,more,more,9
+96,9,NPS_UAMB,6,7,unambiguous,The guitarist knew that the song failed dramatically because of the tensions within the band.,6,6.7158403396606445,failed,failed,6
+96,9,NPS_UAMB,6,7,unambiguous,The guitarist knew that the song failed dramatically because of the tensions within the band.,6,9.129033088684082,dramatically,dramatically,7
+96,9,NPS_UAMB,6,7,unambiguous,The guitarist knew that the song failed dramatically because of the tensions within the band.,6,4.517246723175049,because,because,8
+97,9,NPZ_UAMB,7,7,unambiguous,"After the guitarist began, the song failed dramatically because he skipped the sound check.",6,6.1768646240234375,failed,failed,6
+97,9,NPZ_UAMB,7,7,unambiguous,"After the guitarist began, the song failed dramatically because he skipped the sound check.",6,10.136563301086426,dramatically,dramatically,7
+97,9,NPZ_UAMB,7,7,unambiguous,"After the guitarist began, the song failed dramatically because he skipped the sound check.",6,4.930233478546143,because,because,8
+98,9,MVRR_UAMB,6,8,unambiguous,The guitarist who was assigned the song failed dramatically because he never practiced enough.,7,11.259269714355469,failed,failed,7
+98,9,MVRR_UAMB,6,8,unambiguous,The guitarist who was assigned the song failed dramatically because he never practiced enough.,7,10.69565486907959,dramatically,dramatically,8
+98,9,MVRR_UAMB,6,8,unambiguous,The guitarist who was assigned the song failed dramatically because he never practiced enough.,7,4.897597312927246,because,because,9
+99,10,NPS_UAMB,6,7,unambiguous,The player revealed that the bonus remained essentially the same as in the original contract.,6,7.379663467407227,remained,remained,6
+99,10,NPS_UAMB,6,7,unambiguous,The player revealed that the bonus remained essentially the same as in the original contract.,6,8.387067794799805,essentially,essentially,7
+99,10,NPS_UAMB,6,7,unambiguous,The player revealed that the bonus remained essentially the same as in the original contract.,6,2.4370460510253906,the,the,8
+100,10,NPZ_UAMB,7,7,unambiguous,"Although the player lost, the bonus remained essentially the same as in the original contract.",6,7.404614448547363,remained,remained,6
+100,10,NPZ_UAMB,7,7,unambiguous,"Although the player lost, the bonus remained essentially the same as in the original contract.",6,8.671218872070312,essentially,essentially,7
+100,10,NPZ_UAMB,7,7,unambiguous,"Although the player lost, the bonus remained essentially the same as in the original contract.",6,2.535616636276245,the,the,8
+101,10,MVRR_UAMB,6,8,unambiguous,The player who was paid the bonus remained essentially the same despite his sudden fame and wealth.,7,12.055770874023438,remained,remained,7
+101,10,MVRR_UAMB,6,8,unambiguous,The player who was paid the bonus remained essentially the same despite his sudden fame and wealth.,7,9.685527801513672,essentially,essentially,8
+101,10,MVRR_UAMB,6,8,unambiguous,The player who was paid the bonus remained essentially the same despite his sudden fame and wealth.,7,2.4382030963897705,the,the,9
+102,11,NPS_UAMB,7,8,unambiguous,The recent hire claimed that the job prepared many students for careers in media.,7,10.133151054382324,prepared,prepared,7
+102,11,NPS_UAMB,7,8,unambiguous,The recent hire claimed that the job prepared many students for careers in media.,7,6.304487228393555,many,many,8
+102,11,NPS_UAMB,7,8,unambiguous,The recent hire claimed that the job prepared many students for careers in media.,7,7.520127296447754,students,students,9
+103,11,NPZ_UAMB,8,8,unambiguous,"Once the recent hire started, the job prepared many students for careers in media.",7,9.541461944580078,prepared,prepared,7
+103,11,NPZ_UAMB,8,8,unambiguous,"Once the recent hire started, the job prepared many students for careers in media.",7,6.924761772155762,many,many,8
+103,11,NPZ_UAMB,8,8,unambiguous,"Once the recent hire started, the job prepared many students for careers in media.",7,7.114383220672607,students,students,9
+104,11,MVRR_UAMB,7,9,unambiguous,The recent hire who was offered the job prepared many students for careers in media.,8,10.91048526763916,prepared,prepared,8
+104,11,MVRR_UAMB,7,9,unambiguous,The recent hire who was offered the job prepared many students for careers in media.,8,9.046551704406738,many,many,9
+104,11,MVRR_UAMB,7,9,unambiguous,The recent hire who was offered the job prepared many students for careers in media.,8,6.669802665710449,students,students,10
+105,12,NPS_UAMB,7,8,unambiguous,The assistant manager discovered that the training seemed unnecessarily demanding for new staff.,7,8.669651985168457,seemed,seemed,7
+105,12,NPS_UAMB,7,8,unambiguous,The assistant manager discovered that the training seemed unnecessarily demanding for new staff.,7,11.278934478759766,unnecessarily,unnecessarily,8
+105,12,NPS_UAMB,7,8,unambiguous,The assistant manager discovered that the training seemed unnecessarily demanding for new staff.,7,7.348390579223633,demanding,demanding,9
+106,12,NPZ_UAMB,8,8,unambiguous,"While the assistant manager worked, the training seemed unnecessarily demanding to him.",7,11.528923034667969,seemed,seemed,7
+106,12,NPZ_UAMB,8,8,unambiguous,"While the assistant manager worked, the training seemed unnecessarily demanding to him.",7,12.066888809204102,unnecessarily,unnecessarily,8
+106,12,NPZ_UAMB,8,8,unambiguous,"While the assistant manager worked, the training seemed unnecessarily demanding to him.",7,7.354407787322998,demanding,demanding,9
+107,12,MVRR_UAMB,7,9,unambiguous,The assistant manager who was assigned the training seemed unnecessarily demanding to new staff.,8,14.327381134033203,seemed,seemed,8
+107,12,MVRR_UAMB,7,9,unambiguous,The assistant manager who was assigned the training seemed unnecessarily demanding to new staff.,8,12.086663246154785,unnecessarily,unnecessarily,9
+107,12,MVRR_UAMB,7,9,unambiguous,The assistant manager who was assigned the training seemed unnecessarily demanding to new staff.,8,7.380087375640869,demanding,demanding,10
+108,13,NPS_UAMB,6,7,unambiguous,The mayor showed that the document provided sufficient evidence to prove her innocence.,6,7.050224781036377,provided,provided,6
+108,13,NPS_UAMB,6,7,unambiguous,The mayor showed that the document provided sufficient evidence to prove her innocence.,6,6.891174793243408,sufficient,sufficient,7
+108,13,NPS_UAMB,6,7,unambiguous,The mayor showed that the document provided sufficient evidence to prove her innocence.,6,4.425446033477783,evidence,evidence,8
+109,13,NPZ_UAMB,7,7,unambiguous,"Although the mayor changed, the document provided sufficient evidence for what he had promised.",6,7.026367664337158,provided,provided,6
+109,13,NPZ_UAMB,7,7,unambiguous,"Although the mayor changed, the document provided sufficient evidence for what he had promised.",6,7.19418478012085,sufficient,sufficient,7
+109,13,NPZ_UAMB,7,7,unambiguous,"Although the mayor changed, the document provided sufficient evidence for what he had promised.",6,4.478013515472412,evidence,evidence,8
+110,13,MVRR_UAMB,6,8,unambiguous,The mayor who was sent the document provided sufficient evidence that it was simply blackmail.,7,9.49853515625,provided,provided,7
+110,13,MVRR_UAMB,6,8,unambiguous,The mayor who was sent the document provided sufficient evidence that it was simply blackmail.,7,10.55307674407959,sufficient,sufficient,8
+110,13,MVRR_UAMB,6,8,unambiguous,The mayor who was sent the document provided sufficient evidence that it was simply blackmail.,7,5.010134696960449,evidence,evidence,9
+111,14,NPS_UAMB,7,8,unambiguous,The basketball player mentioned that the contract created another controversy in the NBA.,7,6.962063312530518,created,created,7
+111,14,NPS_UAMB,7,8,unambiguous,The basketball player mentioned that the contract created another controversy in the NBA.,7,6.786807060241699,another,another,8
+111,14,NPS_UAMB,7,8,unambiguous,The basketball player mentioned that the contract created another controversy in the NBA.,7,8.391756057739258,controversy,controversy,9
+112,14,NPZ_UAMB,8,8,unambiguous,"After the basketball player signed, the contract created another political controversy in the NBA.",7,6.71510648727417,created,created,7
+112,14,NPZ_UAMB,8,8,unambiguous,"After the basketball player signed, the contract created another political controversy in the NBA.",7,6.146554946899414,another,another,8
+112,14,NPZ_UAMB,8,8,unambiguous,"After the basketball player signed, the contract created another political controversy in the NBA.",7,6.864157676696777,political,political,9
+113,14,MVRR_UAMB,7,9,unambiguous,The basketball player who was handed the contract created another controversy in the NBA.,8,8.66306209564209,created,created,8
+113,14,MVRR_UAMB,7,9,unambiguous,The basketball player who was handed the contract created another controversy in the NBA.,8,9.500763893127441,another,another,9
+113,14,MVRR_UAMB,7,9,unambiguous,The basketball player who was handed the contract created another controversy in the NBA.,8,10.68363094329834,controversy,controversy,10
+114,15,NPS_UAMB,6,7,unambiguous,The engineer maintained that the equipment required constant supervision from senior technicians.,6,6.37131404876709,required,required,6
+114,15,NPS_UAMB,6,7,unambiguous,The engineer maintained that the equipment required constant supervision from senior technicians.,6,9.826454162597656,constant,constant,7
+114,15,NPS_UAMB,6,7,unambiguous,The engineer maintained that the equipment required constant supervision from senior technicians.,6,8.835379600524902,supervision,supervision,8
+115,15,NPZ_UAMB,7,7,unambiguous,"After the engineer moved, the equipment required constant supervision from senior technicians.",6,6.461854457855225,required,required,6
+115,15,NPZ_UAMB,7,7,unambiguous,"After the engineer moved, the equipment required constant supervision from senior technicians.",6,10.406450271606445,constant,constant,7
+115,15,NPZ_UAMB,7,7,unambiguous,"After the engineer moved, the equipment required constant supervision from senior technicians.",6,8.656006813049316,supervision,supervision,8
+116,15,MVRR_UAMB,6,8,unambiguous,The engineer who was brought the equipment required constant supervision from senior technicians.,7,8.366284370422363,required,required,7
+116,15,MVRR_UAMB,6,8,unambiguous,The engineer who was brought the equipment required constant supervision from senior technicians.,7,11.833512306213379,constant,constant,8
+116,15,MVRR_UAMB,6,8,unambiguous,The engineer who was brought the equipment required constant supervision from senior technicians.,7,9.823918342590332,supervision,supervision,9
+117,16,NPS_UAMB,7,8,unambiguous,The little girl found that the lamb remained relatively calm despite the absence of its mother.,7,6.877729415893555,remained,remained,7
+117,16,NPS_UAMB,7,8,unambiguous,The little girl found that the lamb remained relatively calm despite the absence of its mother.,7,7.492373943328857,relatively,relatively,8
+117,16,NPS_UAMB,7,8,unambiguous,The little girl found that the lamb remained relatively calm despite the absence of its mother.,7,7.336706161499023,calm,calm,9
+118,16,NPZ_UAMB,8,8,unambiguous,"When the little girl attacked, the lamb remained relatively calm despite the sudden assault.",7,6.470017433166504,remained,remained,7
+118,16,NPZ_UAMB,8,8,unambiguous,"When the little girl attacked, the lamb remained relatively calm despite the sudden assault.",7,7.4248552322387695,relatively,relatively,8
+118,16,NPZ_UAMB,8,8,unambiguous,"When the little girl attacked, the lamb remained relatively calm despite the sudden assault.",7,7.285422325134277,calm,calm,9
+119,16,MVRR_UAMB,7,9,unambiguous,The little girl who was fed the lamb remained relatively calm despite having asked for beef.,8,11.632486343383789,remained,remained,8
+119,16,MVRR_UAMB,7,9,unambiguous,The little girl who was fed the lamb remained relatively calm despite having asked for beef.,8,7.791522979736328,relatively,relatively,9
+119,16,MVRR_UAMB,7,9,unambiguous,The little girl who was fed the lamb remained relatively calm despite having asked for beef.,8,7.553111553192139,calm,calm,10
+120,17,NPS_UAMB,7,8,unambiguous,The yoga instructor demonstrated that the position demanded immense physical effort from everyone.,7,9.883888244628906,demanded,demanded,7
+120,17,NPS_UAMB,7,8,unambiguous,The yoga instructor demonstrated that the position demanded immense physical effort from everyone.,7,10.910757064819336,immense,immense,8
+120,17,NPS_UAMB,7,8,unambiguous,The yoga instructor demonstrated that the position demanded immense physical effort from everyone.,7,6.893266677856445,physical,physical,9
+121,17,NPZ_UAMB,8,8,unambiguous,"Before the yoga instructor left, the position demanded immense physical effort from everyone.",7,9.94735050201416,demanded,demanded,7
+121,17,NPZ_UAMB,8,8,unambiguous,"Before the yoga instructor left, the position demanded immense physical effort from everyone.",7,11.669373512268066,immense,immense,8
+121,17,NPZ_UAMB,8,8,unambiguous,"Before the yoga instructor left, the position demanded immense physical effort from everyone.",7,7.051823616027832,physical,physical,9
+122,17,MVRR_UAMB,7,9,unambiguous,The yoga instructor who was offered the position demanded immense physical effort from everyone.,8,12.294568061828613,demanded,demanded,8
+122,17,MVRR_UAMB,7,9,unambiguous,The yoga instructor who was offered the position demanded immense physical effort from everyone.,8,13.671404838562012,immense,immense,9
+122,17,MVRR_UAMB,7,9,unambiguous,The yoga instructor who was offered the position demanded immense physical effort from everyone.,8,7.227419853210449,physical,physical,10
+123,18,NPS_UAMB,6,7,unambiguous,The governor noticed that the contract received sweeping support across the entire state.,6,6.269199371337891,received,received,6
+123,18,NPS_UAMB,6,7,unambiguous,The governor noticed that the contract received sweeping support across the entire state.,6,10.46495246887207,sweeping,sweeping,7
+123,18,NPS_UAMB,6,7,unambiguous,The governor noticed that the contract received sweeping support across the entire state.,6,5.462288856506348,support,support,8
+124,18,NPZ_UAMB,7,7,unambiguous,"While the governor read, the contract received sweeping support from the audience at the rally.",6,5.949305534362793,received,received,6
+124,18,NPZ_UAMB,7,7,unambiguous,"While the governor read, the contract received sweeping support from the audience at the rally.",6,10.686829566955566,sweeping,sweeping,7
+124,18,NPZ_UAMB,7,7,unambiguous,"While the governor read, the contract received sweeping support from the audience at the rally.",6,5.361771583557129,support,support,8
+125,18,MVRR_UAMB,6,8,unambiguous,The governor who was awarded the contract received sweeping support across the entire state.,7,9.658491134643555,received,received,7
+125,18,MVRR_UAMB,6,8,unambiguous,The governor who was awarded the contract received sweeping support across the entire state.,7,11.580225944519043,sweeping,sweeping,8
+125,18,MVRR_UAMB,6,8,unambiguous,The governor who was awarded the contract received sweeping support across the entire state.,7,5.701022624969482,support,support,9
+126,19,NPS_UAMB,6,7,unambiguous,The patient reported that the treatment continued causing uncomfortable side effects like nausea.,6,7.331128120422363,continued,continued,6
+126,19,NPS_UAMB,6,7,unambiguous,The patient reported that the treatment continued causing uncomfortable side effects like nausea.,6,9.218507766723633,causing,causing,7
+126,19,NPS_UAMB,6,7,unambiguous,The patient reported that the treatment continued causing uncomfortable side effects like nausea.,6,12.126338958740234,uncomfortable,uncomfortable,8
+127,19,NPZ_UAMB,7,7,unambiguous,"Before the patient called, the treatment continued causing uncomfortable side effects like nausea.",6,7.968789577484131,continued,continued,6
+127,19,NPZ_UAMB,7,7,unambiguous,"Before the patient called, the treatment continued causing uncomfortable side effects like nausea.",6,10.037827491760254,causing,causing,7
+127,19,NPZ_UAMB,7,7,unambiguous,"Before the patient called, the treatment continued causing uncomfortable side effects like nausea.",6,12.274560928344727,uncomfortable,uncomfortable,8
+128,19,MVRR_UAMB,6,8,unambiguous,The patient who was refused the treatment continued causing uncomfortable scenes in the ER.,7,10.808773040771484,continued,continued,7
+128,19,MVRR_UAMB,6,8,unambiguous,The patient who was refused the treatment continued causing uncomfortable scenes in the ER.,7,9.896998405456543,causing,causing,8
+128,19,MVRR_UAMB,6,8,unambiguous,The patient who was refused the treatment continued causing uncomfortable scenes in the ER.,7,12.167835235595703,uncomfortable,uncomfortable,9
+129,20,NPS_UAMB,6,7,unambiguous,The operator observed that the machine started working efficiently all of a sudden.,6,7.191117286682129,started,started,6
+129,20,NPS_UAMB,6,7,unambiguous,The operator observed that the machine started working efficiently all of a sudden.,6,5.978757381439209,working,working,7
+129,20,NPS_UAMB,6,7,unambiguous,The operator observed that the machine started working efficiently all of a sudden.,6,10.7298002243042,efficiently,efficiently,8
+130,20,NPZ_UAMB,7,7,unambiguous,"Once the operator stopped, the machine started working efficiently without any supervision.",6,7.335718154907227,started,started,6
+130,20,NPZ_UAMB,7,7,unambiguous,"Once the operator stopped, the machine started working efficiently without any supervision.",6,5.993441581726074,working,working,7
+130,20,NPZ_UAMB,7,7,unambiguous,"Once the operator stopped, the machine started working efficiently without any supervision.",6,11.44507122039795,efficiently,efficiently,8
+131,20,MVRR_UAMB,6,8,unambiguous,The operator who was brought the machine started working efficiently with the added automation.,7,11.841468811035156,started,started,7
+131,20,MVRR_UAMB,6,8,unambiguous,The operator who was brought the machine started working efficiently with the added automation.,7,6.9029765129089355,working,working,8
+131,20,MVRR_UAMB,6,8,unambiguous,The operator who was brought the machine started working efficiently with the added automation.,7,11.678458213806152,efficiently,efficiently,9
+132,21,NPS_UAMB,6,7,unambiguous,The dancer knew that the ballet achieved incredible success for a small local production.,6,8.51377010345459,achieved,achieved,6
+132,21,NPS_UAMB,6,7,unambiguous,The dancer knew that the ballet achieved incredible success for a small local production.,6,11.415244102478027,incredible,incredible,7
+132,21,NPS_UAMB,6,7,unambiguous,The dancer knew that the ballet achieved incredible success for a small local production.,6,4.221227169036865,success,success,8
+133,21,NPZ_UAMB,7,7,unambiguous,"Once the dancer began, the ballet achieved incredible success for a show with a new performer.",6,8.617534637451172,achieved,achieved,6
+133,21,NPZ_UAMB,7,7,unambiguous,"Once the dancer began, the ballet achieved incredible success for a show with a new performer.",6,11.842339515686035,incredible,incredible,7
+133,21,NPZ_UAMB,7,7,unambiguous,"Once the dancer began, the ballet achieved incredible success for a show with a new performer.",6,3.791349411010742,success,success,8
+134,21,MVRR_UAMB,6,8,unambiguous,The dancer who was assigned the ballet achieved incredible success for a new performer.,7,12.443941116333008,achieved,achieved,7
+134,21,MVRR_UAMB,6,8,unambiguous,The dancer who was assigned the ballet achieved incredible success for a new performer.,7,12.800520896911621,incredible,incredible,8
+134,21,MVRR_UAMB,6,8,unambiguous,The dancer who was assigned the ballet achieved incredible success for a new performer.,7,5.264263153076172,success,success,9
+135,22,NPS_UAMB,6,7,unambiguous,The contestant revealed that the money became unavailable to him when the show\'s budget shrank.,6,6.319890975952148,became,became,6
+135,22,NPS_UAMB,6,7,unambiguous,The contestant revealed that the money became unavailable to him when the show\'s budget shrank.,6,9.748411178588867,unavailable,unavailable,7
+135,22,NPS_UAMB,6,7,unambiguous,The contestant revealed that the money became unavailable to him when the show\'s budget shrank.,6,2.443559169769287,to,to,8
+136,22,NPZ_UAMB,7,7,unambiguous,"After the contestant lost, the money became unavailable despite his previous three wins in a row.",6,5.942213535308838,became,became,6
+136,22,NPZ_UAMB,7,7,unambiguous,"After the contestant lost, the money became unavailable despite his previous three wins in a row.",6,8.961392402648926,unavailable,unavailable,7
+136,22,NPZ_UAMB,7,7,unambiguous,"After the contestant lost, the money became unavailable despite his previous three wins in a row.",6,7.8218488693237305,despite,despite,8
+137,22,MVRR_UAMB,6,8,unambiguous,The contestant who was paid the money became unavailable and suddenly terminated his contract.,7,11.153046607971191,became,became,7
+137,22,MVRR_UAMB,6,8,unambiguous,The contestant who was paid the money became unavailable and suddenly terminated his contract.,7,8.850390434265137,unavailable,unavailable,8
+137,22,MVRR_UAMB,6,8,unambiguous,The contestant who was paid the money became unavailable and suddenly terminated his contract.,7,3.0799221992492676,and,and,9
+138,23,NPS_UAMB,7,8,unambiguous,The new chef claimed that the restaurant separated mediocre cooks from gifted ones.,7,10.796117782592773,separated,separated,7
+138,23,NPS_UAMB,7,8,unambiguous,The new chef claimed that the restaurant separated mediocre cooks from gifted ones.,7,13.436826705932617,mediocre,mediocre,8
+138,23,NPS_UAMB,7,8,unambiguous,The new chef claimed that the restaurant separated mediocre cooks from gifted ones.,7,13.352066040039062,cooks,cooks,9
+139,23,NPZ_UAMB,8,8,unambiguous,"Once the new chef started, the restaurant separated mediocre cooks from gifted ones.",7,10.060815811157227,separated,separated,7
+139,23,NPZ_UAMB,8,8,unambiguous,"Once the new chef started, the restaurant separated mediocre cooks from gifted ones.",7,14.006011009216309,mediocre,mediocre,8
+139,23,NPZ_UAMB,8,8,unambiguous,"Once the new chef started, the restaurant separated mediocre cooks from gifted ones.",7,13.657516479492188,cooks,cooks,9
+140,23,MVRR_UAMB,7,9,unambiguous,The new chef who was offered the restaurant separated mediocre cooks from gifted ones.,8,11.275961875915527,separated,separated,8
+140,23,MVRR_UAMB,7,9,unambiguous,The new chef who was offered the restaurant separated mediocre cooks from gifted ones.,8,14.884621620178223,mediocre,mediocre,9
+140,23,MVRR_UAMB,7,9,unambiguous,The new chef who was offered the restaurant separated mediocre cooks from gifted ones.,8,15.202720642089844,cooks,cooks,10
+141,24,NPS_UAMB,7,8,unambiguous,The apprentice baker discovered that the oven produced smaller cakes because it heated too fast.,7,7.60434627532959,produced,produced,7
+141,24,NPS_UAMB,7,8,unambiguous,The apprentice baker discovered that the oven produced smaller cakes because it heated too fast.,7,9.145984649658203,smaller,smaller,8
+141,24,NPS_UAMB,7,8,unambiguous,The apprentice baker discovered that the oven produced smaller cakes because it heated too fast.,7,10.345428466796875,cakes,cakes,9
+142,24,NPZ_UAMB,8,8,unambiguous,"When the apprentice baker worked, the oven produced smaller cakes because he lacked experience.",7,7.386255264282227,produced,produced,7
+142,24,NPZ_UAMB,8,8,unambiguous,"When the apprentice baker worked, the oven produced smaller cakes because he lacked experience.",7,9.791492462158203,smaller,smaller,8
+142,24,NPZ_UAMB,8,8,unambiguous,"When the apprentice baker worked, the oven produced smaller cakes because he lacked experience.",7,10.220438003540039,cakes,cakes,9
+143,24,MVRR_UAMB,7,9,unambiguous,The apprentice baker who was assigned the oven produced smaller cakes because he lacked experience.,8,10.008696556091309,produced,produced,8
+143,24,MVRR_UAMB,7,9,unambiguous,The apprentice baker who was assigned the oven produced smaller cakes because he lacked experience.,8,11.942972183227539,smaller,smaller,9
+143,24,MVRR_UAMB,7,9,unambiguous,The apprentice baker who was assigned the oven produced smaller cakes because he lacked experience.,8,11.545978546142578,cakes,cakes,10

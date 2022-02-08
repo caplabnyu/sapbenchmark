@@ -1,0 +1,521 @@
+,#,targetPosition,Sentence,Unnamed: 3,Option1,Option0,Ans,Unnamed: 7,Unnamed: 8,Unnamed: 9,Unnamed: 10,Unnamed: 11,Unnamed: 12,Unnamed: 13,surprisal,token,word,word_pos
+0,25,5,The bus driver who followed the kids wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,0,RC-Gap,1.0,,,,,,-1,The,The,0
+0,25,5,The bus driver who followed the kids wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,0,RC-Gap,1.0,,,,,,9.803023338317871,bus,bus,1
+0,25,5,The bus driver who followed the kids wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,0,RC-Gap,1.0,,,,,,4.828413963317871,driver,driver,2
+0,25,5,The bus driver who followed the kids wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,0,RC-Gap,1.0,,,,,,4.701375961303711,who,who,3
+0,25,5,The bus driver who followed the kids wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,0,RC-Gap,1.0,,,,,,6.70576286315918,followed,followed,4
+0,25,5,The bus driver who followed the kids wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,0,RC-Gap,1.0,,,,,,1.331762671470642,the,the,5
+0,25,5,The bus driver who followed the kids wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,0,RC-Gap,1.0,,,,,,9.758247375488281,kids,kids,6
+0,25,5,The bus driver who followed the kids wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,0,RC-Gap,1.0,,,,,,12.684270858764648,wondered,wondered,7
+0,25,5,The bus driver who followed the kids wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,0,RC-Gap,1.0,,,,,,3.5201525688171387,about,about,8
+0,25,5,The bus driver who followed the kids wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,0,RC-Gap,1.0,,,,,,0.8525623083114624,the,the,9
+0,25,5,The bus driver who followed the kids wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,0,RC-Gap,1.0,,,,,,4.782710075378418,location,location,10
+0,25,5,The bus driver who followed the kids wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,0,RC-Gap,1.0,,,,,,0.4368632733821869,of,of,11
+0,25,5,The bus driver who followed the kids wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,0,RC-Gap,1.0,,,,,,3.136969566345215,a,a,12
+1,25,7,The bus driver who the kids followed wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,1,RC-Gap,,,,1.0,,,-1,The,The,0
+1,25,7,The bus driver who the kids followed wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,1,RC-Gap,,,,1.0,,,9.803023338317871,bus,bus,1
+1,25,7,The bus driver who the kids followed wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,1,RC-Gap,,,,1.0,,,4.828413963317871,driver,driver,2
+1,25,7,The bus driver who the kids followed wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,1,RC-Gap,,,,1.0,,,4.701375961303711,who,who,3
+1,25,7,The bus driver who the kids followed wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,1,RC-Gap,,,,1.0,,,5.78230094909668,the,the,4
+1,25,7,The bus driver who the kids followed wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,1,RC-Gap,,,,1.0,,,8.060962677001953,kids,kids,5
+1,25,7,The bus driver who the kids followed wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,1,RC-Gap,,,,1.0,,,8.807523727416992,followed,followed,6
+1,25,7,The bus driver who the kids followed wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,1,RC-Gap,,,,1.0,,,14.799324989318848,wondered,wondered,7
+1,25,7,The bus driver who the kids followed wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,1,RC-Gap,,,,1.0,,,1.8607869148254395,about,about,8
+1,25,7,The bus driver who the kids followed wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,1,RC-Gap,,,,1.0,,,1.309251308441162,the,the,9
+1,25,7,The bus driver who the kids followed wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,1,RC-Gap,,,,1.0,,,5.328685760498047,location,location,10
+1,25,7,The bus driver who the kids followed wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,1,RC-Gap,,,,1.0,,,0.3669622242450714,of,of,11
+1,25,7,The bus driver who the kids followed wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,1,RC-Gap,,,,1.0,,,2.9595158100128174,a,a,12
+2,26,4,The chef who distracted the cameraman poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,0,RC-Gap,1.0,,,,,,-1,The,The,0
+2,26,4,The chef who distracted the cameraman poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,0,RC-Gap,1.0,,,,,,11.476737022399902,chef,chef,1
+2,26,4,The chef who distracted the cameraman poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,0,RC-Gap,1.0,,,,,,3.9629392623901367,who,who,2
+2,26,4,The chef who distracted the cameraman poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,0,RC-Gap,1.0,,,,,,11.386605262756348,distracted,distracted,3
+2,26,4,The chef who distracted the cameraman poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,0,RC-Gap,1.0,,,,,,0.8788880109786987,the,the,4
+2,26,4,The chef who distracted the cameraman poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,0,RC-Gap,1.0,,,,,,10.901342391967773,cameraman,cameraman,5
+2,26,4,The chef who distracted the cameraman poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,0,RC-Gap,1.0,,,,,,14.782025337219238,poured,poured,6
+2,26,4,The chef who distracted the cameraman poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,0,RC-Gap,1.0,,,,,,3.8669464588165283,the,the,7
+2,26,4,The chef who distracted the cameraman poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,0,RC-Gap,1.0,,,,,,10.596473693847656,flour,flour,8
+2,26,4,The chef who distracted the cameraman poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,0,RC-Gap,1.0,,,,,,2.970034599304199,onto,onto,9
+2,26,4,The chef who distracted the cameraman poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,0,RC-Gap,1.0,,,,,,0.6529932618141174,the,the,10
+3,26,6,The chef who the cameraman distracted poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,1,RC-Gap,,,,1.0,,,-1,The,The,0
+3,26,6,The chef who the cameraman distracted poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,1,RC-Gap,,,,1.0,,,11.476737022399902,chef,chef,1
+3,26,6,The chef who the cameraman distracted poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,1,RC-Gap,,,,1.0,,,3.9629392623901367,who,who,2
+3,26,6,The chef who the cameraman distracted poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,1,RC-Gap,,,,1.0,,,5.6315813064575195,the,the,3
+3,26,6,The chef who the cameraman distracted poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,1,RC-Gap,,,,1.0,,,12.338821411132812,cameraman,cameraman,4
+3,26,6,The chef who the cameraman distracted poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,1,RC-Gap,,,,1.0,,,14.058565139770508,distracted,distracted,5
+3,26,6,The chef who the cameraman distracted poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,1,RC-Gap,,,,1.0,,,15.407386779785156,poured,poured,6
+3,26,6,The chef who the cameraman distracted poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,1,RC-Gap,,,,1.0,,,4.202899932861328,the,the,7
+3,26,6,The chef who the cameraman distracted poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,1,RC-Gap,,,,1.0,,,10.403671264648438,flour,flour,8
+3,26,6,The chef who the cameraman distracted poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,1,RC-Gap,,,,1.0,,,3.082850217819214,onto,onto,9
+3,26,6,The chef who the cameraman distracted poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,1,RC-Gap,,,,1.0,,,0.6880287528038025,the,the,10
+4,27,4,The children who woke the father bothered him about the trip to the beach.,Who was woken up?,The children,The father,0,RC-Gap,,,,1.0,,,-1,The,The,0
+4,27,4,The children who woke the father bothered him about the trip to the beach.,Who was woken up?,The children,The father,0,RC-Gap,,,,1.0,,,7.2952985763549805,children,children,1
+4,27,4,The children who woke the father bothered him about the trip to the beach.,Who was woken up?,The children,The father,0,RC-Gap,,,,1.0,,,3.533717155456543,who,who,2
+4,27,4,The children who woke the father bothered him about the trip to the beach.,Who was woken up?,The children,The father,0,RC-Gap,,,,1.0,,,10.745441436767578,woke,woke,3
+4,27,4,The children who woke the father bothered him about the trip to the beach.,Who was woken up?,The children,The father,0,RC-Gap,,,,1.0,,,3.0423614978790283,the,the,4
+4,27,4,The children who woke the father bothered him about the trip to the beach.,Who was woken up?,The children,The father,0,RC-Gap,,,,1.0,,,7.457984924316406,father,father,5
+4,27,4,The children who woke the father bothered him about the trip to the beach.,Who was woken up?,The children,The father,0,RC-Gap,,,,1.0,,,13.356684684753418,bothered,bothered,6
+4,27,4,The children who woke the father bothered him about the trip to the beach.,Who was woken up?,The children,The father,0,RC-Gap,,,,1.0,,,2.747036933898926,him,him,7
+4,27,4,The children who woke the father bothered him about the trip to the beach.,Who was woken up?,The children,The father,0,RC-Gap,,,,1.0,,,6.316115379333496,about,about,8
+4,27,4,The children who woke the father bothered him about the trip to the beach.,Who was woken up?,The children,The father,0,RC-Gap,,,,1.0,,,1.3920552730560303,the,the,9
+4,27,4,The children who woke the father bothered him about the trip to the beach.,Who was woken up?,The children,The father,0,RC-Gap,,,,1.0,,,5.627867221832275,trip,trip,10
+4,27,4,The children who woke the father bothered him about the trip to the beach.,Who was woken up?,The children,The father,0,RC-Gap,,,,1.0,,,2.09490704536438,to,to,11
+4,27,4,The children who woke the father bothered him about the trip to the beach.,Who was woken up?,The children,The father,0,RC-Gap,,,,1.0,,,1.3962925672531128,the,the,12
+5,27,6,The children who the father woke bothered him about the trip to the beach.,Who was woken up?,The children,The father,1,RC-Gap,1.0,,,,,,-1,The,The,0
+5,27,6,The children who the father woke bothered him about the trip to the beach.,Who was woken up?,The children,The father,1,RC-Gap,1.0,,,,,,7.2952985763549805,children,children,1
+5,27,6,The children who the father woke bothered him about the trip to the beach.,Who was woken up?,The children,The father,1,RC-Gap,1.0,,,,,,3.533717155456543,who,who,2
+5,27,6,The children who the father woke bothered him about the trip to the beach.,Who was woken up?,The children,The father,1,RC-Gap,1.0,,,,,,6.614873886108398,the,the,3
+5,27,6,The children who the father woke bothered him about the trip to the beach.,Who was woken up?,The children,The father,1,RC-Gap,1.0,,,,,,5.495256423950195,father,father,4
+5,27,6,The children who the father woke bothered him about the trip to the beach.,Who was woken up?,The children,The father,1,RC-Gap,1.0,,,,,,10.63974666595459,woke,woke,5
+5,27,6,The children who the father woke bothered him about the trip to the beach.,Who was woken up?,The children,The father,1,RC-Gap,1.0,,,,,,15.297698974609375,bothered,bothered,6
+5,27,6,The children who the father woke bothered him about the trip to the beach.,Who was woken up?,The children,The father,1,RC-Gap,1.0,,,,,,3.4982171058654785,him,him,7
+5,27,6,The children who the father woke bothered him about the trip to the beach.,Who was woken up?,The children,The father,1,RC-Gap,1.0,,,,,,5.761556625366211,about,about,8
+5,27,6,The children who the father woke bothered him about the trip to the beach.,Who was woken up?,The children,The father,1,RC-Gap,1.0,,,,,,1.8838356733322144,the,the,9
+5,27,6,The children who the father woke bothered him about the trip to the beach.,Who was woken up?,The children,The father,1,RC-Gap,1.0,,,,,,6.040668964385986,trip,trip,10
+5,27,6,The children who the father woke bothered him about the trip to the beach.,Who was woken up?,The children,The father,1,RC-Gap,1.0,,,,,,2.084592342376709,to,to,11
+5,27,6,The children who the father woke bothered him about the trip to the beach.,Who was woken up?,The children,The father,1,RC-Gap,1.0,,,,,,1.3932161331176758,the,the,12
+6,28,4,The class that disliked the teacher skimmed the reading for the week.,Who was disliked?,The class,The teacher,0,RC-Gap,,,,1.0,,,-1,The,The,0
+6,28,4,The class that disliked the teacher skimmed the reading for the week.,Who was disliked?,The class,The teacher,0,RC-Gap,,,,1.0,,,8.251818656921387,class,class,1
+6,28,4,The class that disliked the teacher skimmed the reading for the week.,Who was disliked?,The class,The teacher,0,RC-Gap,,,,1.0,,,4.845426082611084,that,that,2
+6,28,4,The class that disliked the teacher skimmed the reading for the week.,Who was disliked?,The class,The teacher,0,RC-Gap,,,,1.0,,,10.707725524902344,disliked,disliked,3
+6,28,4,The class that disliked the teacher skimmed the reading for the week.,Who was disliked?,The class,The teacher,0,RC-Gap,,,,1.0,,,0.7108927369117737,the,the,4
+6,28,4,The class that disliked the teacher skimmed the reading for the week.,Who was disliked?,The class,The teacher,0,RC-Gap,,,,1.0,,,9.177196502685547,teacher,teacher,5
+6,28,4,The class that disliked the teacher skimmed the reading for the week.,Who was disliked?,The class,The teacher,0,RC-Gap,,,,1.0,,,3.108599901199341,skimmed,skimmed,6
+6,28,4,The class that disliked the teacher skimmed the reading for the week.,Who was disliked?,The class,The teacher,0,RC-Gap,,,,1.0,,,5.477023124694824,the,the,7
+6,28,4,The class that disliked the teacher skimmed the reading for the week.,Who was disliked?,The class,The teacher,0,RC-Gap,,,,1.0,,,9.944931983947754,reading,reading,8
+6,28,4,The class that disliked the teacher skimmed the reading for the week.,Who was disliked?,The class,The teacher,0,RC-Gap,,,,1.0,,,4.786654949188232,for,for,9
+6,28,4,The class that disliked the teacher skimmed the reading for the week.,Who was disliked?,The class,The teacher,0,RC-Gap,,,,1.0,,,1.3477182388305664,the,the,10
+7,28,6,The class that the teacher disliked skimmed the reading for the week.,Who was disliked?,The class,The teacher,1,RC-Gap,1.0,,,,,,-1,The,The,0
+7,28,6,The class that the teacher disliked skimmed the reading for the week.,Who was disliked?,The class,The teacher,1,RC-Gap,1.0,,,,,,8.251818656921387,class,class,1
+7,28,6,The class that the teacher disliked skimmed the reading for the week.,Who was disliked?,The class,The teacher,1,RC-Gap,1.0,,,,,,4.845426082611084,that,that,2
+7,28,6,The class that the teacher disliked skimmed the reading for the week.,Who was disliked?,The class,The teacher,1,RC-Gap,1.0,,,,,,3.465782403945923,the,the,3
+7,28,6,The class that the teacher disliked skimmed the reading for the week.,Who was disliked?,The class,The teacher,1,RC-Gap,1.0,,,,,,8.872775077819824,teacher,teacher,4
+7,28,6,The class that the teacher disliked skimmed the reading for the week.,Who was disliked?,The class,The teacher,1,RC-Gap,1.0,,,,,,8.885011672973633,disliked,disliked,5
+7,28,6,The class that the teacher disliked skimmed the reading for the week.,Who was disliked?,The class,The teacher,1,RC-Gap,1.0,,,,,,3.8666152954101562,skimmed,skimmed,6
+7,28,6,The class that the teacher disliked skimmed the reading for the week.,Who was disliked?,The class,The teacher,1,RC-Gap,1.0,,,,,,3.609365463256836,the,the,7
+7,28,6,The class that the teacher disliked skimmed the reading for the week.,Who was disliked?,The class,The teacher,1,RC-Gap,1.0,,,,,,10.510623931884766,reading,reading,8
+7,28,6,The class that the teacher disliked skimmed the reading for the week.,Who was disliked?,The class,The teacher,1,RC-Gap,1.0,,,,,,4.593927383422852,for,for,9
+7,28,6,The class that the teacher disliked skimmed the reading for the week.,Who was disliked?,The class,The teacher,1,RC-Gap,1.0,,,,,,1.439143419265747,the,the,10
+8,29,4,The dancer that loved the audience ignored some basic principles.,Who was loved?,The dancer,The audience,0,RC-Gap,,1.0,,,,,-1,The,The,0
+8,29,4,The dancer that loved the audience ignored some basic principles.,Who was loved?,The dancer,The audience,0,RC-Gap,,1.0,,,,,11.363365173339844,dancer,dancer,1
+8,29,4,The dancer that loved the audience ignored some basic principles.,Who was loved?,The dancer,The audience,0,RC-Gap,,1.0,,,,,5.5794196128845215,that,that,2
+8,29,4,The dancer that loved the audience ignored some basic principles.,Who was loved?,The dancer,The audience,0,RC-Gap,,1.0,,,,,8.694473266601562,loved,loved,3
+8,29,4,The dancer that loved the audience ignored some basic principles.,Who was loved?,The dancer,The audience,0,RC-Gap,,1.0,,,,,1.1231944561004639,the,the,4
+8,29,4,The dancer that loved the audience ignored some basic principles.,Who was loved?,The dancer,The audience,0,RC-Gap,,1.0,,,,,6.315676212310791,audience,audience,5
+8,29,4,The dancer that loved the audience ignored some basic principles.,Who was loved?,The dancer,The audience,0,RC-Gap,,1.0,,,,,12.610360145568848,ignored,ignored,6
+8,29,4,The dancer that loved the audience ignored some basic principles.,Who was loved?,The dancer,The audience,0,RC-Gap,,1.0,,,,,6.212352752685547,some,some,7
+8,29,4,The dancer that loved the audience ignored some basic principles.,Who was loved?,The dancer,The audience,0,RC-Gap,,1.0,,,,,9.567471504211426,basic,basic,8
+9,29,6,The dancer that the audience loved ignored some basic principles.,Who was loved?,The dancer,The audience,1,RC-Gap,,,,,1.0,,-1,The,The,0
+9,29,6,The dancer that the audience loved ignored some basic principles.,Who was loved?,The dancer,The audience,1,RC-Gap,,,,,1.0,,11.363365173339844,dancer,dancer,1
+9,29,6,The dancer that the audience loved ignored some basic principles.,Who was loved?,The dancer,The audience,1,RC-Gap,,,,,1.0,,5.5794196128845215,that,that,2
+9,29,6,The dancer that the audience loved ignored some basic principles.,Who was loved?,The dancer,The audience,1,RC-Gap,,,,,1.0,,2.9051284790039062,the,the,3
+9,29,6,The dancer that the audience loved ignored some basic principles.,Who was loved?,The dancer,The audience,1,RC-Gap,,,,,1.0,,5.802241802215576,audience,audience,4
+9,29,6,The dancer that the audience loved ignored some basic principles.,Who was loved?,The dancer,The audience,1,RC-Gap,,,,,1.0,,6.255304336547852,loved,loved,5
+9,29,6,The dancer that the audience loved ignored some basic principles.,Who was loved?,The dancer,The audience,1,RC-Gap,,,,,1.0,,13.443899154663086,ignored,ignored,6
+9,29,6,The dancer that the audience loved ignored some basic principles.,Who was loved?,The dancer,The audience,1,RC-Gap,,,,,1.0,,7.169577598571777,some,some,7
+9,29,6,The dancer that the audience loved ignored some basic principles.,Who was loved?,The dancer,The audience,1,RC-Gap,,,,,1.0,,9.283191680908203,basic,basic,8
+10,30,4,The employees that noticed the fireman hurried across the open field.,Who was noticed?,The employees,The fireman,0,RC-Gap,,1.0,,,,,-1,The,The,0
+10,30,4,The employees that noticed the fireman hurried across the open field.,Who was noticed?,The employees,The fireman,0,RC-Gap,,1.0,,,,,10.958248138427734,employees,employees,1
+10,30,4,The employees that noticed the fireman hurried across the open field.,Who was noticed?,The employees,The fireman,0,RC-Gap,,1.0,,,,,4.6614251136779785,that,that,2
+10,30,4,The employees that noticed the fireman hurried across the open field.,Who was noticed?,The employees,The fireman,0,RC-Gap,,1.0,,,,,10.141718864440918,noticed,noticed,3
+10,30,4,The employees that noticed the fireman hurried across the open field.,Who was noticed?,The employees,The fireman,0,RC-Gap,,1.0,,,,,1.0048208236694336,the,the,4
+10,30,4,The employees that noticed the fireman hurried across the open field.,Who was noticed?,The employees,The fireman,0,RC-Gap,,1.0,,,,,12.384621620178223,fireman,fireman,5
+10,30,4,The employees that noticed the fireman hurried across the open field.,Who was noticed?,The employees,The fireman,0,RC-Gap,,1.0,,,,,13.28866958618164,hurried,hurried,6
+10,30,4,The employees that noticed the fireman hurried across the open field.,Who was noticed?,The employees,The fireman,0,RC-Gap,,1.0,,,,,5.004024028778076,across,across,7
+10,30,4,The employees that noticed the fireman hurried across the open field.,Who was noticed?,The employees,The fireman,0,RC-Gap,,1.0,,,,,0.4075621962547302,the,the,8
+10,30,4,The employees that noticed the fireman hurried across the open field.,Who was noticed?,The employees,The fireman,0,RC-Gap,,1.0,,,,,4.954148292541504,open,open,9
+11,30,6,The employees that the fireman noticed hurried across the open field.,Who was noticed?,The employees,The fireman,1,RC-Gap,,,,,1.0,,-1,The,The,0
+11,30,6,The employees that the fireman noticed hurried across the open field.,Who was noticed?,The employees,The fireman,1,RC-Gap,,,,,1.0,,10.958248138427734,employees,employees,1
+11,30,6,The employees that the fireman noticed hurried across the open field.,Who was noticed?,The employees,The fireman,1,RC-Gap,,,,,1.0,,4.6614251136779785,that,that,2
+11,30,6,The employees that the fireman noticed hurried across the open field.,Who was noticed?,The employees,The fireman,1,RC-Gap,,,,,1.0,,3.1705782413482666,the,the,3
+11,30,6,The employees that the fireman noticed hurried across the open field.,Who was noticed?,The employees,The fireman,1,RC-Gap,,,,,1.0,,11.45785140991211,fireman,fireman,4
+11,30,6,The employees that the fireman noticed hurried across the open field.,Who was noticed?,The employees,The fireman,1,RC-Gap,,,,,1.0,,8.00990104675293,noticed,noticed,5
+11,30,6,The employees that the fireman noticed hurried across the open field.,Who was noticed?,The employees,The fireman,1,RC-Gap,,,,,1.0,,16.24715232849121,hurried,hurried,6
+11,30,6,The employees that the fireman noticed hurried across the open field.,Who was noticed?,The employees,The fireman,1,RC-Gap,,,,,1.0,,8.167418479919434,across,across,7
+11,30,6,The employees that the fireman noticed hurried across the open field.,Who was noticed?,The employees,The fireman,1,RC-Gap,,,,,1.0,,0.5517842173576355,the,the,8
+11,30,6,The employees that the fireman noticed hurried across the open field.,Who was noticed?,The employees,The fireman,1,RC-Gap,,,,,1.0,,5.505645275115967,open,open,9
+12,31,4,The farmer that approached the customers lifted the chickens from their coop.,Who was approached?,The customers,The farmer,1,RC-Gap,,,,,1.0,,-1,The,The,0
+12,31,4,The farmer that approached the customers lifted the chickens from their coop.,Who was approached?,The customers,The farmer,1,RC-Gap,,,,,1.0,,9.791366577148438,farmer,farmer,1
+12,31,4,The farmer that approached the customers lifted the chickens from their coop.,Who was approached?,The customers,The farmer,1,RC-Gap,,,,,1.0,,5.795183181762695,that,that,2
+12,31,4,The farmer that approached the customers lifted the chickens from their coop.,Who was approached?,The customers,The farmer,1,RC-Gap,,,,,1.0,,8.856389999389648,approached,approached,3
+12,31,4,The farmer that approached the customers lifted the chickens from their coop.,Who was approached?,The customers,The farmer,1,RC-Gap,,,,,1.0,,1.080041766166687,the,the,4
+12,31,4,The farmer that approached the customers lifted the chickens from their coop.,Who was approached?,The customers,The farmer,1,RC-Gap,,,,,1.0,,8.856708526611328,customers,customers,5
+12,31,4,The farmer that approached the customers lifted the chickens from their coop.,Who was approached?,The customers,The farmer,1,RC-Gap,,,,,1.0,,13.742761611938477,lifted,lifted,6
+12,31,4,The farmer that approached the customers lifted the chickens from their coop.,Who was approached?,The customers,The farmer,1,RC-Gap,,,,,1.0,,2.3811705112457275,the,the,7
+12,31,4,The farmer that approached the customers lifted the chickens from their coop.,Who was approached?,The customers,The farmer,1,RC-Gap,,,,,1.0,,10.771888732910156,chickens,chickens,8
+12,31,4,The farmer that approached the customers lifted the chickens from their coop.,Who was approached?,The customers,The farmer,1,RC-Gap,,,,,1.0,,3.3409180641174316,from,from,9
+12,31,4,The farmer that approached the customers lifted the chickens from their coop.,Who was approached?,The customers,The farmer,1,RC-Gap,,,,,1.0,,2.552375316619873,their,their,10
+13,31,6,The farmer that the customers approached lifted the chickens from their coop.,Who was approached?,The customers,The farmer,0,RC-Gap,,1.0,,,,,-1,The,The,0
+13,31,6,The farmer that the customers approached lifted the chickens from their coop.,Who was approached?,The customers,The farmer,0,RC-Gap,,1.0,,,,,9.791366577148438,farmer,farmer,1
+13,31,6,The farmer that the customers approached lifted the chickens from their coop.,Who was approached?,The customers,The farmer,0,RC-Gap,,1.0,,,,,5.795183181762695,that,that,2
+13,31,6,The farmer that the customers approached lifted the chickens from their coop.,Who was approached?,The customers,The farmer,0,RC-Gap,,1.0,,,,,2.9116058349609375,the,the,3
+13,31,6,The farmer that the customers approached lifted the chickens from their coop.,Who was approached?,The customers,The farmer,0,RC-Gap,,1.0,,,,,9.777817726135254,customers,customers,4
+13,31,6,The farmer that the customers approached lifted the chickens from their coop.,Who was approached?,The customers,The farmer,0,RC-Gap,,1.0,,,,,7.973999977111816,approached,approached,5
+13,31,6,The farmer that the customers approached lifted the chickens from their coop.,Who was approached?,The customers,The farmer,0,RC-Gap,,1.0,,,,,14.182947158813477,lifted,lifted,6
+13,31,6,The farmer that the customers approached lifted the chickens from their coop.,Who was approached?,The customers,The farmer,0,RC-Gap,,1.0,,,,,2.7434651851654053,the,the,7
+13,31,6,The farmer that the customers approached lifted the chickens from their coop.,Who was approached?,The customers,The farmer,0,RC-Gap,,1.0,,,,,10.944872856140137,chickens,chickens,8
+13,31,6,The farmer that the customers approached lifted the chickens from their coop.,Who was approached?,The customers,The farmer,0,RC-Gap,,1.0,,,,,3.096074342727661,from,from,9
+13,31,6,The farmer that the customers approached lifted the chickens from their coop.,Who was approached?,The customers,The farmer,0,RC-Gap,,1.0,,,,,2.30210018157959,their,their,10
+14,32,4,The farmer who hired the rancher piled the seeds in long rows.,Who was hired?,The rancher,The farmer,1,RC-Gap,,,,,1.0,,-1,The,The,0
+14,32,4,The farmer who hired the rancher piled the seeds in long rows.,Who was hired?,The rancher,The farmer,1,RC-Gap,,,,,1.0,,9.791366577148438,farmer,farmer,1
+14,32,4,The farmer who hired the rancher piled the seeds in long rows.,Who was hired?,The rancher,The farmer,1,RC-Gap,,,,,1.0,,3.6083152294158936,who,who,2
+14,32,4,The farmer who hired the rancher piled the seeds in long rows.,Who was hired?,The rancher,The farmer,1,RC-Gap,,,,,1.0,,7.763948917388916,hired,hired,3
+14,32,4,The farmer who hired the rancher piled the seeds in long rows.,Who was hired?,The rancher,The farmer,1,RC-Gap,,,,,1.0,,1.8106848001480103,the,the,4
+14,32,4,The farmer who hired the rancher piled the seeds in long rows.,Who was hired?,The rancher,The farmer,1,RC-Gap,,,,,1.0,,10.258590698242188,rancher,rancher,5
+14,32,4,The farmer who hired the rancher piled the seeds in long rows.,Who was hired?,The rancher,The farmer,1,RC-Gap,,,,,1.0,,17.178251266479492,piled,piled,6
+14,32,4,The farmer who hired the rancher piled the seeds in long rows.,Who was hired?,The rancher,The farmer,1,RC-Gap,,,,,1.0,,3.7650036811828613,the,the,7
+14,32,4,The farmer who hired the rancher piled the seeds in long rows.,Who was hired?,The rancher,The farmer,1,RC-Gap,,,,,1.0,,8.337692260742188,seeds,seeds,8
+14,32,4,The farmer who hired the rancher piled the seeds in long rows.,Who was hired?,The rancher,The farmer,1,RC-Gap,,,,,1.0,,2.9446091651916504,in,in,9
+14,32,4,The farmer who hired the rancher piled the seeds in long rows.,Who was hired?,The rancher,The farmer,1,RC-Gap,,,,,1.0,,9.138967514038086,long,long,10
+15,32,6,The farmer who the rancher hired piled the seeds in long rows.,Who was hired?,The rancher,The farmer,0,RC-Gap,,1.0,,,,,-1,The,The,0
+15,32,6,The farmer who the rancher hired piled the seeds in long rows.,Who was hired?,The rancher,The farmer,0,RC-Gap,,1.0,,,,,9.791366577148438,farmer,farmer,1
+15,32,6,The farmer who the rancher hired piled the seeds in long rows.,Who was hired?,The rancher,The farmer,0,RC-Gap,,1.0,,,,,3.6083152294158936,who,who,2
+15,32,6,The farmer who the rancher hired piled the seeds in long rows.,Who was hired?,The rancher,The farmer,0,RC-Gap,,1.0,,,,,6.0668206214904785,the,the,3
+15,32,6,The farmer who the rancher hired piled the seeds in long rows.,Who was hired?,The rancher,The farmer,0,RC-Gap,,1.0,,,,,12.416351318359375,rancher,rancher,4
+15,32,6,The farmer who the rancher hired piled the seeds in long rows.,Who was hired?,The rancher,The farmer,0,RC-Gap,,1.0,,,,,6.325843811035156,hired,hired,5
+15,32,6,The farmer who the rancher hired piled the seeds in long rows.,Who was hired?,The rancher,The farmer,0,RC-Gap,,1.0,,,,,15.565561294555664,piled,piled,6
+15,32,6,The farmer who the rancher hired piled the seeds in long rows.,Who was hired?,The rancher,The farmer,0,RC-Gap,,1.0,,,,,3.5368618965148926,the,the,7
+15,32,6,The farmer who the rancher hired piled the seeds in long rows.,Who was hired?,The rancher,The farmer,0,RC-Gap,,1.0,,,,,7.340056896209717,seeds,seeds,8
+15,32,6,The farmer who the rancher hired piled the seeds in long rows.,Who was hired?,The rancher,The farmer,0,RC-Gap,,1.0,,,,,3.048226833343506,in,in,9
+15,32,6,The farmer who the rancher hired piled the seeds in long rows.,Who was hired?,The rancher,The farmer,0,RC-Gap,,1.0,,,,,9.141756057739258,long,long,10
+16,33,4,The firemen that called the residents attacked the house with high-powered hoses.,Who got a call?,The residents,The firemen,1,RC-Gap,,,1.0,,,,-1,The,The,0
+16,33,4,The firemen that called the residents attacked the house with high-powered hoses.,Who got a call?,The residents,The firemen,1,RC-Gap,,,1.0,,,,12.619645118713379,firemen,firemen,1
+16,33,4,The firemen that called the residents attacked the house with high-powered hoses.,Who got a call?,The residents,The firemen,1,RC-Gap,,,1.0,,,,4.32691764831543,that,that,2
+16,33,4,The firemen that called the residents attacked the house with high-powered hoses.,Who got a call?,The residents,The firemen,1,RC-Gap,,,1.0,,,,7.19075345993042,called,called,3
+16,33,4,The firemen that called the residents attacked the house with high-powered hoses.,Who got a call?,The residents,The firemen,1,RC-Gap,,,1.0,,,,1.8712583780288696,the,the,4
+16,33,4,The firemen that called the residents attacked the house with high-powered hoses.,Who got a call?,The residents,The firemen,1,RC-Gap,,,1.0,,,,9.833693504333496,residents,residents,5
+16,33,4,The firemen that called the residents attacked the house with high-powered hoses.,Who got a call?,The residents,The firemen,1,RC-Gap,,,1.0,,,,9.951709747314453,attacked,attacked,6
+16,33,4,The firemen that called the residents attacked the house with high-powered hoses.,Who got a call?,The residents,The firemen,1,RC-Gap,,,1.0,,,,2.329050064086914,the,the,7
+16,33,4,The firemen that called the residents attacked the house with high-powered hoses.,Who got a call?,The residents,The firemen,1,RC-Gap,,,1.0,,,,4.964455604553223,house,house,8
+17,33,6,The firemen that the residents called attacked the house with high-powered hoses.,Who got a call?,The residents,The firemen,0,RC-Gap,,,,,,1.0,-1,The,The,0
+17,33,6,The firemen that the residents called attacked the house with high-powered hoses.,Who got a call?,The residents,The firemen,0,RC-Gap,,,,,,1.0,12.619645118713379,firemen,firemen,1
+17,33,6,The firemen that the residents called attacked the house with high-powered hoses.,Who got a call?,The residents,The firemen,0,RC-Gap,,,,,,1.0,4.32691764831543,that,that,2
+17,33,6,The firemen that the residents called attacked the house with high-powered hoses.,Who got a call?,The residents,The firemen,0,RC-Gap,,,,,,1.0,3.1582093238830566,the,the,3
+17,33,6,The firemen that the residents called attacked the house with high-powered hoses.,Who got a call?,The residents,The firemen,0,RC-Gap,,,,,,1.0,7.103026866912842,residents,residents,4
+17,33,6,The firemen that the residents called attacked the house with high-powered hoses.,Who got a call?,The residents,The firemen,0,RC-Gap,,,,,,1.0,5.422217845916748,called,called,5
+17,33,6,The firemen that the residents called attacked the house with high-powered hoses.,Who got a call?,The residents,The firemen,0,RC-Gap,,,,,,1.0,12.917325973510742,attacked,attacked,6
+17,33,6,The firemen that the residents called attacked the house with high-powered hoses.,Who got a call?,The residents,The firemen,0,RC-Gap,,,,,,1.0,1.8571515083312988,the,the,7
+17,33,6,The firemen that the residents called attacked the house with high-powered hoses.,Who got a call?,The residents,The firemen,0,RC-Gap,,,,,,1.0,4.567072868347168,house,house,8
+18,34,4,The girl who watched the parents changed a critical part of the story.,Who was being watched?,The parents,The girl,1,RC-Gap,,,1.0,,,,-1,The,The,0
+18,34,4,The girl who watched the parents changed a critical part of the story.,Who was being watched?,The parents,The girl,1,RC-Gap,,,1.0,,,,8.108763694763184,girl,girl,1
+18,34,4,The girl who watched the parents changed a critical part of the story.,Who was being watched?,The parents,The girl,1,RC-Gap,,,1.0,,,,2.4850528240203857,who,who,2
+18,34,4,The girl who watched the parents changed a critical part of the story.,Who was being watched?,The parents,The girl,1,RC-Gap,,,1.0,,,,7.536165237426758,watched,watched,3
+18,34,4,The girl who watched the parents changed a critical part of the story.,Who was being watched?,The parents,The girl,1,RC-Gap,,,1.0,,,,0.7806945443153381,the,the,4
+18,34,4,The girl who watched the parents changed a critical part of the story.,Who was being watched?,The parents,The girl,1,RC-Gap,,,1.0,,,,8.98382568359375,parents,parents,5
+18,34,4,The girl who watched the parents changed a critical part of the story.,Who was being watched?,The parents,The girl,1,RC-Gap,,,1.0,,,,9.770058631896973,changed,changed,6
+18,34,4,The girl who watched the parents changed a critical part of the story.,Who was being watched?,The parents,The girl,1,RC-Gap,,,1.0,,,,4.715737342834473,a,a,7
+18,34,4,The girl who watched the parents changed a critical part of the story.,Who was being watched?,The parents,The girl,1,RC-Gap,,,1.0,,,,10.002147674560547,critical,critical,8
+18,34,4,The girl who watched the parents changed a critical part of the story.,Who was being watched?,The parents,The girl,1,RC-Gap,,,1.0,,,,7.229067325592041,part,part,9
+18,34,4,The girl who watched the parents changed a critical part of the story.,Who was being watched?,The parents,The girl,1,RC-Gap,,,1.0,,,,0.2264832705259323,of,of,10
+18,34,4,The girl who watched the parents changed a critical part of the story.,Who was being watched?,The parents,The girl,1,RC-Gap,,,1.0,,,,0.5187264680862427,the,the,11
+19,34,6,The girl who the parents watched changed a critical part of the story.,Who was being watched?,The parents,The girl,0,RC-Gap,,,,,,1.0,-1,The,The,0
+19,34,6,The girl who the parents watched changed a critical part of the story.,Who was being watched?,The parents,The girl,0,RC-Gap,,,,,,1.0,8.108763694763184,girl,girl,1
+19,34,6,The girl who the parents watched changed a critical part of the story.,Who was being watched?,The parents,The girl,0,RC-Gap,,,,,,1.0,2.4850528240203857,who,who,2
+19,34,6,The girl who the parents watched changed a critical part of the story.,Who was being watched?,The parents,The girl,0,RC-Gap,,,,,,1.0,6.007397651672363,the,the,3
+19,34,6,The girl who the parents watched changed a critical part of the story.,Who was being watched?,The parents,The girl,0,RC-Gap,,,,,,1.0,6.339572906494141,parents,parents,4
+19,34,6,The girl who the parents watched changed a critical part of the story.,Who was being watched?,The parents,The girl,0,RC-Gap,,,,,,1.0,9.233402252197266,watched,watched,5
+19,34,6,The girl who the parents watched changed a critical part of the story.,Who was being watched?,The parents,The girl,0,RC-Gap,,,,,,1.0,9.232465744018555,changed,changed,6
+19,34,6,The girl who the parents watched changed a critical part of the story.,Who was being watched?,The parents,The girl,0,RC-Gap,,,,,,1.0,5.028843879699707,a,a,7
+19,34,6,The girl who the parents watched changed a critical part of the story.,Who was being watched?,The parents,The girl,0,RC-Gap,,,,,,1.0,10.140769004821777,critical,critical,8
+19,34,6,The girl who the parents watched changed a critical part of the story.,Who was being watched?,The parents,The girl,0,RC-Gap,,,,,,1.0,6.977945804595947,part,part,9
+19,34,6,The girl who the parents watched changed a critical part of the story.,Who was being watched?,The parents,The girl,0,RC-Gap,,,,,,1.0,0.42953959107398987,of,of,10
+19,34,6,The girl who the parents watched changed a critical part of the story.,Who was being watched?,The parents,The girl,0,RC-Gap,,,,,,1.0,0.5880398750305176,the,the,11
+20,35,4,The investigator who phoned the agency considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,1,RC-Gap,,,,,,1.0,-1,The,The,0
+20,35,4,The investigator who phoned the agency considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,1,RC-Gap,,,,,,1.0,12.139293670654297,investigator,investigator,1
+20,35,4,The investigator who phoned the agency considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,1,RC-Gap,,,,,,1.0,3.821638822555542,who,who,2
+20,35,4,The investigator who phoned the agency considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,1,RC-Gap,,,,,,1.0,9.992790222167969,phoned,phoned,3
+20,35,4,The investigator who phoned the agency considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,1,RC-Gap,,,,,,1.0,1.0757784843444824,the,the,4
+20,35,4,The investigator who phoned the agency considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,1,RC-Gap,,,,,,1.0,6.988015174865723,agency,agency,5
+20,35,4,The investigator who phoned the agency considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,1,RC-Gap,,,,,,1.0,9.86343765258789,considered,considered,6
+20,35,4,The investigator who phoned the agency considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,1,RC-Gap,,,,,,1.0,13.467272758483887,Ms,Ms.,7
+20,35,4,The investigator who phoned the agency considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,1,RC-Gap,,,,,,1.0,0.6346539855003357,Reynolds,Reynolds,8
+20,35,4,The investigator who phoned the agency considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,1,RC-Gap,,,,,,1.0,5.9204912185668945,from,from,9
+21,35,6,The investigator who the agency phoned considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,0,RC-Gap,,,1.0,,,,-1,The,The,0
+21,35,6,The investigator who the agency phoned considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,0,RC-Gap,,,1.0,,,,12.139293670654297,investigator,investigator,1
+21,35,6,The investigator who the agency phoned considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,0,RC-Gap,,,1.0,,,,3.821638822555542,who,who,2
+21,35,6,The investigator who the agency phoned considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,0,RC-Gap,,,1.0,,,,5.433376312255859,the,the,3
+21,35,6,The investigator who the agency phoned considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,0,RC-Gap,,,1.0,,,,7.4601054191589355,agency,agency,4
+21,35,6,The investigator who the agency phoned considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,0,RC-Gap,,,1.0,,,,13.023663520812988,phoned,phoned,5
+21,35,6,The investigator who the agency phoned considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,0,RC-Gap,,,1.0,,,,10.754522323608398,considered,considered,6
+21,35,6,The investigator who the agency phoned considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,0,RC-Gap,,,1.0,,,,13.250215530395508,Ms,Ms.,7
+21,35,6,The investigator who the agency phoned considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,0,RC-Gap,,,1.0,,,,0.5976216197013855,Reynolds,Reynolds,8
+21,35,6,The investigator who the agency phoned considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,0,RC-Gap,,,1.0,,,,5.444582462310791,from,from,9
+22,36,4,The judge who addressed the witnesses noticed the defense attorneys.,Who was being addressed?,The witnesses,The judge,1,RC-Gap,,,,,,1.0,-1,The,The,0
+22,36,4,The judge who addressed the witnesses noticed the defense attorneys.,Who was being addressed?,The witnesses,The judge,1,RC-Gap,,,,,,1.0,8.997285842895508,judge,judge,1
+22,36,4,The judge who addressed the witnesses noticed the defense attorneys.,Who was being addressed?,The witnesses,The judge,1,RC-Gap,,,,,,1.0,3.85675048828125,who,who,2
+22,36,4,The judge who addressed the witnesses noticed the defense attorneys.,Who was being addressed?,The witnesses,The judge,1,RC-Gap,,,,,,1.0,8.046232223510742,addressed,addressed,3
+22,36,4,The judge who addressed the witnesses noticed the defense attorneys.,Who was being addressed?,The witnesses,The judge,1,RC-Gap,,,,,,1.0,0.7037724256515503,the,the,4
+22,36,4,The judge who addressed the witnesses noticed the defense attorneys.,Who was being addressed?,The witnesses,The judge,1,RC-Gap,,,,,,1.0,7.22964334487915,witnesses,witnesses,5
+22,36,4,The judge who addressed the witnesses noticed the defense attorneys.,Who was being addressed?,The witnesses,The judge,1,RC-Gap,,,,,,1.0,10.95891284942627,noticed,noticed,6
+22,36,4,The judge who addressed the witnesses noticed the defense attorneys.,Who was being addressed?,The witnesses,The judge,1,RC-Gap,,,,,,1.0,2.0216684341430664,the,the,7
+22,36,4,The judge who addressed the witnesses noticed the defense attorneys.,Who was being addressed?,The witnesses,The judge,1,RC-Gap,,,,,,1.0,9.074726104736328,defense,defense,8
+23,36,6,The judge who the witnesses addressed noticed the defense attorneys.,Who was being addressed?,The witnesses,The judge,0,RC-Gap,,,1.0,,,,-1,The,The,0
+23,36,6,The judge who the witnesses addressed noticed the defense attorneys.,Who was being addressed?,The witnesses,The judge,0,RC-Gap,,,1.0,,,,8.997285842895508,judge,judge,1
+23,36,6,The judge who the witnesses addressed noticed the defense attorneys.,Who was being addressed?,The witnesses,The judge,0,RC-Gap,,,1.0,,,,3.85675048828125,who,who,2
+23,36,6,The judge who the witnesses addressed noticed the defense attorneys.,Who was being addressed?,The witnesses,The judge,0,RC-Gap,,,1.0,,,,5.578107833862305,the,the,3
+23,36,6,The judge who the witnesses addressed noticed the defense attorneys.,Who was being addressed?,The witnesses,The judge,0,RC-Gap,,,1.0,,,,9.0106201171875,witnesses,witnesses,4
+23,36,6,The judge who the witnesses addressed noticed the defense attorneys.,Who was being addressed?,The witnesses,The judge,0,RC-Gap,,,1.0,,,,8.412859916687012,addressed,addressed,5
+23,36,6,The judge who the witnesses addressed noticed the defense attorneys.,Who was being addressed?,The witnesses,The judge,0,RC-Gap,,,1.0,,,,15.299178123474121,noticed,noticed,6
+23,36,6,The judge who the witnesses addressed noticed the defense attorneys.,Who was being addressed?,The witnesses,The judge,0,RC-Gap,,,1.0,,,,1.5929406881332397,the,the,7
+23,36,6,The judge who the witnesses addressed noticed the defense attorneys.,Who was being addressed?,The witnesses,The judge,0,RC-Gap,,,1.0,,,,8.672340393066406,defense,defense,8
+24,37,4,The manager who visited the boss remembered some inconvenient facts.,Who remembered the facts?,The boss,The manager,0,Matrix subject,1.0,,,,,,-1,The,The,0
+24,37,4,The manager who visited the boss remembered some inconvenient facts.,Who remembered the facts?,The boss,The manager,0,Matrix subject,1.0,,,,,,9.309735298156738,manager,manager,1
+24,37,4,The manager who visited the boss remembered some inconvenient facts.,Who remembered the facts?,The boss,The manager,0,Matrix subject,1.0,,,,,,4.127004623413086,who,who,2
+24,37,4,The manager who visited the boss remembered some inconvenient facts.,Who remembered the facts?,The boss,The manager,0,Matrix subject,1.0,,,,,,6.043111324310303,visited,visited,3
+24,37,4,The manager who visited the boss remembered some inconvenient facts.,Who remembered the facts?,The boss,The manager,0,Matrix subject,1.0,,,,,,0.8950954675674438,the,the,4
+24,37,4,The manager who visited the boss remembered some inconvenient facts.,Who remembered the facts?,The boss,The manager,0,Matrix subject,1.0,,,,,,10.932815551757812,boss,boss,5
+24,37,4,The manager who visited the boss remembered some inconvenient facts.,Who remembered the facts?,The boss,The manager,0,Matrix subject,1.0,,,,,,11.984798431396484,remembered,remembered,6
+24,37,4,The manager who visited the boss remembered some inconvenient facts.,Who remembered the facts?,The boss,The manager,0,Matrix subject,1.0,,,,,,6.313922882080078,some,some,7
+24,37,4,The manager who visited the boss remembered some inconvenient facts.,Who remembered the facts?,The boss,The manager,0,Matrix subject,1.0,,,,,,12.40195083618164,inconvenient,inconvenient,8
+25,37,6,The manager who the boss visited remembered some inconvenient facts.,Who remembered the facts?,The boss,The manager,0,Matrix subject,,,,1.0,,,-1,The,The,0
+25,37,6,The manager who the boss visited remembered some inconvenient facts.,Who remembered the facts?,The boss,The manager,0,Matrix subject,,,,1.0,,,9.309735298156738,manager,manager,1
+25,37,6,The manager who the boss visited remembered some inconvenient facts.,Who remembered the facts?,The boss,The manager,0,Matrix subject,,,,1.0,,,4.127004623413086,who,who,2
+25,37,6,The manager who the boss visited remembered some inconvenient facts.,Who remembered the facts?,The boss,The manager,0,Matrix subject,,,,1.0,,,5.799705982208252,the,the,3
+25,37,6,The manager who the boss visited remembered some inconvenient facts.,Who remembered the facts?,The boss,The manager,0,Matrix subject,,,,1.0,,,9.433141708374023,boss,boss,4
+25,37,6,The manager who the boss visited remembered some inconvenient facts.,Who remembered the facts?,The boss,The manager,0,Matrix subject,,,,1.0,,,7.106101989746094,visited,visited,5
+25,37,6,The manager who the boss visited remembered some inconvenient facts.,Who remembered the facts?,The boss,The manager,0,Matrix subject,,,,1.0,,,14.648651123046875,remembered,remembered,6
+25,37,6,The manager who the boss visited remembered some inconvenient facts.,Who remembered the facts?,The boss,The manager,0,Matrix subject,,,,1.0,,,6.718997001647949,some,some,7
+25,37,6,The manager who the boss visited remembered some inconvenient facts.,Who remembered the facts?,The boss,The manager,0,Matrix subject,,,,1.0,,,11.562540054321289,inconvenient,inconvenient,8
+26,38,4,The mathematician who visited the chairman created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,1.0,,,,,,-1,The,The,0
+26,38,4,The mathematician who visited the chairman created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,1.0,,,,,,11.596592903137207,mathematician,mathematician,1
+26,38,4,The mathematician who visited the chairman created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,1.0,,,,,,4.607857704162598,who,who,2
+26,38,4,The mathematician who visited the chairman created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,1.0,,,,,,5.993497371673584,visited,visited,3
+26,38,4,The mathematician who visited the chairman created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,1.0,,,,,,0.9166337251663208,the,the,4
+26,38,4,The mathematician who visited the chairman created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,1.0,,,,,,11.193506240844727,chairman,chairman,5
+26,38,4,The mathematician who visited the chairman created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,1.0,,,,,,10.85450553894043,created,created,6
+26,38,4,The mathematician who visited the chairman created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,1.0,,,,,,1.5254147052764893,a,a,7
+26,38,4,The mathematician who visited the chairman created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,1.0,,,,,,7.190770149230957,solution,solution,8
+26,38,4,The mathematician who visited the chairman created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,1.0,,,,,,0.9683635234832764,to,to,9
+26,38,4,The mathematician who visited the chairman created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,1.0,,,,,,0.7541287541389465,the,the,10
+26,38,4,The mathematician who visited the chairman created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,1.0,,,,,,2.4449949264526367,wellknown,wellknown,11
+27,38,6,The mathematician who the chairman visited created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,,,,1.0,,,-1,The,The,0
+27,38,6,The mathematician who the chairman visited created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,,,,1.0,,,11.596592903137207,mathematician,mathematician,1
+27,38,6,The mathematician who the chairman visited created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,,,,1.0,,,4.607857704162598,who,who,2
+27,38,6,The mathematician who the chairman visited created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,,,,1.0,,,6.036372661590576,the,the,3
+27,38,6,The mathematician who the chairman visited created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,,,,1.0,,,8.835700988769531,chairman,chairman,4
+27,38,6,The mathematician who the chairman visited created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,,,,1.0,,,7.303157329559326,visited,visited,5
+27,38,6,The mathematician who the chairman visited created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,,,,1.0,,,10.587873458862305,created,created,6
+27,38,6,The mathematician who the chairman visited created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,,,,1.0,,,1.8299691677093506,a,a,7
+27,38,6,The mathematician who the chairman visited created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,,,,1.0,,,7.8112382888793945,solution,solution,8
+27,38,6,The mathematician who the chairman visited created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,,,,1.0,,,0.9968801140785217,to,to,9
+27,38,6,The mathematician who the chairman visited created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,,,,1.0,,,0.7720436453819275,the,the,10
+27,38,6,The mathematician who the chairman visited created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,,,,1.0,,,2.595860004425049,wellknown,wellknown,11
+28,39,4,The monkeys that watched the zookeepers charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,,,,1.0,,,-1,The,The,0
+28,39,4,The monkeys that watched the zookeepers charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,,,,1.0,,,11.005918502807617,monkeys,monkeys,1
+28,39,4,The monkeys that watched the zookeepers charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,,,,1.0,,,4.543119430541992,that,that,2
+28,39,4,The monkeys that watched the zookeepers charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,,,,1.0,,,8.069153785705566,watched,watched,3
+28,39,4,The monkeys that watched the zookeepers charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,,,,1.0,,,0.7813365459442139,the,the,4
+28,39,4,The monkeys that watched the zookeepers charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,,,,1.0,,,1.616234540939331,zookeepers,zookeepers,5
+28,39,4,The monkeys that watched the zookeepers charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,,,,1.0,,,12.722145080566406,charged,charged,6
+28,39,4,The monkeys that watched the zookeepers charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,,,,1.0,,,3.1990432739257812,the,the,7
+28,39,4,The monkeys that watched the zookeepers charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,,,,1.0,,,10.0281982421875,bars,bars,8
+28,39,4,The monkeys that watched the zookeepers charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,,,,1.0,,,2.1445353031158447,of,of,9
+28,39,4,The monkeys that watched the zookeepers charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,,,,1.0,,,2.970438003540039,their,their,10
+29,39,6,The monkeys that the zookeepers watched charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,1.0,,,,,,-1,The,The,0
+29,39,6,The monkeys that the zookeepers watched charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,1.0,,,,,,11.005918502807617,monkeys,monkeys,1
+29,39,6,The monkeys that the zookeepers watched charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,1.0,,,,,,4.543119430541992,that,that,2
+29,39,6,The monkeys that the zookeepers watched charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,1.0,,,,,,3.561582326889038,the,the,3
+29,39,6,The monkeys that the zookeepers watched charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,1.0,,,,,,1.0252394676208496,zookeepers,zookeepers,4
+29,39,6,The monkeys that the zookeepers watched charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,1.0,,,,,,9.38778018951416,watched,watched,5
+29,39,6,The monkeys that the zookeepers watched charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,1.0,,,,,,13.801443099975586,charged,charged,6
+29,39,6,The monkeys that the zookeepers watched charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,1.0,,,,,,3.063424587249756,the,the,7
+29,39,6,The monkeys that the zookeepers watched charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,1.0,,,,,,11.19670295715332,bars,bars,8
+29,39,6,The monkeys that the zookeepers watched charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,1.0,,,,,,1.7804406881332397,of,of,9
+29,39,6,The monkeys that the zookeepers watched charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,1.0,,,,,,3.0633597373962402,their,their,10
+30,40,5,The movie star who visited the organizers proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,,,,1.0,,,-1,The,The,0
+30,40,5,The movie star who visited the organizers proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,,,,1.0,,,7.953320503234863,movie,movie,1
+30,40,5,The movie star who visited the organizers proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,,,,1.0,,,5.550920009613037,star,star,2
+30,40,5,The movie star who visited the organizers proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,,,,1.0,,,5.391724586486816,who,who,3
+30,40,5,The movie star who visited the organizers proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,,,,1.0,,,7.645509719848633,visited,visited,4
+30,40,5,The movie star who visited the organizers proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,,,,1.0,,,1.0827455520629883,the,the,5
+30,40,5,The movie star who visited the organizers proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,,,,1.0,,,13.97239875793457,organizers,organizers,6
+30,40,5,The movie star who visited the organizers proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,,,,1.0,,,10.551112174987793,proposed,proposed,7
+30,40,5,The movie star who visited the organizers proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,,,,1.0,,,3.8654606342315674,an,an,8
+30,40,5,The movie star who visited the organizers proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,,,,1.0,,,4.752274513244629,annual,annual,9
+31,40,7,The movie star who the organizers visited proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,1.0,,,,,,-1,The,The,0
+31,40,7,The movie star who the organizers visited proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,1.0,,,,,,7.953320503234863,movie,movie,1
+31,40,7,The movie star who the organizers visited proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,1.0,,,,,,5.550920009613037,star,star,2
+31,40,7,The movie star who the organizers visited proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,1.0,,,,,,5.391724586486816,who,who,3
+31,40,7,The movie star who the organizers visited proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,1.0,,,,,,5.46762752532959,the,the,4
+31,40,7,The movie star who the organizers visited proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,1.0,,,,,,12.600451469421387,organizers,organizers,5
+31,40,7,The movie star who the organizers visited proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,1.0,,,,,,8.189009666442871,visited,visited,6
+31,40,7,The movie star who the organizers visited proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,1.0,,,,,,12.741537094116211,proposed,proposed,7
+31,40,7,The movie star who the organizers visited proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,1.0,,,,,,5.037975788116455,an,an,8
+31,40,7,The movie star who the organizers visited proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,1.0,,,,,,4.164633750915527,annual,annual,9
+32,41,4,The neighbor who observed the couple purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,1.0,,,,,-1,The,The,0
+32,41,4,The neighbor who observed the couple purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,1.0,,,,,11.990789413452148,neighbor,neighbor,1
+32,41,4,The neighbor who observed the couple purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,1.0,,,,,4.0404276847839355,who,who,2
+32,41,4,The neighbor who observed the couple purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,1.0,,,,,7.939798355102539,observed,observed,3
+32,41,4,The neighbor who observed the couple purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,1.0,,,,,1.2630575895309448,the,the,4
+32,41,4,The neighbor who observed the couple purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,1.0,,,,,7.5753631591796875,couple,couple,5
+32,41,4,The neighbor who observed the couple purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,1.0,,,,,10.813660621643066,purchased,purchased,6
+32,41,4,The neighbor who observed the couple purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,1.0,,,,,1.7863695621490479,the,the,7
+32,41,4,The neighbor who observed the couple purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,1.0,,,,,5.437190055847168,old,old,8
+32,41,4,The neighbor who observed the couple purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,1.0,,,,,1.26632821559906,Victorian,Victorian,9
+33,41,6,The neighbor who the couple observed purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,,,,1.0,,-1,The,The,0
+33,41,6,The neighbor who the couple observed purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,,,,1.0,,11.990789413452148,neighbor,neighbor,1
+33,41,6,The neighbor who the couple observed purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,,,,1.0,,4.0404276847839355,who,who,2
+33,41,6,The neighbor who the couple observed purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,,,,1.0,,5.847107887268066,the,the,3
+33,41,6,The neighbor who the couple observed purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,,,,1.0,,5.598810195922852,couple,couple,4
+33,41,6,The neighbor who the couple observed purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,,,,1.0,,9.530739784240723,observed,observed,5
+33,41,6,The neighbor who the couple observed purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,,,,1.0,,12.524971008300781,purchased,purchased,6
+33,41,6,The neighbor who the couple observed purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,,,,1.0,,2.2862563133239746,the,the,7
+33,41,6,The neighbor who the couple observed purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,,,,1.0,,5.250848770141602,old,old,8
+33,41,6,The neighbor who the couple observed purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,,,,1.0,,1.085078477859497,Victorian,Victorian,9
+34,42,4,The pilot who delayed the ground crew remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,1.0,,,,,-1,The,The,0
+34,42,4,The pilot who delayed the ground crew remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,1.0,,,,,8.970030784606934,pilot,pilot,1
+34,42,4,The pilot who delayed the ground crew remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,1.0,,,,,4.967623233795166,who,who,2
+34,42,4,The pilot who delayed the ground crew remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,1.0,,,,,10.859331130981445,delayed,delayed,3
+34,42,4,The pilot who delayed the ground crew remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,1.0,,,,,0.9061632752418518,the,the,4
+34,42,4,The pilot who delayed the ground crew remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,1.0,,,,,7.022051811218262,ground,ground,5
+34,42,4,The pilot who delayed the ground crew remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,1.0,,,,,5.144954681396484,crew,crew,6
+34,42,4,The pilot who delayed the ground crew remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,1.0,,,,,10.103487968444824,remained,remained,7
+34,42,4,The pilot who delayed the ground crew remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,1.0,,,,,2.9564027786254883,on,on,8
+34,42,4,The pilot who delayed the ground crew remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,1.0,,,,,0.7775541543960571,the,the,9
+34,42,4,The pilot who delayed the ground crew remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,1.0,,,,,6.691252708435059,runway,runway,10
+34,42,4,The pilot who delayed the ground crew remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,1.0,,,,,2.351240396499634,for,for,11
+34,42,4,The pilot who delayed the ground crew remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,1.0,,,,,2.0962765216827393,a,a,12
+34,42,4,The pilot who delayed the ground crew remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,1.0,,,,,2.963253974914551,long,long,13
+35,42,6,The pilot who the ground crew delayed remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,,,,1.0,,-1,The,The,0
+35,42,6,The pilot who the ground crew delayed remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,,,,1.0,,8.970030784606934,pilot,pilot,1
+35,42,6,The pilot who the ground crew delayed remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,,,,1.0,,4.967623233795166,who,who,2
+35,42,6,The pilot who the ground crew delayed remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,,,,1.0,,5.973838806152344,the,the,3
+35,42,6,The pilot who the ground crew delayed remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,,,,1.0,,8.287463188171387,ground,ground,4
+35,42,6,The pilot who the ground crew delayed remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,,,,1.0,,3.2929255962371826,crew,crew,5
+35,42,6,The pilot who the ground crew delayed remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,,,,1.0,,11.901397705078125,delayed,delayed,6
+35,42,6,The pilot who the ground crew delayed remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,,,,1.0,,12.081262588500977,remained,remained,7
+35,42,6,The pilot who the ground crew delayed remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,,,,1.0,,3.1651902198791504,on,on,8
+35,42,6,The pilot who the ground crew delayed remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,,,,1.0,,0.7104664444923401,the,the,9
+35,42,6,The pilot who the ground crew delayed remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,,,,1.0,,6.032017707824707,runway,runway,10
+35,42,6,The pilot who the ground crew delayed remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,,,,1.0,,2.679802417755127,for,for,11
+35,42,6,The pilot who the ground crew delayed remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,,,,1.0,,2.0430169105529785,a,a,12
+35,42,6,The pilot who the ground crew delayed remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,,,,1.0,,2.8681530952453613,long,long,13
+36,43,4,The soldiers that helped the natives climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,,,,1.0,,-1,The,The,0
+36,43,4,The soldiers that helped the natives climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,,,,1.0,,8.682760238647461,soldiers,soldiers,1
+36,43,4,The soldiers that helped the natives climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,,,,1.0,,4.382925033569336,that,that,2
+36,43,4,The soldiers that helped the natives climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,,,,1.0,,5.988711833953857,helped,helped,3
+36,43,4,The soldiers that helped the natives climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,,,,1.0,,1.827157974243164,the,the,4
+36,43,4,The soldiers that helped the natives climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,,,,1.0,,6.86793327331543,natives,natives,5
+36,43,4,The soldiers that helped the natives climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,,,,1.0,,11.95980453491211,climbed,climbed,6
+36,43,4,The soldiers that helped the natives climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,,,,1.0,,0.7676504254341125,the,the,7
+36,43,4,The soldiers that helped the natives climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,,,,1.0,,8.568336486816406,big,big,8
+36,43,4,The soldiers that helped the natives climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,,,,1.0,,6.153982639312744,rock,rock,9
+36,43,4,The soldiers that helped the natives climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,,,,1.0,,4.980057716369629,that,that,10
+36,43,4,The soldiers that helped the natives climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,,,,1.0,,7.429928302764893,blocked,blocked,11
+36,43,4,The soldiers that helped the natives climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,,,,1.0,,0.5523362159729004,the,the,12
+37,43,6,The soldiers that the natives helped climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,1.0,,,,,-1,The,The,0
+37,43,6,The soldiers that the natives helped climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,1.0,,,,,8.682760238647461,soldiers,soldiers,1
+37,43,6,The soldiers that the natives helped climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,1.0,,,,,4.382925033569336,that,that,2
+37,43,6,The soldiers that the natives helped climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,1.0,,,,,3.4620985984802246,the,the,3
+37,43,6,The soldiers that the natives helped climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,1.0,,,,,7.3527021408081055,natives,natives,4
+37,43,6,The soldiers that the natives helped climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,1.0,,,,,6.952859878540039,helped,helped,5
+37,43,6,The soldiers that the natives helped climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,1.0,,,,,14.444151878356934,climbed,climbed,6
+37,43,6,The soldiers that the natives helped climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,1.0,,,,,2.684610366821289,the,the,7
+37,43,6,The soldiers that the natives helped climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,1.0,,,,,7.4888787269592285,big,big,8
+37,43,6,The soldiers that the natives helped climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,1.0,,,,,6.1539201736450195,rock,rock,9
+37,43,6,The soldiers that the natives helped climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,1.0,,,,,4.294046401977539,that,that,10
+37,43,6,The soldiers that the natives helped climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,1.0,,,,,8.164308547973633,blocked,blocked,11
+37,43,6,The soldiers that the natives helped climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,1.0,,,,,0.5752636194229126,the,the,12
+38,44,4,The speaker who entertained the economists predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,,,,1.0,,-1,The,The,0
+38,44,4,The speaker who entertained the economists predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,,,,1.0,,8.911229133605957,speaker,speaker,1
+38,44,4,The speaker who entertained the economists predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,,,,1.0,,4.521950721740723,who,who,2
+38,44,4,The speaker who entertained the economists predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,,,,1.0,,8.677728652954102,entertained,entertained,3
+38,44,4,The speaker who entertained the economists predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,,,,1.0,,1.0404987335205078,the,the,4
+38,44,4,The speaker who entertained the economists predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,,,,1.0,,14.782832145690918,economists,economists,5
+38,44,4,The speaker who entertained the economists predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,,,,1.0,,11.054118156433105,predicted,predicted,6
+38,44,4,The speaker who entertained the economists predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,,,,1.0,,4.504733085632324,a,a,7
+38,44,4,The speaker who entertained the economists predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,,,,1.0,,4.583571910858154,good,good,8
+38,44,4,The speaker who entertained the economists predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,,,,1.0,,4.393377304077148,year,year,9
+38,44,4,The speaker who entertained the economists predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,,,,1.0,,2.5821211338043213,for,for,10
+38,44,4,The speaker who entertained the economists predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,,,,1.0,,0.8325846791267395,the,the,11
+39,44,6,The speaker who the economists entertained predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,1.0,,,,,-1,The,The,0
+39,44,6,The speaker who the economists entertained predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,1.0,,,,,8.911229133605957,speaker,speaker,1
+39,44,6,The speaker who the economists entertained predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,1.0,,,,,4.521950721740723,who,who,2
+39,44,6,The speaker who the economists entertained predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,1.0,,,,,5.5044755935668945,the,the,3
+39,44,6,The speaker who the economists entertained predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,1.0,,,,,14.066402435302734,economists,economists,4
+39,44,6,The speaker who the economists entertained predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,1.0,,,,,10.82306957244873,entertained,entertained,5
+39,44,6,The speaker who the economists entertained predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,1.0,,,,,11.401151657104492,predicted,predicted,6
+39,44,6,The speaker who the economists entertained predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,1.0,,,,,3.2367472648620605,a,a,7
+39,44,6,The speaker who the economists entertained predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,1.0,,,,,4.216581344604492,good,good,8
+39,44,6,The speaker who the economists entertained predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,1.0,,,,,5.509346961975098,year,year,9
+39,44,6,The speaker who the economists entertained predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,1.0,,,,,2.6413469314575195,for,for,10
+39,44,6,The speaker who the economists entertained predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,1.0,,,,,0.9399324655532837,the,the,11
+40,45,5,The table top that rested on the box screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,1.0,,,,-1,The,The,0
+40,45,5,The table top that rested on the box screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,1.0,,,,8.599283218383789,table,table,1
+40,45,5,The table top that rested on the box screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,1.0,,,,8.642145156860352,top,top,2
+40,45,5,The table top that rested on the box screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,1.0,,,,6.032877445220947,that,that,3
+40,45,5,The table top that rested on the box screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,1.0,,,,9.800667762756348,rested,rested,4
+40,45,5,The table top that rested on the box screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,1.0,,,,1.5071938037872314,on,on,5
+40,45,5,The table top that rested on the box screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,1.0,,,,0.6329794526100159,the,the,6
+40,45,5,The table top that rested on the box screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,1.0,,,,6.818594455718994,box,box,7
+40,45,5,The table top that rested on the box screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,1.0,,,,14.339661598205566,screwed,screwed,8
+40,45,5,The table top that rested on the box screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,1.0,,,,8.173552513122559,directly,directly,9
+40,45,5,The table top that rested on the box screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,1.0,,,,2.9656007289886475,to,to,10
+40,45,5,The table top that rested on the box screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,1.0,,,,0.4650152921676636,the,the,11
+41,45,7,The table top that the box rested on screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,,,,1.0,-1,The,The,0
+41,45,7,The table top that the box rested on screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,,,,1.0,8.599283218383789,table,table,1
+41,45,7,The table top that the box rested on screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,,,,1.0,8.642145156860352,top,top,2
+41,45,7,The table top that the box rested on screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,,,,1.0,6.032877445220947,that,that,3
+41,45,7,The table top that the box rested on screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,,,,1.0,2.4002087116241455,the,the,4
+41,45,7,The table top that the box rested on screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,,,,1.0,7.955883026123047,box,box,5
+41,45,7,The table top that the box rested on screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,,,,1.0,10.142410278320312,rested,rested,6
+41,45,7,The table top that the box rested on screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,,,,1.0,1.8795762062072754,on,on,7
+41,45,7,The table top that the box rested on screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,,,,1.0,15.35976505279541,screwed,screwed,8
+41,45,7,The table top that the box rested on screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,,,,1.0,9.181175231933594,directly,directly,9
+41,45,7,The table top that the box rested on screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,,,,1.0,3.627005100250244,to,to,10
+41,45,7,The table top that the box rested on screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,,,,1.0,0.483464777469635,the,the,11
+42,46,4,The trainer who called the jockey rubbed the horse\'s skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,1.0,,,,-1,The,The,0
+42,46,4,The trainer who called the jockey rubbed the horse\'s skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,1.0,,,,11.54099178314209,trainer,trainer,1
+42,46,4,The trainer who called the jockey rubbed the horse\'s skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,1.0,,,,4.44285774230957,who,who,2
+42,46,4,The trainer who called the jockey rubbed the horse\'s skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,1.0,,,,5.942573547363281,called,called,3
+42,46,4,The trainer who called the jockey rubbed the horse\'s skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,1.0,,,,1.4119154214859009,the,the,4
+42,46,4,The trainer who called the jockey rubbed the horse\'s skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,1.0,,,,10.349167823791504,jockey,jockey,5
+42,46,4,The trainer who called the jockey rubbed the horse\'s skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,1.0,,,,14.905817985534668,rubbed,rubbed,6
+42,46,4,The trainer who called the jockey rubbed the horse\'s skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,1.0,,,,1.39802885055542,the,the,7
+42,46,4,The trainer who called the jockey rubbed the horse\'s skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,1.0,,,,6.60283088684082,horse,horse\'s,8
+42,46,4,The trainer who called the jockey rubbed the horse\'s skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,1.0,,,,3.052486479282379,s.skin,skin.,9
+43,46,6,The trainer who the jockey called rubbed the horse\'s skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,,,,1.0,-1,The,The,0
+43,46,6,The trainer who the jockey called rubbed the horse\'s skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,,,,1.0,11.54099178314209,trainer,trainer,1
+43,46,6,The trainer who the jockey called rubbed the horse\'s skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,,,,1.0,4.44285774230957,who,who,2
+43,46,6,The trainer who the jockey called rubbed the horse\'s skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,,,,1.0,5.638973236083984,the,the,3
+43,46,6,The trainer who the jockey called rubbed the horse\'s skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,,,,1.0,9.92427921295166,jockey,jockey,4
+43,46,6,The trainer who the jockey called rubbed the horse\'s skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,,,,1.0,4.632543087005615,called,called,5
+43,46,6,The trainer who the jockey called rubbed the horse\'s skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,,,,1.0,16.83209228515625,rubbed,rubbed,6
+43,46,6,The trainer who the jockey called rubbed the horse\'s skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,,,,1.0,2.4572927951812744,the,the,7
+43,46,6,The trainer who the jockey called rubbed the horse\'s skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,,,,1.0,6.513418197631836,horse,horse\'s,8
+43,46,6,The trainer who the jockey called rubbed the horse\'s skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,,,,1.0,3.2859067916870117,s.skin,skin.,9
+44,47,4,The veteran who admired the coach defeated his greatest rival.,Who defeated their rival?,The coach,The veteran,0,Matrix subject,,,,,,1.0,-1,The,The,0
+44,47,4,The veteran who admired the coach defeated his greatest rival.,Who defeated their rival?,The coach,The veteran,0,Matrix subject,,,,,,1.0,10.287702560424805,veteran,veteran,1
+44,47,4,The veteran who admired the coach defeated his greatest rival.,Who defeated their rival?,The coach,The veteran,0,Matrix subject,,,,,,1.0,4.470569133758545,who,who,2
+44,47,4,The veteran who admired the coach defeated his greatest rival.,Who defeated their rival?,The coach,The veteran,0,Matrix subject,,,,,,1.0,8.992216110229492,admired,admired,3
+44,47,4,The veteran who admired the coach defeated his greatest rival.,Who defeated their rival?,The coach,The veteran,0,Matrix subject,,,,,,1.0,0.8936715722084045,the,the,4
+44,47,4,The veteran who admired the coach defeated his greatest rival.,Who defeated their rival?,The coach,The veteran,0,Matrix subject,,,,,,1.0,9.592438697814941,coach,coach,5
+44,47,4,The veteran who admired the coach defeated his greatest rival.,Who defeated their rival?,The coach,The veteran,0,Matrix subject,,,,,,1.0,12.382808685302734,defeated,defeated,6
+44,47,4,The veteran who admired the coach defeated his greatest rival.,Who defeated their rival?,The coach,The veteran,0,Matrix subject,,,,,,1.0,4.903922080993652,his,his,7
+44,47,4,The veteran who admired the coach defeated his greatest rival.,Who defeated their rival?,The coach,The veteran,0,Matrix subject,,,,,,1.0,8.215290069580078,greatest,greatest,8
+45,47,6,The veteran who the coach admired defeated his greatest rival.,Who defeated their rival?,The coach,The veteran,0,Matrix subject,,,1.0,,,,-1,The,The,0
+45,47,6,The veteran who the coach admired defeated his greatest rival.,Who defeated their rival?,The coach,The veteran,0,Matrix subject,,,1.0,,,,10.287702560424805,veteran,veteran,1
+45,47,6,The veteran who the coach admired defeated his greatest rival.,Who defeated their rival?,The coach,The veteran,0,Matrix subject,,,1.0,,,,4.470569133758545,who,who,2
+45,47,6,The veteran who the coach admired defeated his greatest rival.,Who defeated their rival?,The coach,The veteran,0,Matrix subject,,,1.0,,,,5.9654388427734375,the,the,3
+45,47,6,The veteran who the coach admired defeated his greatest rival.,Who defeated their rival?,The coach,The veteran,0,Matrix subject,,,1.0,,,,9.437895774841309,coach,coach,4
+45,47,6,The veteran who the coach admired defeated his greatest rival.,Who defeated their rival?,The coach,The veteran,0,Matrix subject,,,1.0,,,,8.323246002197266,admired,admired,5
+45,47,6,The veteran who the coach admired defeated his greatest rival.,Who defeated their rival?,The coach,The veteran,0,Matrix subject,,,1.0,,,,14.66227912902832,defeated,defeated,6
+45,47,6,The veteran who the coach admired defeated his greatest rival.,Who defeated their rival?,The coach,The veteran,0,Matrix subject,,,1.0,,,,4.1138434410095215,his,his,7
+45,47,6,The veteran who the coach admired defeated his greatest rival.,Who defeated their rival?,The coach,The veteran,0,Matrix subject,,,1.0,,,,8.084075927734375,greatest,greatest,8
+46,48,4,The visitor who introduced the student walked across the quad.,Who walked across the quad?,The visitor,The student,1,Matrix subject,,,,,,1.0,-1,The,The,0
+46,48,4,The visitor who introduced the student walked across the quad.,Who walked across the quad?,The visitor,The student,1,Matrix subject,,,,,,1.0,10.014971733093262,visitor,visitor,1
+46,48,4,The visitor who introduced the student walked across the quad.,Who walked across the quad?,The visitor,The student,1,Matrix subject,,,,,,1.0,5.280974388122559,who,who,2
+46,48,4,The visitor who introduced the student walked across the quad.,Who walked across the quad?,The visitor,The student,1,Matrix subject,,,,,,1.0,6.951279640197754,introduced,introduced,3
+46,48,4,The visitor who introduced the student walked across the quad.,Who walked across the quad?,The visitor,The student,1,Matrix subject,,,,,,1.0,1.0831232070922852,the,the,4
+46,48,4,The visitor who introduced the student walked across the quad.,Who walked across the quad?,The visitor,The student,1,Matrix subject,,,,,,1.0,9.279046058654785,student,student,5
+46,48,4,The visitor who introduced the student walked across the quad.,Who walked across the quad?,The visitor,The student,1,Matrix subject,,,,,,1.0,13.326153755187988,walked,walked,6
+46,48,4,The visitor who introduced the student walked across the quad.,Who walked across the quad?,The visitor,The student,1,Matrix subject,,,,,,1.0,5.4405198097229,across,across,7
+46,48,4,The visitor who introduced the student walked across the quad.,Who walked across the quad?,The visitor,The student,1,Matrix subject,,,,,,1.0,0.3685895502567291,the,the,8
+47,48,6,The visitor who the student introduced walked across the quad.,Who walked across the quad?,The visitor,The student,1,Matrix subject,,,1.0,,,,-1,The,The,0
+47,48,6,The visitor who the student introduced walked across the quad.,Who walked across the quad?,The visitor,The student,1,Matrix subject,,,1.0,,,,10.014971733093262,visitor,visitor,1
+47,48,6,The visitor who the student introduced walked across the quad.,Who walked across the quad?,The visitor,The student,1,Matrix subject,,,1.0,,,,5.280974388122559,who,who,2
+47,48,6,The visitor who the student introduced walked across the quad.,Who walked across the quad?,The visitor,The student,1,Matrix subject,,,1.0,,,,5.669487953186035,the,the,3
+47,48,6,The visitor who the student introduced walked across the quad.,Who walked across the quad?,The visitor,The student,1,Matrix subject,,,1.0,,,,7.6826629638671875,student,student,4
+47,48,6,The visitor who the student introduced walked across the quad.,Who walked across the quad?,The visitor,The student,1,Matrix subject,,,1.0,,,,9.176094055175781,introduced,introduced,5
+47,48,6,The visitor who the student introduced walked across the quad.,Who walked across the quad?,The visitor,The student,1,Matrix subject,,,1.0,,,,13.242561340332031,walked,walked,6
+47,48,6,The visitor who the student introduced walked across the quad.,Who walked across the quad?,The visitor,The student,1,Matrix subject,,,1.0,,,,4.789371013641357,across,across,7
+47,48,6,The visitor who the student introduced walked across the quad.,Who walked across the quad?,The visitor,The student,1,Matrix subject,,,1.0,,,,0.535320520401001,the,the,8
