@@ -118,7 +118,8 @@ with torch.no_grad():
                                  for j in range(breaks[i], breaks[i+1])]
                         for merge_fn, merge_f in merge_fs.items():
                             new_row[merge_fn +  "surprisal" + tag] = merge_f(surps)
-                new_row["token"] = ".".join(pieces)
+                new_row["token"] = ".".join([w if w in dictionary.word2idx 
+                                             else "<UNK>" for w in pieces])
                 new_row["word"] = word
                 new_row["word_pos"] = i 
                 out_rows.append(new_row)
@@ -129,7 +130,7 @@ with torch.no_grad():
                 for j, model in enumerate(models):
                     tag = "_m{}".format(j) if len(models) > 1 else ""
                     new_row["surprisal" + tag] = -1 if i == 0 else -F.log_softmax(out[i-1], dim=-1).view(-1)[word_idx].item()
-                new_row["token"] = word
+                new_row["token"] = word if word in dictionary.w2idx else "<UNK>"
                 new_row["word"] = word
                 new_row["word_pos"] = i 
                 out_rows.append(new_row)
