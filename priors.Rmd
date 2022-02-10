@@ -80,7 +80,7 @@ hist(rnorm(100000, mean=0, sd = 500))
 
 verb_dat <- readRDS('./saved_objects/verb_dat')
 
-prior1_fit <- brm(RT ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item),
+prior1_fit_notrunc <- brm(corrected_rt ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item),
                       data=verb_dat,
                       cores = 4,
                       prior = prior1,
@@ -89,19 +89,69 @@ prior1_fit <- brm(RT ~ Type_num + (0 + Type_num | participant) + (1 + Type_num |
                       sample_prior = "only")
 
 
-prior1_fit_trunc <- brm(RT |trunc(lb=0) ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item),
-                            data=verb_dat,
-                            cores = 4,
-                            prior = prior1,
-                            iter = 4000,
-                            seed = 117,
-                            sample_prior = "only")
+prior1_fit<- brm(RT |trunc(lb=0) ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item),
+                data=verb_dat,
+                cores = 4,
+                prior = prior1,
+                iter = 4000,
+                seed = 117,
+                sample_prior = "only")
 
 
 ##note for corrected RT truncation won't work because there can be negative values!
 ```
 **Non-truncated distribution**
 
+```{r, cache=TRUE}
+
+prior1_fit_samps_notrunc <-  data.frame(t(posterior_predict(prior1_fit_notrunc, ndraws=1000))) %>%
+  gather(key='sim', value = 'pred_sample') 
+
+
+
+ggplot(prior1_fit_samps_notrunc, aes(x = pred_sample)) + 
+  geom_density()
+
+
+## Plotting the difference between SRC and ORC 
+
+post_samples <- posterior_samples(prior1_fit_notrunc) %>%
+  select(starts_with('b_')) %>%
+  gather(key=Parameter, val = 'Param_val', starts_with('b_'))
+  
+
+ggplot(post_samples, aes(y=Param_val, x = Parameter)) +
+  geom_boxplot()  +
+  facet_wrap(~Parameter, scales="free")
+
+
+
+## Plotting the histograms for SRC and ORC
+
+post_samples_bycond <-  posterior_samples(prior1_fit_notrunc) %>%
+  mutate(RT_subj  = b_Intercept,
+         RT_obj = b_Intercept + b_Type_num) %>%
+  select(RT_subj, RT_obj) %>%
+  gather(key = 'cond', value = 'RT', RT_subj, RT_obj) %>%
+  group_by(cond) %>%
+  summarise(mean = mean(RT),
+            lower = quantile(RT, 0.025)[[1]],
+            upper = quantile(RT, 0.975)[[1]]) 
+
+
+ggplot(post_samples_bycond, aes(x = cond, y=mean)) + 
+  geom_point(stat="identity", postion= position_dodge() ) + 
+  geom_errorbar(aes(ymin=lower,
+                    ymax=upper), 
+                width=0.2) 
+
+
+
+```
+
+
+
+**Truncated distribution**
 ```{r, cache=TRUE}
 
 prior1_fit_samps <-  data.frame(t(posterior_predict(prior1_fit, ndraws=1000))) %>%
@@ -150,56 +200,6 @@ ggplot(post_samples_bycond, aes(x = cond, y=mean)) +
 ```
 
 
-
-**Truncated distribution**
-```{r, cache=TRUE}
-
-prior1_fit_samps_trunc <-  data.frame(t(posterior_predict(prior1_fit_trunc, ndraws=1000))) %>%
-  gather(key='sim', value = 'pred_sample') 
-
-
-
-ggplot(prior1_fit_samps_trunc, aes(x = pred_sample)) + 
-  geom_density()
-
-
-## Plotting the difference between SRC and ORC 
-
-post_samples <- posterior_samples(prior1_fit_trunc) %>%
-  select(starts_with('b_')) %>%
-  gather(key=Parameter, val = 'Param_val', starts_with('b_'))
-  
-
-ggplot(post_samples, aes(y=Param_val, x = Parameter)) +
-  geom_boxplot()  +
-  facet_wrap(~Parameter, scales="free")
-
-
-
-## Plotting the histograms for SRC and ORC
-
-post_samples_bycond <-  posterior_samples(prior1_fit_trunc) %>%
-  mutate(RT_subj  = b_Intercept,
-         RT_obj = b_Intercept + b_Type_num) %>%
-  select(RT_subj, RT_obj) %>%
-  gather(key = 'cond', value = 'RT', RT_subj, RT_obj) %>%
-  group_by(cond) %>%
-  summarise(mean = mean(RT),
-            lower = quantile(RT, 0.025)[[1]],
-            upper = quantile(RT, 0.975)[[1]]) 
-
-
-ggplot(post_samples_bycond, aes(x = cond, y=mean)) + 
-  geom_point(stat="identity", postion= position_dodge() ) + 
-  geom_errorbar(aes(ymin=lower,
-                    ymax=upper), 
-                width=0.2) 
-
-
-
-```
-
-
 #### Prior 2
 
 ```{r, cache=TRUE}
@@ -223,7 +223,7 @@ hist(rnorm(100000, mean=20, sd = 100))
 
 ```{r, cache=TRUE, include=FALSE}
 
-prior2_fit <- brm(RT ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item),
+prior2_fit <- brm(RT |trunc(lb=0) ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item),
                       data=verb_dat,
                       cores = 4,
                       prior = prior2,
@@ -303,7 +303,7 @@ hist(rnorm(100000, mean=0, sd = 150))
 
 ```{r, cache=TRUE, include=FALSE}
 
-prior3_fit <- brm(RT ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item),
+prior3_fit <- brm(RT | trunc(lb=0) ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item),
                       data=verb_dat,
                       cores = 4,
                       prior = prior3,
