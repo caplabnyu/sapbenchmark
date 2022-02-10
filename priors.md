@@ -72,12 +72,12 @@ hist(rnorm(100000, mean=0, sd = 500))
 **Non-truncated distribution**
 
 ``` r
-prior1_fit_samps <-  data.frame(t(posterior_predict(prior1_fit, ndraws=1000))) %>%
+prior1_fit_samps_notrunc <-  data.frame(t(posterior_predict(prior1_fit_notrunc, ndraws=1000))) %>%
   gather(key='sim', value = 'pred_sample') 
 
 
 
-ggplot(prior1_fit_samps, aes(x = pred_sample)) + 
+ggplot(prior1_fit_samps_notrunc, aes(x = pred_sample)) + 
   geom_density()
 ```
 
@@ -86,7 +86,7 @@ ggplot(prior1_fit_samps, aes(x = pred_sample)) +
 ``` r
 ## Plotting the difference between SRC and ORC 
 
-post_samples <- posterior_samples(prior1_fit) %>%
+post_samples <- posterior_samples(prior1_fit_notrunc) %>%
   select(starts_with('b_')) %>%
   gather(key=Parameter, val = 'Param_val', starts_with('b_'))
 ```
@@ -105,7 +105,7 @@ ggplot(post_samples, aes(y=Param_val, x = Parameter)) +
 ``` r
 ## Plotting the histograms for SRC and ORC
 
-post_samples_bycond <-  posterior_samples(prior1_fit) %>%
+post_samples_bycond <-  posterior_samples(prior1_fit_notrunc) %>%
   mutate(RT_subj  = b_Intercept,
          RT_obj = b_Intercept + b_Type_num) %>%
   select(RT_subj, RT_obj) %>%
@@ -134,23 +134,23 @@ ggplot(post_samples_bycond, aes(x = cond, y=mean)) +
 **Truncated distribution**
 
 ``` r
-prior1_fit_samps_trunc <-  data.frame(t(posterior_predict(prior1_fit_trunc, ndraws=1000))) %>%
+prior1_fit_samps <-  data.frame(t(posterior_predict(prior1_fit, ndraws=1000))) %>%
   gather(key='sim', value = 'pred_sample') 
 
 
 
-ggplot(prior1_fit_samps_trunc, aes(x = pred_sample)) + 
+ggplot(prior1_fit_samps, aes(x = pred_sample)) + 
   geom_density()
 ```
 
-    ## Warning: Removed 711245 rows containing non-finite values (stat_density).
+    ## Warning: Removed 918135 rows containing non-finite values (stat_density).
 
 ![](priors_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 ``` r
 ## Plotting the difference between SRC and ORC 
 
-post_samples <- posterior_samples(prior1_fit_trunc) %>%
+post_samples <- posterior_samples(prior1_fit) %>%
   select(starts_with('b_')) %>%
   gather(key=Parameter, val = 'Param_val', starts_with('b_'))
 ```
@@ -169,7 +169,7 @@ ggplot(post_samples, aes(y=Param_val, x = Parameter)) +
 ``` r
 ## Plotting the histograms for SRC and ORC
 
-post_samples_bycond <-  posterior_samples(prior1_fit_trunc) %>%
+post_samples_bycond <-  posterior_samples(prior1_fit) %>%
   mutate(RT_subj  = b_Intercept,
          RT_obj = b_Intercept + b_Type_num) %>%
   select(RT_subj, RT_obj) %>%
@@ -220,6 +220,8 @@ prior2_fit_samps <-  data.frame(t(posterior_predict(prior2_fit, ndraws=1000))) %
 ggplot(prior2_fit_samps, aes(x = pred_sample)) + 
   geom_density()
 ```
+
+    ## Warning: Removed 711089 rows containing non-finite values (stat_density).
 
 ![](priors_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
@@ -296,6 +298,8 @@ prior3_fit_samps <-  data.frame(t(posterior_predict(prior3_fit, ndraws=1000))) %
 ggplot(prior3_fit_samps, aes(x = pred_sample)) + 
   geom_density()
 ```
+
+    ## Warning: Removed 1361636 rows containing non-finite values (stat_density).
 
 ![](priors_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
 
