@@ -1,0 +1,6 @@
+[submodule "rnng-pytorch"]
+	path = Surprisals/rnng-pytorch
+	url = https://github.com/aistairc/rnng-pytorch
+[submodule "colorlessgreenRNNs"]
+	path = Surprisals/colorlessgreenRNNs
+	url = https://github.com/facebookresearch/colorlessgreenRNNs
