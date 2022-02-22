@@ -13,7 +13,7 @@ library(extraDistr)
 ### Writing down what we know for the least informative prior
 
 ##### Intercept
-Under sum contrast coding, this is the grand mean RT per word. Minimum RT is 0 ms. Maximum is unlikely to be greater than 3000
+Under treatment coding, this is mean RT per word in the baseline condition. Minimum RT is 0 ms. Maximum is unlikely to be greater than 3000
 
 
 ##### Fixed effects
@@ -38,8 +38,8 @@ Lets assume that it is very unlikely our residual variance is going to be greate
 ```{r}
 
 prior1 <- c(prior("normal(300,1000)", class = "Intercept"),
-                prior("normal(20,150)", class = "b"),  
-                prior("normal(0,200)", class = "sd"),
+                prior("normal(0,150)", class = "b"),  
+                prior("normal(0,200)", class = "sd"),  #brms automatically truncates the dist.  
                 prior("normal(0,500)", class = "sigma"))
 
 ```
@@ -76,7 +76,7 @@ hist(rnorm(100000, mean=0, sd = 500))
 
 
 
-```{r, cache=TRUE, include=FALSE}
+```{r, cache=TRUE}
 
 verb_dat <- readRDS('./saved_objects/verb_dat')
 
@@ -205,7 +205,7 @@ ggplot(post_samples_bycond, aes(x = cond, y=mean)) +
 ```{r, cache=TRUE}
 
 prior2 <- c(prior("normal(300,1000)", class = "Intercept"),
-                prior("normal(20,100)", class = "b"),  
+                prior("normal(0,100)", class = "b"),  
                 prior("normal(0,200)", class = "sd"),
                 prior("normal(0,500)", class = "sigma"))
 
@@ -221,7 +221,7 @@ hist(rnorm(100000, mean=20, sd = 100))
 
 
 
-```{r, cache=TRUE, include=FALSE}
+```{r, cache=TRUE}
 
 prior2_fit <- brm(RT |trunc(lb=0) ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item),
                       data=verb_dat,
@@ -287,7 +287,7 @@ ggplot(post_samples_bycond, aes(x = cond, y=mean)) +
 ```{r, cache=TRUE}
 
 prior3 <- c(prior("normal(300,1000)", class = "Intercept"),
-                prior("normal(20,100)", class = "b"),  
+                prior("normal(0,100)", class = "b"),  
                 prior("normal(0,150)", class = "sd"),
                 prior("normal(0,300)", class = "sigma"))
 
@@ -301,7 +301,7 @@ hist(rnorm(100000, mean=0, sd = 150))
 ```
 
 
-```{r, cache=TRUE, include=FALSE}
+```{r, cache=TRUE}
 
 prior3_fit <- brm(RT | trunc(lb=0) ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item),
                       data=verb_dat,
