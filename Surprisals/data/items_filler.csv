@@ -29,3 +29,13 @@ item#_in_Provo,item#here,Sentence,Question,Option1,Option0,Correct answer
 34,100,Lady Gaga\'s YouTube account was suspended Thursday.,What account was suspended on Thursday?,Lady Gaga\'s Youtube,Lady Gaga\'s Instagram,1
 37,101,John Thornton asked little of man or nature.,Did John Thorton expect a lot from other people? ,Yes,No,0
 43,102,Proper ventilation will make a backdraft less likely.,Would proper ventilation reduce backdraft?,Yes,No,1
+,103,"For centuries, time was measured by the position of the sun with the use of sundials.",Were sundials used for centuries?,Yes,No,1
+,104,"The girl's feet were then re-wrapped even tighter than before, causing her footprint to shrink further.",Were the wraps around the girl's feet tighter after they were re-wrapped?,Yes,No,1
+,105,"The astronauts used a hefty robotic arm to move the bus-size canister, stuffed with nearly three tons of packing foam.",Did the astronauts move the container by themselves?,Yes,No,0
+,106,"Very similar, but even more striking, is the evidence from athletic training.",Is athletic training the only source of evidence?,Yes,No,0
+,107,NA,,,,
+,108,"It was a forbidding challenge, and it says much for Winstanley's persuasive abilities, not to mention his self-confidence.",""",""What better describes Winstanley?",Eloquent Uncertain,Uncertain,1
+,109,"With schools still closed, cars still buried and streets still blocked by the widespread weekend snowstorm, officials are asking people to help out.",",""What happened to the area?",Blizzard Drought,Drought,1
+,110,"Steam sterilization is limited in the types of medical waste it can treat, but is appropriate for laboratory substances contaminated with infectious organisms.",",""What is steam sterilization good for?",Any waste Lab waste,Lab waste,0
+,111,"From coal to cars, Chinese floods tangle supply chains worldwide.",""",""Do the floods have a global economic effect?",Yes No,No,1
+,112,This new film marks 10 years since the death of the superstar.,""",""How long has the artist passed away?",For only a few years,For about a decade,0
