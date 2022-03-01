@@ -66,7 +66,10 @@ np.random.seed(args.seed)
 model_fns = args.model.split(",")
 models = []
 for model_fn in model_fns:
-    model_ = torch.load(model_fn)
+    if args.cuda:
+        model_ = torch.load(model_fn)
+    else:
+        model_ = torch.load(model_fn, map_location=torch.device('cpu'))
 
     # rebuild for pytorch 1.x
     model = RNNModel(model_.rnn_type, model_.encoder.num_embeddings, 
