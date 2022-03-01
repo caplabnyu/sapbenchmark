@@ -1,6 +1,8 @@
 ---
 title: "AgreementSubset"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -45,24 +47,55 @@ rt.ht_data$position <- droplevels(as.factor(rt.ht_data$ROI))
 contrasts(rt.ht_data$position) <- contr.sum(3)/2
 contrasts(rt.ht_data$position)
 
+
+rt.ht_data$pGram.coded <- recode(rt.ht_data$pGram, "U" = 1, "G" = 0)
+rt.ht_data$Type.coded <- recode(rt.ht_data$Type, "AGREE" = 0, "NPZ" = 1)
+rt.ht_data$position.coded.1 <- recode(rt.ht_data$position, "0"=0.5, "1"=0, "2"=-0.5)
+rt.ht_data$position.coded.2 <- recode(rt.ht_data$position, "0"=0, "1"=0.5, "2"=-0.5)
+```
+
+Correct for trial number by fitting model on fillers
+
+``` {r, eval=FALSE}
+library(lme4)
+rt.fillers <- read.csv("./data/Fillers.csv") %>% filter(RT <= 7000) %>% rename(participant = MD5)
+
+model.trialnumcorr <- lmer(RT ~ scale(trialnumber) + (1 + scale(trialnumber) | participant),
+                           data=rt.fillers,
+                           control=lmerControl(optimizer="bobyqa",optCtrl=list(maxfun=2e5)))
+
+
+rt.ht_data$trialnum_pred <- predict(model.trialnumcorr, newdata=rt.ht_data)
+rt.ht_data$RT_corrected <- rt.ht_data$RT - rt.ht_data$trialnum_pred
+
 saveRDS(rt.ht_data, "datasets/agreement_data.rds")
 
 ```
 
 ``` {r}
-
 rt.ht_data <- readRDS("datasets/agreement_data.rds")
-
 summary(rt.ht_data)
 head(subset(rt.ht_data, is.na(rt.ht_data$pGram)))
 ```
 
 ``` {r}
+library(ggplot2)
+ggplot(data=rt.ht_data, aes(x=RT, fill=Type)) + geom_histogram(binwidth=50) + labs(title="Raw RT distribution")
+```
+
+``` {r}
+ggplot(data=rt.ht_data, aes(x=RT_corrected, fill=Type)) + geom_histogram(binwidth=50) + labs(title="Corrected RT distribution")
+```
+
+``` {r}
+ggplot(data=rt.ht_data, aes(x=trialnum_pred, fill=Type)) + geom_histogram(binwidth=50) + labs(title="Distribution prediced by trial number alone")
+```
+``` {r, eval=FALSE}
 
 library(lme4)
 library(lmerTest)
 
-model.freq.prereg <- lmer(RT ~ pGram * Type * position + (1 + pGram * Type * position || participant) + (1 + pGram * Type * position || item), 
+model.freq.prereg <- lmer(RT ~ pGram.coded * Type.coded * (position.coded.1 + position.coded.2) + (1 + pGram.coded * Type.coded * (position.coded.1 + position.coded.2) || participant) + (1 + pGram.coded * Type.coded * (position.coded.1 + position.coded.2) || item), 
                           data = rt.ht_data,
                           REML = FALSE, 
                           control=lmerControl(optimizer="bobyqa", 
@@ -71,7 +104,9 @@ model.freq.prereg <- lmer(RT ~ pGram * Type * position + (1 + pGram * Type * pos
 saveRDS(model.freq.prereg, "models/agreement_fmodel_prereg.rds")
 
 ```
-``` {r}
+
+
+``` {r, eval=FALSE}
 model.freq.trialnum <- lmer(RT ~ pGram * Type * position + trialnumber + (1 + pGram * Type * position || participant) + (1 + pGram * Type * position || item), 
                           data = rt.ht_data,
                           REML = FALSE, 
@@ -81,19 +116,88 @@ model.freq.trialnum <- lmer(RT ~ pGram * Type * position + trialnumber + (1 + pG
 saveRDS(model.freq.trialnum, "models/agreement_fmodel_trialnum.rds")
 ```
 
+## Bayesian Model Training Code
 
-```{r}
+# Prereg
+``` {r, eval=FALSE}
+# TO BE RERUN with explicit coding and more REs
+rt.ht_data <- readRDS("datasets/agreement_data.rds")
+
+prior1 <- c(prior("normal(300,1000)", class = "Intercept"),
+            prior("normal(0,150)", class = "b"),  
+            prior("normal(0,200)", class = "sd"),
+            prior("normal(0,500)", class = "sigma"))
+
+rt.bmodel <- brm(RT | trunc(lb=0) ~ Type * pGram * position + (1 + Type * pGram + position || item) + (1 + Type * pGram + position || participant),
+                 data = rt.ht_data,
+                 prior = prior1,
+                 iter = 4000,
+                 cores = 4,
+                 seed = 117,
+                )
+
+saveRDS(rt.bmodel, "models/agreement_bmodel_prior1.rds")
+```
+
+# Corrected by predictor
+``` {r, eval=FALSE}
+rt.ht_data <- readRDS("datasets/agreement_data.rds")
+
+prior1 <- c(prior("normal(300,1000)", class = "Intercept"),
+            prior("normal(0,150)", class = "b"),  
+            prior("normal(0,200)", class = "sd"),
+            prior("normal(0,500)", class = "sigma"))
+
+rt.bmodel <- brm(RT | trunc(lb=0) ~ Type.coded * pGram.coded * (position.coded.1 + position.coded.2) + scale(trialnumber) + (1 + Type.coded * pGram.coded * (position.coded.1 + position.coded.2) || item) + (1 + Type.coded * pGram.coded * (position.coded.1 + position.coded.2) + scale(trialnumber) || participant),
+                 data = rt.ht_data,
+                 prior = prior1,
+                 iter = 6000,
+                 cores = 4,
+                 seed = 117,
+                )
+
+saveRDS(rt.bmodel, "models/agreement_bmodel_prior1_trialnum.max.rds")
+
+```
+
+# Corrected by residualizing
+``` {r, eval=FALSE}
+rt.ht_data <- readRDS("datasets/agreement_data.rds")
+
+prior1 <- c(prior("normal(300,1000)", class = "Intercept"),
+            prior("normal(0,150)", class = "b"),  
+            prior("normal(0,200)", class = "sd"),
+            prior("normal(0,500)", class = "sigma"))
+
+rt.bmodel <- brm(RT_corrected ~ Type.coded * pGram.coded * (position.coded.1 + position.coded.2) + (1 + Type.coded * pGram.coded * (position.coded.1 + position.coded.2) || item) + (1 + Type.coded * pGram.coded * (position.coded.1 + position.coded.2) || participant),
+                 data = rt.ht_data,
+                 prior = prior1,
+                 iter = 6000,
+                 cores = 4,
+                 seed = 117,
+                )
+
+saveRDS(rt.bmodel, "models/agreement_bmodel_prior1_corrected.rds")
+
+```
+
+## Load models in
+```{r, eval=FALSE}
 library(brms)
 model.prior1.prereg <- readRDS("models/agreement_bmodel_prior1.rds")
 summary(model.prior1.prereg)
 
-model.prior1.trialnum <- readRDS("models/agreement_bmodel_prior1_trialnum.rds")
+model.prior1.trialnum <- readRDS("models/agreement_bmodel_prior1_trialnum.max.rds")
+summary(model.prior1.trialnum)
+
+model.prior1.corrected <- readRDS("models/agreement_bmodel_prior1_corrected.rds")
 summary(model.prior1.trialnum)
 ```
 
+## Plot HDIs
 
-
-```{r}
+Note: A little to memory intensive to run local, even one at a time.
+```{r, eval=FALSE}
 library(bayestestR)
 library(ggplot2)
 library(dplyr)
@@ -110,7 +214,7 @@ ggplot(subset(model.prior1.prereg.hdi, str_detect(Parameter, 'b_'))) +
 
 ```
 
-``` {r}
+``` {r,eval=FALSE}
 model.prior1.trialnum.hdi <- hdi(model.prior1.trialnum, ci=0.95, effects="all")
 
 ggplot(subset(model.prior1.trialnum.hdi, str_detect(Parameter, 'b_'))) +
@@ -122,15 +226,33 @@ ggplot(subset(model.prior1.trialnum.hdi, str_detect(Parameter, 'b_'))) +
 
 ```
 
-``` {r}
-posterior.prereg <- posterior_samples(model.prior1.prereg)
-posterior.prereg <- subset(posterior.prereg, select=!str_detect(colnames(posterior.prereg), "r_position"))
+``` {r,eval=FALSE}
+model.prior1.corrected.hdi <- hdi(model.prior1.corrected, ci=0.95, effects="all")
 
-posterior.trialnum <- posterior_samples(model.prior1.trialnum)
-posterior.trialnum <- subset(posterior.trialnum, select=!str_detect(colnames(posterior.trialnum), "r_position"))
+ggplot(subset(model.prior1.corrected.hdi, str_detect(Parameter, 'b_'))) +
+  geom_linerange(mapping=aes(x = Parameter,
+                             ymin = CI_low,
+                             ymax = CI_high)) + 
+  geom_hline(yintercept=0, linetype="dashed") +
+  theme_classic() + theme(axis.text.x=element_text(angle=45, hjust=1))
+
 ```
 
-``` {r}
+## Get posterior samples
+
+``` {r, eval=FALSE}
+posterior.prereg <- posterior_samples(model.prior1.prereg)
+posterior.prereg <- subset(posterior.prereg, select=!str_detect(colnames(posterior.prereg), "r_participant"))
+
+posterior.trialnum <- posterior_samples(model.prior1.trialnum)
+posterior.trialnum <- subset(posterior.trialnum, select=!str_detect(colnames(posterior.trialnum), "r_participant"))
+
+posterior.corrected <- posterior_samples(model.prior1.corrected)
+posterior.corrected <- subset(posterior.corrected, select=!str_detect(colnames(posterior.corrected), "r_participant"))
+```
+## Plots by position in critical region
+
+``` {r, eval=FALSE}
 # Effect size by position
 
 bypos_analysis <- function(posterior) {
@@ -150,10 +272,32 @@ bypos_analysis <- function(posterior) {
   return(fixed_effs)
 }
 
-
 saveRDS(bypos_analysis(posterior.prereg), "datasets/agreement.prereg.by_pos.rds")
-saveRDS(bypos_analysis(posterior.trialnum), "datasets/agreement.trialnum.by_pos.rds")
 ```
+
+
+``` {r}
+bypos_analysis.corr <- function(posterior) {
+  fixed_effs <- posterior %>%
+              mutate(GPE_0 = b_pGram.coded + `b_Type.coded:pGram.coded` + 0.5 * `b_pGram.coded:position.coded.1` + 0.5 * `b_TypeNPZ:pGramU:position1`,
+                     GPE_1 = b_pGram.coded + `b_Type.coded:pGram.coded` + 0.5 * `b_pGram.coded:position.coded.2` + 0.5 * `b_TypeNPZ:pGramU:position2`,
+                     GPE_2 = b_pGram.coded + `b_Type.coded:pGram.coded` - 0.5 * `b_pGram.coded:position.coded.1` - 0.5 * `b_Type.coded:pGram.coded:position.coded.1` - 0.5 * `b_pGram.coded:position.coded.2` - 0.5 * `b_Type.coded:pGram.coded:position.coded.2`,
+                     Agr_0 = b_pGram.coded + 0.5 * `b_pGram.coded:position.coded.1`,
+                     Agr_1 = b_pGram.coded + 0.5 * `b_pGram.coded:position.coded.2`,
+                     Agr_2 = b_pGram.coded - 0.5 * `b_pGram.coded:position.coded.1` - 0.5 * `b_pGram.coded:position.coded.2`) %>%
+              gather("effect", "size", c("GPE_0", "GPE_1", "GPE_2", "Agr_0", "Agr_1", "Agr_2")) %>%
+              group_by(effect) %>%
+              summarize(mean=mean(size),
+                        lower = quantile(size, 0.025)[[1]],
+                        upper = quantile(size, 0.975)[[1]]) %>%
+              separate("effect", c("type", "position"), sep ="_") 
+  return(fixed_effs)
+}
+
+#saveRDS(bypos_analysis.corr(posterior.trialnum), "datasets/agreement.trialnum.by_pos.rds")
+#saveRDS(bypos_analysis.corr(posterior.corrected), "datasets/agreement.corrected.by_pos.rds")
+```
+
 
 ``` {r}
 
@@ -177,11 +321,28 @@ ggplot(fixed_effs.trialnum, aes(x=position, color=type, y=mean)) +
                              ymax=upper)) + 
   geom_point() +
   scale_color_discrete(labels=c("Agr"="Agreement Error", "GPE"="Garden Path")) +
-  theme_classic() + labs(x="Spillover Position", y="Effect of Percieved Ungrammaticality", color="Type", title="corrected for trial number")
+  theme_classic() + labs(x="Spillover Position", y="Effect of Percieved Ungrammaticality", color="Type", title="corrected with predictor")
 
 ```
 
 ``` {r}
+
+fixed_effs.corrected <- readRDS("datasets/agreement.corrected.by_pos.rds")
+# Ploting
+ggplot(fixed_effs.corrected, aes(x=position, color=type, y=mean)) +
+  geom_linerange(mapping=aes(ymin=lower,
+                             ymax=upper)) + 
+  geom_point() +
+  scale_color_discrete(labels=c("Agr"="Agreement Error", "GPE"="Garden Path")) +
+  theme_classic() + labs(x="Spillover Position", y="Effect of Percieved Ungrammaticality", color="Type", title="corrected with residuals")
+
+```
+
+## Plots by item
+
+Note: effects averaged over the full critical region
+
+``` {r, eval=FALSE}
 library(reshape2)
 
 # By Item
@@ -193,7 +354,7 @@ byitem_analysis <- function(posterior) {
     gram_name <- paste0("r_item[", toString(i),",pGramU]")
     inter_name <- paste0("r_item[", i, ",TypeNPZ:pGramU]")
     ran_eff <- ran_eff %>% mutate("GPE_{i}" := b_pGramU + `b_TypeNPZ:pGramU` + !!as.name(gram_name) + !!as.name(inter_name),
-                          "Agr_{i}" := b_pGramU + !!as.name(gram_name)) 
+                                  "Agr_{i}" := b_pGramU + !!as.name(gram_name)) 
     cns <- append(cns, c(paste0("GPE_", toString(i)), paste0("Agr_", toString(i))))
   }
               
@@ -205,15 +366,40 @@ byitem_analysis <- function(posterior) {
               separate("item", c("type", "item_num"), sep ="_") 
   return(ran_eff) 
 }
-saveRDS(byitem_analysis(posterior.prereg), "datasets/agreement.prereg.by_item.rds")
 saveRDS(byitem_analysis(posterior.trialnum), "datasets/agreement.trialnum.by_item.rds")
 
 ```
 
-``` {r}
+``` {r, eval=FALSE}
 
+# By Item
+byitem_analysis.corr <- function(posterior) {
+  print(colnames(posterior))
+  cns = c()
+  ran_eff <- posterior
+  for(i in 1:24) {
+    gram_name <- paste0("r_item[", toString(i),",pGram.coded]")
+    inter_name <- paste0("r_item[", i, ",Type.coded:pGram.coded]")
+    ran_eff <- ran_eff %>% mutate("GPE_{i}" := `b_pGram.coded` + `b_Type.coded:pGram.coded` + !!as.name(gram_name) + !!as.name(inter_name),
+                          "Agr_{i}" := `b_pGram.coded` + !!as.name(gram_name)) 
+    cns <- append(cns, c(paste0("GPE_", toString(i)), paste0("Agr_", toString(i))))
+  }
+              
+  ran_eff <- ran_eff %>% gather("item", "effect", all_of(cns)) %>%
+              group_by(item) %>%
+              summarize(mean=mean(effect),
+                        lower = quantile(effect, 0.025)[[1]],
+                        upper = quantile(effect, 0.975)[[1]]) %>%
+              separate("item", c("type", "item_num"), sep ="_") 
+  return(ran_eff) 
+}
+
+saveRDS(byitem_analysis.corr(posterior.prereg), "datasets/agreement.prereg.by_item.rds")
+saveRDS(byitem_analysis.corr(posterior.corrected), "datasets/agreement.corrected.by_item.rds")
+```
+
+``` {r}
 ran_effs <- readRDS("datasets/agreement.prereg.by_item.rds")
-ran_effs
 
 ggplot(ran_effs, aes(x=as.numeric(item_num), color=type, y=mean)) +
   geom_linerange(mapping=aes(ymin=lower,
@@ -226,29 +412,41 @@ ggplot(ran_effs, aes(x=as.numeric(item_num), color=type, y=mean)) +
 ```
 
 ``` {r}
-
 ran_effs <- readRDS("datasets/agreement.trialnum.by_item.rds")
-ran_effs
 
 ggplot(ran_effs, aes(x=as.numeric(item_num), color=type, y=mean)) +
   geom_linerange(mapping=aes(ymin=lower,
                              ymax=upper)) + 
   geom_point() +
   scale_color_discrete(labels=c("Agr"="Agreement Error", "GPE"="Garden Path")) +
-  theme_classic() + labs(x="Item", y="Effect of Percieved Ungrammaticality", color="Type", title="corrected for trial number")
-
-
+  theme_classic() + labs(x="Item", y="Effect of Percieved Ungrammaticality", color="Type", title="corrected for trial number with predictor")
 ```
 
 ``` {r}
-# By Item
+
+ran_effs <- readRDS("datasets/agreement.corrected.by_item.rds")
+
+ggplot(ran_effs, aes(x=as.numeric(item_num), color=type, y=mean)) +
+  geom_linerange(mapping=aes(ymin=lower,
+                             ymax=upper)) + 
+  geom_point() +
+  scale_color_discrete(labels=c("Agr"="Agreement Error", "GPE"="Garden Path")) +
+  theme_classic() + labs(x="Item", y="Effect of Percieved Ungrammaticality (Corrected RTs)", color="Type", title="corrected with residuals")
+```
+
+## Reformat data so it's averaged by group and by position
+
+Note: testing this right now to see if I can compute this and work with this within memory constraints off of MARCC. Useful for surprisal correlations
+
+``` {r, eval=FALSE}
+# By Item and position
 byboth_analysis <- function(posterior) {
   print(colnames(posterior))
   cns = c()
   ran_eff <- posterior
   for(i in 1:24) {
     gram_name <- paste0("r_item[", toString(i),",pGramU]")
-    inter_name <- paste0("r_item[", i, ",TypeNPZ:pGramU]")
+    inter_name <- paste0("r_item[", toString(i), ",TypeNPZ:pGramU]")
     ran_eff <- ran_eff %>% mutate("GPE_{i}" := b_pGramU + `b_TypeNPZ:pGramU` + !!as.name(gram_name) + !!as.name(inter_name),
                                   "Agr_{i}" := b_pGramU + !!as.name(gram_name)) 
     
@@ -277,8 +475,56 @@ byboth_analysis <- function(posterior) {
   return(ran_eff) 
 }
 saveRDS(byboth_analysis(posterior.prereg), "datasets/agreement.prereg.by_both.rds")
-saveRDS(byboth_analysis(posterior.trialnum), "datasets/agreement.trialnum.by_both.rds")
 ```
+
+
+``` {r, eval=FALSE}
+# By Item and position
+byboth_analysis.corr <- function(posterior) {
+  print(colnames(posterior))
+  cns = c()
+  ran_eff <- posterior
+  for(i in 1:24) {
+    gram_name <- paste0("r_item[", toString(i),",pGram.coded]")
+    inter_name <- paste0("r_item[", toString(i), ",TypeNPZ:pGram.coded]")
+    ran_eff <- ran_eff %>% mutate("GPE_{i}" := b_pGram.coded + `b_Type.coded:pGram.coded` + !!as.name(gram_name) + !!as.name(inter_name),
+                                  "Agr_{i}" := b_pGram.coded + !!as.name(gram_name)) 
+    
+    gpe_avg <- paste0("GPE_", toString(i))
+    agr_avg <- paste0("Agr_", toString(i))
+    
+    # For RE structure (1 + pGram * Type * position || item) - update as needed if using a more rich RE structure with position.coded.:Type interactions!
+    pos1_name <- paste0("r_item[", toString(i),",pGram.coded:position.coded.1]")
+    pos2_name <- paste0("r_item[", toString(i),",pGram.coded:position.coded.2]")  
+    pos1_inter_name <- paste0("r_item[", toString(i),",Type.coded:pGram.coded:position.coded.1]")
+    pos2_inter_name <- paste0("r_item[", toString(i),",Type.coded:pGram.coded:position.coded.2]")
+    
+    ran_eff <- ran_eff %>% mutate("GPE_{i}_0" := !!as.name(gpe_avg) + 0.5 * `b_pGram.coded:position.coded.1` + 0.5 * `b_Type.coded:pGram.coded:position.coded.1` + 0.5 * !!as.name(pos1_name) + 0.5 * !!as.name(pos1_inter_name),
+                                  "GPE_{i}_1" := !!as.name(gpe_avg) + 0.5 * `b_pGram.coded:position.coded.2` + 0.5 * `b_Type.coded:pGram.coded:position.coded.2` + 0.5 * !!as.name(pos2_name) + 0.5 * !!as.name(pos2_inter_name),
+                                  "GPE_{i}_2" := !!as.name(gpe_avg) - 0.5 * `b_pGram.coded:position.coded.1` - 0.5 * `b_Type.coded:pGram.coded:position.coded.1` -  0.5 * `b_pGram.coded:position.coded.2` - 0.5 * `b_Type.coded:pGram.coded:position.coded.2` - 0.5 * !!as.name(pos1_name) - 0.5 * !!as.name(pos1_inter_name) - 0.5 * !!as.name(pos2_name) - 0.5 * !!as.name(pos2_inter_name),
+                                  "Agr_{i}_0" := !!as.name(agr_avg) + 0.5 * `b_pGram.coded:position.coded.1` + 0.5 * !!as.name(pos1_name),
+                                  "Agr_{i}_1" := !!as.name(agr_avg) + 0.5 * `b_pGram.coded:position.coded.2` + 0.5 * !!as.name(pos2_name),
+                                  "Agr_{i}_2" := !!as.name(agr_avg) - 0.5 * `b_pGram.coded:position.coded.2`- 0.5 * `b_pGram.coded:position.coded.2` - 0.5 * !!as.name(pos1_name) - 0.5 * !!as.name(pos2_name)
+                                  ) 
+    for(i in 0:2) {
+      cns <- append(cns, c(paste0("GPE_", toString(i), "_", toString(j)), paste0("Agr_", toString(i), "_", toString(j))))
+    }
+  }
+              
+  ran_eff <- ran_eff %>% gather("item", "effect", all_of(cns)) %>%
+              group_by(item) %>%
+              summarize(mean=mean(effect),
+                        lower = quantile(effect, 0.025)[[1]],
+                        upper = quantile(effect, 0.975)[[1]]) %>%
+              separate("item", c("type", "item_num", "position"), sep ="_") 
+  return(ran_eff) 
+}
+
+saveRDS(byboth_analysis.corr(posterior.trialnum), "datasets/agreement.trialnum.by_both.rds")
+saveRDS(byboth_analysis.corr(posterior.corrected), "datasets/agreement.corrected.by_both.rds")
+```
+
+## Correlations with Surprisal
 
 ``` {r}
 # Surprisal Correlations
@@ -298,7 +544,7 @@ ran_effs$type <- recode(ran_effs$type, "Agr" = "AGREE", "GPE" = "NPZ")
 
 surps.lstm.corrplot <- merge(x=surps.lstm.corrplot, y=ran_effs, by.x=c("item", "Type"), by.y=c("item_num", "type"), all.x=TRUE)
 
-ggplot(data=surps.lstm.corrplot, aes(x=ugram_eff, y=mean, color=Type)) + geom_linerange(aes(ymin=lower, ymax=upper)) + geom_point() + facet_wrap(~surp_p) + labs(y="Human RT", x="Difference in Surprisal")
+ggplot(data=surps.lstm.corrplot, aes(x=ugram_eff, y=mean, color=Type)) + geom_linerange(aes(ymin=lower, ymax=upper)) + geom_point() + facet_wrap(~surp_p) + labs(y="Human RT", x="Difference in Surprisal") + geom_smooth(method="lm")
 
 ```
 
@@ -318,6 +564,6 @@ ran_effs$type <- recode(ran_effs$type, "Agr" = "AGREE", "GPE" = "NPZ")
 
 surps.gpt.corrplot <- merge(x=surps.gpt.corrplot, y=ran_effs, by.x=c("item", "Type"), by.y=c("item_num", "type"), all.x=TRUE)
 
-ggplot(data=surps.gpt.corrplot, aes(x=ugram_eff, y=mean, color=Type)) + geom_linerange(aes(ymin=lower, ymax=upper)) + geom_point() + facet_wrap(~surp_p) + labs(y="Human RT", x="Difference in Surprisal")
+ggplot(data=surps.gpt.corrplot, aes(x=ugram_eff, y=mean, color=Type)) + geom_linerange(aes(ymin=lower, ymax=upper)) + geom_point() + facet_wrap(~surp_p) + labs(y="Human RT", x="Difference in Surprisal") + geom_smooth(method="lm")
 
 ```
