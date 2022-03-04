@@ -1428,3 +1428,154 @@ for(model_name in unique(predicted_dat$model)){
     ## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
     ## and Tail_ESS are effective sample size measures, and Rhat is the potential
     ## scale reduction factor on split chains (at convergence, Rhat = 1).
+
+#### Looking at summary of LMER fit models
+
+``` r
+for(model_name in unique(predicted_dat$model)){
+  print(model_name)
+  
+  curr_verb_dat = predicted_dat %>%
+    filter(model == model_name) %>%
+    filter(ROI == 0) %>%
+    mutate(Type = factor(Type, levels = c('RC_Subj', 'RC_Obj')),
+         Type_num = ifelse(Type == 'RC_Subj', 0, 1))
+
+  curr_fit1_lmer <- lmer(corrected_pred_rt ~ Type_num + 
+                           (0 + Type_num | participant) + 
+                           (1 + Type_num | item),
+                         data=curr_verb_dat
+                        )
+  
+  print(summary(curr_fit1_lmer))
+  
+}
+```
+
+    ## [1] "lstm"
+
+    ## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv, :
+    ## unable to evaluate scaled gradient
+
+    ## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv, :
+    ## Model failed to converge: degenerate Hessian with 2 negative eigenvalues
+
+    ## Linear mixed model fit by REML ['lmerMod']
+    ## Formula: corrected_pred_rt ~ Type_num + (0 + Type_num | participant) +  
+    ##     (1 + Type_num | item)
+    ##    Data: curr_verb_dat
+    ## 
+    ## REML criterion at convergence: 18767.9
+    ## 
+    ## Scaled residuals: 
+    ##     Min      1Q  Median      3Q     Max 
+    ## -67.000  -0.028  -0.004   0.027   5.671 
+    ## 
+    ## Random effects:
+    ##  Groups      Name        Variance  Std.Dev. Corr 
+    ##  participant Type_num      0.02562  0.1601       
+    ##  item        (Intercept)  77.04417  8.7775       
+    ##              Type_num    895.90688 29.9317  -0.80
+    ##  Residual                  0.52263  0.7229       
+    ## Number of obs: 8287, groups:  participant, 2000; item, 22
+    ## 
+    ## Fixed effects:
+    ##             Estimate Std. Error t value
+    ## (Intercept)   18.177      4.050   4.488
+    ## Type_num      26.151      7.323   3.571
+    ## 
+    ## Correlation of Fixed Effects:
+    ##          (Intr)
+    ## Type_num -0.758
+    ## optimizer (nloptwrap) convergence code: 0 (OK)
+    ## unable to evaluate scaled gradient
+    ## Model failed to converge: degenerate  Hessian with 2 negative eigenvalues
+    ## 
+    ## [1] "gpt2"
+    ## Linear mixed model fit by REML ['lmerMod']
+    ## Formula: corrected_pred_rt ~ Type_num + (0 + Type_num | participant) +  
+    ##     (1 + Type_num | item)
+    ##    Data: curr_verb_dat
+    ## 
+    ## REML criterion at convergence: 17224.4
+    ## 
+    ## Scaled residuals: 
+    ##     Min      1Q  Median      3Q     Max 
+    ## -72.772  -0.031  -0.004   0.031   7.727 
+    ## 
+    ## Random effects:
+    ##  Groups      Name        Variance  Std.Dev. Corr 
+    ##  participant Type_num      0.02134  0.1461       
+    ##  item        (Intercept)  14.85862  3.8547       
+    ##              Type_num    728.36472 26.9882  -0.51
+    ##  Residual                  0.43348  0.6584       
+    ## Number of obs: 8287, groups:  participant, 2000; item, 22
+    ## 
+    ## Fixed effects:
+    ##             Estimate Std. Error t value
+    ## (Intercept)   20.530      2.073   9.901
+    ## Type_num      25.262      6.061   4.168
+    ## 
+    ## Correlation of Fixed Effects:
+    ##          (Intr)
+    ## Type_num -0.480
+    ## [1] "rnng"
+
+    ## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv, :
+    ## unable to evaluate scaled gradient
+
+    ## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv, :
+    ## Model failed to converge: degenerate Hessian with 2 negative eigenvalues
+
+    ## Linear mixed model fit by REML ['lmerMod']
+    ## Formula: corrected_pred_rt ~ Type_num + (0 + Type_num | participant) +  
+    ##     (1 + Type_num | item)
+    ##    Data: curr_verb_dat
+    ## 
+    ## REML criterion at convergence: 20989.3
+    ## 
+    ## Scaled residuals: 
+    ##     Min      1Q  Median      3Q     Max 
+    ## -64.730  -0.025  -0.005   0.022   7.606 
+    ## 
+    ## Random effects:
+    ##  Groups      Name        Variance  Std.Dev. Corr 
+    ##  participant Type_num      0.03091  0.1758       
+    ##  item        (Intercept)  34.33322  5.8595       
+    ##              Type_num    544.28056 23.3298  -0.32
+    ##  Residual                  0.68615  0.8283       
+    ## Number of obs: 8287, groups:  participant, 2000; item, 22
+    ## 
+    ## Fixed effects:
+    ##             Estimate Std. Error t value
+    ## (Intercept)    9.454      3.376   2.800
+    ## Type_num      24.854      5.880   4.227
+    ## 
+    ## Correlation of Fixed Effects:
+    ##          (Intr)
+    ## Type_num -0.594
+    ## optimizer (nloptwrap) convergence code: 0 (OK)
+    ## unable to evaluate scaled gradient
+    ## Model failed to converge: degenerate  Hessian with 2 negative eigenvalues
+
+#### Creating a CSV of by-item surprisal and RTs
+
+``` r
+by_item <- all_byitem_surp %>%
+  select(item, model, mean, mean_surp) %>%
+  spread(key=model, value=mean_surp) %>%
+  rename(human = mean)
+
+
+sent_dat <- verb_dat %>%
+  filter(Type == 'RC_Subj') %>%
+  select(item, Sentence, EachWord) %>%
+  distinct() %>%
+  merge(freqs, by.x="EachWord", by.y="word") %>%
+  rename(Verb = EachWord,
+         Frequency = count)
+
+by_item <- merge(sent_dat, by_item, by = 'item')
+
+write.csv(by_item, 'RC_subset_byitem_RT_surps.csv')
+```
