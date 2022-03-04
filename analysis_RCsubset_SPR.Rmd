@@ -758,3 +758,57 @@ for(model_name in unique(predicted_dat$model)){
 ```
 
 
+#### Looking at summary of LMER fit models
+
+
+```{r, cache=TRUE}
+
+for(model_name in unique(predicted_dat$model)){
+  print(model_name)
+  
+  curr_verb_dat = predicted_dat %>%
+    filter(model == model_name) %>%
+    filter(ROI == 0) %>%
+    mutate(Type = factor(Type, levels = c('RC_Subj', 'RC_Obj')),
+         Type_num = ifelse(Type == 'RC_Subj', 0, 1))
+
+  curr_fit1_lmer <- lmer(corrected_pred_rt ~ Type_num + 
+                           (0 + Type_num | participant) + 
+                           (1 + Type_num | item),
+                         data=curr_verb_dat
+                        )
+  
+  print(summary(curr_fit1_lmer))
+  
+}
+
+```
+
+
+#### Creating a CSV of by-item surprisal and RTs
+
+
+```{r}
+
+by_item <- all_byitem_surp %>%
+  select(item, model, mean, mean_surp) %>%
+  spread(key=model, value=mean_surp) %>%
+  rename(human = mean)
+
+
+sent_dat <- verb_dat %>%
+  filter(Type == 'RC_Subj') %>%
+  select(item, Sentence, EachWord) %>%
+  distinct() %>%
+  merge(freqs, by.x="EachWord", by.y="word") %>%
+  rename(Verb = EachWord,
+         Frequency = count)
+
+by_item <- merge(sent_dat, by_item, by = 'item')
+
+write.csv(by_item, 'RC_subset_byitem_RT_surps.csv')
+
+```
+
+
+
