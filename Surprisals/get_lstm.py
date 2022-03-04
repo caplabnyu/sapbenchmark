@@ -36,8 +36,6 @@ def tokenize(sent):
     # split on n't
     sent = " n't".join(sent.split("n\\'t"))
 
-    # do not respect EOS . to follow gpt2 tokenizer
-    sent = sent.replace(".", "")
     return sent.split()
 
 parser = argparse.ArgumentParser()
@@ -68,7 +66,10 @@ np.random.seed(args.seed)
 model_fns = args.model.split(",")
 models = []
 for model_fn in model_fns:
-    model_ = torch.load(model_fn)
+    if args.cuda:
+        model_ = torch.load(model_fn)
+    else:
+        model_ = torch.load(model_fn, map_location=torch.device('cpu'))
 
     # rebuild for pytorch 1.x
     model = RNNModel(model_.rnn_type, model_.encoder.num_embeddings, 
@@ -95,7 +96,7 @@ inp = csv.DictReader(in_f)
 out_rows = []
 with torch.no_grad():
     for row in inp:
-        sentence = tokenize(row["Sentence"])
+        sentence = ["<eos>"] + tokenize(row["Sentence"]) # EOS prepend
         input = torch.LongTensor([indexify(w.lower() if args.uncased else w) for w in sentence])
         
         if args.cuda:
@@ -104,20 +105,19 @@ with torch.no_grad():
         out, _ = model(input.view(-1, 1), model.init_hidden(1))
 
         if args.aligned:
-            words = row["Sentence"].split()
-            piecess, breaks = align(words, sentence)
+            words = row["Sentence"].split() 
+            piecess, breaks = align(words, sentence[1:]) # drop EOS in sentence
             for i, (word, pieces) in enumerate(zip(words, piecess)):
                 new_row = row.copy() # new object, not a reference to the iterator
                 for j, model in enumerate(models):
                     tag = "_m{}".format(j) if len(models) > 1 else ""
-                    if i == 0:
-                        for merge_fn, merge_f in merge_fs.items():
-                            new_row[merge_fn + "surprisal" + tag] = -1
-                    else:
-                        surps = [-F.log_softmax(out[j-1], dim=-1).view(-1)[input[j]].item() 
-                                 for j in range(breaks[i], breaks[i+1])]
-                        for merge_fn, merge_f in merge_fs.items():
-                            new_row[merge_fn +  "surprisal" + tag] = merge_f(surps)
+
+                    # Note that since the beginning-of-sentence <eos> is in out/input, but was dropped from breaks, we need to
+                    # correct for misalignment (thus out[k] rather than out[k-1], input[k+1] instead of input[k]).
+                    surps = [-F.log_softmax(out[k], dim=-1).view(-1)[input[k+1]].item() 
+                             for k in range(breaks[i], breaks[i+1])]
+                    for merge_fn, merge_f in merge_fs.items():
+                        new_row[merge_fn +  "surprisal" + tag] = merge_f(surps)
                 new_row["token"] = ".".join([w if w in dictionary.word2idx 
                                              else "<UNK>" for w in pieces])
                 new_row["word"] = word
@@ -125,11 +125,11 @@ with torch.no_grad():
                 out_rows.append(new_row)
                 
         else:
-            for i, (word_idx, word) in enumerate(zip(input, sentence)):
+            for i, (word_idx, word) in enumerate(zip(input, sentence[1:])): # drop EOS
                 new_row = row.copy() # new object, not a reference to the iterator
                 for j, model in enumerate(models):
                     tag = "_m{}".format(j) if len(models) > 1 else ""
-                    new_row["surprisal" + tag] = -1 if i == 0 else -F.log_softmax(out[i-1], dim=-1).view(-1)[word_idx].item()
+                    new_row["surprisal" + tag] = -F.log_softmax(out[i], dim=-1).view(-1)[word_idx].item()
                 new_row["token"] = word if word in dictionary.w2idx else "<UNK>"
                 new_row["word"] = word
                 new_row["word_pos"] = i 
