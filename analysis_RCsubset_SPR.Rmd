@@ -629,15 +629,17 @@ for(model_name in unique(predicted_dat$model)){
     mutate(Type = factor(Type, levels = c('RC_Subj', 'RC_Obj')),
          Type_num = ifelse(Type == 'RC_Subj', 0, 1))
 
-  curr_fit1_bayes <- brm(corrected_pred_rt ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item),
-                          data=curr_verb_dat,
-                          prior = prior1,
-                          cores = 4,
-                          iter = 4000,
-                          seed = 117
-                        )
-
-  saveRDS(curr_fit1_bayes, paste('./saved_objects/fit1_bayes_prior1_surp_', model_name, sep=''))
+  # curr_fit1_bayes <- brm(corrected_pred_rt ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item),
+  #                         data=curr_verb_dat,
+  #                         prior = prior1,
+  #                         cores = 4,
+  #                         iter = 4000,
+  #                         seed = 117
+  #                       )
+  # 
+  # saveRDS(curr_fit1_bayes, paste('./saved_objects/fit1_bayes_prior1_surp_', model_name, sep=''))
+  
+  curr_fit1_bayes = readRDS(paste('./saved_objects/fit1_bayes_prior1_surp_', model_name, sep=''))
 
 
   curr_fit1_byitem <- split_by_randomeffect(curr_fit1_bayes)%>%
@@ -758,11 +760,15 @@ for(model_name in unique(predicted_dat$model)){
 ```
 
 
-#### Looking at summary of LMER fit models
+#### Comparing by-item predictions from BRMS and LMER models
 
 
 ```{r, cache=TRUE}
 
+
+all_fit1_byitem_lmer <- list()
+
+i <- 1
 for(model_name in unique(predicted_dat$model)){
   print(model_name)
   
@@ -778,11 +784,43 @@ for(model_name in unique(predicted_dat$model)){
                          data=curr_verb_dat
                         )
   
-  print(summary(curr_fit1_lmer))
+  curr_item_df <- data.frame(ranef(curr_fit1_lmer)) %>%
+    filter(grpvar == 'item') %>%
+    select(!condsd) %>%
+    spread(key = term, value = condval) %>%
+    rename(item = grp,
+           mean_surp_lmer = Type_num) %>%
+    mutate(model = model_name)
+  
+  all_fit1_byitem_lmer[[i]] <- curr_item_df
+  i <- i+1
   
 }
 
+all_surp_fit1_byitem_lmer <- dplyr::bind_rows(all_fit1_byitem_lmer)
+
 ```
+
+
+
+
+```{r}
+
+all_byitem_surp2 <- merge(all_surp_fit1_byitem,all_surp_fit1_byitem_lmer, by = c('model', 'item'))
+
+
+ggplot(all_byitem_surp2, aes(y = mean_surp_lmer, x = mean_surp)) + 
+  geom_point() + 
+  facet_grid(~model) + 
+  # geom_errorbar(aes(ymin=lower,
+  #                   ymax=upper), 
+  #               width=0.2) + 
+  labs(y = 'LMER Pred RT(ORC) - Pred RT(SRC)', x = 'BRMS Pred RT(ORC) - Pred RT(SRC)') +
+  geom_smooth(method = 'lm')
+
+
+```
+
 
 
 #### Creating a CSV of by-item surprisal and RTs
@@ -809,6 +847,7 @@ by_item <- merge(sent_dat, by_item, by = 'item')
 write.csv(by_item, 'RC_subset_byitem_RT_surps.csv')
 
 ```
+
 
 
 
