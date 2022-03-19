@@ -228,12 +228,36 @@ AMB_CONSTR_itemmean_estimate_P0 <- data.frame(ITEM_MEAN_P0=c(as.vector(colMeans(
 lm_prediction <- left_join(lm_prediction,AMB_CONSTR_itemmean_estimate_P0)
 cor.test(lm_prediction$ITEM_MEAN_P0,lm_prediction$lstmsurprisaldiff_ambminusuamb)
 cor.test(lm_prediction$ITEM_MEAN_P0,lm_prediction$gpt2surprisaldiff_ambminusuamb)
-cor.test(lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="NPS"],lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPS"])
-cor.test(lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="NPS"],lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="NPS"])
-cor.test(lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="NPZ"],lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPZ"])
-cor.test(lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="NPZ"],lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="NPZ"])
-cor.test(lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="MVRR"],lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="MVRR"])
-cor.test(lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="MVRR"],lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="MVRR"])
+cortest_lstm_P0 <- lm_prediction %>%group_by(Type) %>% do(CORR=cor.test(.$lstmsurprisaldiff_ambminusuamb,.$ITEM_MEAN_P0))
+cortest_lstm_P0$CORR
+cortest_gpt2_P0 <- lm_prediction %>%group_by(Type) %>% do(CORR=cor.test(.$gpt2surprisaldiff_ambminusuamb,.$ITEM_MEAN_P0))
+cortest_gpt2_P0$CORR
+
+
+
+lstm_itemgpe_by_surprisal <- ggplot(lm_prediction,aes(x=lstmsurprisaldiff_ambminusuamb,y=ITEM_MEAN_P0,color=Type))+
+  labs(title = "r =0.54, (LSTM)")+
+  xlab("")+
+  ylab("")+
+  geom_pointrange(aes(ymin=HDI_low_P0, ymax=HDI_high_P0))+
+  theme(axis.text.x = element_text(size=13),
+        axis.text.y = element_text(size=12),
+        plot.title = element_text(size = 13))
+lstm_itemgpe_by_surprisal <- set_panel_size(lstm_itemgpe_by_surprisal,width=unit(7.5,"cm"),height=unit(7.5,"cm"))
+gpt2_itemgpe_by_surprisal <- ggplot(lm_prediction,aes(x=gpt2surprisaldiff_ambminusuamb,y=ITEM_MEAN_P0,col=Type))+
+  labs(title = "r =0.47, (GPT-2)")+
+  xlab("")+
+  ylab("")+
+  geom_pointrange(aes(ymin=HDI_low_P0, ymax=HDI_high_P0))+
+  theme(axis.text.x = element_text(size=13),
+        axis.text.y = element_text(size=12),
+        plot.title = element_text(size = 13))
+gpt2_itemgpe_by_surprisal <- set_panel_size(gpt2_itemgpe_by_surprisal,width=unit(7.5,"cm"),height=unit(7.5,"cm"))
+grid.arrange(lstm_itemgpe_by_surprisal,
+             gpt2_itemgpe_by_surprisal,ncol=2,
+             bottom=textGrob("Surprisal difference at the disambiguating verb (ambig - unambig)", gp=gpar(fontsize=14)),
+             left=textGrob("Empirical Garden Path Effect at the disambiguating verb", gp=gpar(fontsize=14),rot=90))
+
 ```
 
 
@@ -293,50 +317,16 @@ AMB_CONSTR_itemmean_estimate_P1 <- data.frame(ITEM_MEAN_P1=c(as.vector(colMeans(
 lm_prediction <- left_join(lm_prediction,AMB_CONSTR_itemmean_estimate_P1)
 cor.test(lm_prediction$ITEM_MEAN_P1,lm_prediction$lstmsurprisaldiff_ambminusuamb)
 cor.test(lm_prediction$ITEM_MEAN_P1,lm_prediction$gpt2surprisaldiff_ambminusuamb)
-cor.test(lm_prediction$ITEM_MEAN_P1[lm_prediction$Type=="NPS"],lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPS"])
-cor.test(lm_prediction$ITEM_MEAN_P1[lm_prediction$Type=="NPS"],lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="NPS"])
-cor.test(lm_prediction$ITEM_MEAN_P1[lm_prediction$Type=="NPZ"],lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPZ"])
-cor.test(lm_prediction$ITEM_MEAN_P1[lm_prediction$Type=="NPZ"],lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="NPZ"])
-cor.test(lm_prediction$ITEM_MEAN_P1[lm_prediction$Type=="MVRR"],lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="MVRR"])
-cor.test(lm_prediction$ITEM_MEAN_P1[lm_prediction$Type=="MVRR"],lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="MVRR"])
+cortest_lstm_P1 <- lm_prediction %>%group_by(Type) %>% do(CORR=cor.test(.$lstmsurprisaldiff_ambminusuamb,.$ITEM_MEAN_P1))
+cortest_lstm_P1$CORR
+cortest_gpt2_P1 <- lm_prediction %>%group_by(Type) %>% do(CORR=cor.test(.$gpt2surprisaldiff_ambminusuamb,.$ITEM_MEAN_P1))
+cortest_gpt2_P1$CORR
 
 
 
 
 
-lstm_itemgpe_by_surprisal <- ggplot(lm_prediction,aes(x=lstmsurprisaldiff_ambminusuamb,y=ITEM_MEAN_P0,color=Type))+
-  labs(title = "r =0.54, (LSTM)")+
-  xlab("")+
-  ylab("")+
-  geom_pointrange(aes(ymin=HDI_low_P0, ymax=HDI_high_P0))+
-  theme(axis.text.x = element_text(size=13),
-        axis.text.y = element_text(size=12),
-        plot.title = element_text(size = 13))
-lstm_itemgpe_by_surprisal <- set_panel_size(lstm_itemgpe_by_surprisal,width=unit(7.5,"cm"),height=unit(7.5,"cm"))
-gpt2_itemgpe_by_surprisal <- ggplot(lm_prediction,aes(x=gpt2surprisaldiff_ambminusuamb,y=ITEM_MEAN_P0,col=Type))+
-  labs(title = "r =0.47, (GPT-2)")+
-  xlab("")+
-  ylab("")+
-  geom_pointrange(aes(ymin=HDI_low_P0, ymax=HDI_high_P0))+
-  theme(axis.text.x = element_text(size=13),
-        axis.text.y = element_text(size=12),
-        plot.title = element_text(size = 13))
-gpt2_itemgpe_by_surprisal <- set_panel_size(gpt2_itemgpe_by_surprisal,width=unit(7.5,"cm"),height=unit(7.5,"cm"))
-grid.arrange(lstm_itemgpe_by_surprisal,
-             gpt2_itemgpe_by_surprisal,ncol=2,
-             bottom=textGrob("Surprisal difference at the disambiguating verb (ambig - unambig)", gp=gpar(fontsize=14)),
-             left=textGrob("Empirical Garden Path Effect at the disambiguating verb", gp=gpar(fontsize=14),rot=90))
 
-
-#zoomming inside each construction for each lm
-#lstm
-cor.test(lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="MVRR"], lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="MVRR"])
-cor.test(lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPS"], lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="NPS"])
-cor.test(lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPZ"], lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="NPZ"])
-#gpt2
-cor.test(lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="MVRR"], lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="MVRR"])
-cor.test(lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="NPS"], lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="NPS"])
-cor.test(lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="NPZ"], lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="NPZ"])
 ```
 
 
@@ -390,13 +380,12 @@ lm_prediction <- left_join(lm_prediction,AMB_CONSTR_itemmean_estimate_RTacross3w
 
 
 
-
-cor.test(lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="MVRR"], lm_prediction$ITEM_MEAN_RTacross3words[lm_prediction$Type=="MVRR"])
-cor.test(lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPS"], lm_prediction$ITEM_MEAN_RTacross3words[lm_prediction$Type=="NPS"])
-cor.test(lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPZ"], lm_prediction$ITEM_MEAN_RTacross3words[lm_prediction$Type=="NPZ"])
-cor.test(lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="MVRR"], lm_prediction$ITEM_MEAN_RTacross3words[lm_prediction$Type=="MVRR"])
-cor.test(lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="NPS"], lm_prediction$ITEM_MEAN_RTacross3words[lm_prediction$Type=="NPS"])
-cor.test(lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="NPZ"], lm_prediction$ITEM_MEAN_RTacross3words[lm_prediction$Type=="NPZ"])
+cor.test(lm_prediction$lstmsurprisaldiff_ambminusuamb, lm_prediction$ITEM_MEAN_RTacross3words)
+cor.test(lm_prediction$gpt2surprisaldiff_ambminusuamb, lm_prediction$ITEM_MEAN_RTacross3words)
+cortest_lstm_RTacross3words <- lm_prediction %>%group_by(Type) %>% do(CORR=cor.test(.$lstmsurprisaldiff_ambminusuamb,.$ITEM_MEAN_RTacross3words))
+cortest_lstm_RTacross3words$CORR
+cortest_gpt2_RTacross3words <- lm_prediction %>%group_by(Type) %>% do(CORR=cor.test(.$gpt2surprisaldiff_ambminusuamb,.$ITEM_MEAN_RTacross3words))
+cortest_gpt2_RTacross3words$CORR
 ```
 
 
@@ -448,8 +437,10 @@ ggplot(A[A$POSITION=="Disambiguating Verb",],aes(x=CONSTRUCTION,y=`surprisal dif
   geom_bar(stat="identity",position=position_dodge())+
   xlab("")+
   ylab("Mean surprisal difference")+
-  theme(legend.position = "left",
+  theme(legend.position = "top",
         legend.title = element_text(size=12,face="bold"),
+        legend.text = element_text(size=12),
+        strip.text.x=element_text(size=12,face="bold"),
         axis.title=element_text(size=14,face="bold"),
         axis.text.x = element_text(size=0),
         axis.text.y = element_text(size=14,face="bold"))+facet_wrap(~LMs,nrow=2)
@@ -466,6 +457,7 @@ ggplot(lm_prediction,aes(x=Rank_P0,y=ITEM_MEAN_P0,colour=Type))+
   xlab("Magnitude rank")+
   ylab("Garden path effects")+
   theme(axis.title=element_text(size=14,face="bold"),
+  strip.text.x=element_text(size=12,face="bold"),
   axis.text = element_text(size=12))
 
 lm_prediction <- lm_prediction%>%group_by(Type)%>%mutate(Rank_P1=rank(ITEM_MEAN_P1))%>%ungroup()
@@ -476,6 +468,7 @@ ggplot(lm_prediction,aes(x=Rank_P1,y=ITEM_MEAN_P1,colour=Type))+
   xlab("Magnitude rank")+
   ylab("Garden path effects")+
   theme(axis.title=element_text(size=14,face="bold"),
+  strip.text.x=element_text(size=12,face="bold"),
   axis.text = element_text(size=12))
 
 
@@ -489,6 +482,7 @@ ggplot(lm_prediction,aes(x=Rank_RTacross3words,y=ITEM_MEAN_RTacross3words,colour
   xlab("Magnitude rank")+
   ylab("Garden path effects")+
   theme(axis.title=element_text(size=14,face="bold"),
+  strip.text.x=element_text(size=15,face="bold"),
   axis.text = element_text(size=12))
 
 ```
