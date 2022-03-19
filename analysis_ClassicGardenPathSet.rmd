@@ -1,7 +1,8 @@
 ---
 title: 'SAP Benchmark (SPR): ClassicGP subset'
 output:
-  html_document
+  md_document:
+    variant: markdown_github
 fig_width: 20 
 fig_height: 20   
 ---
@@ -182,7 +183,6 @@ psamp_P0_AMBxCONSTR <- posterior_samples(brm_P0_AMBxCONSTR,fixed=TRUE,pars=c("b_
 for(i in 1:24){
   psamp_P0_AMBxCONSTR[,i+147] <- psamp_P0_AMBxCONSTR[,1]+ psamp_P0_AMBxCONSTR[,i+27]
 }
-#cor.test(as.vector(colMeans(psamp_P0_AMBxCONSTR[,148:171])),lm_prediction$ITEM72_MEAN_P0[lm_prediction$Type=="MVRR"])
 MVRR_P0 <- psamp_P0_AMBxCONSTR[,148:171]
 MVRR_SE_P0 <- vector()
 MVRR_HDI_high_P0 <- vector()
@@ -197,7 +197,6 @@ for(i in 1:ncol(MVRR_P0)){
 for(i in 1:24){
   psamp_P0_AMBxCONSTR[,i+171] <- psamp_P0_AMBxCONSTR[,1]+psamp_P0_AMBxCONSTR[,2]+psamp_P0_AMBxCONSTR[,i+27]+psamp_P0_AMBxCONSTR[,i+99]
 }
-#cor.test(as.vector(colMeans(psamp_P0_AMBxCONSTR[,172:195])),lm_prediction$ITEM72_MEAN_P0[lm_prediction$Type=="NPS"])
 NPS_P0 <- psamp_P0_AMBxCONSTR[,172:195]
 NPS_SE_P0 <- vector()
 NPS_HDI_high_P0 <- vector()
@@ -212,7 +211,6 @@ for(i in 1:ncol(NPS_P0)){
 for(i in 1:24){
   psamp_P0_AMBxCONSTR[,i+195] <- psamp_P0_AMBxCONSTR[,1]+psamp_P0_AMBxCONSTR[,3]+psamp_P0_AMBxCONSTR[,i+27]+psamp_P0_AMBxCONSTR[,i+123]
 }
-#cor.test(as.vector(colMeans(psamp_P0_AMBxCONSTR[,196:219])),lm_prediction$ITEM72_MEAN_P0[lm_prediction$Type=="NPZ"])
 NPZ_P0 <- psamp_P0_AMBxCONSTR[,196:219]
 NPZ_SE_P0 <- vector()
 NPZ_HDI_high_P0 <- vector()
@@ -245,7 +243,6 @@ psamp_P1_AMBxCONSTR <- posterior_samples(brm_P1_AMBxCONSTR,fixed=TRUE,pars=c("b_
 for(i in 1:24){
   psamp_P1_AMBxCONSTR[,i+147] <- psamp_P1_AMBxCONSTR[,1]+ psamp_P1_AMBxCONSTR[,i+27]
 }
-#cor.test(as.vector(colMeans(psamp_P1_AMBxCONSTR[,148:171])),lm_prediction$ITEM72_MEAN_P1[lm_prediction$Type=="MVRR"])
 
 MVRR_P1 <- psamp_P1_AMBxCONSTR[,148:171]
 MVRR_SE_P1 <- vector()
@@ -262,8 +259,6 @@ for(i in 1:ncol(MVRR_P1)){
 for(i in 1:24){
   psamp_P1_AMBxCONSTR[,i+171] <- psamp_P1_AMBxCONSTR[,1]+psamp_P1_AMBxCONSTR[,2]+psamp_P1_AMBxCONSTR[,i+27]+psamp_P1_AMBxCONSTR[,i+99]
 }
-#cor.test(as.vector(colMeans(psamp_P1_AMBxCONSTR[,172:195])),lm_prediction$ITEM72_MEAN_P1[lm_prediction$Type=="NPS"])
-
 
 NPS_P1 <- psamp_P1_AMBxCONSTR[,172:195]
 NPS_SE_P1 <- vector()
@@ -279,7 +274,6 @@ for(i in 1:ncol(NPS_P1)){
 for(i in 1:24){
   psamp_P1_AMBxCONSTR[,i+195] <- psamp_P1_AMBxCONSTR[,1]+psamp_P1_AMBxCONSTR[,3]+psamp_P1_AMBxCONSTR[,i+27]+psamp_P1_AMBxCONSTR[,i+123]
 }
-#cor.test(as.vector(colMeans(psamp_P1_AMBxCONSTR[,196:219])),lm_prediction$ITEM72_MEAN_P1[lm_prediction$Type=="NPZ"])
 
 
 NPZ_P1 <- psamp_P1_AMBxCONSTR[,196:219]
@@ -319,7 +313,7 @@ lstm_itemgpe_by_surprisal <- ggplot(lm_prediction,aes(x=lstmsurprisaldiff_ambmin
         axis.text.y = element_text(size=12),
         plot.title = element_text(size = 13))
 lstm_itemgpe_by_surprisal <- set_panel_size(lstm_itemgpe_by_surprisal,width=unit(7.5,"cm"),height=unit(7.5,"cm"))
-gpt2_itemgpe_by_surprisal <- ggplot(lm_prediction,aes(x=gpt2surprisaldiff_ambminusuamb,y=ITEM72_MEAN_P0,col=Type))+
+gpt2_itemgpe_by_surprisal <- ggplot(lm_prediction,aes(x=gpt2surprisaldiff_ambminusuamb,y=ITEM_MEAN_P0,col=Type))+
   labs(title = "r =0.47, (GPT-2)")+
   xlab("")+
   ylab("")+
@@ -464,8 +458,8 @@ ggplot(A[A$POSITION=="Disambiguating Verb",],aes(x=CONSTRUCTION,y=`surprisal dif
 
 ###plotting itemwise GPEs in each construction by their magnitude
 ```{r}
-lm_prediction <- lm_prediction%>%group_by(Type)%>%mutate(Rank=rank(ITEM_MEAN_P0))%>%ungroup()
-ggplot(lm_prediction,aes(x=Rank,y=ITEM_MEAN_P0,colour=Type))+
+lm_prediction <- lm_prediction%>%group_by(Type)%>%mutate(Rank_P0=rank(ITEM_MEAN_P0))%>%ungroup()
+ggplot(lm_prediction,aes(x=Rank_P0,y=ITEM_MEAN_P0,colour=Type))+
   facet_wrap(~Type)+
   geom_point()+
   geom_errorbar(aes(ymin=HDI_low_P0,ymax=HDI_high_P0),width=.2,position=position_dodge(.9))+
@@ -473,6 +467,30 @@ ggplot(lm_prediction,aes(x=Rank,y=ITEM_MEAN_P0,colour=Type))+
   ylab("Garden path effects")+
   theme(axis.title=element_text(size=14,face="bold"),
   axis.text = element_text(size=12))
+
+lm_prediction <- lm_prediction%>%group_by(Type)%>%mutate(Rank_P1=rank(ITEM_MEAN_P1))%>%ungroup()
+ggplot(lm_prediction,aes(x=Rank_P1,y=ITEM_MEAN_P1,colour=Type))+
+  facet_wrap(~Type)+
+  geom_point()+
+  geom_errorbar(aes(ymin=HDI_low_P1,ymax=HDI_high_P1),width=.2,position=position_dodge(.9))+
+  xlab("Magnitude rank")+
+  ylab("Garden path effects")+
+  theme(axis.title=element_text(size=14,face="bold"),
+  axis.text = element_text(size=12))
+
+
+
+
+lm_prediction <- lm_prediction%>%group_by(Type)%>%mutate(Rank_RTacross3words=rank(ITEM_MEAN_RTacross3words))%>%ungroup()
+ggplot(lm_prediction,aes(x=Rank_RTacross3words,y=ITEM_MEAN_RTacross3words,colour=Type))+
+  facet_wrap(~Type)+
+  geom_point()+
+  geom_errorbar(aes(ymin=HDI_low_RTacross3words,ymax=HDI_high_RTacross3words),width=.2,position=position_dodge(.9))+
+  xlab("Magnitude rank")+
+  ylab("Garden path effects")+
+  theme(axis.title=element_text(size=14,face="bold"),
+  axis.text = element_text(size=12))
+
 ```
 
 
@@ -501,12 +519,24 @@ ggplot(lm_prediction2,aes(x=surprisaldiff_ambminusuamb,y=ITEM_MEAN_P1,colour=Typ
   geom_point()+
   facet_wrap(LMs~Type)+
   xlab("Surprisal difference (disambiguating verb)")+
-  ylab("Garden path effects (disambiguating verb)")+
+  ylab("Garden path effects (spillover 1)")+
   theme(axis.text.x = element_text(size=12),
         axis.text.y = element_text(size=12),
         axis.title=element_text(size=14,face="bold"),
         plot.title = element_text(size = 14))+
   theme(aspect.ratio = 1)
+###aggregate across 3 positions
+ggplot(lm_prediction2,aes(x=surprisaldiff_ambminusuamb,y=ITEM_MEAN_RTacross3words,colour=Type))+
+  geom_point()+
+  facet_wrap(LMs~Type)+
+  xlab("Surprisal difference (disambiguating verb)")+
+  ylab("Garden path effects (averaging 3 positions)")+
+  theme(axis.text.x = element_text(size=12),
+        axis.text.y = element_text(size=12),
+        axis.title=element_text(size=14,face="bold"),
+        plot.title = element_text(size = 14))+
+  theme(aspect.ratio = 1)
+
 
 ```
 
