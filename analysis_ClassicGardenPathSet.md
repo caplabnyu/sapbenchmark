@@ -82,33 +82,33 @@ summary(lmer_0_AMBxCONSTR)
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -6.1001 -0.3542 -0.1409  0.1168 17.6101 
+    ## -6.1001 -0.3542 -0.1409  0.1168 17.6102 
     ## 
     ## Random effects:
     ##  Groups        Name         Variance  Std.Dev. 
     ##  participant   AMBUAMB:SZM2 6.022e+04 2.454e+02
-    ##  participant.1 AMBUAMB:SZM1 1.787e-04 1.337e-02
-    ##  participant.2 SZM2         2.544e-04 1.595e-02
-    ##  participant.3 SZM1         4.536e-05 6.735e-03
+    ##  participant.1 AMBUAMB:SZM1 4.229e-05 6.503e-03
+    ##  participant.2 SZM2         0.000e+00 0.000e+00
+    ##  participant.3 SZM1         2.417e-05 4.917e-03
     ##  participant.4 AMBUAMB      1.528e+04 1.236e+02
     ##  participant.5 (Intercept)  2.487e+04 1.577e+02
-    ##  item          AMBUAMB:SZM2 8.696e+02 2.949e+01
-    ##  item.1        AMBUAMB:SZM1 1.467e+03 3.830e+01
-    ##  item.2        SZM2         5.725e+02 2.393e+01
-    ##  item.3        SZM1         5.678e+01 7.535e+00
-    ##  item.4        AMBUAMB      1.238e+03 3.518e+01
-    ##  item.5        (Intercept)  3.161e+02 1.778e+01
+    ##  item          AMBUAMB:SZM2 8.694e+02 2.949e+01
+    ##  item.1        AMBUAMB:SZM1 1.466e+03 3.829e+01
+    ##  item.2        SZM2         5.730e+02 2.394e+01
+    ##  item.3        SZM1         5.667e+01 7.528e+00
+    ##  item.4        AMBUAMB      1.237e+03 3.517e+01
+    ##  item.5        (Intercept)  3.162e+02 1.778e+01
     ##  Residual                   1.087e+05 3.296e+02
     ## Number of obs: 47700, groups:  participant, 2000; item, 24
     ## 
     ## Fixed effects:
     ##              Estimate Std. Error t value
-    ## (Intercept)   458.557      6.301  72.775
-    ## AMBUAMB        59.230      9.370   6.321
-    ## SZM1          -37.446      5.531  -6.770
-    ## SZM2          -27.566      7.242  -3.806
-    ## AMBUAMB:SZM1  -13.658     10.877  -1.256
-    ## AMBUAMB:SZM2   61.973     11.151   5.558
+    ## (Intercept)   458.557      6.302  72.769
+    ## AMBUAMB        59.229      9.367   6.323
+    ## SZM1          -37.447      5.531  -6.770
+    ## SZM2          -27.566      7.244  -3.805
+    ## AMBUAMB:SZM1  -13.657     10.874  -1.256
+    ## AMBUAMB:SZM2   61.974     11.150   5.558
     ## 
     ## Correlation of Fixed Effects:
     ##              (Intr) AMBUAMB SZM1   SZM2   AMBUAMB:SZM1
@@ -147,33 +147,33 @@ summary(lmer_1_AMBxCONSTR)
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -4.6454 -0.3852 -0.1484  0.1518 15.8516 
+    ## -4.6454 -0.3852 -0.1484  0.1518 15.8515 
     ## 
     ## Random effects:
-    ##  Groups        Name         Variance Std.Dev.
-    ##  participant   AMBUAMB:SZM2  28725.5 169.49  
-    ##  participant.1 AMBUAMB:SZM1   3455.6  58.78  
-    ##  participant.2 SZM2              0.0   0.00  
-    ##  participant.3 SZM1              0.0   0.00  
-    ##  participant.4 AMBUAMB       32391.9 179.98  
-    ##  participant.5 (Intercept)   18307.9 135.31  
-    ##  item          AMBUAMB:SZM2   2998.1  54.75  
-    ##  item.1        AMBUAMB:SZM1   1678.9  40.97  
-    ##  item.2        SZM2            342.3  18.50  
-    ##  item.3        SZM1              0.0   0.00  
-    ##  item.4        AMBUAMB        1692.8  41.14  
-    ##  item.5        (Intercept)     817.7  28.60  
-    ##  Residual                   124293.0 352.55  
+    ##  Groups        Name         Variance  Std.Dev. 
+    ##  participant   AMBUAMB:SZM2 2.872e+04 169.47662
+    ##  participant.1 AMBUAMB:SZM1 3.458e+03  58.80532
+    ##  participant.2 SZM2         0.000e+00   0.00000
+    ##  participant.3 SZM1         1.757e-04   0.01326
+    ##  participant.4 AMBUAMB      3.240e+04 179.98651
+    ##  participant.5 (Intercept)  1.831e+04 135.30099
+    ##  item          AMBUAMB:SZM2 3.001e+03  54.78041
+    ##  item.1        AMBUAMB:SZM1 1.678e+03  40.96370
+    ##  item.2        SZM2         3.423e+02  18.50029
+    ##  item.3        SZM1         0.000e+00   0.00000
+    ##  item.4        AMBUAMB      1.695e+03  41.17267
+    ##  item.5        (Intercept)  8.179e+02  28.59976
+    ##  Residual                   1.243e+05 352.55186
     ## Number of obs: 47704, groups:  participant, 2000; item, 24
     ## 
     ## Fixed effects:
     ##              Estimate Std. Error t value
-    ## (Intercept)   446.055      7.707  57.876
-    ## AMBUAMB       203.506     10.937  18.607
+    ## (Intercept)   446.055      7.708  57.872
+    ## AMBUAMB       203.506     10.942  18.599
     ## SZM1           -1.360      5.691  -0.239
     ## SZM2           19.058      6.857   2.779
-    ## AMBUAMB:SZM1 -139.347     11.720 -11.889
-    ## AMBUAMB:SZM2  -52.835     14.343  -3.684
+    ## AMBUAMB:SZM1 -139.347     11.719 -11.891
+    ## AMBUAMB:SZM2  -52.835     14.348  -3.683
     ## 
     ## Correlation of Fixed Effects:
     ##              (Intr) AMBUAMB SZM1   SZM2   AMBUAMB:SZM1
@@ -209,33 +209,33 @@ summary(lmer_2_AMBxCONSTR)
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -6.3344 -0.3989 -0.1462  0.1576 21.8581 
+    ## -6.3343 -0.3989 -0.1462  0.1576 21.8581 
     ## 
     ## Random effects:
     ##  Groups        Name         Variance  Std.Dev. 
     ##  participant   AMBUAMB:SZM2 1.264e+04 1.124e+02
-    ##  participant.1 AMBUAMB:SZM1 2.000e-04 1.414e-02
-    ##  participant.2 SZM2         4.790e-05 6.921e-03
-    ##  participant.3 SZM1         0.000e+00 0.000e+00
-    ##  participant.4 AMBUAMB      9.411e+03 9.701e+01
+    ##  participant.1 AMBUAMB:SZM1 4.135e-05 6.430e-03
+    ##  participant.2 SZM2         2.033e-05 4.508e-03
+    ##  participant.3 SZM1         3.489e-05 5.907e-03
+    ##  participant.4 AMBUAMB      9.410e+03 9.701e+01
     ##  participant.5 (Intercept)  1.368e+04 1.169e+02
-    ##  item          AMBUAMB:SZM2 1.145e+03 3.384e+01
-    ##  item.1        AMBUAMB:SZM1 8.199e+02 2.863e+01
-    ##  item.2        SZM2         3.187e+02 1.785e+01
+    ##  item          AMBUAMB:SZM2 1.147e+03 3.387e+01
+    ##  item.1        AMBUAMB:SZM1 8.201e+02 2.864e+01
+    ##  item.2        SZM2         3.188e+02 1.785e+01
     ##  item.3        SZM1         0.000e+00 0.000e+00
     ##  item.4        AMBUAMB      1.547e+03 3.933e+01
-    ##  item.5        (Intercept)  7.546e+02 2.747e+01
+    ##  item.5        (Intercept)  7.547e+02 2.747e+01
     ##  Residual                   7.663e+04 2.768e+02
     ## Number of obs: 47716, groups:  participant, 2000; item, 24
     ## 
     ## Fixed effects:
     ##              Estimate Std. Error t value
-    ## (Intercept)   430.009      6.949  61.883
-    ## AMBUAMB       113.726      9.458  12.024
-    ## SZM1            5.905      4.477   1.319
+    ## (Intercept)   430.009      6.949  61.878
+    ## AMBUAMB       113.726      9.458  12.025
+    ## SZM1            5.906      4.477   1.319
     ## SZM2           19.512      5.793   3.368
-    ## AMBUAMB:SZM1  -88.665      8.643 -10.259
-    ## AMBUAMB:SZM2  -48.820      9.751  -5.007
+    ## AMBUAMB:SZM1  -88.666      8.643 -10.258
+    ## AMBUAMB:SZM2  -48.820      9.756  -5.004
     ## 
     ## Correlation of Fixed Effects:
     ##              (Intr) AMBUAMB SZM1   SZM2   AMBUAMB:SZM1
@@ -259,7 +259,8 @@ summary(lmer_2_AMBxCONSTR)
 lmer_0_item72 <- lmer(RT ~ AMBUAMB+(1+AMBUAMB|item72)+(1+AMBUAMB|participant),data=rt.data[rt.data$ROI==0,])
 ```
 
-    ## boundary (singular) fit: see ?isSingular
+    ## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv, :
+    ## Model failed to converge with max|grad| = 0.00239014 (tol = 0.002, component 1)
 
 ``` r
 #point estimate of ambiguity effect across constructions = 76 ms at ROI0
@@ -278,23 +279,23 @@ summary(lmer_0_item72)
     ## 
     ## Random effects:
     ##  Groups      Name        Variance Std.Dev. Corr 
-    ##  participant (Intercept)  17739.0 133.19        
-    ##              AMBUAMB      16233.4 127.41   1.00 
-    ##  item72      (Intercept)    688.4  26.24        
-    ##              AMBUAMB       2618.2  51.17   -0.01
+    ##  participant (Intercept)  17739.5 133.19        
+    ##              AMBUAMB      16233.3 127.41   1.00 
+    ##  item72      (Intercept)    688.3  26.24        
+    ##              AMBUAMB       2618.5  51.17   -0.01
     ##  Residual                116145.2 340.80        
     ## Number of obs: 47700, groups:  participant, 2000; item72, 72
     ## 
     ## Fixed effects:
     ##             Estimate Std. Error t value
-    ## (Intercept)  437.464      4.852   90.17
+    ## (Intercept)  437.464      4.851   90.17
     ## AMBUAMB       76.022      7.405   10.27
     ## 
     ## Correlation of Fixed Effects:
     ##         (Intr)
     ## AMBUAMB 0.088 
     ## optimizer (nloptwrap) convergence code: 0 (OK)
-    ## boundary (singular) fit: see ?isSingular
+    ## Model failed to converge with max|grad| = 0.00239014 (tol = 0.002, component 1)
 
 ``` r
 #averaging RT across Positions 0-2
@@ -351,17 +352,17 @@ summary(lmer_1_item72)
     ## 
     ## Random effects:
     ##  Groups      Name        Variance Std.Dev. Corr
-    ##  participant (Intercept)  12992.4 113.98       
-    ##              AMBUAMB      23706.1 153.97   0.81
-    ##  item72      (Intercept)    952.1  30.86       
-    ##              AMBUAMB       5441.9  73.77   0.16
-    ##  Residual                129378.8 359.69       
+    ##  participant (Intercept)  12992.5 113.98       
+    ##              AMBUAMB      23706.5 153.97   0.81
+    ##  item72      (Intercept)    952.2  30.86       
+    ##              AMBUAMB       5442.6  73.77   0.16
+    ##  Residual                129378.7 359.69       
     ## Number of obs: 47704, groups:  participant, 2000; item72, 72
     ## 
     ## Fixed effects:
     ##             Estimate Std. Error t value
-    ## (Intercept)  453.232      5.042   89.89
-    ## AMBUAMB      138.860      9.951   13.95
+    ## (Intercept)  453.232      5.042   89.88
+    ## AMBUAMB      138.860      9.952   13.95
     ## 
     ## Correlation of Fixed Effects:
     ##         (Intr)
@@ -404,13 +405,13 @@ cor.test(ranef(lmer0_firsthalf)[['item72']]$AMBUAMB,ranef(lmer0_secondhalf)[['it
     ##  Pearson's product-moment correlation
     ## 
     ## data:  ranef(lmer0_firsthalf)[["item72"]]$AMBUAMB and ranef(lmer0_secondhalf)[["item72"]]$AMBUAMB
-    ## t = 8.6324, df = 70, p-value = 1.251e-12
+    ## t = 8.9955, df = 70, p-value = 2.695e-13
     ## alternative hypothesis: true correlation is not equal to 0
     ## 95 percent confidence interval:
-    ##  0.5834702 0.8142834
+    ##  0.6028320 0.8241079
     ## sample estimates:
     ##       cor 
-    ## 0.7180753
+    ## 0.7322382
 
 ``` r
 #NPS
@@ -421,13 +422,13 @@ cor.test(ranef(lmer0_firsthalf)[['item72']]$AMBUAMB[1:24],ranef(lmer0_secondhalf
     ##  Pearson's product-moment correlation
     ## 
     ## data:  ranef(lmer0_firsthalf)[["item72"]]$AMBUAMB[1:24] and ranef(lmer0_secondhalf)[["item72"]]$AMBUAMB[1:24]
-    ## t = 4.4603, df = 22, p-value = 0.000196
+    ## t = 5.37, df = 22, p-value = 2.161e-05
     ## alternative hypothesis: true correlation is not equal to 0
     ## 95 percent confidence interval:
-    ##  0.3957133 0.8548658
+    ##  0.5024014 0.8870498
     ## sample estimates:
     ##       cor 
-    ## 0.6891081
+    ## 0.7531578
 
 ``` r
 #NPZ
@@ -438,13 +439,13 @@ cor.test(ranef(lmer0_firsthalf)[['item72']]$AMBUAMB[25:48],ranef(lmer0_secondhal
     ##  Pearson's product-moment correlation
     ## 
     ## data:  ranef(lmer0_firsthalf)[["item72"]]$AMBUAMB[25:48] and ranef(lmer0_secondhalf)[["item72"]]$AMBUAMB[25:48]
-    ## t = 3.2311, df = 22, p-value = 0.00384
+    ## t = 3.8258, df = 22, p-value = 0.0009216
     ## alternative hypothesis: true correlation is not equal to 0
     ## 95 percent confidence interval:
-    ##  0.2125435 0.7899250
+    ##  0.3069241 0.8250861
     ## sample estimates:
     ##       cor 
-    ## 0.5673003
+    ## 0.6320636
 
 ``` r
 #MVRR
@@ -455,13 +456,13 @@ cor.test(ranef(lmer0_firsthalf)[['item72']]$AMBUAMB[49:72],ranef(lmer0_secondhal
     ##  Pearson's product-moment correlation
     ## 
     ## data:  ranef(lmer0_firsthalf)[["item72"]]$AMBUAMB[49:72] and ranef(lmer0_secondhalf)[["item72"]]$AMBUAMB[49:72]
-    ## t = 3.3146, df = 22, p-value = 0.003151
+    ## t = 3.0784, df = 22, p-value = 0.005496
     ## alternative hypothesis: true correlation is not equal to 0
     ## 95 percent confidence interval:
-    ##  0.2264260 0.7953465
+    ##  0.1865993 0.7795450
     ## sample estimates:
     ##       cor 
-    ## 0.5771098
+    ## 0.5486938
 
 ``` r
 #overall pretty high reliability of item-wise GP effects (note, however, results vary somewhat with different random seeds)
@@ -501,13 +502,13 @@ cor.test(ranef(lmer1_firsthalf)[['item72']]$AMBUAMB,ranef(lmer1_secondhalf)[['it
     ##  Pearson's product-moment correlation
     ## 
     ## data:  ranef(lmer1_firsthalf)[["item72"]]$AMBUAMB and ranef(lmer1_secondhalf)[["item72"]]$AMBUAMB
-    ## t = 12.918, df = 70, p-value < 2.2e-16
+    ## t = 12.919, df = 70, p-value < 2.2e-16
     ## alternative hypothesis: true correlation is not equal to 0
     ## 95 percent confidence interval:
-    ##  0.7543551 0.8966553
+    ##  0.7543706 0.8966623
     ## sample estimates:
     ##       cor 
-    ## 0.8393403
+    ## 0.8393509
 
 ``` r
 #for ROI2 (spillover2)
@@ -523,8 +524,7 @@ for(i in 1:nrow(numberpercondpersubj2)){
 lmer2_firsthalf <- lmer(RT ~ AMBUAMB+(1+AMBUAMB|item72)+(1+AMBUAMB|participant),data=splithalf2[splithalf2$splitgroup=="first",])
 ```
 
-    ## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv, :
-    ## Model failed to converge with max|grad| = 0.00485495 (tol = 0.002, component 1)
+    ## boundary (singular) fit: see ?isSingular
 
 ``` r
 lmer2_secondhalf <- lmer(RT ~ AMBUAMB+(1+AMBUAMB|item72)+(1+AMBUAMB|participant),data=splithalf2[splithalf2$splitgroup=="second",])
@@ -541,13 +541,13 @@ cor.test(ranef(lmer2_firsthalf)[['item72']]$AMBUAMB,ranef(lmer2_secondhalf)[['it
     ##  Pearson's product-moment correlation
     ## 
     ## data:  ranef(lmer2_firsthalf)[["item72"]]$AMBUAMB and ranef(lmer2_secondhalf)[["item72"]]$AMBUAMB
-    ## t = 10.313, df = 70, p-value = 1.091e-15
+    ## t = 10.313, df = 70, p-value = 1.092e-15
     ## alternative hypothesis: true correlation is not equal to 0
     ## 95 percent confidence interval:
-    ##  0.6644653 0.8545199
+    ##  0.6644577 0.8545162
     ## sample estimates:
     ##       cor 
-    ## 0.7765891
+    ## 0.7765837
 
 \#\#\#derive item-wise GPE estimation from BRMS
 
@@ -647,45 +647,43 @@ cor.test(lm_prediction$ITEM_MEAN_P0,lm_prediction$gpt2surprisaldiff_ambminusuamb
     ## 0.4673479
 
 ``` r
-cor.test(lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="NPS"],lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPS"])
+cortest_lstm_P0 <- lm_prediction %>%group_by(Type) %>% do(CORR=cor.test(.$lstmsurprisaldiff_ambminusuamb,.$ITEM_MEAN_P0))
+cortest_lstm_P0$CORR
 ```
 
+    ## [[1]]
     ## 
     ##  Pearson's product-moment correlation
     ## 
-    ## data:  lm_prediction$ITEM_MEAN_P0[lm_prediction$Type == "NPS"] and lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type == "NPS"]
+    ## data:  .$lstmsurprisaldiff_ambminusuamb and .$ITEM_MEAN_P0
+    ## t = 1.793, df = 22, p-value = 0.08673
+    ## alternative hypothesis: true correlation is not equal to 0
+    ## 95 percent confidence interval:
+    ##  -0.0541172  0.6647229
+    ## sample estimates:
+    ##       cor 
+    ## 0.3570747 
+    ## 
+    ## 
+    ## [[2]]
+    ## 
+    ##  Pearson's product-moment correlation
+    ## 
+    ## data:  .$lstmsurprisaldiff_ambminusuamb and .$ITEM_MEAN_P0
     ## t = 2.9773, df = 22, p-value = 0.00695
     ## alternative hypothesis: true correlation is not equal to 0
     ## 95 percent confidence interval:
     ##  0.1690716 0.7723432
     ## sample estimates:
     ##       cor 
-    ## 0.5359172
-
-``` r
-cor.test(lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="NPS"],lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="NPS"])
-```
-
+    ## 0.5359172 
+    ## 
+    ## 
+    ## [[3]]
     ## 
     ##  Pearson's product-moment correlation
     ## 
-    ## data:  lm_prediction$ITEM_MEAN_P0[lm_prediction$Type == "NPS"] and lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type == "NPS"]
-    ## t = -0.095532, df = 22, p-value = 0.9248
-    ## alternative hypothesis: true correlation is not equal to 0
-    ## 95 percent confidence interval:
-    ##  -0.4203074  0.3862059
-    ## sample estimates:
-    ##         cor 
-    ## -0.02036335
-
-``` r
-cor.test(lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="NPZ"],lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPZ"])
-```
-
-    ## 
-    ##  Pearson's product-moment correlation
-    ## 
-    ## data:  lm_prediction$ITEM_MEAN_P0[lm_prediction$Type == "NPZ"] and lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type == "NPZ"]
+    ## data:  .$lstmsurprisaldiff_ambminusuamb and .$ITEM_MEAN_P0
     ## t = 0.82103, df = 22, p-value = 0.4204
     ## alternative hypothesis: true correlation is not equal to 0
     ## 95 percent confidence interval:
@@ -695,13 +693,43 @@ cor.test(lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="NPZ"],lm_prediction$lst
     ## 0.1724226
 
 ``` r
-cor.test(lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="NPZ"],lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="NPZ"])
+cortest_gpt2_P0 <- lm_prediction %>%group_by(Type) %>% do(CORR=cor.test(.$gpt2surprisaldiff_ambminusuamb,.$ITEM_MEAN_P0))
+cortest_gpt2_P0$CORR
 ```
 
+    ## [[1]]
     ## 
     ##  Pearson's product-moment correlation
     ## 
-    ## data:  lm_prediction$ITEM_MEAN_P0[lm_prediction$Type == "NPZ"] and lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type == "NPZ"]
+    ## data:  .$gpt2surprisaldiff_ambminusuamb and .$ITEM_MEAN_P0
+    ## t = -0.043872, df = 22, p-value = 0.9654
+    ## alternative hypothesis: true correlation is not equal to 0
+    ## 95 percent confidence interval:
+    ##  -0.4111983  0.3955360
+    ## sample estimates:
+    ##          cor 
+    ## -0.009353056 
+    ## 
+    ## 
+    ## [[2]]
+    ## 
+    ##  Pearson's product-moment correlation
+    ## 
+    ## data:  .$gpt2surprisaldiff_ambminusuamb and .$ITEM_MEAN_P0
+    ## t = -0.095532, df = 22, p-value = 0.9248
+    ## alternative hypothesis: true correlation is not equal to 0
+    ## 95 percent confidence interval:
+    ##  -0.4203074  0.3862059
+    ## sample estimates:
+    ##         cor 
+    ## -0.02036335 
+    ## 
+    ## 
+    ## [[3]]
+    ## 
+    ##  Pearson's product-moment correlation
+    ## 
+    ## data:  .$gpt2surprisaldiff_ambminusuamb and .$ITEM_MEAN_P0
     ## t = 2.1715, df = 22, p-value = 0.04095
     ## alternative hypothesis: true correlation is not equal to 0
     ## 95 percent confidence interval:
@@ -711,36 +739,31 @@ cor.test(lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="NPZ"],lm_prediction$gpt
     ## 0.4201329
 
 ``` r
-cor.test(lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="MVRR"],lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="MVRR"])
+lstm_itemgpe_by_surprisal <- ggplot(lm_prediction,aes(x=lstmsurprisaldiff_ambminusuamb,y=ITEM_MEAN_P0,color=Type))+
+  labs(title = "r =0.54, (LSTM)")+
+  xlab("")+
+  ylab("")+
+  geom_pointrange(aes(ymin=HDI_low_P0, ymax=HDI_high_P0))+
+  theme(axis.text.x = element_text(size=13),
+        axis.text.y = element_text(size=12),
+        plot.title = element_text(size = 13))
+lstm_itemgpe_by_surprisal <- set_panel_size(lstm_itemgpe_by_surprisal,width=unit(7.5,"cm"),height=unit(7.5,"cm"))
+gpt2_itemgpe_by_surprisal <- ggplot(lm_prediction,aes(x=gpt2surprisaldiff_ambminusuamb,y=ITEM_MEAN_P0,col=Type))+
+  labs(title = "r =0.47, (GPT-2)")+
+  xlab("")+
+  ylab("")+
+  geom_pointrange(aes(ymin=HDI_low_P0, ymax=HDI_high_P0))+
+  theme(axis.text.x = element_text(size=13),
+        axis.text.y = element_text(size=12),
+        plot.title = element_text(size = 13))
+gpt2_itemgpe_by_surprisal <- set_panel_size(gpt2_itemgpe_by_surprisal,width=unit(7.5,"cm"),height=unit(7.5,"cm"))
+grid.arrange(lstm_itemgpe_by_surprisal,
+             gpt2_itemgpe_by_surprisal,ncol=2,
+             bottom=textGrob("Surprisal difference at the disambiguating verb (ambig - unambig)", gp=gpar(fontsize=14)),
+             left=textGrob("Empirical Garden Path Effect at the disambiguating verb", gp=gpar(fontsize=14),rot=90))
 ```
 
-    ## 
-    ##  Pearson's product-moment correlation
-    ## 
-    ## data:  lm_prediction$ITEM_MEAN_P0[lm_prediction$Type == "MVRR"] and lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type == "MVRR"]
-    ## t = 1.793, df = 22, p-value = 0.08673
-    ## alternative hypothesis: true correlation is not equal to 0
-    ## 95 percent confidence interval:
-    ##  -0.0541172  0.6647229
-    ## sample estimates:
-    ##       cor 
-    ## 0.3570747
-
-``` r
-cor.test(lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="MVRR"],lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="MVRR"])
-```
-
-    ## 
-    ##  Pearson's product-moment correlation
-    ## 
-    ## data:  lm_prediction$ITEM_MEAN_P0[lm_prediction$Type == "MVRR"] and lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type == "MVRR"]
-    ## t = -0.043872, df = 22, p-value = 0.9654
-    ## alternative hypothesis: true correlation is not equal to 0
-    ## 95 percent confidence interval:
-    ##  -0.4111983  0.3955360
-    ## sample estimates:
-    ##          cor 
-    ## -0.009353056
+![](analysis_ClassicGardenPathSet_files/figure-markdown_github/unnamed-chunk-8-1.png)
 
 \#\#\#itemwise at P1
 
@@ -834,45 +857,43 @@ cor.test(lm_prediction$ITEM_MEAN_P1,lm_prediction$gpt2surprisaldiff_ambminusuamb
     ## 0.4726681
 
 ``` r
-cor.test(lm_prediction$ITEM_MEAN_P1[lm_prediction$Type=="NPS"],lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPS"])
+cortest_lstm_P1 <- lm_prediction %>%group_by(Type) %>% do(CORR=cor.test(.$lstmsurprisaldiff_ambminusuamb,.$ITEM_MEAN_P1))
+cortest_lstm_P1$CORR
 ```
 
+    ## [[1]]
     ## 
     ##  Pearson's product-moment correlation
     ## 
-    ## data:  lm_prediction$ITEM_MEAN_P1[lm_prediction$Type == "NPS"] and lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type == "NPS"]
+    ## data:  .$lstmsurprisaldiff_ambminusuamb and .$ITEM_MEAN_P1
+    ## t = 2.0127, df = 22, p-value = 0.05654
+    ## alternative hypothesis: true correlation is not equal to 0
+    ## 95 percent confidence interval:
+    ##  -0.01076569  0.68825485
+    ## sample estimates:
+    ##       cor 
+    ## 0.3943436 
+    ## 
+    ## 
+    ## [[2]]
+    ## 
+    ##  Pearson's product-moment correlation
+    ## 
+    ## data:  .$lstmsurprisaldiff_ambminusuamb and .$ITEM_MEAN_P1
     ## t = 3.4662, df = 22, p-value = 0.002195
     ## alternative hypothesis: true correlation is not equal to 0
     ## 95 percent confidence interval:
     ##  0.2511291 0.8047739
     ## sample estimates:
     ##       cor 
-    ## 0.5943186
-
-``` r
-cor.test(lm_prediction$ITEM_MEAN_P1[lm_prediction$Type=="NPS"],lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="NPS"])
-```
-
+    ## 0.5943186 
+    ## 
+    ## 
+    ## [[3]]
     ## 
     ##  Pearson's product-moment correlation
     ## 
-    ## data:  lm_prediction$ITEM_MEAN_P1[lm_prediction$Type == "NPS"] and lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type == "NPS"]
-    ## t = 2.8884, df = 22, p-value = 0.00853
-    ## alternative hypothesis: true correlation is not equal to 0
-    ## 95 percent confidence interval:
-    ##  0.1534097 0.7657740
-    ## sample estimates:
-    ##       cor 
-    ## 0.5243566
-
-``` r
-cor.test(lm_prediction$ITEM_MEAN_P1[lm_prediction$Type=="NPZ"],lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPZ"])
-```
-
-    ## 
-    ##  Pearson's product-moment correlation
-    ## 
-    ## data:  lm_prediction$ITEM_MEAN_P1[lm_prediction$Type == "NPZ"] and lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type == "NPZ"]
+    ## data:  .$lstmsurprisaldiff_ambminusuamb and .$ITEM_MEAN_P1
     ## t = 1.3111, df = 22, p-value = 0.2033
     ## alternative hypothesis: true correlation is not equal to 0
     ## 95 percent confidence interval:
@@ -882,13 +903,43 @@ cor.test(lm_prediction$ITEM_MEAN_P1[lm_prediction$Type=="NPZ"],lm_prediction$lst
     ## 0.2692157
 
 ``` r
-cor.test(lm_prediction$ITEM_MEAN_P1[lm_prediction$Type=="NPZ"],lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="NPZ"])
+cortest_gpt2_P1 <- lm_prediction %>%group_by(Type) %>% do(CORR=cor.test(.$gpt2surprisaldiff_ambminusuamb,.$ITEM_MEAN_P1))
+cortest_gpt2_P1$CORR
 ```
 
+    ## [[1]]
     ## 
     ##  Pearson's product-moment correlation
     ## 
-    ## data:  lm_prediction$ITEM_MEAN_P1[lm_prediction$Type == "NPZ"] and lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type == "NPZ"]
+    ## data:  .$gpt2surprisaldiff_ambminusuamb and .$ITEM_MEAN_P1
+    ## t = 0.42595, df = 22, p-value = 0.6743
+    ## alternative hypothesis: true correlation is not equal to 0
+    ## 95 percent confidence interval:
+    ##  -0.3248068  0.4764540
+    ## sample estimates:
+    ##        cor 
+    ## 0.09043984 
+    ## 
+    ## 
+    ## [[2]]
+    ## 
+    ##  Pearson's product-moment correlation
+    ## 
+    ## data:  .$gpt2surprisaldiff_ambminusuamb and .$ITEM_MEAN_P1
+    ## t = 2.8884, df = 22, p-value = 0.00853
+    ## alternative hypothesis: true correlation is not equal to 0
+    ## 95 percent confidence interval:
+    ##  0.1534097 0.7657740
+    ## sample estimates:
+    ##       cor 
+    ## 0.5243566 
+    ## 
+    ## 
+    ## [[3]]
+    ## 
+    ##  Pearson's product-moment correlation
+    ## 
+    ## data:  .$gpt2surprisaldiff_ambminusuamb and .$ITEM_MEAN_P1
     ## t = 1.2318, df = 22, p-value = 0.231
     ## alternative hypothesis: true correlation is not equal to 0
     ## 95 percent confidence interval:
@@ -896,164 +947,6 @@ cor.test(lm_prediction$ITEM_MEAN_P1[lm_prediction$Type=="NPZ"],lm_prediction$gpt
     ## sample estimates:
     ##       cor 
     ## 0.2540018
-
-``` r
-cor.test(lm_prediction$ITEM_MEAN_P1[lm_prediction$Type=="MVRR"],lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="MVRR"])
-```
-
-    ## 
-    ##  Pearson's product-moment correlation
-    ## 
-    ## data:  lm_prediction$ITEM_MEAN_P1[lm_prediction$Type == "MVRR"] and lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type == "MVRR"]
-    ## t = 2.0127, df = 22, p-value = 0.05654
-    ## alternative hypothesis: true correlation is not equal to 0
-    ## 95 percent confidence interval:
-    ##  -0.01076569  0.68825485
-    ## sample estimates:
-    ##       cor 
-    ## 0.3943436
-
-``` r
-cor.test(lm_prediction$ITEM_MEAN_P1[lm_prediction$Type=="MVRR"],lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="MVRR"])
-```
-
-    ## 
-    ##  Pearson's product-moment correlation
-    ## 
-    ## data:  lm_prediction$ITEM_MEAN_P1[lm_prediction$Type == "MVRR"] and lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type == "MVRR"]
-    ## t = 0.42595, df = 22, p-value = 0.6743
-    ## alternative hypothesis: true correlation is not equal to 0
-    ## 95 percent confidence interval:
-    ##  -0.3248068  0.4764540
-    ## sample estimates:
-    ##        cor 
-    ## 0.09043984
-
-``` r
-lstm_itemgpe_by_surprisal <- ggplot(lm_prediction,aes(x=lstmsurprisaldiff_ambminusuamb,y=ITEM_MEAN_P0,color=Type))+
-  labs(title = "r =0.54, (LSTM)")+
-  xlab("")+
-  ylab("")+
-  geom_pointrange(aes(ymin=HDI_low_P0, ymax=HDI_high_P0))+
-  theme(axis.text.x = element_text(size=13),
-        axis.text.y = element_text(size=12),
-        plot.title = element_text(size = 13))
-lstm_itemgpe_by_surprisal <- set_panel_size(lstm_itemgpe_by_surprisal,width=unit(7.5,"cm"),height=unit(7.5,"cm"))
-gpt2_itemgpe_by_surprisal <- ggplot(lm_prediction,aes(x=gpt2surprisaldiff_ambminusuamb,y=ITEM_MEAN_P0,col=Type))+
-  labs(title = "r =0.47, (GPT-2)")+
-  xlab("")+
-  ylab("")+
-  geom_pointrange(aes(ymin=HDI_low_P0, ymax=HDI_high_P0))+
-  theme(axis.text.x = element_text(size=13),
-        axis.text.y = element_text(size=12),
-        plot.title = element_text(size = 13))
-gpt2_itemgpe_by_surprisal <- set_panel_size(gpt2_itemgpe_by_surprisal,width=unit(7.5,"cm"),height=unit(7.5,"cm"))
-grid.arrange(lstm_itemgpe_by_surprisal,
-             gpt2_itemgpe_by_surprisal,ncol=2,
-             bottom=textGrob("Surprisal difference at the disambiguating verb (ambig - unambig)", gp=gpar(fontsize=14)),
-             left=textGrob("Empirical Garden Path Effect at the disambiguating verb", gp=gpar(fontsize=14),rot=90))
-```
-
-![](analysis_ClassicGardenPathSet_files/figure-markdown_github/unnamed-chunk-9-1.png)
-
-``` r
-#zoomming inside each construction for each lm
-#lstm
-cor.test(lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="MVRR"], lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="MVRR"])
-```
-
-    ## 
-    ##  Pearson's product-moment correlation
-    ## 
-    ## data:  lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type == "MVRR"] and lm_prediction$ITEM_MEAN_P0[lm_prediction$Type == "MVRR"]
-    ## t = 1.793, df = 22, p-value = 0.08673
-    ## alternative hypothesis: true correlation is not equal to 0
-    ## 95 percent confidence interval:
-    ##  -0.0541172  0.6647229
-    ## sample estimates:
-    ##       cor 
-    ## 0.3570747
-
-``` r
-cor.test(lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPS"], lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="NPS"])
-```
-
-    ## 
-    ##  Pearson's product-moment correlation
-    ## 
-    ## data:  lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type == "NPS"] and lm_prediction$ITEM_MEAN_P0[lm_prediction$Type == "NPS"]
-    ## t = 2.9773, df = 22, p-value = 0.00695
-    ## alternative hypothesis: true correlation is not equal to 0
-    ## 95 percent confidence interval:
-    ##  0.1690716 0.7723432
-    ## sample estimates:
-    ##       cor 
-    ## 0.5359172
-
-``` r
-cor.test(lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPZ"], lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="NPZ"])
-```
-
-    ## 
-    ##  Pearson's product-moment correlation
-    ## 
-    ## data:  lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type == "NPZ"] and lm_prediction$ITEM_MEAN_P0[lm_prediction$Type == "NPZ"]
-    ## t = 0.82103, df = 22, p-value = 0.4204
-    ## alternative hypothesis: true correlation is not equal to 0
-    ## 95 percent confidence interval:
-    ##  -0.2482404  0.5383729
-    ## sample estimates:
-    ##       cor 
-    ## 0.1724226
-
-``` r
-#gpt2
-cor.test(lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="MVRR"], lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="MVRR"])
-```
-
-    ## 
-    ##  Pearson's product-moment correlation
-    ## 
-    ## data:  lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type == "MVRR"] and lm_prediction$ITEM_MEAN_P0[lm_prediction$Type == "MVRR"]
-    ## t = -0.043872, df = 22, p-value = 0.9654
-    ## alternative hypothesis: true correlation is not equal to 0
-    ## 95 percent confidence interval:
-    ##  -0.4111983  0.3955360
-    ## sample estimates:
-    ##          cor 
-    ## -0.009353056
-
-``` r
-cor.test(lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="NPS"], lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="NPS"])
-```
-
-    ## 
-    ##  Pearson's product-moment correlation
-    ## 
-    ## data:  lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type == "NPS"] and lm_prediction$ITEM_MEAN_P0[lm_prediction$Type == "NPS"]
-    ## t = -0.095532, df = 22, p-value = 0.9248
-    ## alternative hypothesis: true correlation is not equal to 0
-    ## 95 percent confidence interval:
-    ##  -0.4203074  0.3862059
-    ## sample estimates:
-    ##         cor 
-    ## -0.02036335
-
-``` r
-cor.test(lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="NPZ"], lm_prediction$ITEM_MEAN_P0[lm_prediction$Type=="NPZ"])
-```
-
-    ## 
-    ##  Pearson's product-moment correlation
-    ## 
-    ## data:  lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type == "NPZ"] and lm_prediction$ITEM_MEAN_P0[lm_prediction$Type == "NPZ"]
-    ## t = 2.1715, df = 22, p-value = 0.04095
-    ## alternative hypothesis: true correlation is not equal to 0
-    ## 95 percent confidence interval:
-    ##  0.02015143 0.70418427
-    ## sample estimates:
-    ##       cor 
-    ## 0.4201329
 
 \#\#\#inspect results if using RTacross3words (rather than word by word)
 
@@ -1108,45 +1001,75 @@ lm_prediction <- left_join(lm_prediction,AMB_CONSTR_itemmean_estimate_RTacross3w
     ## Joining, by = c("item", "Type")
 
 ``` r
-cor.test(lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="MVRR"], lm_prediction$ITEM_MEAN_RTacross3words[lm_prediction$Type=="MVRR"])
+cor.test(lm_prediction$lstmsurprisaldiff_ambminusuamb, lm_prediction$ITEM_MEAN_RTacross3words)
 ```
 
     ## 
     ##  Pearson's product-moment correlation
     ## 
-    ## data:  lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type == "MVRR"] and lm_prediction$ITEM_MEAN_RTacross3words[lm_prediction$Type == "MVRR"]
+    ## data:  lm_prediction$lstmsurprisaldiff_ambminusuamb and lm_prediction$ITEM_MEAN_RTacross3words
+    ## t = 3.3058, df = 70, p-value = 0.001496
+    ## alternative hypothesis: true correlation is not equal to 0
+    ## 95 percent confidence interval:
+    ##  0.1484395 0.5521356
+    ## sample estimates:
+    ##       cor 
+    ## 0.3674711
+
+``` r
+cor.test(lm_prediction$gpt2surprisaldiff_ambminusuamb, lm_prediction$ITEM_MEAN_RTacross3words)
+```
+
+    ## 
+    ##  Pearson's product-moment correlation
+    ## 
+    ## data:  lm_prediction$gpt2surprisaldiff_ambminusuamb and lm_prediction$ITEM_MEAN_RTacross3words
+    ## t = 5.7052, df = 70, p-value = 2.574e-07
+    ## alternative hypothesis: true correlation is not equal to 0
+    ## 95 percent confidence interval:
+    ##  0.3815099 0.7032640
+    ## sample estimates:
+    ##       cor 
+    ## 0.5633844
+
+``` r
+cortest_lstm_RTacross3words <- lm_prediction %>%group_by(Type) %>% do(CORR=cor.test(.$lstmsurprisaldiff_ambminusuamb,.$ITEM_MEAN_RTacross3words))
+cortest_lstm_RTacross3words$CORR
+```
+
+    ## [[1]]
+    ## 
+    ##  Pearson's product-moment correlation
+    ## 
+    ## data:  .$lstmsurprisaldiff_ambminusuamb and .$ITEM_MEAN_RTacross3words
     ## t = 2.1303, df = 22, p-value = 0.04457
     ## alternative hypothesis: true correlation is not equal to 0
     ## 95 percent confidence interval:
     ##  0.01216336 0.70013352
     ## sample estimates:
     ##      cor 
-    ## 0.413531
-
-``` r
-cor.test(lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPS"], lm_prediction$ITEM_MEAN_RTacross3words[lm_prediction$Type=="NPS"])
-```
-
+    ## 0.413531 
+    ## 
+    ## 
+    ## [[2]]
     ## 
     ##  Pearson's product-moment correlation
     ## 
-    ## data:  lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type == "NPS"] and lm_prediction$ITEM_MEAN_RTacross3words[lm_prediction$Type == "NPS"]
+    ## data:  .$lstmsurprisaldiff_ambminusuamb and .$ITEM_MEAN_RTacross3words
     ## t = 2.4147, df = 22, p-value = 0.02451
     ## alternative hypothesis: true correlation is not equal to 0
     ## 95 percent confidence interval:
     ##  0.06663038 0.72690240
     ## sample estimates:
     ##       cor 
-    ## 0.4577242
-
-``` r
-cor.test(lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPZ"], lm_prediction$ITEM_MEAN_RTacross3words[lm_prediction$Type=="NPZ"])
-```
-
+    ## 0.4577242 
+    ## 
+    ## 
+    ## [[3]]
     ## 
     ##  Pearson's product-moment correlation
     ## 
-    ## data:  lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type == "NPZ"] and lm_prediction$ITEM_MEAN_RTacross3words[lm_prediction$Type == "NPZ"]
+    ## data:  .$lstmsurprisaldiff_ambminusuamb and .$ITEM_MEAN_RTacross3words
     ## t = 0.73904, df = 22, p-value = 0.4677
     ## alternative hypothesis: true correlation is not equal to 0
     ## 95 percent confidence interval:
@@ -1156,45 +1079,43 @@ cor.test(lm_prediction$lstmsurprisaldiff_ambminusuamb[lm_prediction$Type=="NPZ"]
     ## 0.1556441
 
 ``` r
-cor.test(lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="MVRR"], lm_prediction$ITEM_MEAN_RTacross3words[lm_prediction$Type=="MVRR"])
+cortest_gpt2_RTacross3words <- lm_prediction %>%group_by(Type) %>% do(CORR=cor.test(.$gpt2surprisaldiff_ambminusuamb,.$ITEM_MEAN_RTacross3words))
+cortest_gpt2_RTacross3words$CORR
 ```
 
+    ## [[1]]
     ## 
     ##  Pearson's product-moment correlation
     ## 
-    ## data:  lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type == "MVRR"] and lm_prediction$ITEM_MEAN_RTacross3words[lm_prediction$Type == "MVRR"]
+    ## data:  .$gpt2surprisaldiff_ambminusuamb and .$ITEM_MEAN_RTacross3words
     ## t = 0.77269, df = 22, p-value = 0.4479
     ## alternative hypothesis: true correlation is not equal to 0
     ## 95 percent confidence interval:
     ##  -0.2577496  0.5311186
     ## sample estimates:
     ##       cor 
-    ## 0.1625481
-
-``` r
-cor.test(lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="NPS"], lm_prediction$ITEM_MEAN_RTacross3words[lm_prediction$Type=="NPS"])
-```
-
+    ## 0.1625481 
+    ## 
+    ## 
+    ## [[2]]
     ## 
     ##  Pearson's product-moment correlation
     ## 
-    ## data:  lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type == "NPS"] and lm_prediction$ITEM_MEAN_RTacross3words[lm_prediction$Type == "NPS"]
+    ## data:  .$gpt2surprisaldiff_ambminusuamb and .$ITEM_MEAN_RTacross3words
     ## t = 2.5684, df = 22, p-value = 0.01753
     ## alternative hypothesis: true correlation is not equal to 0
     ## 95 percent confidence interval:
     ##  0.09536684 0.74026073
     ## sample estimates:
     ##       cor 
-    ## 0.4802866
-
-``` r
-cor.test(lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type=="NPZ"], lm_prediction$ITEM_MEAN_RTacross3words[lm_prediction$Type=="NPZ"])
-```
-
+    ## 0.4802866 
+    ## 
+    ## 
+    ## [[3]]
     ## 
     ##  Pearson's product-moment correlation
     ## 
-    ## data:  lm_prediction$gpt2surprisaldiff_ambminusuamb[lm_prediction$Type == "NPZ"] and lm_prediction$ITEM_MEAN_RTacross3words[lm_prediction$Type == "NPZ"]
+    ## data:  .$gpt2surprisaldiff_ambminusuamb and .$ITEM_MEAN_RTacross3words
     ## t = 1.1186, df = 22, p-value = 0.2754
     ## alternative hypothesis: true correlation is not equal to 0
     ## 95 percent confidence interval:
@@ -1251,8 +1172,10 @@ ggplot(A[A$POSITION=="Disambiguating Verb",],aes(x=CONSTRUCTION,y=`surprisal dif
   geom_bar(stat="identity",position=position_dodge())+
   xlab("")+
   ylab("Mean surprisal difference")+
-  theme(legend.position = "left",
+  theme(legend.position = "top",
         legend.title = element_text(size=12,face="bold"),
+        legend.text = element_text(size=12),
+        strip.text.x=element_text(size=12,face="bold"),
         axis.title=element_text(size=14,face="bold"),
         axis.text.x = element_text(size=0),
         axis.text.y = element_text(size=14,face="bold"))+facet_wrap(~LMs,nrow=2)
@@ -1271,6 +1194,7 @@ ggplot(lm_prediction,aes(x=Rank_P0,y=ITEM_MEAN_P0,colour=Type))+
   xlab("Magnitude rank")+
   ylab("Garden path effects")+
   theme(axis.title=element_text(size=14,face="bold"),
+  strip.text.x=element_text(size=12,face="bold"),
   axis.text = element_text(size=12))
 ```
 
@@ -1285,6 +1209,7 @@ ggplot(lm_prediction,aes(x=Rank_P1,y=ITEM_MEAN_P1,colour=Type))+
   xlab("Magnitude rank")+
   ylab("Garden path effects")+
   theme(axis.title=element_text(size=14,face="bold"),
+  strip.text.x=element_text(size=12,face="bold"),
   axis.text = element_text(size=12))
 ```
 
@@ -1299,6 +1224,7 @@ ggplot(lm_prediction,aes(x=Rank_RTacross3words,y=ITEM_MEAN_RTacross3words,colour
   xlab("Magnitude rank")+
   ylab("Garden path effects")+
   theme(axis.title=element_text(size=14,face="bold"),
+  strip.text.x=element_text(size=15,face="bold"),
   axis.text = element_text(size=12))
 ```
 
