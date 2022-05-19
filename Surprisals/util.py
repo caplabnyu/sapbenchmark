@@ -1,7 +1,7 @@
 import re
 
 def clean(token):
-    return re.sub("[^a-zA-Z0-9*.,!?]", "", token) # filter out non-alphanumeric or punctuation characters
+    return re.sub("[^a-zA-Z0-9*.,!?\-]", "", token) # filter out non-alphanumeric or punctuation characters
 
 def align(words, wordpieces, debug=False):
     # Remove the "not beginning of sentence" character from the wordpieces
