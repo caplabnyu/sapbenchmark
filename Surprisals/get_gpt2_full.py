@@ -16,7 +16,7 @@ parser.add_argument("--output", type=str)
 # TODO option for selecting subword merges to compute
 
 # how can we combine subwords/punctuation to get one surprisal per word?
-merge_fs = {"sum":sum, "mean": lambda x: sum(x)/len(x)}
+merge_fs = {"sum_":sum, "mean_": lambda x: sum(x)/len(x)}
 
 args = parser.parse_args()
 

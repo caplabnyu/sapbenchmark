@@ -4,3 +4,5 @@ QuantityLSTMs/*
 __pycache__/*
 analysis/*.csv
 analysis/*.rds
+SyntacticSurprisal
+SyntacticSurprisal/*
