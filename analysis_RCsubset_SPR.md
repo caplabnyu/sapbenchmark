@@ -978,15 +978,17 @@ for(model_name in unique(predicted_dat$model)){
     mutate(Type = factor(Type, levels = c('RC_Subj', 'RC_Obj')),
          Type_num = ifelse(Type == 'RC_Subj', 0, 1))
 
-  curr_fit1_bayes <- brm(corrected_pred_rt ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item),
-                          data=curr_verb_dat,
-                          prior = prior1,
-                          cores = 4,
-                          iter = 4000,
-                          seed = 117
-                        )
-
-  saveRDS(curr_fit1_bayes, paste('./saved_objects/fit1_bayes_prior1_surp_', model_name, sep=''))
+  # curr_fit1_bayes <- brm(corrected_pred_rt ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item),
+  #                         data=curr_verb_dat,
+  #                         prior = prior1,
+  #                         cores = 4,
+  #                         iter = 4000,
+  #                         seed = 117
+  #                       )
+  # 
+  # saveRDS(curr_fit1_bayes, paste('./saved_objects/fit1_bayes_prior1_surp_', model_name, sep=''))
+  
+  curr_fit1_bayes = readRDS(paste('./saved_objects/fit1_bayes_prior1_surp_', model_name, sep=''))
 
 
   curr_fit1_byitem <- split_by_randomeffect(curr_fit1_bayes)%>%
@@ -1008,55 +1010,6 @@ for(model_name in unique(predicted_dat$model)){
 
     ## [1] "lstm"
 
-    ## Compiling Stan program...
-
-    ## Trying to compile a simple C file
-
-    ## Running /Library/Frameworks/R.framework/Resources/bin/R CMD SHLIB foo.c
-    ## clang -mmacosx-version-min=10.13 -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/Rcpp/include/"  -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/"  -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/unsupported"  -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/BH/include" -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/StanHeaders/include/src/"  -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/StanHeaders/include/"  -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppParallel/include/"  -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/rstan/include" -DEIGEN_NO_DEBUG  -DBOOST_DISABLE_ASSERTS  -DBOOST_PENDING_INTEGER_LOG2_HPP  -DSTAN_THREADS  -DBOOST_NO_AUTO_PTR  -include '/Library/Frameworks/R.framework/Versions/4.1/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/Eigen.hpp'  -D_REENTRANT -DRCPP_PARALLEL_USE_TBB=1   -I/usr/local/include   -fPIC  -Wall -g -O2  -c foo.c -o foo.o
-    ## In file included from <built-in>:1:
-    ## In file included from /Library/Frameworks/R.framework/Versions/4.1/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/Eigen.hpp:13:
-    ## In file included from /Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/Eigen/Dense:1:
-    ## In file included from /Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/Eigen/Core:88:
-    ## /Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/Eigen/src/Core/util/Macros.h:628:1: error: unknown type name 'namespace'
-    ## namespace Eigen {
-    ## ^
-    ## /Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/Eigen/src/Core/util/Macros.h:628:16: error: expected ';' after top level declarator
-    ## namespace Eigen {
-    ##                ^
-    ##                ;
-    ## In file included from <built-in>:1:
-    ## In file included from /Library/Frameworks/R.framework/Versions/4.1/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/Eigen.hpp:13:
-    ## In file included from /Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/Eigen/Dense:1:
-    ## /Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/Eigen/Core:96:10: fatal error: 'complex' file not found
-    ## #include <complex>
-    ##          ^~~~~~~~~
-    ## 3 errors generated.
-    ## make: *** [foo.o] Error 1
-
-    ## Start sampling
-
-    ## Warning: There were 77 divergent transitions after warmup. See
-    ## http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup
-    ## to find out why this is a problem and how to eliminate them.
-
-    ## Warning: There were 7923 transitions after warmup that exceeded the maximum treedepth. Increase max_treedepth above 10. See
-    ## http://mc-stan.org/misc/warnings.html#maximum-treedepth-exceeded
-
-    ## Warning: Examine the pairs() plot to diagnose sampling problems
-
-    ## Warning: The largest R-hat is 1.2, indicating chains have not mixed.
-    ## Running the chains for more iterations may help. See
-    ## http://mc-stan.org/misc/warnings.html#r-hat
-
-    ## Warning: Bulk Effective Samples Size (ESS) is too low, indicating posterior means and medians may be unreliable.
-    ## Running the chains for more iterations may help. See
-    ## http://mc-stan.org/misc/warnings.html#bulk-ess
-
-    ## Warning: Tail Effective Samples Size (ESS) is too low, indicating posterior variances and tail quantiles may be unreliable.
-    ## Running the chains for more iterations may help. See
-    ## http://mc-stan.org/misc/warnings.html#tail-ess
-
     ## Warning: Method 'posterior_samples' is deprecated. Please see ?as_draws for
     ## recommended alternatives.
 
@@ -1065,121 +1018,17 @@ for(model_name in unique(predicted_dat$model)){
 
     ## [1] "gpt2"
 
-    ## Compiling Stan program...
-
-    ## recompiling to avoid crashing R session
-
-    ## Trying to compile a simple C file
-
-    ## Running /Library/Frameworks/R.framework/Resources/bin/R CMD SHLIB foo.c
-    ## clang -mmacosx-version-min=10.13 -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/Rcpp/include/"  -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/"  -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/unsupported"  -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/BH/include" -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/StanHeaders/include/src/"  -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/StanHeaders/include/"  -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppParallel/include/"  -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/rstan/include" -DEIGEN_NO_DEBUG  -DBOOST_DISABLE_ASSERTS  -DBOOST_PENDING_INTEGER_LOG2_HPP  -DSTAN_THREADS  -DBOOST_NO_AUTO_PTR  -include '/Library/Frameworks/R.framework/Versions/4.1/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/Eigen.hpp'  -D_REENTRANT -DRCPP_PARALLEL_USE_TBB=1   -I/usr/local/include   -fPIC  -Wall -g -O2  -c foo.c -o foo.o
-    ## In file included from <built-in>:1:
-    ## In file included from /Library/Frameworks/R.framework/Versions/4.1/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/Eigen.hpp:13:
-    ## In file included from /Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/Eigen/Dense:1:
-    ## In file included from /Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/Eigen/Core:88:
-    ## /Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/Eigen/src/Core/util/Macros.h:628:1: error: unknown type name 'namespace'
-    ## namespace Eigen {
-    ## ^
-    ## /Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/Eigen/src/Core/util/Macros.h:628:16: error: expected ';' after top level declarator
-    ## namespace Eigen {
-    ##                ^
-    ##                ;
-    ## In file included from <built-in>:1:
-    ## In file included from /Library/Frameworks/R.framework/Versions/4.1/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/Eigen.hpp:13:
-    ## In file included from /Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/Eigen/Dense:1:
-    ## /Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/Eigen/Core:96:10: fatal error: 'complex' file not found
-    ## #include <complex>
-    ##          ^~~~~~~~~
-    ## 3 errors generated.
-    ## make: *** [foo.o] Error 1
-
-    ## Start sampling
-
-    ## Warning: There were 22 divergent transitions after warmup. See
-    ## http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup
-    ## to find out why this is a problem and how to eliminate them.
-
-    ## Warning: There were 7978 transitions after warmup that exceeded the maximum treedepth. Increase max_treedepth above 10. See
-    ## http://mc-stan.org/misc/warnings.html#maximum-treedepth-exceeded
-
-    ## Warning: Examine the pairs() plot to diagnose sampling problems
-
-    ## Warning: The largest R-hat is 1.35, indicating chains have not mixed.
-    ## Running the chains for more iterations may help. See
-    ## http://mc-stan.org/misc/warnings.html#r-hat
-
-    ## Warning: Bulk Effective Samples Size (ESS) is too low, indicating posterior means and medians may be unreliable.
-    ## Running the chains for more iterations may help. See
-    ## http://mc-stan.org/misc/warnings.html#bulk-ess
-
-    ## Warning: Tail Effective Samples Size (ESS) is too low, indicating posterior variances and tail quantiles may be unreliable.
-    ## Running the chains for more iterations may help. See
-    ## http://mc-stan.org/misc/warnings.html#tail-ess
-
     ## Warning: Method 'posterior_samples' is deprecated. Please see ?as_draws for
     ## recommended alternatives.
 
-    ## Warning in merge.data.frame(combined, fixed, by = "sim"): column name 'item' is
-    ## duplicated in the result
+    ## Warning: column name 'item' is duplicated in the result
 
     ## [1] "rnng"
 
-    ## Compiling Stan program...
-
-    ## recompiling to avoid crashing R session
-
-    ## Trying to compile a simple C file
-
-    ## Running /Library/Frameworks/R.framework/Resources/bin/R CMD SHLIB foo.c
-    ## clang -mmacosx-version-min=10.13 -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/Rcpp/include/"  -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/"  -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/unsupported"  -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/BH/include" -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/StanHeaders/include/src/"  -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/StanHeaders/include/"  -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppParallel/include/"  -I"/Library/Frameworks/R.framework/Versions/4.1/Resources/library/rstan/include" -DEIGEN_NO_DEBUG  -DBOOST_DISABLE_ASSERTS  -DBOOST_PENDING_INTEGER_LOG2_HPP  -DSTAN_THREADS  -DBOOST_NO_AUTO_PTR  -include '/Library/Frameworks/R.framework/Versions/4.1/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/Eigen.hpp'  -D_REENTRANT -DRCPP_PARALLEL_USE_TBB=1   -I/usr/local/include   -fPIC  -Wall -g -O2  -c foo.c -o foo.o
-    ## In file included from <built-in>:1:
-    ## In file included from /Library/Frameworks/R.framework/Versions/4.1/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/Eigen.hpp:13:
-    ## In file included from /Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/Eigen/Dense:1:
-    ## In file included from /Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/Eigen/Core:88:
-    ## /Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/Eigen/src/Core/util/Macros.h:628:1: error: unknown type name 'namespace'
-    ## namespace Eigen {
-    ## ^
-    ## /Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/Eigen/src/Core/util/Macros.h:628:16: error: expected ';' after top level declarator
-    ## namespace Eigen {
-    ##                ^
-    ##                ;
-    ## In file included from <built-in>:1:
-    ## In file included from /Library/Frameworks/R.framework/Versions/4.1/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/Eigen.hpp:13:
-    ## In file included from /Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/Eigen/Dense:1:
-    ## /Library/Frameworks/R.framework/Versions/4.1/Resources/library/RcppEigen/include/Eigen/Core:96:10: fatal error: 'complex' file not found
-    ## #include <complex>
-    ##          ^~~~~~~~~
-    ## 3 errors generated.
-    ## make: *** [foo.o] Error 1
-
-    ## Start sampling
-
-    ## Warning: There were 19 divergent transitions after warmup. See
-    ## http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup
-    ## to find out why this is a problem and how to eliminate them.
-
-    ## Warning: There were 7981 transitions after warmup that exceeded the maximum treedepth. Increase max_treedepth above 10. See
-    ## http://mc-stan.org/misc/warnings.html#maximum-treedepth-exceeded
-
-    ## Warning: Examine the pairs() plot to diagnose sampling problems
-
-    ## Warning: The largest R-hat is 1.1, indicating chains have not mixed.
-    ## Running the chains for more iterations may help. See
-    ## http://mc-stan.org/misc/warnings.html#r-hat
-
-    ## Warning: Bulk Effective Samples Size (ESS) is too low, indicating posterior means and medians may be unreliable.
-    ## Running the chains for more iterations may help. See
-    ## http://mc-stan.org/misc/warnings.html#bulk-ess
-
-    ## Warning: Tail Effective Samples Size (ESS) is too low, indicating posterior variances and tail quantiles may be unreliable.
-    ## Running the chains for more iterations may help. See
-    ## http://mc-stan.org/misc/warnings.html#tail-ess
-
     ## Warning: Method 'posterior_samples' is deprecated. Please see ?as_draws for
     ## recommended alternatives.
 
-    ## Warning in merge.data.frame(combined, fixed, by = "sim"): column name 'item' is
-    ## duplicated in the result
+    ## Warning: column name 'item' is duplicated in the result
 
 #### Structure level effects
 
@@ -1428,3 +1277,99 @@ for(model_name in unique(predicted_dat$model)){
     ## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
     ## and Tail_ESS are effective sample size measures, and Rhat is the potential
     ## scale reduction factor on split chains (at convergence, Rhat = 1).
+
+#### Comparing by-item predictions from BRMS and LMER models
+
+``` r
+all_fit1_byitem_lmer <- list()
+
+i <- 1
+for(model_name in unique(predicted_dat$model)){
+  print(model_name)
+  
+  curr_verb_dat = predicted_dat %>%
+    filter(model == model_name) %>%
+    filter(ROI == 0) %>%
+    mutate(Type = factor(Type, levels = c('RC_Subj', 'RC_Obj')),
+         Type_num = ifelse(Type == 'RC_Subj', 0, 1))
+
+  curr_fit1_lmer <- lmer(corrected_pred_rt ~ Type_num + 
+                           (0 + Type_num | participant) + 
+                           (1 + Type_num | item),
+                         data=curr_verb_dat
+                        )
+  
+  curr_item_df <- data.frame(ranef(curr_fit1_lmer)) %>%
+    filter(grpvar == 'item') %>%
+    select(!condsd) %>%
+    spread(key = term, value = condval) %>%
+    rename(item = grp,
+           mean_surp_lmer = Type_num) %>%
+    mutate(model = model_name)
+  
+  all_fit1_byitem_lmer[[i]] <- curr_item_df
+  i <- i+1
+  
+}
+```
+
+    ## [1] "lstm"
+
+    ## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv, :
+    ## unable to evaluate scaled gradient
+
+    ## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv, :
+    ## Model failed to converge: degenerate Hessian with 2 negative eigenvalues
+
+    ## [1] "gpt2"
+    ## [1] "rnng"
+
+    ## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv, :
+    ## unable to evaluate scaled gradient
+
+    ## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv, :
+    ## Model failed to converge: degenerate Hessian with 2 negative eigenvalues
+
+``` r
+all_surp_fit1_byitem_lmer <- dplyr::bind_rows(all_fit1_byitem_lmer)
+```
+
+``` r
+all_byitem_surp2 <- merge(all_surp_fit1_byitem,all_surp_fit1_byitem_lmer, by = c('model', 'item'))
+
+
+ggplot(all_byitem_surp2, aes(y = mean_surp_lmer, x = mean_surp)) + 
+  geom_point() + 
+  facet_grid(~model) + 
+  # geom_errorbar(aes(ymin=lower,
+  #                   ymax=upper), 
+  #               width=0.2) + 
+  labs(y = 'LMER Pred RT(ORC) - Pred RT(SRC)', x = 'BRMS Pred RT(ORC) - Pred RT(SRC)') +
+  geom_smooth(method = 'lm')
+```
+
+    ## `geom_smooth()` using formula 'y ~ x'
+
+![](analysis_RCsubset_SPR_files/figure-gfm/unnamed-chunk-30-1.png)<!-- -->
+
+#### Creating a CSV of by-item surprisal and RTs
+
+``` r
+by_item <- all_byitem_surp %>%
+  select(item, model, mean, mean_surp) %>%
+  spread(key=model, value=mean_surp) %>%
+  rename(human = mean)
+
+
+sent_dat <- verb_dat %>%
+  filter(Type == 'RC_Subj') %>%
+  select(item, Sentence, EachWord) %>%
+  distinct() %>%
+  merge(freqs, by.x="EachWord", by.y="word") %>%
+  rename(Verb = EachWord,
+         Frequency = count)
+
+by_item <- merge(sent_dat, by_item, by = 'item')
+
+write.csv(by_item, 'RC_subset_byitem_RT_surps.csv')
+```
