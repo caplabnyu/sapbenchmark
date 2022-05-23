@@ -33,7 +33,7 @@ parser.add_argument("--reformat_only", action="store_true")
 args = parser.parse_args()
 
 # how can we combine subwords/punctuation to get one surprisal per word?
-merge_fs = {"sum":sum, "mean": lambda x: sum(x)/len(x)}
+merge_fs = {"sum_":sum, "mean_": lambda x: sum(x)/len(x)}
 
 # Define intermediate files
 sent_list_fn = args.output.split(".")[0] + ".txt"

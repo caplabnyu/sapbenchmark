@@ -30,11 +30,14 @@ def tokenize(sent):
     # respect commas as a token
     sent = " ,".join(sent.split(","))
 
+    # same w/ periods
+    sent = " .".join(sent.split("."))
+
     # split on 's
-    sent = " 's".join(sent.split("\\'s"))
+    sent = " 's".join(sent.split("'s"))
 
     # split on n't
-    sent = " n't".join(sent.split("n\\'t"))
+    sent = " n't".join(sent.split("n't"))
 
     return sent.split()
 
