@@ -27,11 +27,18 @@ def indexify(word):
     return dictionary.word2idx[word] if word in dictionary.word2idx else dictionary.word2idx["<unk>"]
 
 def tokenize(sent):
+    sent = sent.strip()
+    if sent == "": return []
+
     # respect commas as a token
     sent = " ,".join(sent.split(","))
 
-    # same w/ periods
-    sent = " .".join(sent.split("."))
+    # same w/ EOS punctuation (but not . in abbreviations)
+    if sent[-1] in  [".", "?", "!"]:
+        sent = sent[:-1] + " " + sent[-1]
+
+    if ("." in sent) & (sent[-1] != "."):
+        print(sent)
 
     # split on 's
     sent = " 's".join(sent.split("'s"))
