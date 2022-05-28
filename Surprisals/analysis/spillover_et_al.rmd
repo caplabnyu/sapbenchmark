@@ -23,7 +23,7 @@ Load in SPR and surprisal data for a subset
 ```{r}
 spr <- read.csv("./Fillers.csv")
 spr$Sentence <- str_replace_all(spr$Sentence, "%2C", ",")
-spr <- spr %>% filter(RT<=7000) %>% rename(participant = MD5)
+spr <- spr %>% filter(RT<=7000) %>% filter(RT>0) %>% rename(participant = MD5)
 
 surps_lstm <- read.csv("../data/gulordava/items_filler.lstm.csv")
 surps_gpt2 <- read.csv("../data/gpt2/items_filler.gpt2.csv")
@@ -180,7 +180,8 @@ models.filler.lstm <- lmer(data=filler.drop.lstm,
                       RT ~ surprisal_lstm_s + surprisal_lstm_p1_s + surprisal_lstm_p2_s + surprisal_lstm_p3_s +
                            scale(WordPosition) + logfreq_s*length_s + logfreq_p1_s*length_p1_s + 
                            logfreq_p2_s*length_p2_s + logfreq_p3_s*length_p3_s + 
-                        (1 + surprisal_lstm_s + surprisal_lstm_p1_s + surprisal_lstm_p2_s + surprisal_lstm_p3_s | participant) + (1 | item))
+                        (1 + surprisal_lstm_s + surprisal_lstm_p1_s + surprisal_lstm_p2_s + surprisal_lstm_p3_s || participant) + (1 | item),
+                      control=lmerControl(optimizer="bobyqa",optCtrl=list(maxfun=2e5)))
 summary(models.filler.lstm) 
 
 saveRDS(models.filler.lstm, "filler_models/filler_lstm_sum.rds")
@@ -191,7 +192,8 @@ models.filler.gpt2 <- lmer(data=filler.drop.gpt2,
                       RT ~ surprisal_gpt2_s + surprisal_gpt2_p1_s + surprisal_gpt2_p2_s + surprisal_gpt2_p3_s +
                            scale(WordPosition) + logfreq_s*length_s + logfreq_p1_s*length_p1_s + 
                            logfreq_p2_s*length_p2_s + logfreq_p3_s*length_p3_s + 
-                        (1 + surprisal_gpt2_s + surprisal_gpt2_p1_s + surprisal_gpt2_p2_s + surprisal_gpt2_p3_s | participant) + (1 | item))
+                        (1 + surprisal_gpt2_s + surprisal_gpt2_p1_s + surprisal_gpt2_p2_s + surprisal_gpt2_p3_s || participant) + (1 | item),
+                      control=lmerControl(optimizer="bobyqa",optCtrl=list(maxfun=2e5)))
 summary(models.filler.gpt2) 
 
 saveRDS(models.filler.gpt2, "filler_models/filler_gpt2_sum.rds")
