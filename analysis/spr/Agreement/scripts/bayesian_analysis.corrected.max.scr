@@ -1,0 +1,20 @@
+#!/bin/bash
+#SBATCH --job-name=c-brms-SAP
+#SBATCH --time=47:0:0
+#SBATCH --partition=lrgmem
+#SBATCH --cpus-per-task=4
+#SBATCH --nodes=1
+#SBATCH --mail-type=begin,end
+#SBATCH --mail-user=sarehal1@jhu.edu
+#SBATCH --output=logs/bayes.prior1.corr.max.log
+#SBATCH --workdir=/home-4/sarehal1@jhu.edu/scratch/SAP_Agreement/Agreement/bare/Agreement/
+
+#### load and unload modules you may need
+ml stack
+module load r/3.6.1
+module load r-rcpp
+module load r-openssl
+module load r-curl
+
+Rscript bayesian_analysis.corrected.max.R
+
