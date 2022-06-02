@@ -25,176 +25,107 @@ spr <- read.csv("./Fillers.csv")
 spr$Sentence <- str_replace_all(spr$Sentence, "%2C", ",")
 spr <- spr %>% filter(RT<=7000) %>% filter(RT>0) %>% rename(participant = MD5)
 
-surps_lstm <- read.csv("../data/gulordava/items_filler.lstm.csv")
-surps_gpt2 <- read.csv("../data/gpt2/items_filler.gpt2.csv")
+surps_lstm <- read.csv("../data/gulordava/items_filler.lstm.csv.scaled")
+surps_gpt2 <- read.csv("../data/gpt2/items_filler.gpt2.csv.scaled")
+surps_rnng <- read.csv("../data/rnng/items_filler.rnng.csv.scaled")
 surps_lstm$word_pos = surps_lstm$word_pos + 1# adjust to 1-indexing
 surps_gpt2$word_pos = surps_gpt2$word_pos + 1# adjust to 1-indexing
+surps_rnng$word_pos = surps_rnng$word_pos + 1# adjust to 1-indexing
 
-# Load in frequencies from COCA(!)
-freqs <- read.csv("./freqs_coca.csv")
 ```
 
-merge the two dfs such that we have the relevant surprisal and frequency with each rt
 
 ```{r}
-spr$word <- str_replace(tolower(spr$EachWord), "[.,!?;:]", "") # lowercase and remove punctuation
-filler.freqs <- merge(x=spr, y=freqs, by.x="word", by.y="word", all.x=TRUE)
 
-filler.surps <- merge(x=filler.freqs, y=surps_lstm, 
-                      by.x=c("Sentence", "WordPosition"), by.y=c("Sentence", "word_pos"), all.x=TRUE)
-filler.surps$surprisal_lstm <- filler.surps$sum_surprisal # change to avg if that's more appropriate
-
-filler.surps <- merge(x=filler.surps, y=surps_gpt2, 
-                      by.x=c("Sentence", "WordPosition"), by.y=c("Sentence", "word_pos"), all.x=TRUE)
-filler.surps$surprisal_gpt2 <- filler.surps$sum_surprisal.y # change to avg if that's more appropriate
-```
-
-Store properties of past words in each row (going back 3 words)
-
-```{r}
-filler.with_lags <- filler.surps %>% group_by_at(vars(item, participant)) %>%
+bind_surps <- function(spr, surps) {
+  merged <- merge(x=spr, y=surps,
+                  by.x=c("Sentence", "WordPosition"), by.y=c("Sentence", "word_pos"), 
+                  all.x=TRUE)
+  
+  merged$item <- merged$item.x
+  merged$surprisal_s <- merged$sum_surprisal_s #change to mean if that's more appropriate
+  
+  with_lags <- merged %>% group_by_at(vars(item, participant)) %>%
                     mutate(RT_p1 = lag(RT), 
                            RT_p2 = lag(RT_p1), 
                            RT_p3 = lag(RT_p2),
-                           length = nchar(EachWord),
-                           length_p1 = lag(length), 
-                           length_p2 = lag(length_p1),
-                           length_p3 = lag(length_p2),
-                           logfreq = log(count),
-                           logfreq_p1 = lag(logfreq), 
-                           logfreq_p2 = lag(logfreq_p1),
-                           logfreq_p3 = lag(logfreq_p2),
-                           surprisal_lstm_p1 = lag(surprisal_lstm),
-                           surprisal_lstm_p2 = lag(surprisal_lstm_p1),
-                           surprisal_lstm_p3 = lag(surprisal_lstm_p2),
-                           surprisal_gpt2_p1 = lag(surprisal_gpt2),
-                           surprisal_gpt2_p2 = lag(surprisal_gpt2_p1),
-                           surprisal_gpt2_p3 = lag(surprisal_gpt2_p2)
+                           length_p1_s = lag(length_s), 
+                           length_p2_s = lag(length_p1_s),
+                           length_p3_s = lag(length_p2_s),
+                           logfreq_p1_s = lag(logfreq_s), 
+                           logfreq_p2_s = lag(logfreq_p1_s),
+                           logfreq_p3_s = lag(logfreq_p2_s),
+                           surprisal_p1_s = lag(surprisal_s),
+                           surprisal_p2_s = lag(surprisal_p1_s),
+                           surprisal_p3_s = lag(surprisal_p2_s)
                   )
-```
+  
+  with_lags$sent_length <- lapply(str_split(with_lags$Sentence, " "), length)
+  
+  dropped <- subset(with_lags, !is.na(surprisal_s) &
+                                        !is.na(surprisal_p1_s) & 
+                                        !is.na(surprisal_p2_s) &
+                                        !is.na(surprisal_p3_s) &
+                                        !is.na(logfreq_s) & !is.na(logfreq_p1_s) &
+                                        !is.na(logfreq_p2_s) & !is.na(logfreq_p3_s) & 
+                      (with_lags$sent_length != with_lags$WordPosition))
+  
+  print(paste0("dropped: ", nrow(with_lags) - nrow(dropped)))
+  return(dropped)
+}
 
-Drop rows with missing data (surprisals for past 3 words and freqs for past 3 words) AND the last word of each sentence
-
-```{r}
-
-filler.with_lags$sent_length <- lapply(str_split(filler.with_lags$Sentence, " "), length)
-
-
-filler.drop.lstm <- subset(filler.with_lags, !is.na(surprisal_lstm) & !is.na(surprisal_lstm_p1) & 
-                                        !is.na(surprisal_lstm_p2) & !is.na(surprisal_lstm_p3) &
-                                        !is.na(logfreq) & !is.na(logfreq_p1) &
-                                        !is.na(logfreq_p2) & !is.na(logfreq_p3) & (filler.with_lags$sent_length != filler.with_lags$WordPosition))
-
-filler.drop.gpt2 <- subset(filler.with_lags, !is.na(surprisal_gpt2) & !is.na(surprisal_gpt2_p1) & 
-                                        !is.na(surprisal_gpt2_p2) & !is.na(surprisal_gpt2_p3) &
-                                        !is.na(logfreq) & !is.na(logfreq_p1) &
-                                        !is.na(logfreq_p2) & !is.na(logfreq_p3) & (filler.with_lags$sent_length != filler.with_lags$WordPosition))
-
-# print number of remaining rows
-print(nrow(filler.with_lags))
-print(nrow(filler.drop.lstm))
-print(nrow(filler.drop.gpt2))
-
-
-all_fillers = levels(as.factor(filler.with_lags$item))
-print(length(all_fillers))
-lstm_fillers = levels(as.factor(filler.drop.lstm$item))
-print(length(lstm_fillers))
-gpt2_fillers = levels(as.factor(filler.drop.gpt2$item))
-print(length(gpt2_fillers))
-
-#items that have been dropped
-diff = setdiff(all_fillers, lstm_fillers)
-print(diff)
-
-filler.dropped <- subset(filler.with_lags, (is.na(surprisal_lstm) | is.na(surprisal_lstm_p1) | 
-                                        is.na(surprisal_lstm_p2) | is.na(surprisal_lstm_p3) |
-                                        is.na(logfreq) | is.na(logfreq_p1) |
-                                        is.na(logfreq_p2) | is.na(logfreq_p3)) & (item %in% diff))
-
-filler.dropped_diff <- subset(filler.dropped, !is.na(surprisal_gpt2) & !is.na(surprisal_gpt2_p1) & 
-                                        !is.na(surprisal_gpt2_p2) & !is.na(surprisal_gpt2_p3) &
-                                        !is.na(logfreq) & !is.na(logfreq_p1) &
-                                        !is.na(logfreq_p2) & !is.na(logfreq_p3))
-
-filler.dropped_diff
 
 ```
 
-Rescale the surprisal predictors on a single scale
 
 ```{r}
-filler.drop.lstm$surprisal_lstm_s <- scale(filler.drop.lstm$surprisal_lstm)
-surp_center <- attributes(filler.drop.lstm$surprisal_lstm_s)$`scaled:center`
-surp_scale <- attributes(filler.drop.lstm$surprisal_lstm_s)$`scaled:scale`
 
-filler.drop.lstm = filler.drop.lstm %>% 
-  mutate(surprisal_lstm_p1_s = (surprisal_lstm_p1 - surp_center)/surp_scale,
-         surprisal_lstm_p2_s = (surprisal_lstm_p2 - surp_center)/surp_scale,
-         surprisal_lstm_p3_s = (surprisal_lstm_p3 - surp_center)/surp_scale)
+dropped.lstm <- bind_surps(spr, surps_lstm)
 
-filler.drop.gpt2$surprisal_gpt2_s <- scale(filler.drop.gpt2$surprisal_gpt2)
-surp_center <- attributes(filler.drop.gpt2$surprisal_gpt2_s)$`scaled:center`
-surp_scale <- attributes(filler.drop.gpt2$surprisal_gpt2_s)$`scaled:scale`
-
-filler.drop.gpt2 <- filler.drop.gpt2 %>% 
-  mutate(surprisal_gpt2_p1_s = (surprisal_gpt2_p1 - surp_center)/surp_scale,
-         surprisal_gpt2_p2_s = (surprisal_gpt2_p2 - surp_center)/surp_scale,
-         surprisal_gpt2_p3_s = (surprisal_gpt2_p3 - surp_center)/surp_scale)
-
-filler.drop.lstm$logfreq_s <- scale(filler.drop.lstm$logfreq)
-lf_center <- attributes(filler.drop.lstm$logfreq_s)$`scaled:center`
-lf_scale <- attributes(filler.drop.lstm$logfreq_s)$`scaled:scale`
-
-filler.drop.lstm$length_s <- scale(filler.drop.lstm$length)
-l_center <- attributes(filler.drop.lstm$length_s)$`scaled:center`
-l_scale <- attributes(filler.drop.lstm$length_s)$`scaled:scale`
-
-filler.drop.lstm <- filler.drop.lstm %>%
-    mutate(logfreq_p1_s = (logfreq_p1 - lf_center)/lf_scale,
-           logfreq_p2_s = (logfreq_p2 - lf_center)/lf_scale,
-           logfreq_p3_s = (logfreq_p3 - lf_center)/lf_scale,
-           length_p1_s = (length_p1 - l_center)/l_scale,
-           length_p2_s = (length_p2 - l_center)/l_scale,
-           length_p3_s = (length_p3 - l_center)/l_scale)
-
-filler.drop.gpt2$logfreq_s <- scale(filler.drop.gpt2$logfreq)
-lf_center <- attributes(filler.drop.gpt2$logfreq_s)$`scaled:center`
-lf_scale <- attributes(filler.drop.gpt2$logfreq_s)$`scaled:scale`
-
-filler.drop.gpt2$length_s <- scale(filler.drop.gpt2$length)
-l_center <- attributes(filler.drop.gpt2$length_s)$`scaled:center`
-l_scale <- attributes(filler.drop.gpt2$length_s)$`scaled:scale`
-filler.drop.gpt2 <- filler.drop.gpt2 %>%
-    mutate(logfreq_p1_s = (logfreq_p1 - lf_center)/lf_scale,
-           logfreq_p2_s = (logfreq_p2 - lf_center)/lf_scale,
-           logfreq_p3_s = (logfreq_p3 - lf_center)/lf_scale,
-           length_p1_s = (length_p1 - l_center)/l_scale,
-           length_p2_s = (length_p2 - l_center)/l_scale,
-           length_p3_s = (length_p3 - l_center)/l_scale)
-
-```
-
-```{r}
-models.filler.lstm <- lmer(data=filler.drop.lstm,
-                      RT ~ surprisal_lstm_s + surprisal_lstm_p1_s + surprisal_lstm_p2_s + surprisal_lstm_p3_s +
+models.filler.lstm <- lmer(data=dropped.lstm,
+                      RT ~ surprisal_s + surprisal_p1_s + surprisal_p2_s + surprisal_p3_s +
                            scale(WordPosition) + logfreq_s*length_s + logfreq_p1_s*length_p1_s + 
                            logfreq_p2_s*length_p2_s + logfreq_p3_s*length_p3_s + 
-                        (1 + surprisal_lstm_s + surprisal_lstm_p1_s + surprisal_lstm_p2_s + surprisal_lstm_p3_s || participant) + (1 | item),
+                        (1 + surprisal_s + surprisal_p1_s + surprisal_p2_s + surprisal_p3_s || participant) + (1 | item),
                       control=lmerControl(optimizer="bobyqa",optCtrl=list(maxfun=2e5)))
 summary(models.filler.lstm) 
 
 saveRDS(models.filler.lstm, "filler_models/filler_lstm_sum.rds")
+
+rm(dropped.lstm) # free memory
+gc()
 ```
 
 ```{r}
-models.filler.gpt2 <- lmer(data=filler.drop.gpt2,
-                      RT ~ surprisal_gpt2_s + surprisal_gpt2_p1_s + surprisal_gpt2_p2_s + surprisal_gpt2_p3_s +
+dropped.gpt2 <- bind_surps(spr, surps_gpt2)
+
+models.filler.gpt2 <- lmer(data=dropped.gpt2,
+                      RT ~ surprisal_s + surprisal_p1_s + surprisal_p2_s + surprisal_p3_s +
                            scale(WordPosition) + logfreq_s*length_s + logfreq_p1_s*length_p1_s + 
                            logfreq_p2_s*length_p2_s + logfreq_p3_s*length_p3_s + 
-                        (1 + surprisal_gpt2_s + surprisal_gpt2_p1_s + surprisal_gpt2_p2_s + surprisal_gpt2_p3_s || participant) + (1 | item),
+                        (1 + surprisal_s + surprisal_p1_s + surprisal_p2_s + surprisal_p3_s || participant) + (1 | item),
                       control=lmerControl(optimizer="bobyqa",optCtrl=list(maxfun=2e5)))
 summary(models.filler.gpt2) 
 
 saveRDS(models.filler.gpt2, "filler_models/filler_gpt2_sum.rds")
+
+rm(dropped.gpt2) # free memory
+gc()
+```
+
+```{r}
+dropped.rnng <- bind_surps(spr, surps_rnng)
+
+models.filler.rnng <- lmer(data=dropped.rnng,
+                      RT ~ surprisal_s + surprisal_p1_s + surprisal_p2_s + surprisal_p3_s +
+                           scale(WordPosition) + logfreq_s*length_s + logfreq_p1_s*length_p1_s + 
+                           logfreq_p2_s*length_p2_s + logfreq_p3_s*length_p3_s + 
+                        (1 + surprisal_s + surprisal_p1_s + surprisal_p2_s + surprisal_p3_s || participant) + (1 | item),
+                      control=lmerControl(optimizer="bobyqa",optCtrl=list(maxfun=2e5)))
+summary(models.filler.rnng) 
+
+saveRDS(models.filler.rnng, "filler_models/filler_rnng_sum.rds")
+
+rm(dropped.rnng) # free memory
+gc()
 ```
