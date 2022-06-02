@@ -1,0 +1,21 @@
+#!/bin/bash
+#SBATCH --job-name=rmd-SAP
+#SBATCH --time=48:0:0
+#SBATCH --partition=lrgmem
+#SBATCH --cpus-per-task=24
+#SBATCH --nodes=1
+#SBATCH --mail-type=begin,end
+#SBATCH --mail-user=sarehal1@jhu.edu
+#SBATCH --output=logs/rmd.log
+#SBATCH --workdir=/home-4/sarehal1@jhu.edu/scratch/sapbenchmark/analysis/spr/Agreement/
+
+#### load and unload modules you may need
+ml stack
+module load r/3.6.1
+module load r-rcpp
+module load r-openssl
+module load r-curl
+
+Rscript -e "knitr::purl('analysis.Rmd')"
+Rscript analysis.R
+
