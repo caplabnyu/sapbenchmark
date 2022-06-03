@@ -179,7 +179,7 @@ merge_surprisal <- function(rt.data_df, byitem_df, subsetname){
       surp.diff <- data.frame(item=surp.diff$item.x[seq(1,nrow(surp.diff),by=2)],coef=rep(c("RC"),(nrow(surp.diff)/2/length(unique(byitem_df$coef)))),ROI=surp.diff$ROI[seq(1,nrow(surp.diff),by=2)],model=surp.diff$model[seq(1,nrow(surp.diff),by=2)],surprisal_diff=surp.diff$sum_surprisal[seq(1,nrow(surp.diff),by=2)]-surp.diff$sum_surprisal[seq(2,nrow(surp.diff),by=2)])    
     }else{
       if(subsetname=="AttachmentAmbiguity"){
-        surp.diff <- data.frame(item=rep(surp.diff$item.x[seq(1,nrow(surp.diff),by=3)],2),coef=rep(c("High_Cost","Low_Cost"),each=(nrow(surp.diff)/length(unique(surp.diff$Type)))),ROI=rep(surp.diff$ROI[seq(1,nrow(surp.diff),by=3)],2),model=rep(surp.diff$model[seq(1,nrow(surp.diff),by=3)],2),surprisal_diff=c(surp.diff$sum_surprisal[seq(1,nrow(surp.diff),by=3)]-surp.diff$sum_surprisal[seq(3,nrow(surp.diff),by=3)],surp.diff$sum_surprisal[seq(2,nrow(surp.diff),by=3)]-surp.diff$sum_surprisal[seq(3,nrow(surp.diff),by=3)]))    
+        surp.diff <- data.frame(item=rep(surp.diff$item.x[seq(1,nrow(surp.diff),by=3)],2),coef=rep(c("GPE_high","Low_Cost"),each=(nrow(surp.diff)/length(unique(surp.diff$Type)))),ROI=rep(surp.diff$ROI[seq(1,nrow(surp.diff),by=3)],2),model=rep(surp.diff$model[seq(1,nrow(surp.diff),by=3)],2),surprisal_diff=c(surp.diff$sum_surprisal[seq(1,nrow(surp.diff),by=3)]-surp.diff$sum_surprisal[seq(3,nrow(surp.diff),by=3)],surp.diff$sum_surprisal[seq(2,nrow(surp.diff),by=3)]-surp.diff$sum_surprisal[seq(3,nrow(surp.diff),by=3)]))    
       }
     }
   }
@@ -223,8 +223,6 @@ ggplot(merged_df[merged_df$ROI==ROI_index,],aes(x=surprisal_diff,y=mean))+
 Predicting_RT_with_spillover_refactored <- function(rt.data_df,subsetname, models = c('gpt2', 'lstm')){
   print("This will take a while.")
   freqs <- read.csv("freqs_coca.csv")
-  
-  rt.data.freqs <- merge(x=rt.data_df, y=freqs, by.x="word", by.y="word", all.x=TRUE)
   
   pred_list <- list()
   
