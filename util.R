@@ -222,7 +222,7 @@ ggplot(merged_df[merged_df$ROI==ROI_index,],aes(x=surprisal_diff,y=mean))+
 
 Predicting_RT_with_spillover_refactored <- function(rt.data_df,subsetname, models = c('gpt2', 'lstm')){
   print("This will take a while.")
-  freqs <- read.csv("freqs.csv")
+  freqs <- read.csv("freqs_coca.csv")
   
   rt.data.freqs <- merge(x=rt.data_df, y=freqs, by.x="word", by.y="word", all.x=TRUE)
   
