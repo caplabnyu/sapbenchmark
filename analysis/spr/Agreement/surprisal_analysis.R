@@ -63,9 +63,23 @@ filler_model <- readRDS(paste0("../../../Surprisals/analysis/filler_models/fille
 
 with_lags$predicted_rt <- predict(filler_model, newdata=with_lags, allow.new.levels=TRUE)
 
-saveRDS(with_lags, paste0("datasets/agreement_data_", model, "_predicted.", model, ".rds"))
+saveRDS(with_lags, paste0("datasets/agreement_data_", model, "_predicted.rds"))
 
 rt.ht_data <- readRDS(paste0("datasets/agreement_data_", model, "_predicted.rds"))
+
+rt.ht_data <- rt.data %>% subset(rt.data$ROI >= 0) # critical + spillover data only
+
+rt.ht_data$position <- droplevels(as.factor(rt.ht_data$ROI))
+
+contrasts(rt.ht_data$position) <- contr.sum(3)/2
+contrasts(rt.ht_data$position)
+
+
+rt.ht_data$pGram.coded <- recode(rt.ht_data$pGram, "U" = 1, "G" = 0)
+rt.ht_data$Type.coded <- recode(rt.ht_data$Type, "AGREE" = 0, "NPZ" = 1)
+rt.ht_data$position.coded.1 <- recode(rt.ht_data$position, "0"=0.5, "1"=0, "2"=-0.5)
+rt.ht_data$position.coded.2 <- recode(rt.ht_data$position, "0"=0, "1"=0.5, "2"=-0.5)
+
 
 prior1 <- c(prior("normal(300,1000)", class = "Intercept"),
             prior("normal(0,150)", class = "b"),  
