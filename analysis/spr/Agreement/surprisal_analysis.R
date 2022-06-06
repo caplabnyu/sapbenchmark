@@ -6,8 +6,26 @@ library(lmerTest)
 library(stringr)
 library(brms)
 
-spr <- readRDS("./datasets/agreement_data.rds")
 model <- "lstm"
+
+spr <- read.csv("AgreementSet.csv", header=TRUE) %>% 
+  filter(RT<=7000) %>% filter(RT>0) %>%
+  filter(ROI%in%c(-3,-2,-1,0,1,2)) %>%
+  rename(participant = MD5)
+
+spr$Type <- as.character(spr$Type) # Just in case it's automatically read as a factor
+
+# Maybe this should all just be a recode call?
+spr$Type[spr$Type == "AGREE"] <- "AGREE_G"
+
+spr <- spr %>% separate(Type, c("Type", "pGram"), sep="_")
+
+spr$pGram[spr$pGram == "UAMB"] <- "G"
+spr$pGram[spr$pGram == "AMB"] <- "U"
+spr$pGram[spr$pGram == "UNG"] <- "U"
+
+spr$pGram <- as.factor(spr$pGram)
+spr$Type <- as.factor(spr$Type)
 
 surps_agr <- read.csv(paste0("../../../Surprisals/data/gulordava/items_Agreement.", model, ".csv.scaled"))
 surps_npz <- read.csv(paste0("../../../Surprisals/data/gulordava/items_ClassicGP.", model, ".csv.scaled"))
@@ -26,6 +44,7 @@ merged <- merge(x=spr, y=surps,
 merged$item <- merged$item.x
 
 with_lags <- merged %>% group_by_at(vars(item, participant)) %>%
+  arrange("word_pos", .by_group = TRUE) %>%
   mutate(RT_p1 = lag(RT), 
          RT_p2 = lag(RT_p1), 
          RT_p3 = lag(RT_p2),
@@ -42,11 +61,11 @@ with_lags <- merged %>% group_by_at(vars(item, participant)) %>%
 
 filler_model <- readRDS(paste0("../../../Surprisals/analysis/filler_models/filler_", model, "_sum.rds"))
 
-merged$predicted_rt <- predict(filler_model, newdata=with_lags, allow.new.levels=TRUE)
+with_lags$predicted_rt <- predict(filler_model, newdata=with_lags, allow.new.levels=TRUE)
 
-saveRDS(merged, "datasets/agreement_data_predicted.rds")
+saveRDS(with_lags, paste0("datasets/agreement_data_", model, "_predicted.", model, ".rds"))
 
-rt.ht_data <- readRDS("datasets/agreement_data_predicted.rds")
+rt.ht_data <- readRDS(paste0("datasets/agreement_data_", model, "_predicted.rds"))
 
 prior1 <- c(prior("normal(300,1000)", class = "Intercept"),
             prior("normal(0,150)", class = "b"),  
@@ -61,4 +80,4 @@ rt.bmodel <- brm(predicted_rt ~ Type.coded * pGram.coded * (position.coded.1 + p
                  seed = 117,
 )
 
-saveRDS(rt.bmodel, "models/agreement_bmodel_prior1_predicted.rds")
+saveRDS(rt.bmodel, paste0("models/agreement_bmodel_prior1_", model, "_predicted.rds"))
