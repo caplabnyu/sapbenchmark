@@ -43,6 +43,10 @@ Prep data for hypothesis testing.
 # Sum coding for the position factor
 rt.ht_data <- rt.data %>% subset(rt.data$ROI >= 0) # critical + spillover data only
 
+# Keep only NPZ items with an agreement counterpart
+agree_items <- unique(rt.ht_data$item[rt.ht_data$Type == "AGREE"])
+rt.ht_data <- rt.ht_data[rt.ht_data$item %in% agree_items,]
+
 rt.ht_data$position <- droplevels(as.factor(rt.ht_data$ROI))
 
 contrasts(rt.ht_data$position) <- contr.sum(3)/2
