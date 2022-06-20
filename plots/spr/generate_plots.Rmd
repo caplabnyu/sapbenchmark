@@ -20,20 +20,19 @@ library(tidytext)
 
 ```{r}
 
-by_item_gp <- readRDS('./empirical_fit/by_item_ClassicGP.RDS')
+subsets <- c('GardenPath', 'RelativeClause', 'AttachmentAmbiguity','Agreement')
 
-by_item_attach <- read.csv('./saved_objects/by_item_attach.csv') %>%
-  select(!X) %>%
-  mutate(ROI = as.character(ROI))
+by_item <-list()
+i <- 1
+for(subset in subsets){
+  curr_item <- readRDS(paste0('./', subset, '/by_item.rds')) %>%
+    select(item, ROI, coef, mean, lower, upper)  #make sure everything has same order
+  by_item[[i]] <- curr_item
+  i <- i+1
+}
 
-by_item_agreement <- readRDS('./saved_objects/by_item_agreement.rds') %>%
-  select(item, ROI, coef, mean, lower, upper)
+by_item <- dplyr::bind_rows(by_item)
 
-by_item_rc <- readRDS('./saved_objects/by_item_RCsubset.rds')
-
-by_item <- dplyr::bind_rows(by_item_gp, by_item_attach, by_item_agreement, by_item_rc)
-
-rm(by_item_gp, by_item_attach, by_item_agreement, by_item_rc)
 
 by_item_ROI_summ <- by_item %>%
   group_by(ROI, coef) %>%
