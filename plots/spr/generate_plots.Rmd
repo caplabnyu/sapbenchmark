@@ -217,7 +217,9 @@ by_item_cor <- by_item %>%
 
 ```{r}
 
-ggplot(by_item_cor, aes(y=coef, x=cor, colour=model, shape=model)) +
+ggplot(by_item_cor %>%
+         filter(coef != 'GPE'),
+       aes(y=coef, x=cor, colour=model, shape=model)) +
   geom_point(position = position_dodge(width=0.2)) + 
   labs(x='Correlation with empirical data', y = 'Effect of interest', colour='Model', shape = 'Model') + 
   xlim(c(-1,1)) +
