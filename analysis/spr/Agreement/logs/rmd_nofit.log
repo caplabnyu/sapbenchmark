@@ -1,139 +1,120 @@
-[STATUS] Loading the stack module. To use original modules run ml original.
 
-Lmod is automatically replacing "intel/18.0" with "gcc/7.4.0".
+Attaching package: ‘dplyr’
 
-
-Inactive Modules:
-  1) MARCC/summer-2018     2) centos7     3) openmpi/3.1
-
-Due to MODULEPATH changes, the following have been reloaded:
-  1) stack/0.3
-
-[STATUS] Using the stack module. To use original modules run ml original.
-[STATUS] Using the stack module. To use original modules run ml original.
-
-Activating Modules:
-  1) centos7/default     2) openmpi/3.1.4
-
-[STATUS] Using the stack module. To use original modules run ml original.
-[STATUS] Using the stack module. To use original modules run ml original.
-
-Attaching package: 'dplyr'
-
-The following objects are masked from 'package:stats':
+The following objects are masked from ‘package:stats’:
 
     filter, lag
 
-The following objects are masked from 'package:base':
+The following objects are masked from ‘package:base’:
 
     intersect, setdiff, setequal, union
 
  Family: gaussian 
   Links: mu = identity; sigma = identity 
 Formula: RT_corrected ~ Type.coded * pGram.coded * (position.coded.1 + position.coded.2) + (1 + Type.coded * pGram.coded * (position.coded.1 + position.coded.2) || item) + (1 + Type.coded * pGram.coded * (position.coded.1 + position.coded.2) || participant) 
-   Data: rt.ht_data (Number of observations: 92544) 
+   Data: rt.ht_data (Number of observations: 81924) 
   Draws: 4 chains, each with iter = 6000; warmup = 3000; thin = 1;
          total post-warmup draws = 12000
 
 Group-Level Effects: 
-~item (Number of levels: 24) 
+~item (Number of levels: 18) 
                                             Estimate Est.Error l-95% CI
-sd(Intercept)                                  23.73      4.45    16.65
-sd(Type.coded)                                 26.68      5.41    17.79
-sd(pGram.coded)                                 6.04      3.95     0.35
-sd(position.coded.1)                           32.55      7.09    20.93
-sd(position.coded.2)                           26.12      6.14    15.79
-sd(Type.coded:pGram.coded)                     30.83      6.22    20.12
-sd(Type.coded:position.coded.1)                42.84      9.96    26.28
-sd(Type.coded:position.coded.2)                12.62      8.45     0.57
-sd(pGram.coded:position.coded.1)               13.38      8.78     0.66
-sd(pGram.coded:position.coded.2)                7.69      5.99     0.30
-sd(Type.coded:pGram.coded:position.coded.1)    76.58     14.91    51.79
-sd(Type.coded:pGram.coded:position.coded.2)    62.62     12.73    41.55
+sd(Intercept)                                  24.18      4.86    16.53
+sd(Type.coded)                                 27.51      5.95    18.23
+sd(pGram.coded)                                 6.39      3.81     0.41
+sd(position.coded.1)                           34.16      7.77    21.84
+sd(position.coded.2)                           24.52      6.09    14.71
+sd(Type.coded:pGram.coded)                     27.94      6.76    16.96
+sd(Type.coded:position.coded.1)                47.21     11.32    28.81
+sd(Type.coded:position.coded.2)                10.83      7.71     0.45
+sd(pGram.coded:position.coded.1)               11.71      7.92     0.53
+sd(pGram.coded:position.coded.2)                7.73      5.83     0.31
+sd(Type.coded:pGram.coded:position.coded.1)    57.63     15.47    31.48
+sd(Type.coded:pGram.coded:position.coded.2)    58.95     14.59    34.87
                                             u-95% CI Rhat Bulk_ESS Tail_ESS
-sd(Intercept)                                  34.04 1.00     5059     7835
-sd(Type.coded)                                 38.81 1.00     6337     8567
-sd(pGram.coded)                                14.89 1.00     3231     5445
-sd(position.coded.1)                           48.88 1.00     6740     9224
-sd(position.coded.2)                           39.79 1.00     6071     7870
-sd(Type.coded:pGram.coded)                     44.90 1.00     5708     7023
-sd(Type.coded:position.coded.1)                65.11 1.00     6274     8825
-sd(Type.coded:position.coded.2)                31.55 1.00     3893     6552
-sd(pGram.coded:position.coded.1)               32.84 1.00     3902     6387
-sd(pGram.coded:position.coded.2)               22.42 1.00     5986     7077
-sd(Type.coded:pGram.coded:position.coded.1)   109.78 1.00     6167     7944
-sd(Type.coded:pGram.coded:position.coded.2)    90.95 1.00     6570     8209
+sd(Intercept)                                  35.41 1.00     4828     7775
+sd(Type.coded)                                 41.11 1.00     6325     8257
+sd(pGram.coded)                                14.62 1.00     3143     5894
+sd(position.coded.1)                           51.90 1.00     5833     8327
+sd(position.coded.2)                           38.66 1.00     6066     8366
+sd(Type.coded:pGram.coded)                     42.89 1.00     5817     7483
+sd(Type.coded:position.coded.1)                72.94 1.00     7247     8442
+sd(Type.coded:position.coded.2)                28.51 1.00     4858     6593
+sd(pGram.coded:position.coded.1)               29.76 1.00     4155     5974
+sd(pGram.coded:position.coded.2)               21.79 1.00     6526     7327
+sd(Type.coded:pGram.coded:position.coded.1)    92.93 1.00     5842     8140
+sd(Type.coded:pGram.coded:position.coded.2)    92.81 1.00     5956     7774
 
 ~participant (Number of levels: 2000) 
                                             Estimate Est.Error l-95% CI
-sd(Intercept)                                  36.70      1.78    33.16
-sd(Type.coded)                                  8.54      5.56     0.38
-sd(pGram.coded)                                52.63      3.18    46.38
-sd(position.coded.1)                            4.36      3.25     0.18
-sd(position.coded.2)                            4.37      3.32     0.16
-sd(Type.coded:pGram.coded)                    155.88      3.58   148.97
-sd(Type.coded:position.coded.1)                 8.50      6.28     0.35
-sd(Type.coded:position.coded.2)                 6.95      5.23     0.24
-sd(pGram.coded:position.coded.1)                6.54      4.93     0.21
-sd(pGram.coded:position.coded.2)               10.77      7.90     0.43
-sd(Type.coded:pGram.coded:position.coded.1)   372.63      8.05   357.16
-sd(Type.coded:pGram.coded:position.coded.2)   303.31      7.45   288.84
+sd(Intercept)                                  38.60      1.71    35.25
+sd(Type.coded)                                  8.44      5.60     0.38
+sd(pGram.coded)                                54.79      2.94    48.99
+sd(position.coded.1)                            4.58      3.42     0.18
+sd(position.coded.2)                            5.05      3.72     0.23
+sd(Type.coded:pGram.coded)                    158.94      3.70   151.76
+sd(Type.coded:position.coded.1)                 9.90      7.52     0.40
+sd(Type.coded:position.coded.2)                 6.70      5.05     0.23
+sd(pGram.coded:position.coded.1)                6.97      5.27     0.26
+sd(pGram.coded:position.coded.2)               14.11      9.87     0.63
+sd(Type.coded:pGram.coded:position.coded.1)   422.06      9.09   404.56
+sd(Type.coded:pGram.coded:position.coded.2)   336.95      8.43   320.66
                                             u-95% CI Rhat Bulk_ESS Tail_ESS
-sd(Intercept)                                  40.12 1.00     3512     5683
-sd(Type.coded)                                 20.26 1.00      887     1551
-sd(pGram.coded)                                58.84 1.00     2403     5362
-sd(position.coded.1)                           12.05 1.00     4891     7227
-sd(position.coded.2)                           12.24 1.00     5125     6329
-sd(Type.coded:pGram.coded)                    163.02 1.00     4786     8003
-sd(Type.coded:position.coded.1)                23.41 1.00     2873     4868
-sd(Type.coded:position.coded.2)                19.03 1.00     3902     5619
-sd(pGram.coded:position.coded.1)               18.05 1.00     4071     5808
-sd(pGram.coded:position.coded.2)               29.37 1.00     2087     3161
-sd(Type.coded:pGram.coded:position.coded.1)   388.68 1.00     5190     7648
-sd(Type.coded:pGram.coded:position.coded.2)   317.97 1.00     5980     8819
+sd(Intercept)                                  41.94 1.00     4259     7244
+sd(Type.coded)                                 20.50 1.00      999     2059
+sd(pGram.coded)                                60.50 1.00     3148     5547
+sd(position.coded.1)                           12.68 1.00     4654     5568
+sd(position.coded.2)                           13.72 1.00     3450     5393
+sd(Type.coded:pGram.coded)                    166.31 1.00     5605     8160
+sd(Type.coded:position.coded.1)                27.97 1.00     2338     3617
+sd(Type.coded:position.coded.2)                18.49 1.00     4253     6003
+sd(pGram.coded:position.coded.1)               19.56 1.00     3569     5405
+sd(pGram.coded:position.coded.2)               36.48 1.00     1407     2528
+sd(Type.coded:pGram.coded:position.coded.1)   440.29 1.00     4849     7277
+sd(Type.coded:pGram.coded:position.coded.2)   353.81 1.00     5045     7674
 
 Population-Level Effects: 
                                         Estimate Est.Error l-95% CI u-95% CI
-Intercept                                  31.70      5.82    20.18    43.23
-Type.coded                                 15.67      6.51     2.90    28.42
-pGram.coded                                32.27      3.37    25.55    38.81
-position.coded.1                          -22.60      9.20   -40.65    -4.51
-position.coded.2                           14.91      7.97    -0.75    30.78
-Type.coded:pGram.coded                     79.33      8.28    62.85    95.51
-Type.coded:position.coded.1               -11.89     12.03   -35.74    11.36
-Type.coded:position.coded.2                19.11      8.33     2.70    35.70
-pGram.coded:position.coded.1              -27.14      8.44   -44.14   -11.05
-pGram.coded:position.coded.2               50.79      7.88    35.55    66.27
-Type.coded:pGram.coded:position.coded.1    44.23     20.78     2.91    85.04
-Type.coded:pGram.coded:position.coded.2    25.17     17.74    -9.43    60.33
+Intercept                                  30.54      6.11    18.54    42.44
+Type.coded                                 13.86      7.17    -0.46    28.00
+pGram.coded                                32.14      3.34    25.44    38.74
+position.coded.1                          -21.35      9.66   -40.55    -2.37
+position.coded.2                           12.55      7.89    -3.00    28.32
+Type.coded:pGram.coded                     80.27      8.55    63.32    97.20
+Type.coded:position.coded.1                -9.50     13.78   -37.05    17.81
+Type.coded:position.coded.2                16.95      8.10     0.92    33.20
+pGram.coded:position.coded.1              -26.08      7.91   -41.56   -10.62
+pGram.coded:position.coded.2               50.58      7.62    35.46    65.60
+Type.coded:pGram.coded:position.coded.1    63.76     19.95    24.05   103.01
+Type.coded:pGram.coded:position.coded.2    20.68     18.96   -17.26    58.17
                                         Rhat Bulk_ESS Tail_ESS
-Intercept                               1.00     3933     6173
-Type.coded                              1.00     5044     6802
-pGram.coded                             1.00    15173     9353
-position.coded.1                        1.00     7173     8233
-position.coded.2                        1.00     7596     8331
-Type.coded:pGram.coded                  1.00     6033     7661
-Type.coded:position.coded.1             1.00     7957     8806
-Type.coded:position.coded.2             1.00    13121     9163
-pGram.coded:position.coded.1            1.00    13545    10063
-pGram.coded:position.coded.2            1.00    14093     9564
-Type.coded:pGram.coded:position.coded.1 1.00     6293     8165
-Type.coded:pGram.coded:position.coded.2 1.00     7361     8191
+Intercept                               1.00     3336     4602
+Type.coded                              1.00     4190     5931
+pGram.coded                             1.00    13999     8705
+position.coded.1                        1.00     5591     7361
+position.coded.2                        1.00     7196     7776
+Type.coded:pGram.coded                  1.00     6554     7772
+Type.coded:position.coded.1             1.00     6180     7051
+Type.coded:position.coded.2             1.00    13328     9617
+pGram.coded:position.coded.1            1.00    13898     9953
+pGram.coded:position.coded.2            1.00    12798     8975
+Type.coded:pGram.coded:position.coded.1 1.00     6549     8064
+Type.coded:pGram.coded:position.coded.2 1.00     6587     7191
 
 Family Specific Parameters: 
       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sigma   279.62      0.67   278.30   280.92 1.00    17134     8564
+sigma   264.68      0.70   263.33   266.05 1.00    15446     8748
 
 Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
 scale reduction factor on split chains (at convergence, Rhat = 1).
 Warning message:
-There were 29 divergent transitions after warmup. Increasing adapt_delta above 0.8 may help. See http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup 
-This is posterior version 1.2.0
+There were 15 divergent transitions after warmup. Increasing adapt_delta above 0.8 may help. See http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup 
+This is posterior version 1.2.1
 
-Attaching package: 'posterior'
+Attaching package: ‘posterior’
 
-The following objects are masked from 'package:stats':
+The following objects are masked from ‘package:stats’:
 
     mad, sd, var
 
@@ -142,39 +123,39 @@ The following objects are masked from 'package:stats':
  [3] ".iteration"                               
  [4] "item"                                     
  [5] "r_Intercept"                              
- [6] "r_Type.coded"                             
- [7] "r_Type.coded:pGram.coded"                 
- [8] "r_Type.coded:pGram.coded:position.coded.1"
- [9] "r_Type.coded:pGram.coded:position.coded.2"
-[10] "r_Type.coded:position.coded.1"            
-[11] "r_Type.coded:position.coded.2"            
-[12] "r_pGram.coded"                            
-[13] "r_pGram.coded:position.coded.1"           
-[14] "r_pGram.coded:position.coded.2"           
-[15] "r_position.coded.1"                       
-[16] "r_position.coded.2"                       
+ [6] "r_pGram.coded"                            
+ [7] "r_pGram.coded:position.coded.1"           
+ [8] "r_pGram.coded:position.coded.2"           
+ [9] "r_position.coded.1"                       
+[10] "r_position.coded.2"                       
+[11] "r_Type.coded"                             
+[12] "r_Type.coded:pGram.coded"                 
+[13] "r_Type.coded:pGram.coded:position.coded.1"
+[14] "r_Type.coded:pGram.coded:position.coded.2"
+[15] "r_Type.coded:position.coded.1"            
+[16] "r_Type.coded:position.coded.2"            
 [17] "b_Intercept"                              
-[18] "b_Type.coded"                             
-[19] "b_Type.coded:pGram.coded"                 
-[20] "b_Type.coded:pGram.coded:position.coded.1"
-[21] "b_Type.coded:pGram.coded:position.coded.2"
-[22] "b_Type.coded:position.coded.1"            
-[23] "b_Type.coded:position.coded.2"            
-[24] "b_pGram.coded"                            
-[25] "b_pGram.coded:position.coded.1"           
-[26] "b_pGram.coded:position.coded.2"           
-[27] "b_position.coded.1"                       
-[28] "b_position.coded.2"                       
+[18] "b_pGram.coded"                            
+[19] "b_pGram.coded:position.coded.1"           
+[20] "b_pGram.coded:position.coded.2"           
+[21] "b_position.coded.1"                       
+[22] "b_position.coded.2"                       
+[23] "b_Type.coded"                             
+[24] "b_Type.coded:pGram.coded"                 
+[25] "b_Type.coded:pGram.coded:position.coded.1"
+[26] "b_Type.coded:pGram.coded:position.coded.2"
+[27] "b_Type.coded:position.coded.1"            
+[28] "b_Type.coded:position.coded.2"            
 `summarise()` has grouped output by 'item'. You can override using the
 `.groups` argument.
 Warning message:
-Expected 2 pieces. Missing pieces filled with `NA` in 48 rows [1, 5, 9, 13, 17, 21, 25, 29, 33, 37, 41, 45, 49, 53, 57, 61, 65, 69, 73, 77, ...]. 
+Expected 2 pieces. Missing pieces filled with `NA` in 36 rows [1, 5, 9, 13, 17, 21, 25, 29, 33, 37, 41, 45, 49, 53, 57, 61, 65, 69, 73, 77, ...]. 
 Saving 7 x 7 in image
 Warning message:
-Removed 48 rows containing missing values (geom_point). 
+Removed 36 rows containing missing values (geom_point). 
 Saving 7 x 7 in image
 Warning message:
-Removed 48 rows containing missing values (geom_point). 
+Removed 36 rows containing missing values (geom_point). 
 Error in file(file, "rt") : cannot open the connection
 Calls: merge_surprisal -> %>% -> mutate -> read.csv -> read.table -> file
 In addition: Warning message:

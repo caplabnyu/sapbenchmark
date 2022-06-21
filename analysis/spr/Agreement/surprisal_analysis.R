@@ -67,7 +67,7 @@ saveRDS(with_lags, paste0("datasets/agreement_data_", model, "_predicted.rds"))
 
 rt.ht_data <- readRDS(paste0("datasets/agreement_data_", model, "_predicted.rds"))
 
-rt.ht_data <- rt.data %>% subset(rt.data$ROI >= 0) # critical + spillover data only
+rt.ht_data <- rt.ht_data %>% subset(rt.ht_data$ROI >= 0) # critical + spillover data only
 
 rt.ht_data$position <- droplevels(as.factor(rt.ht_data$ROI))
 

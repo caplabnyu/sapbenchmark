@@ -8,7 +8,7 @@ library(dplyr)
 
 ## -----------------------------------------------------------------------------
 
-model.prior1.corrected <- readRDS("models/agreement_bmodel_prior1_corrected_old.rds")
+model.prior1.corrected <- readRDS("models/agreement_bmodel_prior1_corrected.rds")
 summary(model.prior1.corrected)
 
 
