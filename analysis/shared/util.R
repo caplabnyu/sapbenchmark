@@ -4,7 +4,7 @@ library(stringr)
 library(ggplot2)
 library(posterior)
 library(tidybayes)
-library(tidyverse)
+#library(tidyverse)
 
 reshape_item_dat <- function(fit, rand_name){
   
