@@ -1,0 +1,15 @@
+#!/bin/bash
+#SBATCH --job-name=gpt2-SAP
+#SBATCH -t 03-00:00:00
+#SBATCH --partition=defq
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=24
+#SBATCH --output=logs/surprisals_gpt2.log
+#SBATCH --export=ALL
+
+#### load and unload modules you may need
+module load r/4.0.2
+
+cd /home/sarehal1/scratch4-tlinzen1/sapbenchmark/analysis/spr/Agreement
+Rscript surprisal_analysis_gpt2.R
+

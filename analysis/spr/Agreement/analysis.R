@@ -32,6 +32,10 @@ rt.data$Type <- as.factor(rt.data$Type)
 # Sum coding for the position factor
 rt.ht_data <- rt.data %>% subset(rt.data$ROI >= 0) # critical + spillover data only
 
+# Keep only NPZ items with an agreement counterpart
+agree_items <- unique(rt.ht_data$item[rt.ht_data$Type == "AGREE"])
+rt.ht_data <- rt.ht_data[rt.ht_data$item %in% agree_items,]
+
 rt.ht_data$position <- droplevels(as.factor(rt.ht_data$ROI))
 
 contrasts(rt.ht_data$position) <- contr.sum(3)/2
@@ -105,7 +109,7 @@ saveRDS(rt.bmodel, "models/agreement_bmodel_prior1_corrected.rds")
 ## -----------------------------------------------------------------------------
 
 model.prior1.corrected <- readRDS("models/agreement_bmodel_prior1_corrected.rds")
-summary(model.prior1.trialnum)
+summary(model.prior1.corrected)
 
 
 ## -----------------------------------------------------------------------------
@@ -114,14 +118,14 @@ source("../../shared/util.R")
 reshape_item_output <- reshape_item_dat(model.prior1.corrected, 'item')
 reshape_item_output$item <- as.numeric(reshape_item_output$item)
 by_item <- reshape_item_output %>%
-  mutate(GPE = b_pGramU + b_TypeNPZ:pGramU + r_pGramU + r_TypeNPZ:pGramU,
-         Agr = b_pGramU + r_pGramU,
-         GPE_0 = GPE + 0.5*`b_pGramU:position1` + 0.5 * `b_TypeNPZ:pGramU:position1` + 0.5*`r_pGramU:position1` + 0.5*`r_TypeNPZ:pGramU:position1`,
-         GPE_1 = GPE + 0.5*`b_pGramU:position2` + 0.5 * `b_TypeNPZ:pGramU:position2` + 0.5*`r_pGramU:position2` + 0.5*`r_TypeNPZ:pGramU:position2`,
-         GPE_2 = GPE  - 0.5 * `b_pGramU:position1` - 0.5 * `b_TypeNPZ:pGramU:position1` -  0.5 * `b_pGramU:position2` - 0.5 * `b_TypeNPZ:pGramU:position2`- 0.5 * `r_pGramU:position1` - 0.5 * `r_TypeNPZ:pGramU:position1` -  0.5 * `r_pGramU:position2` - 0.5 * `r_TypeNPZ:pGramU:position2`,
-         Agr_0 = Agr + 0.5 * `b_pGramU:position1` + 0.5 * `r_pGramU:position1`,
-         Agr_1 = Agr + 0.5 * `b_pGramU:position2` + 0.5 * `r_pGramU:position2`,
-         Agr_2 = Agr  - 0.5 * `b_pGramU:position1`- 0.5 * `b_pGramU:position2` - 0.5 * `r_pGramU:position1`- 0.5 * `r_pGramU:position2`
+  mutate(GPE = b_pGram.coded + `b_Type.coded:pGram.coded` + r_pGram.coded + `r_Type.coded:pGram.coded`,
+         Agr = b_pGram.coded + r_pGram.coded,
+         GPE_0 = GPE + 0.5*`b_pGram.coded:position.coded.1` + 0.5 * `b_Type.coded:pGram.coded:position.coded.1` + 0.5*`r_pGram.coded:position.coded.1` + 0.5*`r_Type.coded:pGram.coded:position.coded.1`,
+         GPE_1 = GPE + 0.5*`b_pGram.coded:position.coded.2` + 0.5 * `b_Type.coded:pGram.coded:position.coded.2` + 0.5*`r_pGram.coded:position.coded.2` + 0.5*`r_Type.coded:pGram.coded:position.coded.2`,
+         GPE_2 = GPE  - 0.5 * `b_pGram.coded:position.coded.1` - 0.5 * `b_Type.coded:pGram.coded:position.coded.1` -  0.5 * `b_pGram.coded:position.coded.2` - 0.5 * `b_Type.coded:pGram.coded:position.coded.2`- 0.5 * `r_pGram.coded:position.coded.1` - 0.5 * `r_Type.coded:pGram.coded:position.coded.1` -  0.5 * `r_pGram.coded:position.coded.2` - 0.5 * `r_Type.coded:pGram.coded:position.coded.2`,
+         Agr_0 = Agr + 0.5 * `b_pGram.coded:position.coded.1` + 0.5 * `r_pGram.coded:position.coded.1`,
+         Agr_1 = Agr + 0.5 * `b_pGram.coded:position.coded.2` + 0.5 * `r_pGram.coded:position.coded.2`,
+         Agr_2 = Agr  - 0.5 * `b_pGram.coded:position.coded.1`- 0.5 * `b_pGram.coded:position.coded.2` - 0.5 * `r_pGram.coded:position.coded.1`- 0.5 * `r_pGram.coded:position.coded.2`
   ) %>%
   select(`.chain`, `.draw`, `.iteration`, item, GPE, Agr, GPE_0, GPE_1, GPE_2, Agr_0, Agr_1, Agr_2) %>%
   gather(key = 'coef', value = 'val', GPE, Agr, GPE_0, GPE_1, GPE_2, Agr_0, Agr_1, Agr_2) %>%
@@ -133,12 +137,12 @@ by_item <- reshape_item_output %>%
 
 ## -----------------------------------------------------------------------------
 by_construction <- reshape_item_output[,c('.draw',colnames(reshape_item_output)[str_detect(colnames(reshape_item_output),'b')])] %>% unique() %>%
-  mutate(GPE_0 = b_pGramU + b_TypeNPZ:pGramU + 0.5*`b_pGramU:position1` + 0.5 * `b_TypeNPZ:pGramU:position1`,
-         GPE_1 = b_pGramU + b_TypeNPZ:pGramU + 0.5*`b_pGramU:position2` + 0.5 * `b_TypeNPZ:pGramU:position2` ,
-         GPE_2 = b_pGramU + b_TypeNPZ:pGramU - 0.5 * `b_pGramU:position1` - 0.5 * `b_TypeNPZ:pGramU:position1` -  0.5 * `b_pGramU:position2` - 0.5 * `b_TypeNPZ:pGramU:position2`,
-         Agr_0 = b_pGramU + 0.5 * `b_pGramU:position1`,
-         Agr_1 = b_pGramU + 0.5 * `b_pGramU:position2`,
-         Agr_2 = b_pGramU - 0.5 * `b_pGramU:position1`- 0.5 * `b_pGramU:position2`) %>%
+  mutate(GPE_0 = b_pGram.coded + `b_Type.coded:pGram.coded` + 0.5*`b_pGram.coded:position.coded.1` + 0.5 * `b_Type.coded:pGram.coded:position.coded.1`,
+         GPE_1 = b_pGram.coded + `b_Type.coded:pGram.coded` + 0.5*`b_pGram.coded:position.coded.2` + 0.5 * `b_Type.coded:pGram.coded:position.coded.2` ,
+         GPE_2 = b_pGram.coded + `b_Type.coded:pGram.coded` - 0.5 * `b_pGram.coded:position.coded.1` - 0.5 * `b_Type.coded:pGram.coded:position.coded.1` -  0.5 * `b_pGram.coded:position.coded.2` - 0.5 * `b_Type.coded:pGram.coded:position.coded.2`,
+         Agr_0 = b_pGram.coded + 0.5 * `b_pGram.coded:position.coded.1`,
+         Agr_1 = b_pGram.coded + 0.5 * `b_pGram.coded:position.coded.2`,
+         Agr_2 = b_pGram.coded - 0.5 * `b_pGram.coded:position.coded.1`- 0.5 * `b_pGram.coded:position.coded.2`) %>%
   select(GPE_0,GPE_1,GPE_2,Agr_0,Agr_1,Agr_2) %>% gather(key='coef',value='val')%>%group_by(coef)%>%
   summarise(mean=mean(val),
             lower=quantile(val,0.025)[[1]],

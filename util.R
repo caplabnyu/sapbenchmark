@@ -8,8 +8,8 @@ library(tidyverse)
 
 reshape_item_dat <- function(fit, rand_name){
   
-   samples <- as_draws_df(fit)  %>%
-     gather_variables() 
+  samples <- as_draws_df(fit)  %>%
+    gather_variables() 
   
   fixef_samples <- samples %>%
     filter(str_detect(.variable,'b_')) %>%
@@ -39,46 +39,46 @@ Plot_empirical_construction_level <- function(fixedeffcts_df,subset_name, axisti
       xlab("Human_RelativeClause Subset")+
       ylab("Mean Relative Clause Effect")+
       theme(axis.title=element_text(size=axistitle.size,face="bold"),
-      axis.text = element_text(size=axistext.size,face="bold"),
-      legend.title = element_text(size=legendtitle.size),
-      legend.text = element_text(size=legendtext.size))
-  }else{
-  if(subset_name=="AttachmentAmbiguity"){
-    ggplot(data=fixedeffcts_df, aes(x=coef, y=mean, fill=ROI)) +
-      geom_bar(stat="identity",position=position_dodge())+
-      scale_fill_manual(values = ROIcolor)+
-      geom_errorbar(aes(ymin=lower,ymax=upper),width=.2,position=position_dodge(.9))+
-      xlab("Human_AttachmentAmbiguity Subset")+
-      ylab("Attachment Site Effect")+
-      theme(axis.title=element_text(size=axistitle.size,face="bold"),
             axis.text = element_text(size=axistext.size,face="bold"),
             legend.title = element_text(size=legendtitle.size),
             legend.text = element_text(size=legendtext.size))
   }else{
-    if(subset_name=="Agreement"){
+    if(subset_name=="AttachmentAmbiguity"){
       ggplot(data=fixedeffcts_df, aes(x=coef, y=mean, fill=ROI)) +
         geom_bar(stat="identity",position=position_dodge())+
         scale_fill_manual(values = ROIcolor)+
         geom_errorbar(aes(ymin=lower,ymax=upper),width=.2,position=position_dodge(.9))+
-        xlab("Human_Agreement Subset")+
-        ylab("Perceived Ungrammaticality Effect")+
+        xlab("Human_AttachmentAmbiguity Subset")+
+        ylab("Attachment Site Effect")+
         theme(axis.title=element_text(size=axistitle.size,face="bold"),
               axis.text = element_text(size=axistext.size,face="bold"),
               legend.title = element_text(size=legendtitle.size),
               legend.text = element_text(size=legendtext.size))
     }else{
-      if(subset_name=="ClassicGP"){
-      ggplot(data=fixedeffcts_df, aes(x=coef, y=mean, fill=ROI)) +
-        geom_bar(stat="identity",position=position_dodge())+
-        scale_fill_manual(values = ROIcolor)+
-        geom_errorbar(aes(ymin=lower,ymax=upper),width=.2,position=position_dodge(.9))+
-        xlab("Human_ClassicGardenPath Subset")+
-        ylab("Mean Garden Path Effect")+
-        theme(axis.title=element_text(size=axistitle.size,face="bold"),
-              axis.text = element_text(size=axistext.size,face="bold"),
-              legend.title = element_text(size=legendtitle.size),
-              legend.text = element_text(size=legendtext.size))
+      if(subset_name=="Agreement"){
+        ggplot(data=fixedeffcts_df, aes(x=coef, y=mean, fill=ROI)) +
+          geom_bar(stat="identity",position=position_dodge())+
+          scale_fill_manual(values = ROIcolor)+
+          geom_errorbar(aes(ymin=lower,ymax=upper),width=.2,position=position_dodge(.9))+
+          xlab("Human_Agreement Subset")+
+          ylab("Perceived Ungrammaticality Effect")+
+          theme(axis.title=element_text(size=axistitle.size,face="bold"),
+                axis.text = element_text(size=axistext.size,face="bold"),
+                legend.title = element_text(size=legendtitle.size),
+                legend.text = element_text(size=legendtext.size))
       }else{
+        if(subset_name=="ClassicGP"){
+          ggplot(data=fixedeffcts_df, aes(x=coef, y=mean, fill=ROI)) +
+            geom_bar(stat="identity",position=position_dodge())+
+            scale_fill_manual(values = ROIcolor)+
+            geom_errorbar(aes(ymin=lower,ymax=upper),width=.2,position=position_dodge(.9))+
+            xlab("Human_ClassicGardenPath Subset")+
+            ylab("Mean Garden Path Effect")+
+            theme(axis.title=element_text(size=axistitle.size,face="bold"),
+                  axis.text = element_text(size=axistext.size,face="bold"),
+                  legend.title = element_text(size=legendtitle.size),
+                  legend.text = element_text(size=legendtext.size))
+        }else{
           print("subset_name can only be 'ClassicGP', 'RelativeClause' ,'Agreement', or 'AttachmentAmbiguity'")
         }
       }
@@ -89,16 +89,16 @@ Plot_empirical_construction_level <- function(fixedeffcts_df,subset_name, axisti
 Plot_itemwise_by_magnitude <- function(byitem_df,subset_name,ROI_index,axistitle.size=14, axistext.size=14,facetlabel.size=14){
   byitem_df <- byitem_df%>%group_by(ROI,coef)%>%mutate(RANK=rank(mean))%>%ungroup()
   if(subset_name=="ClassicGP"){
-  ggplot(byitem_df[byitem_df$ROI==ROI_index,],aes(x=RANK,y=mean))+
-    facet_wrap(~coef)+
-    geom_point()+
-    geom_errorbar(aes(ymin=lower,ymax=upper),width=.2,position=position_dodge(.9))+
-    ggtitle(paste0('ROI=',ROI_index))+
-    xlab("Magnitude Rank")+
-    ylab("Item-wise Garden Path Effects")+
-    theme(axis.title=element_text(size=axistitle.size,face="bold"),
-          axis.text = element_text(size=axistext.size),
-        strip.text.x=element_text(size=facetlabel.size,face="bold"))
+    ggplot(byitem_df[byitem_df$ROI==ROI_index,],aes(x=RANK,y=mean))+
+      facet_wrap(~coef)+
+      geom_point()+
+      geom_errorbar(aes(ymin=lower,ymax=upper),width=.2,position=position_dodge(.9))+
+      ggtitle(paste0('ROI=',ROI_index))+
+      xlab("Magnitude Rank")+
+      ylab("Item-wise Garden Path Effects")+
+      theme(axis.title=element_text(size=axistitle.size,face="bold"),
+            axis.text = element_text(size=axistext.size),
+            strip.text.x=element_text(size=facetlabel.size,face="bold"))
   }else{
     if(subset_name=="RelativeClause"){
       #ROI_class <- ifelse(ROI_index==0,"Verb",ifelse(ROI_index==1,"Det","Noun"))
@@ -153,10 +153,10 @@ merge_surprisal <- function(rt.data_df, byitem_df, subsetname){
   for(fname in surp_files){
     model_name <- strsplit(fname, '.', fixed=TRUE)[[1]][2]
     curr_surp <- read.csv(fname) %>%
-    mutate(model = model_name,
-           #surprisal = ifelse(surprisal == -1, NA, surprisal),
-           word_pos = word_pos + 1)
-  
+      mutate(model = model_name,
+             #surprisal = ifelse(surprisal == -1, NA, surprisal),
+             word_pos = word_pos + 1)
+    
     surp_list[[i]] <- curr_surp
     i <- i +1
   }
@@ -173,7 +173,7 @@ merge_surprisal <- function(rt.data_df, byitem_df, subsetname){
     summarize(sum_surprisal = mean(sum_surprisal))%>%
     ungroup()%>%arrange(model,ROI)
   if(subsetname=="ClassicGP"){
-  surp.diff <- data.frame(item=surp.diff$item.x[seq(1,nrow(surp.diff),by=2)],coef=rep(c("GPE_MVRR","GPE_NPS","GPE_NPZ"),(nrow(surp.diff)/2/length(unique(byitem_df$coef)))),ROI=surp.diff$ROI[seq(1,nrow(surp.diff),by=2)],model=surp.diff$model[seq(1,nrow(surp.diff),by=2)],surprisal_diff=surp.diff$sum_surprisal[seq(1,nrow(surp.diff),by=2)]-surp.diff$sum_surprisal[seq(2,nrow(surp.diff),by=2)])
+    surp.diff <- data.frame(item=surp.diff$item.x[seq(1,nrow(surp.diff),by=2)],coef=rep(c("GPE_MVRR","GPE_NPS","GPE_NPZ"),(nrow(surp.diff)/2/length(unique(byitem_df$coef)))),ROI=surp.diff$ROI[seq(1,nrow(surp.diff),by=2)],model=surp.diff$model[seq(1,nrow(surp.diff),by=2)],surprisal_diff=surp.diff$sum_surprisal[seq(1,nrow(surp.diff),by=2)]-surp.diff$sum_surprisal[seq(2,nrow(surp.diff),by=2)])
   }else{
     if(subsetname=="RelativeClause"){
       surp.diff <- data.frame(item=surp.diff$item.x[seq(1,nrow(surp.diff),by=2)],coef=rep(c("RC"),(nrow(surp.diff)/2/length(unique(byitem_df$coef)))),ROI=surp.diff$ROI[seq(1,nrow(surp.diff),by=2)],model=surp.diff$model[seq(1,nrow(surp.diff),by=2)],surprisal_diff=surp.diff$sum_surprisal[seq(1,nrow(surp.diff),by=2)]-surp.diff$sum_surprisal[seq(2,nrow(surp.diff),by=2)])    
@@ -192,29 +192,30 @@ Plot_humanresults_surprisaldiff_correlation <- function(merged_df,ROI_index,axis
                          model = rep(unique(merged_df$model),each=length(unique(merged_df$coef))))
   for(i in 1:nrow(dat_text)){
     dat_text$corr[i] <- round(cor.test(merged_df$mean[merged_df$ROI==ROI_index&merged_df$coef==dat_text[i,'coef']&merged_df$model==dat_text[i,'model']],
-                                 merged_df$surprisal_diff[merged_df$ROI==ROI_index&merged_df$coef==dat_text[i,'coef']&merged_df$model==dat_text[i,'model']])$estimate,2)
+                                       merged_df$surprisal_diff[merged_df$ROI==0&merged_df$coef==dat_text[i,'coef']&merged_df$model==dat_text[i,'model']])$estimate,2)
   }
   dat_text$label <- sprintf(
     "corr = %s",
     dat_text$corr
   )
-ggplot(merged_df[merged_df$ROI==ROI_index,],aes(x=surprisal_diff,y=mean))+
-  geom_point()+
-  facet_grid(model~coef)+
-  xlab(paste0("Surprisal difference (ROI=",ROI_index,")"))+
-  ylab(paste0("Structural effects (ROI=",ROI_index,")"))+
-  theme(axis.title=element_text(size=axistitle.size,face="bold"),
-        axis.text.x = element_text(size=axistext.size),
-        axis.text.y = element_text(size=axistext.size),
-        strip.text = element_text(size=facetlabel.size,face="bold"))+
-  theme(aspect.ratio = 1)+
-  geom_text(
-  size    = 3.5,
-  data    = dat_text,
-  mapping = aes(x = Inf, y = Inf, label = label),
-  hjust   = 2,
-  vjust   = 1.5
-  )
+  merged_df$surprisal_diff <- merged_df$surprisal_diff[1:(nrow(merged_df)/3)]
+  ggplot(merged_df[merged_df$ROI==ROI_index,],aes(x=surprisal_diff,y=mean))+
+    geom_point()+
+    facet_grid(model~coef)+
+    xlab("Surprisal difference (ROI=0)")+
+    ylab(paste0("Structural effects (ROI=",ROI_index,")"))+
+    theme(axis.title=element_text(size=axistitle.size,face="bold"),
+          axis.text.x = element_text(size=axistext.size),
+          axis.text.y = element_text(size=axistext.size),
+          strip.text = element_text(size=facetlabel.size,face="bold"))+
+    theme(aspect.ratio = 1)+
+    geom_text(
+      size    = 3.5,
+      data    = dat_text,
+      mapping = aes(x = Inf, y = Inf, label = label),
+      hjust   = 2,
+      vjust   = 1.5
+    )
 }
 
 
@@ -222,8 +223,7 @@ ggplot(merged_df[merged_df$ROI==ROI_index,],aes(x=surprisal_diff,y=mean))+
 
 Predicting_RT_with_spillover_refactored <- function(rt.data_df,subsetname, models = c('gpt2', 'lstm')){
   print("This will take a while.")
-  freqs <- read.csv("freqs_coca.csv")
-  
+
   pred_list <- list()
   
   i <- 1
@@ -236,10 +236,11 @@ Predicting_RT_with_spillover_refactored <- function(rt.data_df,subsetname, model
       mutate(word_pos = word_pos + 1,
              model = model) %>% #adjust to 1-indexing
       select(Sentence, word_pos, sum_surprisal , sum_surprisal_s,logfreq,logfreq_s,length,length_s)
+    surps <- rename(surps, surprisal=sum_surprisal,surprisal_s=sum_surprisal_s)
     
     filler.model <- readRDS(paste0('Surprisals/analysis/filler_models/filler_', model, '_sum.rds')) 
     
-    rt.data.freqs.surps <- merge(x = rt.data.freqs,
+    rt.data.freqs.surps <- merge(x = rt.data.df,
                                  y = surps,
                                  by.x=c("Sentence" ,"WordPosition"),
                                  by.y=c("Sentence" ,"word_pos"),
@@ -255,17 +256,17 @@ Predicting_RT_with_spillover_refactored <- function(rt.data_df,subsetname, model
              logfreq_p1_s = lag(logfreq_s), 
              logfreq_p2_s = lag(logfreq_p1_s),
              logfreq_p3_s = lag(logfreq_p2_s),
-             sum_surprisal_p1_s = lag(sum_surprisal_s),
-             sum_surprisal_p2_s = lag(sum_surprisal_p1_s),
-             sum_surprisal_p3_s = lag(sum_surprisal_p2_s))
+             surprisal_p1_s = lag(surprisal_s),
+             surprisal_p2_s = lag(surprisal_p1_s),
+             surprisal_p3_s = lag(surprisal_p2_s))
     
-    rt.data.drop <- subset(rt.data.with_lags, !is.na(sum_surprisal_s) & !is.na(sum_surprisal_p1_s) & 
-                            !is.na(sum_surprisal_p2_s) & !is.na(sum_surprisal_p3_s) &
-                            !is.na(logfreq_s) & !is.na(logfreq_p1_s) &
-                            !is.na(logfreq_p2_s) & !is.na(logfreq_p3_s))
+    rt.data.drop <- subset(rt.data.with_lags, !is.na(surprisal_s) & !is.na(surprisal_p1_s) & 
+                             !is.na(surprisal_p2_s) & !is.na(surprisal_p3_s) &
+                             !is.na(logfreq_s) & !is.na(logfreq_p1_s) &
+                             !is.na(logfreq_p2_s) & !is.na(logfreq_p3_s))
     
-    rt.data.drop$predicted <- predict(models.filler, newdata=rt.data.drop, allow.new.levels = TRUE)
-  
+    rt.data.drop$predicted <- predict(filler.model, newdata=rt.data.drop, allow.new.levels = TRUE)
+    
     pred_list[[i]] <- rt.data.drop
     
     i <- i + 1
@@ -273,7 +274,7 @@ Predicting_RT_with_spillover_refactored <- function(rt.data_df,subsetname, model
   }
   
   pred_dat <- dplyr::bind_rows(pred_list)
-
+  
   return(pred_dat)
 }
 
