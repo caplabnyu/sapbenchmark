@@ -19,6 +19,8 @@ library(tidytext)
 
 ## Load in relevant data
 
+#### BRMS models
+
 ```{r}
 
 
@@ -105,6 +107,100 @@ by_construction <- dplyr::bind_rows(by_construction)
 
 
 ```
+
+
+#### LMER models
+
+
+```{r}
+
+
+subsets <- c('GardenPath', 'RelativeClause', 'AttachmentAmbiguity','Agreement')
+#subsets <- c('GardenPath', 'RelativeClause', 'Agreement')
+
+by_item_lmer <-list()
+by_construction_lmer <-list()
+
+i <- 1
+for(s in subsets){
+  print(s)
+  
+  ## By item
+  
+   if(file.exists(paste0('./', s, '/by_item_lmer.rds'))){
+    curr_item <- readRDS(paste0('./', s, '/by_item_lmer.rds')) %>%
+      mutate(ROI = as.character(ROI)) %>%
+      select(item, ROI, coef, mean, lower, upper)  #make sure everything has same order
+  
+    if(file.exists(paste0('./', s, '/by_item_lmer_gpt2.rds'))){
+      curr_item_gpt2 <- readRDS(paste0('./', s, '/by_item_lmer_gpt2.rds')) %>%
+        mutate(ROI = as.character(ROI)) %>%
+        select(item, ROI, coef, mean) %>%
+        rename(mean_gpt2 = mean)
+      
+      curr_item <- merge(curr_item, curr_item_gpt2, by=c('item', 'ROI', 'coef'), all.x = TRUE)
+    }
+     else{
+      curr_item$mean_gpt2 <- rnorm(nrow(curr_item), 0, 1)  # ADDS RANDOM NUMBERS TO TEST CODE
+    }
+    
+    if(file.exists(paste0('./', s, '/by_item_lmer_lstm.rds'))){
+      curr_item_lstm <- readRDS(paste0('./', s, '/by_item_lmer_lstm.rds')) %>%
+        mutate(ROI = as.character(ROI)) %>%
+        select(item, ROI, coef, mean) %>%
+        rename(mean_lstm = mean)
+      
+      curr_item <- merge(curr_item, curr_item_lstm, by=c('item', 'ROI', 'coef'), all.x = TRUE)
+    }
+     else{
+      curr_item$mean_lstm <- rnorm(nrow(curr_item), 0, 1) # ADDS RANDOM NUMBERS TO TEST CODE
+    }
+    
+    by_item_lmer[[i]] <- curr_item
+  
+   }
+  
+  ## By construction
+  
+   if(file.exists(paste0('./', s, '/by_construction_lmer.rds'))){
+    curr_construction <- readRDS(paste0('./', s, '/by_construction_lmer.rds')) %>%
+      mutate(ROI = as.character(ROI),
+             type = 'Empirical') %>%
+      select(ROI, coef, mean, lower, upper, type)  #make sure everything has same order
+  
+    if(file.exists(paste0('./', s, '/by_construction_lmer_gpt2.rds'))){
+      curr_construction_gpt2 <- readRDS(paste0('./', s, '/by_construction_lmer_gpt2.rds'))%>%
+        mutate(ROI = as.character(ROI),
+             type = 'GPT2') %>%
+      select(ROI, coef, mean, lower, upper, type)
+      
+      curr_construction <- dplyr::bind_rows(curr_construction, curr_construction_gpt2)
+      
+    }
+    
+    if(file.exists(paste0('./', s, '/by_construction_lstm.rds'))){
+      curr_construction_lstm <- readRDS(paste0('./', s, '/by_construction_lmer_lstm.rds')) %>%
+        mutate(ROI = as.character(ROI),
+             type = 'LSTM') %>%
+      select(ROI, coef, mean, lower, upper, type)
+      
+      curr_construction <- dplyr::bind_rows(curr_construction, curr_construction_lstm)
+    }
+    
+    by_construction_lmer[[i]] <- curr_construction
+  
+   }
+  i <- i+1
+}
+
+by_item_lmer <- dplyr::bind_rows(by_item_lmer)
+by_construction_lmer <- dplyr::bind_rows(by_construction_lmer)
+
+
+```
+
+
+
 
 ## Plot 1: By item variance across subsets
 
