@@ -1,0 +1,8 @@
+install.packages("tidyverse")
+install.packages("ggplot2")
+install.packages("lme4")
+install.packages("dplyr")
+install.packages("tidyr")
+install.packages("lmerTest")
+install.packages("brms")
+install.packages("tidybayes")
