@@ -225,6 +225,30 @@ by_item <- merge(by_item, by_item_ROI_summ, by=c('ROI', 'coef')) %>%
          rank = rank(mean),
          greater_than_zero = ifelse(lower > 0, TRUE, FALSE),
          coef = factor(coef, levels = c('GPE_NPS', 'GPE_MVRR', 'GPE_NPZ', 'GPE','Agr', 'GPE_low', 'GPE_high', 'RC')))
+
+
+## for LMER
+
+
+by_item_ROI_summ_lmer <- by_item_lmer %>%
+  group_by(ROI, coef) %>%
+  summarise(mean = mean(mean)) %>%
+  ungroup() %>%
+  group_by(coef) %>%
+  mutate(max = max(mean),
+         max_ROI = ifelse(max == mean, TRUE, FALSE)) %>%
+  select(ROI, coef, max_ROI)
+
+x <- by_item_ROI_summ %>%
+  filter(max_ROI)
+  
+  
+by_item_lmer <- merge(by_item_lmer, by_item_ROI_summ_lmer, by=c('ROI', 'coef')) %>%
+  group_by(coef, ROI) %>%
+  mutate(item = reorder_within(item, mean, coef),
+         rank = rank(mean),
+         greater_than_zero = ifelse(lower > 0, TRUE, FALSE),
+         coef = factor(coef, levels = c('GPE_NPS', 'GPE_MVRR', 'GPE_NPZ', 'GPE','Agr', 'GPE_low', 'GPE_high', 'RC')))
   
 ```
 
@@ -250,6 +274,27 @@ ggplot(by_item %>%
 
 ggsave('by-item-all-eoi.pdf', width=6,height=4)
 
+
+
+ggplot(by_item_lmer %>%
+         filter(max_ROI) %>%
+         filter(coef != 'GPE'),
+       aes(x = rank, y = mean, alpha = greater_than_zero)) + 
+  geom_point() +
+  geom_errorbar(aes(ymin=lower,
+                    ymax=upper),
+                width=0.3) +
+  facet_wrap(~coef, nrow=2)  + 
+  geom_hline(yintercept=0, linetype = 'dashed') + 
+  scale_alpha_manual(values=c(0.25, 1)) +
+  theme(
+    # axis.text.x = element_blank(),
+    #     axis.ticks.x = element_blank(),
+        legend.position = 'none') + 
+  labs(x = 'Magnitude Rank', y = 'Effect of Interest')
+
+ggsave('by-item-all-eoi-lmer.pdf', width=6,height=4)
+
 ```
 
 
@@ -268,6 +313,22 @@ by_const_maxROIs <- by_construction %>%
 
 
 by_construction <- merge(by_construction, by_const_maxROIs, by = c('coef', 'ROI')) %>%
+         mutate(coef = factor(coef, levels = c('GPE_NPS', 'GPE_MVRR', 'GPE_NPZ', 
+                                               'GPE','Agr', 'GPE_low', 'GPE_high', 'RC')))
+
+
+by_const_lmer_maxROIs <- by_construction_lmer %>%
+  filter(type == 'Empirical') %>%
+  group_by(coef) %>%
+  mutate(max = max(mean),
+         max_ROI = ifelse(max == mean, TRUE, FALSE)) %>%
+  ungroup() %>%
+  select(coef, ROI, max_ROI)
+
+
+by_construction_lmer <- merge(by_construction_lmer,
+                              by_const_lmer_maxROIs,
+                              by = c('coef', 'ROI')) %>%
          mutate(coef = factor(coef, levels = c('GPE_NPS', 'GPE_MVRR', 'GPE_NPZ', 
                                                'GPE','Agr', 'GPE_low', 'GPE_high', 'RC')))
 
@@ -292,6 +353,22 @@ ggplot(by_construction %>%
 ggsave('by-construction-emp-surp.pdf', width=6,height=4)
 
 
+ggplot(by_construction_lmer %>%
+         filter(max_ROI) %>%
+         filter(coef != 'GPE'), 
+       aes(y =coef, x= mean, colour = type, shape = type)) + 
+  geom_point(position = position_dodge(width = 0.9)) + 
+  geom_errorbarh(aes(xmin=lower,
+                     xmax=upper),
+                 position = position_dodge(width = 0.9),
+                 width = 0.2) + 
+  labs(x = 'Mean magnitude of effect of interest', y = 'Effect of interest', colour = '', shape = '') + 
+  theme(legend.position = 'top') + 
+  geom_vline(xintercept = 0, linetype='dashed')
+
+ggsave('by-construction-lmer-emp-surp.pdf', width=6,height=4)
+
+
 ```
 
 
@@ -307,6 +384,12 @@ by_item_cor <- by_item %>%
   gather(key = 'model', value = 'cor', LSTM, GPT2)
 
 
+by_item_cor_lmer <- by_item_lmer %>%
+  filter(max_ROI) %>%
+  group_by(coef) %>%
+  summarize(LSTM = cor.test(mean, mean_lstm)$estimate,
+            GPT2 = cor.test(mean, mean_gpt2)$estimate) %>%
+  gather(key = 'model', value = 'cor', LSTM, GPT2)
 
 
 ```
@@ -323,6 +406,17 @@ ggplot(by_item_cor %>%
 
 ggsave('by-item-emp-surp-cor.pdf', width=6,height=4)
 
+
+
+ggplot(by_item_cor_lmer %>%
+         filter(coef != 'GPE'),
+       aes(y=coef, x=cor, colour=model, shape=model)) +
+  geom_point(position = position_dodge(width=0.2)) + 
+  labs(x='Correlation with empirical data', y = 'Effect of interest', colour='Model', shape = 'Model') + 
+  xlim(c(-1,1)) +
+  theme(legend.position = 'top')
+
+ggsave('by-item-emp-surp-cor-lmer.pdf', width=6,height=4)
 
 ```
 
