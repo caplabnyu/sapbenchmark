@@ -271,41 +271,48 @@ fit_noun_bayes <- readRDS('./saved_objects/fit_noun_bayes_prior1')
 
 source("util.R")
 
-# pred_dat_verb <- reshape_item_dat(fit_verb_bayes, "item") %>%
-#   mutate(ROI = 'Verb')
-# pred_dat_det <- reshape_item_dat(fit_det_bayes, "item") %>%
-#   mutate(ROI = 'Determiner')
-# pred_dat_noun <- reshape_item_dat(fit_noun_bayes, "item")%>%
-#   mutate(ROI = 'Noun')
-# 
-# pred_dat <- dplyr::bind_rows(pred_dat_verb, pred_dat_det, pred_dat_noun)
-# 
-# rm(pred_dat_verb, pred_dat_det, pred_dat_noun)
-# 
-# saveRDS(pred_dat, './saved_objects/rc_subset_pred_empirical')
+emp_dat_verb <- reshape_item_dat(fit_verb_bayes, "item") %>%
+  mutate(ROI = 0)
+emp_dat_det <- reshape_item_dat(fit_det_bayes, "item") %>%
+  mutate(ROI = 1)
+emp_dat_noun <- reshape_item_dat(fit_noun_bayes, "item")%>%
+  mutate(ROI = 2)
 
-pred_dat <- readRDS('./saved_objects/rc_subset_pred_empirical')
+emp_dat <- dplyr::bind_rows(emp_dat_verb, emp_dat_det, emp_dat_noun)
+# 
+rm(emp_dat_verb, emp_dat_det, emp_dat_noun)
+# 
+saveRDS(emp_dat, './saved_objects/rc_subset_sampledsumm_empirical')
+
+#emp_dat <- readRDS('./saved_objects/rc_subset_sampledsumm_empirical')
 
 ```
 
 
 ```{r}
 
-by_construction <- pred_dat %>%
-  mutate(diff = b_Type_num) %>%
-  group_by(ROI) %>%
+by_construction <- emp_dat %>%
+  mutate(diff = b_Type_num,
+         coef = 'RC') %>%
+  group_by(ROI, coef) %>%
   summarise(mean = mean(diff),
             lower = quantile(diff, 0.025)[[1]],
             upper = quantile(diff, 0.975)[[1]])
 
-by_item <- pred_dat %>%
-   mutate(diff = b_Type_num + r_Type_num) %>%
-  group_by(item,ROI) %>%
+saveRDS(by_construction, paste0('./plots/spr/RelativeClause/by_construction.rds'))
+
+by_item <- emp_dat %>%
+  mutate(diff = b_Type_num + r_Type_num,
+         coef = 'RC',
+         item = as.numeric(item)) %>%
+  group_by(item,ROI, coef) %>%
   summarise(mean = mean(diff),
             lower = quantile(diff, 0.025)[[1]],
-            upper = quantile(diff, 0.975)[[1]])
+            upper = quantile(diff, 0.975)[[1]]) 
 
-#by_item_surprisalmerged <- merge_surprisal(rt.data,by_item,"RelativeClause")
+saveRDS(by_item, './plots/spr/RelativeClause/by_item.rds')
+
+by_item_surprisalmerged <- merge_surprisal(rt.data,by_item,"RelativeClause")
 
 ```
 
@@ -316,7 +323,241 @@ by_item$coef <- 'RC'
 Plot_itemwise_by_magnitude(by_item,"RelativeClause",ROI='Verb')
 ```
 
-### Old plotting stuff
+
+### Spillover analysis
+
+```{r}
+
+predicted_dat <- Predicting_RT_with_spillover(rt.data, 'RelativeClause')
+predicted_dat_filler <-  Predicting_RT_with_spillover(filler.data, 'filler')
+
+```
+
+
+```{r}
+
+temp <- list()
+
+i <- 1
+for(m in unique(predicted_dat$model)){
+  print(m)
+  curr_rc <- subset(predicted_dat, model == m)
+  curr_filler <- subset(predicted_dat_filler, model == m)
+  print(paste(nrow(curr_filler), nrow(predicted_dat_filler)))
+  
+  curr_fit <-  lmer(predicted ~ scale(WordPosition) + (1 + scale(WordPosition) || participant),
+                    curr_filler)
+
+  print(summary(curr_fit))
+
+  curr_rc$wordpos_predicted = predict(curr_fit, curr_rc)
+  curr_rc$corrected_predicted = curr_rc$predicted - curr_rc$wordpos_predicted
+
+  temp[[i]] <- curr_rc
+  i <- i + 1
+}
+
+predicted_dat <- dplyr::bind_rows(temp)
+
+predicted_dat <- predicted_dat %>%
+  mutate(Type = factor(Type, levels = c('RC_Subj', 'RC_Obj')),
+         Type_num = ifelse(Type == 'RC_Subj', 0, 1))
+
+rm(temp)
+
+
+```
+
+
+
+```{r, cache=TRUE}
+
+fit_verb_bayes_pred_gpt2 <- brm(corrected_predicted ~ Type_num +
+                              (0 + Type_num || participant) +
+                              (1 + Type_num || item),
+                  data=subset(predicted_dat, ROI==0 & model == 'gpt2'),
+                  prior = prior1,
+                  cores = 4,
+                  iter = 12000,
+                  seed = 117
+                  )
+
+saveRDS(fit_verb_bayes_pred_gpt2, './saved_objects/fit_verb_bayes_pred_gpt2_prior1')
+
+summary(fit_verb_bayes_pred_gpt2)
+
+
+#fit_det_bayes_pred <- readRDS('./saved_objects/fit_det_bayes_ored_prior1')
+
+```
+
+
+```{r, cache=TRUE}
+
+fit_verb_bayes_pred_lstm <- brm(corrected_predicted ~ Type_num +
+                              (0 + Type_num || participant) +
+                              (1 + Type_num || item),
+                  data=subset(predicted_dat, ROI==0 & model == 'lstm'),
+                  prior = prior1,
+                  cores = 4,
+                  iter = 12000,
+                  seed = 117
+                  )
+
+saveRDS(fit_verb_bayes_pred_lstm, './saved_objects/fit_verb_bayes_pred_lstm_prior1')
+
+summary(fit_verb_bayes_pred_lstm)
+
+
+#fit_det_bayes_pred <- readRDS('./saved_objects/fit_det_bayes_ored_prior1')
+
+```
+
+
+```{r}
+
+pred_dat_verb_gpt2 <- reshape_item_dat(fit_verb_bayes_pred_gpt2, "item") %>%
+   mutate(ROI = 0,
+          model = 'gpt2')
+
+
+pred_dat_verb_lstm <- reshape_item_dat(fit_verb_bayes_pred_lstm, "item") %>%
+   mutate(ROI = 0,
+          model = 'lstm')
+
+pred_dat_verb <- dplyr::bind_rows(pred_dat_verb_gpt2, pred_dat_verb_lstm)
+
+
+saveRDS(pred_dat_verb_lstm, './saved_objects/rc_subset_sampledsumm_lstm')
+saveRDS(pred_dat_verb_gpt2, './saved_objects/rc_subset_sampledsumm_gpt2')
+
+saveRDS(pred_dat_verb, './saved_objects/rc_subset_sampledsumm_predicted')
+
+
+```
+
+
+
+
+```{r}
+
+for(m in unique(pred_dat_verb$model)){
+  curr_dat <- subset(pred_dat_verb, model == m)
+  print(paste(nrow(curr_dat), nrow(pred_dat_verb)))
+  
+  curr_by_construction <- curr_dat %>%
+    mutate(diff = b_Type_num,
+           coef='RC') %>%
+    group_by(ROI, coef) %>%
+    summarise(mean = mean(diff),
+              lower = quantile(diff, 0.025)[[1]],
+              upper = quantile(diff, 0.975)[[1]])
+  
+  saveRDS(curr_by_construction, paste0('./plots/spr/RelativeClause/by_construction_', m, '.rds'))
+  
+  curr_by_item <- curr_dat %>%
+    mutate(diff = b_Type_num + r_Type_num,
+           coef = 'RC',
+           item = as.numeric(item)) %>%
+    group_by(item,ROI, coef) %>%
+    summarise(mean = mean(diff),
+              lower = quantile(diff, 0.025)[[1]],
+              upper = quantile(diff, 0.975)[[1]]) 
+  
+  saveRDS(curr_by_item, paste0('./plots/spr/RelativeClause/by_item_', m, '.rds'))
+}
+
+
+```
+
+### Repeating with LMER models
+
+```{r, cache=TRUE}
+
+fit_verb_lmer_pred_lstm <- lmer(corrected_predicted ~ Type_num +
+                              (0 + Type_num || participant) +
+                              (1 + Type_num || item),
+                  data=subset(predicted_dat, ROI==0 & model == 'lstm')
+                  )
+
+saveRDS(fit_verb_lmer_pred_lstm, './saved_objects/fit_verb_lmer_pred_lstm')
+
+summary(fit_verb_lmer_pred_lstm)
+
+                                        
+
+fit_verb_lmer_pred_gpt2 <- lmer(corrected_predicted ~ Type_num +
+                              (0 + Type_num || participant) +
+                              (1 + Type_num || item),
+                  data=subset(predicted_dat, ROI==0 & model == 'gpt2')
+                  )
+
+saveRDS(fit_verb_lmer_pred_gpt2, './saved_objects/fit_verb_lmer_pred_gpt2')
+
+summary(fit_verb_lmer_pred_gpt2)
+
+
+#fit_det_bayes_pred <- readRDS('./saved_objects/fit_det_bayes_ored_prior1')
+
+```
+
+
+```{r}
+
+create_dfs_lmer <- function(fit, model_name){
+  coef_typenum <- coef(summary(fit))[2, 'Estimate']
+  se_typenum <- coef(summary(fit))[2, 'Std. Error']
+  
+  by_construction <- data.frame(ROI = 0,
+                                coef = 'RC',
+                                mean = coef_typenum,
+                                lower = coef_typenum-(2*se_typenum),
+                                upper = coef_typenum+(2*se_typenum))
+  
+  saveRDS(by_construction, 
+          paste0('./plots/spr/RelativeClause/by_construction_lmer_', model_name, '.rds'))
+  
+  
+  by_item <- data.frame(ranef(fit)[['item']]) %>%
+    add_rownames(var='item') %>%
+    mutate(mean = coef_typenum + Type_num,
+           lower = NA,
+           upper = NA,
+           ROI = 0,
+           coef = 'RC') %>%
+    select(item, ROI, coef, mean, lower, upper)
+  
+  saveRDS(by_item, 
+          paste0('./plots/spr/RelativeClause/by_item_lmer_', model_name, '.rds'))
+  
+}
+```
+
+```{r}
+create_dfs_lmer(fit_verb_lmer_pred_gpt2, 'gpt2')
+create_dfs_lmer(fit_verb_lmer_pred_gpt2, 'lstm')
+
+fit_verb_emp_lmer <- readRDS('./saved_objects/fit_verb_lmer')
+
+create_dfs_lmer(fit_verb_lmer_pred_gpt2, '')
+
+```
+
+**Correlating LMER and BRMS item level effects**
+```{r}
+
+by_item_lmer_gpt2 <- readRDS('./plots/spr/RelativeClause/by_item_lmer_gpt2.rds')
+by_item_brms_gpt2 <- readRDS('./plots/spr/RelativeClause/by_item_gpt2.rds')
+
+by_item_lmer_lstm <- readRDS('./plots/spr/RelativeClause/by_item_lmer_lstm.rds')
+by_item_brms_lstm <- readRDS('./plots/spr/RelativeClause/by_item_lstm.rds')
+
+cor(by_item_lmer_gpt2$mean, by_item_brms_gpt2$mean)
+cor(by_item_lmer_lstm$mean, by_item_brms_lstm$mean)
+
+```
+
+## Old stuff
 
 **Plot group level effects**
 ```{r}
@@ -1061,7 +1302,7 @@ predicted_dat <- rbind(rc.drop.lstm, rc.drop.gpt2, rt.data_curr)
 ```
 
 
-## Plot construction level effects
+### Plot construction level effects
 
 ```{r}
 
