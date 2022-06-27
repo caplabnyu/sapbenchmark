@@ -5,12 +5,14 @@ knitr::opts_chunk$set(echo = TRUE)
 ## -----------------------------------------------------------------------------
 library(tidyr)
 library(dplyr)
+library(stringr)
 
 rt.rdata <- read.csv("data/AgreementSet.csv", header=TRUE)
 rt.data <- rt.rdata %>% 
   filter(RT<=7000) %>% filter(RT>0) %>%
   filter(ROI%in%c(-3,-2,-1,0,1,2)) %>%
   rename(participant = MD5)
+rt.data$Sentence <- str_replace_all(rt.data$Sentence, "%2C", ",")
 
 rt.data$Type <- as.character(rt.data$Type) # Just in case it's automatically read as a factor
 

@@ -1,36 +1,35 @@
-/cm/local/apps/slurm/var/spool/job6023099/slurm_script: line 13: cd: /home/sarehal1/scratch4-tlinzen1/sapbenchmark/analysis/spr/Agreement: No such file or directory
 
-Attaching package: ‘dplyr’
+Attaching package: 'dplyr'
 
-The following objects are masked from ‘package:plyr’:
+The following objects are masked from 'package:plyr':
 
     arrange, count, desc, failwith, id, mutate, rename, summarise,
     summarize
 
-The following objects are masked from ‘package:stats’:
+The following objects are masked from 'package:stats':
 
     filter, lag
 
-The following objects are masked from ‘package:base’:
+The following objects are masked from 'package:base':
 
     intersect, setdiff, setequal, union
 
 Loading required package: Matrix
 
-Attaching package: ‘Matrix’
+Attaching package: 'Matrix'
 
-The following objects are masked from ‘package:tidyr’:
+The following objects are masked from 'package:tidyr':
 
     expand, pack, unpack
 
 
-Attaching package: ‘lmerTest’
+Attaching package: 'lmerTest'
 
-The following object is masked from ‘package:lme4’:
+The following object is masked from 'package:lme4':
 
     lmer
 
-The following object is masked from ‘package:stats’:
+The following object is masked from 'package:stats':
 
     step
 
@@ -39,74 +38,88 @@ Loading 'brms' package (version 2.17.0). Useful instructions
 can be found by typing help('brms'). A more detailed introduction
 to the package is available through vignette('brms_overview').
 
-Attaching package: ‘brms’
+Attaching package: 'brms'
 
-The following object is masked from ‘package:lme4’:
+The following object is masked from 'package:lme4':
 
     ngrps
 
-The following object is masked from ‘package:stats’:
+The following object is masked from 'package:stats':
 
     ar
 
-  [,1] [,2]
-0  0.5  0.0
-1  0.0  0.5
-2 -0.5 -0.5
-Compiling Stan program...
-Start sampling
-
-SAMPLING FOR MODEL 'bba75f040add0426d1e857a91cda91e9' NOW (CHAIN 1).
-
-SAMPLING FOR MODEL 'bba75f040add0426d1e857a91cda91e9' NOW (CHAIN 2).
-
-SAMPLING FOR MODEL 'bba75f040add0426d1e857a91cda91e9' NOW (CHAIN 3).
-
-SAMPLING FOR MODEL 'bba75f040add0426d1e857a91cda91e9' NOW (CHAIN 4).
-Chain 2: 
-Chain 2: Gradient evaluation took 0.074977 seconds
-Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 749.77 seconds.
-Chain 2: Adjust your expectations accordingly!
-Chain 2: 
-Chain 2: 
+Error in file(file, "rt") : cannot open the connection
+Calls: read.csv -> read.table -> file
+In addition: Warning message:
+In file(file, "rt") :
+  cannot open file '../../../Surprisals/data/gulordava/items_Agreement.gpt2.csv.scaled': No such file or directory
+Execution halted
+Chain 2: Iteration:  1200 / 12000 [ 10%]  (Warmup)
+Chain 1: Iteration:  1200 / 12000 [ 10%]  (Warmup)
+Chain 4: Iteration:  1200 / 12000 [ 10%]  (Warmup)
+Chain 3: Iteration:  1200 / 12000 [ 10%]  (Warmup)
+Chain 1: Iteration:  2400 / 12000 [ 20%]  (Warmup)
+Chain 2: Iteration:  2400 / 12000 [ 20%]  (Warmup)
+Chain 4: Iteration:  2400 / 12000 [ 20%]  (Warmup)
+Chain 3: Iteration:  2400 / 12000 [ 20%]  (Warmup)
+Chain 2: Iteration:  3600 / 12000 [ 30%]  (Warmup)
+Chain 1: Iteration:  3600 / 12000 [ 30%]  (Warmup)
+Chain 4: Iteration:  3600 / 12000 [ 30%]  (Warmup)
+Chain 3: Iteration:  3600 / 12000 [ 30%]  (Warmup)
+Chain 4: Iteration:  4800 / 12000 [ 40%]  (Warmup)
+Chain 2: Iteration:  4800 / 12000 [ 40%]  (Warmup)
+Chain 3: Iteration:  4800 / 12000 [ 40%]  (Warmup)
+Chain 1: Iteration:  4800 / 12000 [ 40%]  (Warmup)
+Chain 3: Iteration:  6000 / 12000 [ 50%]  (Warmup)
+Chain 3: Iteration:  6001 / 12000 [ 50%]  (Sampling)
+Chain 4: Iteration:  6000 / 12000 [ 50%]  (Warmup)
+Chain 4: Iteration:  6001 / 12000 [ 50%]  (Sampling)
+Chain 2: Iteration:  6000 / 12000 [ 50%]  (Warmup)
+Chain 2: Iteration:  6001 / 12000 [ 50%]  (Sampling)
+Chain 1: Iteration:  6000 / 12000 [ 50%]  (Warmup)
+Chain 1: Iteration:  6001 / 12000 [ 50%]  (Sampling)
+Chain 3: Iteration:  7200 / 12000 [ 60%]  (Sampling)
+Chain 4: Iteration:  7200 / 12000 [ 60%]  (Sampling)
+Chain 2: Iteration:  7200 / 12000 [ 60%]  (Sampling)
+Chain 1: Iteration:  7200 / 12000 [ 60%]  (Sampling)
+Chain 3: Iteration:  8400 / 12000 [ 70%]  (Sampling)
+Chain 4: Iteration:  8400 / 12000 [ 70%]  (Sampling)
+Chain 2: Iteration:  8400 / 12000 [ 70%]  (Sampling)
+Chain 1: Iteration:  8400 / 12000 [ 70%]  (Sampling)
+Chain 3: Iteration:  9600 / 12000 [ 80%]  (Sampling)
+Chain 4: Iteration:  9600 / 12000 [ 80%]  (Sampling)
+Chain 2: Iteration:  9600 / 12000 [ 80%]  (Sampling)
+Chain 1: Iteration:  9600 / 12000 [ 80%]  (Sampling)
+Chain 3: Iteration: 10800 / 12000 [ 90%]  (Sampling)
+Chain 4: Iteration: 10800 / 12000 [ 90%]  (Sampling)
+Chain 2: Iteration: 10800 / 12000 [ 90%]  (Sampling)
+Chain 1: Iteration: 10800 / 12000 [ 90%]  (Sampling)
+Chain 3: Iteration: 12000 / 12000 [100%]  (Sampling)
 Chain 3: 
-Chain 3: Gradient evaluation took 0.076142 seconds
-Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 761.42 seconds.
-Chain 3: Adjust your expectations accordingly!
+Chain 3:  Elapsed Time: 92699.7 seconds (Warm-up)
+Chain 3:                90758.4 seconds (Sampling)
+Chain 3:                183458 seconds (Total)
 Chain 3: 
-Chain 3: 
-Chain 1: 
-Chain 1: Gradient evaluation took 0.077016 seconds
-Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 770.16 seconds.
-Chain 1: Adjust your expectations accordingly!
-Chain 1: 
-Chain 1: 
+Chain 4: Iteration: 12000 / 12000 [100%]  (Sampling)
 Chain 4: 
-Chain 4: Gradient evaluation took 0.065979 seconds
-Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 659.79 seconds.
-Chain 4: Adjust your expectations accordingly!
+Chain 4:  Elapsed Time: 94701.2 seconds (Warm-up)
+Chain 4:                90879.8 seconds (Sampling)
+Chain 4:                185581 seconds (Total)
 Chain 4: 
-Chain 4: 
-Chain 4: Iteration:    1 / 6000 [  0%]  (Warmup)
-Chain 2: Iteration:    1 / 6000 [  0%]  (Warmup)
-Chain 3: Iteration:    1 / 6000 [  0%]  (Warmup)
-Chain 1: Iteration:    1 / 6000 [  0%]  (Warmup)
-Chain 1: Iteration:  600 / 6000 [ 10%]  (Warmup)
-Chain 2: Iteration:  600 / 6000 [ 10%]  (Warmup)
-Chain 3: Iteration:  600 / 6000 [ 10%]  (Warmup)
-Chain 4: Iteration:  600 / 6000 [ 10%]  (Warmup)
-Chain 2: Iteration: 1200 / 6000 [ 20%]  (Warmup)
-Chain 1: Iteration: 1200 / 6000 [ 20%]  (Warmup)
-Chain 4: Iteration: 1200 / 6000 [ 20%]  (Warmup)
-Chain 3: Iteration: 1200 / 6000 [ 20%]  (Warmup)
-Chain 4: Iteration: 1800 / 6000 [ 30%]  (Warmup)
-Chain 2: Iteration: 1800 / 6000 [ 30%]  (Warmup)
-Chain 1: Iteration: 1800 / 6000 [ 30%]  (Warmup)
-Chain 3: Iteration: 1800 / 6000 [ 30%]  (Warmup)
-Chain 4: Iteration: 2400 / 6000 [ 40%]  (Warmup)
-Chain 2: Iteration: 2400 / 6000 [ 40%]  (Warmup)
-Chain 1: Iteration: 2400 / 6000 [ 40%]  (Warmup)
-Chain 3: Iteration: 2400 / 6000 [ 40%]  (Warmup)
-Chain 4: Iteration: 3000 / 6000 [ 50%]  (Warmup)
-Chain 4: Iteration: 3001 / 6000 [ 50%]  (Sampling)
-slurmstepd: error: *** JOB 6023099 ON c014 CANCELLED AT 2022-06-16T11:59:42 DUE TO TIME LIMIT ***
+Chain 2: Iteration: 12000 / 12000 [100%]  (Sampling)
+Chain 2: 
+Chain 2:  Elapsed Time: 97706.7 seconds (Warm-up)
+Chain 2:                90738.6 seconds (Sampling)
+Chain 2:                188445 seconds (Total)
+Chain 2: 
+Chain 1: Iteration: 12000 / 12000 [100%]  (Sampling)
+Chain 1: 
+Chain 1:  Elapsed Time: 100577 seconds (Warm-up)
+Chain 1:                90504.8 seconds (Sampling)
+Chain 1:                191082 seconds (Total)
+Chain 1: 
+Warning messages:
+1: Rows containing NAs were excluded from the model. 
+2: Bulk Effective Samples Size (ESS) is too low, indicating posterior means and medians may be unreliable.
+Running the chains for more iterations may help. See
+http://mc-stan.org/misc/warnings.html#bulk-ess 

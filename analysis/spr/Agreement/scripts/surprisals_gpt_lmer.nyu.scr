@@ -1,0 +1,16 @@
+#!/bin/bash
+#SBATCH --job-name=lstm-SAP
+#SBATCH --time=7-0:0:0
+#SBATCH --ntasks-per-node=24
+#SBATCH --nodes=1
+#SBATCH --mem=32GB
+#SBATCH --mail-type=begin,end
+#SBATCH --mail-user=sarehal1@jhu.edu
+#SBATCH --output=logs/surprisals_gpt2_lmer.log
+
+#### load and unload modules you may need
+module load r/gcc/4.0.4
+
+cd /scratch/sa6875/sapbenchmark/analysis/spr/Agreement 
+Rscript surprisal_analysis_gpt2_lmer.R
+

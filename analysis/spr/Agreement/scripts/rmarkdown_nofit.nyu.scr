@@ -1,0 +1,16 @@
+#!/bin/bash
+#SBATCH --job-name=SAP
+#SBATCH --time=3-0:0:0
+#SBATCH --ntasks-per-node=24
+#SBATCH --nodes=1
+#SBATCH --mem=32GB
+#SBATCH --mail-type=begin,end
+#SBATCH --mail-user=sarehal1@jhu.edu
+#SBATCH --output=logs/rmarkdown.log
+
+#### load and unload modules you may need
+module load r/gcc/4.0.4
+
+cd /scratch/sa6875/sapbenchmark/analysis/spr/Agreement 
+Rscript analysis_nofit.R
+

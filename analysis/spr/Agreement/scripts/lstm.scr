@@ -1,0 +1,16 @@
+#!/bin/bash
+#SBATCH --job-name=rmd-SAP
+#SBATCH --time=7-0:0:0
+#SBATCH --partition=defq
+#SBATCH --cpus-per-task=24
+#SBATCH --nodes=3
+#SBATCH --mail-type=begin,end
+#SBATCH --mail-user=sarehal1@jhu.edu
+#SBATCH --output=logs/rmd.log
+
+#### load and unload modules you may need
+module load r
+
+cd /scratch/sa6875/sapbenchmark/analysis/spr/Agreement
+Rscript scripts/lstm_analysis_agr.R
+

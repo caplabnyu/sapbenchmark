@@ -1,0 +1,54 @@
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:plyr':
+
+    arrange, count, desc, failwith, id, mutate, rename, summarise,
+    summarize
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Loading required package: Matrix
+
+Attaching package: 'Matrix'
+
+The following objects are masked from 'package:tidyr':
+
+    expand, pack, unpack
+
+
+Attaching package: 'lmerTest'
+
+The following object is masked from 'package:lme4':
+
+    lmer
+
+The following object is masked from 'package:stats':
+
+    step
+
+Loading required package: Rcpp
+Loading 'brms' package (version 2.17.0). Useful instructions
+can be found by typing help('brms'). A more detailed introduction
+to the package is available through vignette('brms_overview').
+
+Attaching package: 'brms'
+
+The following object is masked from 'package:lme4':
+
+    ngrps
+
+The following object is masked from 'package:stats':
+
+    ar
+
+  [,1] [,2]
+0  0.5  0.0
+1  0.0  0.5
+2 -0.5 -0.5

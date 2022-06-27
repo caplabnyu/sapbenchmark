@@ -1,36 +1,35 @@
-/cm/local/apps/slurm/var/spool/job6023098/slurm_script: line 14: cd: /home/sarehal1/scratch4-tlinzen1/sapbenchmark/analysis/spr/Agreement: No such file or directory
 
-Attaching package: ‘dplyr’
+Attaching package: 'dplyr'
 
-The following objects are masked from ‘package:plyr’:
+The following objects are masked from 'package:plyr':
 
     arrange, count, desc, failwith, id, mutate, rename, summarise,
     summarize
 
-The following objects are masked from ‘package:stats’:
+The following objects are masked from 'package:stats':
 
     filter, lag
 
-The following objects are masked from ‘package:base’:
+The following objects are masked from 'package:base':
 
     intersect, setdiff, setequal, union
 
 Loading required package: Matrix
 
-Attaching package: ‘Matrix’
+Attaching package: 'Matrix'
 
-The following objects are masked from ‘package:tidyr’:
+The following objects are masked from 'package:tidyr':
 
     expand, pack, unpack
 
 
-Attaching package: ‘lmerTest’
+Attaching package: 'lmerTest'
 
-The following object is masked from ‘package:lme4’:
+The following object is masked from 'package:lme4':
 
     lmer
 
-The following object is masked from ‘package:stats’:
+The following object is masked from 'package:stats':
 
     step
 
@@ -39,13 +38,13 @@ Loading 'brms' package (version 2.17.0). Useful instructions
 can be found by typing help('brms'). A more detailed introduction
 to the package is available through vignette('brms_overview').
 
-Attaching package: ‘brms’
+Attaching package: 'brms'
 
-The following object is masked from ‘package:lme4’:
+The following object is masked from 'package:lme4':
 
     ngrps
 
-The following object is masked from ‘package:stats’:
+The following object is masked from 'package:stats':
 
     ar
 
@@ -56,55 +55,138 @@ The following object is masked from ‘package:stats’:
 Compiling Stan program...
 Start sampling
 
-SAMPLING FOR MODEL 'bba75f040add0426d1e857a91cda91e9' NOW (CHAIN 1).
+SAMPLING FOR MODEL '0fc6df142f92ac3e337b67e39da0114d' NOW (CHAIN 1).
 
-SAMPLING FOR MODEL 'bba75f040add0426d1e857a91cda91e9' NOW (CHAIN 2).
+SAMPLING FOR MODEL '0fc6df142f92ac3e337b67e39da0114d' NOW (CHAIN 2).
 
-SAMPLING FOR MODEL 'bba75f040add0426d1e857a91cda91e9' NOW (CHAIN 3).
+SAMPLING FOR MODEL '0fc6df142f92ac3e337b67e39da0114d' NOW (CHAIN 3).
 
-SAMPLING FOR MODEL 'bba75f040add0426d1e857a91cda91e9' NOW (CHAIN 4).
+SAMPLING FOR MODEL '0fc6df142f92ac3e337b67e39da0114d' NOW (CHAIN 4).
 Chain 1: 
-Chain 1: Gradient evaluation took 0.072103 seconds
-Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 721.03 seconds.
+Chain 1: Gradient evaluation took 0.055332 seconds
+Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 553.32 seconds.
 Chain 1: Adjust your expectations accordingly!
 Chain 1: 
 Chain 1: 
 Chain 2: 
-Chain 2: Gradient evaluation took 0.074641 seconds
-Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 746.41 seconds.
+Chain 2: Gradient evaluation took 0.056155 seconds
+Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 561.55 seconds.
 Chain 2: Adjust your expectations accordingly!
 Chain 2: 
 Chain 2: 
 Chain 3: 
-Chain 3: Gradient evaluation took 0.075543 seconds
-Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 755.43 seconds.
+Chain 3: Gradient evaluation took 0.056795 seconds
+Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 567.95 seconds.
 Chain 3: Adjust your expectations accordingly!
 Chain 3: 
 Chain 3: 
 Chain 4: 
-Chain 4: Gradient evaluation took 0.074793 seconds
-Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 747.93 seconds.
+Chain 4: Gradient evaluation took 0.055655 seconds
+Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 556.55 seconds.
 Chain 4: Adjust your expectations accordingly!
 Chain 4: 
 Chain 4: 
-Chain 4: Iteration:    1 / 6000 [  0%]  (Warmup)
-Chain 2: Iteration:    1 / 6000 [  0%]  (Warmup)
-Chain 1: Iteration:    1 / 6000 [  0%]  (Warmup)
-Chain 3: Iteration:    1 / 6000 [  0%]  (Warmup)
-Chain 3: Iteration:  600 / 6000 [ 10%]  (Warmup)
-Chain 1: Iteration:  600 / 6000 [ 10%]  (Warmup)
-Chain 2: Iteration:  600 / 6000 [ 10%]  (Warmup)
-Chain 4: Iteration:  600 / 6000 [ 10%]  (Warmup)
-Chain 1: Iteration: 1200 / 6000 [ 20%]  (Warmup)
-Chain 3: Iteration: 1200 / 6000 [ 20%]  (Warmup)
-Chain 4: Iteration: 1200 / 6000 [ 20%]  (Warmup)
-Chain 2: Iteration: 1200 / 6000 [ 20%]  (Warmup)
-Chain 1: Iteration: 1800 / 6000 [ 30%]  (Warmup)
-Chain 3: Iteration: 1800 / 6000 [ 30%]  (Warmup)
-Chain 2: Iteration: 1800 / 6000 [ 30%]  (Warmup)
-Chain 4: Iteration: 1800 / 6000 [ 30%]  (Warmup)
-Chain 1: Iteration: 2400 / 6000 [ 40%]  (Warmup)
-Chain 3: Iteration: 2400 / 6000 [ 40%]  (Warmup)
-Chain 2: Iteration: 2400 / 6000 [ 40%]  (Warmup)
-Chain 4: Iteration: 2400 / 6000 [ 40%]  (Warmup)
-slurmstepd: error: *** JOB 6023098 ON c014 CANCELLED AT 2022-06-16T11:59:42 DUE TO TIME LIMIT ***
+Chain 1: Iteration:     1 / 12000 [  0%]  (Warmup)
+Chain 4: Iteration:     1 / 12000 [  0%]  (Warmup)
+Chain 2: Iteration:     1 / 12000 [  0%]  (Warmup)
+Chain 3: Iteration:     1 / 12000 [  0%]  (Warmup)
+Chain 2: Iteration:  1200 / 12000 [ 10%]  (Warmup)
+Chain 2: Iteration:  1200 / 12000 [ 10%]  (Warmup)
+Chain 1: Iteration:  1200 / 12000 [ 10%]  (Warmup)
+Chain 1: Iteration:  1200 / 12000 [ 10%]  (Warmup)
+Chain 4: Iteration:  1200 / 12000 [ 10%]  (Warmup)
+Chain 4: Iteration:  1200 / 12000 [ 10%]  (Warmup)
+Chain 3: Iteration:  1200 / 12000 [ 10%]  (Warmup)
+Chain 3: Iteration:  1200 / 12000 [ 10%]  (Warmup)
+Chain 2: Iteration:  2400 / 12000 [ 20%]  (Warmup)
+Chain 2: Iteration:  2400 / 12000 [ 20%]  (Warmup)
+Chain 1: Iteration:  2400 / 12000 [ 20%]  (Warmup)
+Chain 1: Iteration:  2400 / 12000 [ 20%]  (Warmup)
+Chain 2: Iteration:  3600 / 12000 [ 30%]  (Warmup)
+Chain 2: Iteration:  3600 / 12000 [ 30%]  (Warmup)
+Chain 3: Iteration:  2400 / 12000 [ 20%]  (Warmup)
+Chain 3: Iteration:  2400 / 12000 [ 20%]  (Warmup)
+Chain 4: Iteration:  2400 / 12000 [ 20%]  (Warmup)
+Chain 1: Iteration:  3600 / 12000 [ 30%]  (Warmup)
+Chain 4: Iteration:  2400 / 12000 [ 20%]  (Warmup)
+Chain 1: Iteration:  3600 / 12000 [ 30%]  (Warmup)
+Chain 2: Iteration:  4800 / 12000 [ 40%]  (Warmup)
+Chain 2: Iteration:  4800 / 12000 [ 40%]  (Warmup)
+Chain 1: Iteration:  4800 / 12000 [ 40%]  (Warmup)
+Chain 1: Iteration:  4800 / 12000 [ 40%]  (Warmup)
+Chain 2: Iteration:  6000 / 12000 [ 50%]  (Warmup)
+Chain 2: Iteration:  6001 / 12000 [ 50%]  (Sampling)
+Chain 2: Iteration:  6000 / 12000 [ 50%]  (Warmup)
+Chain 2: Iteration:  6001 / 12000 [ 50%]  (Sampling)
+Chain 1: Iteration:  6000 / 12000 [ 50%]  (Warmup)
+Chain 1: Iteration:  6001 / 12000 [ 50%]  (Sampling)
+Chain 1: Iteration:  6000 / 12000 [ 50%]  (Warmup)
+Chain 1: Iteration:  6001 / 12000 [ 50%]  (Sampling)
+Chain 3: Iteration:  3600 / 12000 [ 30%]  (Warmup)
+Chain 3: Iteration:  3600 / 12000 [ 30%]  (Warmup)
+Chain 4: Iteration:  3600 / 12000 [ 30%]  (Warmup)
+Chain 4: Iteration:  3600 / 12000 [ 30%]  (Warmup)
+Chain 2: Iteration:  7200 / 12000 [ 60%]  (Sampling)
+Chain 2: Iteration:  7200 / 12000 [ 60%]  (Sampling)
+Chain 1: Iteration:  7200 / 12000 [ 60%]  (Sampling)
+Chain 1: Iteration:  7200 / 12000 [ 60%]  (Sampling)
+Chain 1: Iteration:  8400 / 12000 [ 70%]  (Sampling)
+Chain 2: Iteration:  8400 / 12000 [ 70%]  (Sampling)
+Chain 2: Iteration:  8400 / 12000 [ 70%]  (Sampling)
+Chain 1: Iteration:  8400 / 12000 [ 70%]  (Sampling)
+Chain 3: Iteration:  4800 / 12000 [ 40%]  (Warmup)
+Chain 3: Iteration:  4800 / 12000 [ 40%]  (Warmup)
+Chain 4: Iteration:  4800 / 12000 [ 40%]  (Warmup)
+Chain 4: Iteration:  4800 / 12000 [ 40%]  (Warmup)
+Chain 1: Iteration:  9600 / 12000 [ 80%]  (Sampling)
+Chain 2: Iteration:  9600 / 12000 [ 80%]  (Sampling)
+Chain 2: Iteration:  9600 / 12000 [ 80%]  (Sampling)
+Chain 1: Iteration:  9600 / 12000 [ 80%]  (Sampling)
+Chain 1: Iteration: 10800 / 12000 [ 90%]  (Sampling)
+Chain 2: Iteration: 10800 / 12000 [ 90%]  (Sampling)
+Chain 3: Iteration:  6000 / 12000 [ 50%]  (Warmup)
+Chain 3: Iteration:  6001 / 12000 [ 50%]  (Sampling)
+Chain 2: Iteration: 10800 / 12000 [ 90%]  (Sampling)
+Chain 1: Iteration: 10800 / 12000 [ 90%]  (Sampling)
+Chain 4: Iteration:  6000 / 12000 [ 50%]  (Warmup)
+Chain 4: Iteration:  6001 / 12000 [ 50%]  (Sampling)
+Chain 3: Iteration:  6000 / 12000 [ 50%]  (Warmup)
+Chain 3: Iteration:  6001 / 12000 [ 50%]  (Sampling)
+Chain 4: Iteration:  6000 / 12000 [ 50%]  (Warmup)
+Chain 4: Iteration:  6001 / 12000 [ 50%]  (Sampling)
+Chain 1: Iteration: 12000 / 12000 [100%]  (Sampling)
+Chain 1: 
+Chain 1:  Elapsed Time: 93942.7 seconds (Warm-up)
+Chain 1:                85123.9 seconds (Sampling)
+Chain 1:                179067 seconds (Total)
+Chain 1: 
+Chain 2: Iteration: 12000 / 12000 [100%]  (Sampling)
+Chain 2: 
+Chain 2:  Elapsed Time: 93259.6 seconds (Warm-up)
+Chain 2:                89235.9 seconds (Sampling)
+Chain 2:                182496 seconds (Total)
+Chain 2: 
+Chain 3: Iteration:  7200 / 12000 [ 60%]  (Sampling)
+Chain 2: Iteration: 12000 / 12000 [100%]  (Sampling)
+Chain 2: 
+Chain 2:  Elapsed Time: 93299.3 seconds (Warm-up)
+Chain 2:                90621.8 seconds (Sampling)
+Chain 2:                183921 seconds (Total)
+Chain 2: 
+Chain 1: Iteration: 12000 / 12000 [100%]  (Sampling)
+Chain 4: Iteration:  7200 / 12000 [ 60%]  (Sampling)
+Chain 1: 
+Chain 1:  Elapsed Time: 94342.3 seconds (Warm-up)
+Chain 1:                90595.3 seconds (Sampling)
+Chain 1:                184938 seconds (Total)
+Chain 1: 
+Chain 3: Iteration:  7200 / 12000 [ 60%]  (Sampling)
+Chain 4: Iteration:  7200 / 12000 [ 60%]  (Sampling)
+Chain 3: Iteration:  8400 / 12000 [ 70%]  (Sampling)
+Chain 4: Iteration:  8400 / 12000 [ 70%]  (Sampling)
+Chain 3: Iteration:  8400 / 12000 [ 70%]  (Sampling)
+Chain 4: Iteration:  8400 / 12000 [ 70%]  (Sampling)
+Chain 3: Iteration:  9600 / 12000 [ 80%]  (Sampling)
+Chain 4: Iteration:  9600 / 12000 [ 80%]  (Sampling)
+Chain 3: Iteration:  9600 / 12000 [ 80%]  (Sampling)
+Chain 4: Iteration:  9600 / 12000 [ 80%]  (Sampling)

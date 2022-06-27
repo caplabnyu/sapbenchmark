@@ -12,7 +12,7 @@ spr <- read.csv("AgreementSet.csv", header=TRUE) %>%
   filter(RT<=7000) %>% filter(RT>0) %>%
   filter(ROI%in%c(-3,-2,-1,0,1,2)) %>%
   rename(participant = MD5)
-
+spr$Sentence <- str_replace_all(spr$Sentence, "%2C", ",")
 spr$Type <- as.character(spr$Type) # Just in case it's automatically read as a factor
 
 # Maybe this should all just be a recode call?
@@ -86,12 +86,12 @@ prior1 <- c(prior("normal(300,1000)", class = "Intercept"),
             prior("normal(0,200)", class = "sd"),
             prior("normal(0,500)", class = "sigma"))
 
-rt.bmodel <- brm(predicted_rt ~ Type.coded * pGram.coded * (position.coded.1 + position.coded.2) + (1 + Type.coded * pGram.coded * (position.coded.1 + position.coded.2) || item) + (1 + Type.coded * pGram.coded * (position.coded.1 + position.coded.2) || participant),
-                 data = rt.ht_data,
+rt.bmodel <- brm(predicted_rt ~ pGram.coded * (position.coded.1 + position.coded.2) + (1 + pGram.coded * (position.coded.1 + position.coded.2) || item) + (1 + pGram.coded * (position.coded.1 + position.coded.2) || participant),
+                 data = subset(rt.ht_data, Type.coded == 0),
                  prior = prior1,
-                 iter = 6000,
+                 iter = 12000,
                  cores = 4,
                  seed = 117,
 )
 
-saveRDS(rt.bmodel, paste0("models/agreement_bmodel_prior1_", model, "_predicted.rds"))
+saveRDS(rt.bmodel, paste0("models/agreement_bmodel_prior1_", model, "_predictedi_agr.rds"))
