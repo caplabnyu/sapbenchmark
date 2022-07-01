@@ -462,6 +462,26 @@ by_item_cor_lmer <- merge(by_item_cor_lmer, by_item_cor_lmer_boots, by = c('coef
 ```
 
 ``` r
+ggplot(by_item, aes(x=mean, y=mean_lstm)) + 
+  geom_point() + 
+  facet_wrap(~coef)
+```
+
+    ## Warning: Removed 58 rows containing missing values (geom_point).
+
+![](generate_plots_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+
+``` r
+ggplot(by_item, aes(x=mean, y=mean_gpt2)) + 
+  geom_point() + 
+  facet_wrap(~coef)
+```
+
+    ## Warning: Removed 58 rows containing missing values (geom_point).
+
+![](generate_plots_files/figure-gfm/unnamed-chunk-8-2.png)<!-- -->
+
+``` r
 ggplot(by_item_cor %>%
          filter(coef != 'GPE'),
        aes(y=coef, x=cor, colour=model, shape=model)) +
@@ -478,13 +498,33 @@ ggplot(by_item_cor %>%
 
     ## Warning: Ignoring unknown parameters: width
 
-![](generate_plots_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](generate_plots_files/figure-gfm/unnamed-chunk-8-3.png)<!-- -->
 
 ``` r
 ggsave('./pdfs/by-item-emp-surp-cor.pdf', width=6,height=4)
+```
 
+``` r
+ggplot(by_item_lmer, aes(x=mean, y=mean_lstm)) + 
+  geom_point() + 
+  facet_wrap(~coef)
+```
 
+    ## Warning: Removed 10 rows containing missing values (geom_point).
 
+![](generate_plots_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+
+``` r
+ggplot(by_item_lmer, aes(x=mean, y=mean_gpt2)) + 
+  geom_point() + 
+  facet_wrap(~coef)
+```
+
+    ## Warning: Removed 10 rows containing missing values (geom_point).
+
+![](generate_plots_files/figure-gfm/unnamed-chunk-9-2.png)<!-- -->
+
+``` r
 ggplot(by_item_cor_lmer %>%
          filter(coef != 'GPE'),
        aes(y=coef, x=cor, colour=model, shape=model)) +
@@ -501,7 +541,7 @@ ggplot(by_item_cor_lmer %>%
 
     ## Warning: Ignoring unknown parameters: width
 
-![](generate_plots_files/figure-gfm/unnamed-chunk-8-2.png)<!-- -->
+![](generate_plots_files/figure-gfm/unnamed-chunk-9-3.png)<!-- -->
 
 ``` r
 ggsave('./pdfs/by-item-emp-surp-cor-lmer.pdf', width=6,height=4)
