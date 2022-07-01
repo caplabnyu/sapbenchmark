@@ -116,6 +116,8 @@ by_construction <- dplyr::bind_rows(by_construction)
 
 
 subsets <- c('GardenPath', 'RelativeClause', 'AttachmentAmbiguity','Agreement')
+# subsets <- c('GardenPath', 'RelativeClause', 'AttachmentAmbiguity')
+# subsets <- c('GardenPath')
 #subsets <- c('GardenPath', 'RelativeClause', 'Agreement')
 
 by_item_lmer <-list()
@@ -129,12 +131,18 @@ for(s in subsets){
   
    if(file.exists(paste0('./', s, '/by_item_lmer.rds'))){
     curr_item <- readRDS(paste0('./', s, '/by_item_lmer.rds')) %>%
-      mutate(ROI = as.character(ROI)) %>%
+      mutate(ROI = as.character(ROI),
+             mean = as.numeric(mean),
+             upper = as.numeric(upper),
+             lower = as.numeric(lower)) %>%
       select(item, ROI, coef, mean, lower, upper)  #make sure everything has same order
   
     if(file.exists(paste0('./', s, '/by_item_lmer_gpt2.rds'))){
       curr_item_gpt2 <- readRDS(paste0('./', s, '/by_item_lmer_gpt2.rds')) %>%
-        mutate(ROI = as.character(ROI)) %>%
+        mutate(ROI = as.character(ROI),
+             mean = as.numeric(mean),
+             upper = as.numeric(upper),
+             lower = as.numeric(lower)) %>%
         select(item, ROI, coef, mean) %>%
         rename(mean_gpt2 = mean)
       
@@ -146,7 +154,10 @@ for(s in subsets){
     
     if(file.exists(paste0('./', s, '/by_item_lmer_lstm.rds'))){
       curr_item_lstm <- readRDS(paste0('./', s, '/by_item_lmer_lstm.rds')) %>%
-        mutate(ROI = as.character(ROI)) %>%
+        mutate(ROI = as.character(ROI),
+             mean = as.numeric(mean),
+             upper = as.numeric(upper),
+             lower = as.numeric(lower)) %>%
         select(item, ROI, coef, mean) %>%
         rename(mean_lstm = mean)
       
@@ -154,7 +165,8 @@ for(s in subsets){
     }
      else{
       curr_item$mean_lstm <- rnorm(nrow(curr_item), 0, 1) # ADDS RANDOM NUMBERS TO TEST CODE
-    }
+     }
+
     
     by_item_lmer[[i]] <- curr_item
   
@@ -165,13 +177,19 @@ for(s in subsets){
    if(file.exists(paste0('./', s, '/by_construction_lmer.rds'))){
     curr_construction <- readRDS(paste0('./', s, '/by_construction_lmer.rds')) %>%
       mutate(ROI = as.character(ROI),
+             mean = as.numeric(mean),
+             upper = as.numeric(upper),
+             lower = as.numeric(lower),
              type = 'Empirical') %>%
       select(ROI, coef, mean, lower, upper, type)  #make sure everything has same order
   
     if(file.exists(paste0('./', s, '/by_construction_lmer_gpt2.rds'))){
       curr_construction_gpt2 <- readRDS(paste0('./', s, '/by_construction_lmer_gpt2.rds'))%>%
         mutate(ROI = as.character(ROI),
-             type = 'GPT2') %>%
+               mean = as.numeric(mean),
+               upper = as.numeric(upper),
+               lower = as.numeric(lower),
+               type = 'GPT2') %>%
       select(ROI, coef, mean, lower, upper, type)
       
       curr_construction <- dplyr::bind_rows(curr_construction, curr_construction_gpt2)
@@ -181,7 +199,10 @@ for(s in subsets){
     if(file.exists(paste0('./', s, '/by_construction_lstm.rds'))){
       curr_construction_lstm <- readRDS(paste0('./', s, '/by_construction_lmer_lstm.rds')) %>%
         mutate(ROI = as.character(ROI),
-             type = 'LSTM') %>%
+               mean = as.numeric(mean),
+               upper = as.numeric(upper),
+             lower = as.numeric(lower),
+               type = 'LSTM') %>%
       select(ROI, coef, mean, lower, upper, type)
       
       curr_construction <- dplyr::bind_rows(curr_construction, curr_construction_lstm)
@@ -196,6 +217,7 @@ for(s in subsets){
 by_item_lmer <- dplyr::bind_rows(by_item_lmer)
 by_construction_lmer <- dplyr::bind_rows(by_construction_lmer)
 
+x <- by_item_lmer[[4]]
 
 ```
 
@@ -273,7 +295,6 @@ ggplot(by_item %>%
   labs(x = 'Magnitude Rank', y = 'Effect of Interest')
 
 ggsave('by-item-all-eoi.pdf', width=6,height=4)
-
 
 
 ggplot(by_item_lmer %>%
@@ -383,6 +404,25 @@ by_item_cor <- by_item %>%
             GPT2 = cor.test(mean, mean_gpt2)$estimate) %>%
   gather(key = 'model', value = 'cor', LSTM, GPT2)
 
+by_item_cor_boots <- replicate(1000,
+                              by_item_lmer %>%
+                                filter(max_ROI) %>%
+                                group_by(coef) %>%
+                                sample_n(size=n(), replace=TRUE) %>%
+                                summarize(LSTM = cor.test(mean, mean_lstm)$estimate,
+                                          GPT2 = cor.test(mean, mean_gpt2)$estimate) %>%
+                                gather(key = 'model', value = 'cor', LSTM, GPT2) %>%
+                                ungroup(),
+                              simplify=F) %>%
+  bind_rows(.id='Obs') %>%
+  group_by(coef, model) %>%
+  summarize(lower = quantile(cor, c(0.025)),
+            upper = quantile(cor, c(0.975)))
+
+by_item_cor <- merge(by_item_cor, by_item_cor_boots, by = c('coef', 'model'))
+
+
+
 
 by_item_cor_lmer <- by_item_lmer %>%
   filter(max_ROI) %>%
@@ -392,6 +432,24 @@ by_item_cor_lmer <- by_item_lmer %>%
   gather(key = 'model', value = 'cor', LSTM, GPT2)
 
 
+by_item_cor_lmer_boots <- replicate(1000,
+                                    by_item_lmer %>%
+                                      filter(max_ROI) %>%
+                                      group_by(coef) %>%
+                                      sample_n(size=n(), replace=TRUE) %>%
+                                      summarize(LSTM = cor.test(mean, mean_lstm)$estimate,
+                                                GPT2 = cor.test(mean, mean_gpt2)$estimate) %>%
+                                      gather(key = 'model', value = 'cor', LSTM, GPT2) %>%
+                                      ungroup(),
+                                    simplify=F) %>%
+  bind_rows(.id='Obs') %>%
+  group_by(coef, model) %>%
+  summarize(lower = quantile(cor, c(0.025)),
+            upper = quantile(cor, c(0.975)))
+
+by_item_cor_lmer <- merge(by_item_cor_lmer, by_item_cor_lmer_boots, by = c('coef', 'model'))
+
+
 ```
 
 ```{r}
@@ -399,10 +457,15 @@ by_item_cor_lmer <- by_item_lmer %>%
 ggplot(by_item_cor %>%
          filter(coef != 'GPE'),
        aes(y=coef, x=cor, colour=model, shape=model)) +
-  geom_point(position = position_dodge(width=0.2)) + 
+  geom_point(position = position_dodge(width=0.5)) + 
+  geom_errorbarh(aes(xmin=lower,
+                     xmax=upper),
+                 position = position_dodge(width = 0.5),
+                 width = 0.2) +
   labs(x='Correlation with empirical data', y = 'Effect of interest', colour='Model', shape = 'Model') + 
   xlim(c(-1,1)) +
-  theme(legend.position = 'top')
+  theme(legend.position = 'top') + 
+  geom_vline(xintercept = 0)
 
 ggsave('by-item-emp-surp-cor.pdf', width=6,height=4)
 
@@ -411,10 +474,15 @@ ggsave('by-item-emp-surp-cor.pdf', width=6,height=4)
 ggplot(by_item_cor_lmer %>%
          filter(coef != 'GPE'),
        aes(y=coef, x=cor, colour=model, shape=model)) +
-  geom_point(position = position_dodge(width=0.2)) + 
+  geom_point(position = position_dodge(width=0.5)) + 
+  geom_errorbarh(aes(xmin=lower,
+                     xmax=upper),
+                 position = position_dodge(width = 0.5),
+                 width = 0.2) +
   labs(x='Correlation with empirical data', y = 'Effect of interest', colour='Model', shape = 'Model') + 
   xlim(c(-1,1)) +
-  theme(legend.position = 'top')
+  theme(legend.position = 'top') + 
+  geom_vline(xintercept = 0)
 
 ggsave('by-item-emp-surp-cor-lmer.pdf', width=6,height=4)
 

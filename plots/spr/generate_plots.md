@@ -3,6 +3,8 @@ Plots for SAP Benchmark
 
 ## Load in relevant data
 
+#### BRMS models
+
 ``` r
 subsets <- c('GardenPath', 'RelativeClause', 'AttachmentAmbiguity','Agreement')
 #subsets <- c('GardenPath', 'RelativeClause', 'Agreement')
@@ -93,6 +95,121 @@ by_item <- dplyr::bind_rows(by_item)
 by_construction <- dplyr::bind_rows(by_construction)
 ```
 
+#### LMER models
+
+``` r
+subsets <- c('GardenPath', 'RelativeClause', 'AttachmentAmbiguity','Agreement')
+# subsets <- c('GardenPath', 'RelativeClause', 'AttachmentAmbiguity')
+# subsets <- c('GardenPath')
+#subsets <- c('GardenPath', 'RelativeClause', 'Agreement')
+
+by_item_lmer <-list()
+by_construction_lmer <-list()
+
+i <- 1
+for(s in subsets){
+  print(s)
+  
+  ## By item
+  
+   if(file.exists(paste0('./', s, '/by_item_lmer.rds'))){
+    curr_item <- readRDS(paste0('./', s, '/by_item_lmer.rds')) %>%
+      mutate(ROI = as.character(ROI),
+             mean = as.numeric(mean),
+             upper = as.numeric(upper),
+             lower = as.numeric(lower)) %>%
+      select(item, ROI, coef, mean, lower, upper)  #make sure everything has same order
+  
+    if(file.exists(paste0('./', s, '/by_item_lmer_gpt2.rds'))){
+      curr_item_gpt2 <- readRDS(paste0('./', s, '/by_item_lmer_gpt2.rds')) %>%
+        mutate(ROI = as.character(ROI),
+             mean = as.numeric(mean),
+             upper = as.numeric(upper),
+             lower = as.numeric(lower)) %>%
+        select(item, ROI, coef, mean) %>%
+        rename(mean_gpt2 = mean)
+      
+      curr_item <- merge(curr_item, curr_item_gpt2, by=c('item', 'ROI', 'coef'), all.x = TRUE)
+    }
+     else{
+      curr_item$mean_gpt2 <- rnorm(nrow(curr_item), 0, 1)  # ADDS RANDOM NUMBERS TO TEST CODE
+    }
+    
+    if(file.exists(paste0('./', s, '/by_item_lmer_lstm.rds'))){
+      curr_item_lstm <- readRDS(paste0('./', s, '/by_item_lmer_lstm.rds')) %>%
+        mutate(ROI = as.character(ROI),
+             mean = as.numeric(mean),
+             upper = as.numeric(upper),
+             lower = as.numeric(lower)) %>%
+        select(item, ROI, coef, mean) %>%
+        rename(mean_lstm = mean)
+      
+      curr_item <- merge(curr_item, curr_item_lstm, by=c('item', 'ROI', 'coef'), all.x = TRUE)
+    }
+     else{
+      curr_item$mean_lstm <- rnorm(nrow(curr_item), 0, 1) # ADDS RANDOM NUMBERS TO TEST CODE
+     }
+
+    
+    by_item_lmer[[i]] <- curr_item
+  
+   }
+  
+  ## By construction
+  
+   if(file.exists(paste0('./', s, '/by_construction_lmer.rds'))){
+    curr_construction <- readRDS(paste0('./', s, '/by_construction_lmer.rds')) %>%
+      mutate(ROI = as.character(ROI),
+             mean = as.numeric(mean),
+             upper = as.numeric(upper),
+             lower = as.numeric(lower),
+             type = 'Empirical') %>%
+      select(ROI, coef, mean, lower, upper, type)  #make sure everything has same order
+  
+    if(file.exists(paste0('./', s, '/by_construction_lmer_gpt2.rds'))){
+      curr_construction_gpt2 <- readRDS(paste0('./', s, '/by_construction_lmer_gpt2.rds'))%>%
+        mutate(ROI = as.character(ROI),
+               mean = as.numeric(mean),
+               upper = as.numeric(upper),
+               lower = as.numeric(lower),
+               type = 'GPT2') %>%
+      select(ROI, coef, mean, lower, upper, type)
+      
+      curr_construction <- dplyr::bind_rows(curr_construction, curr_construction_gpt2)
+      
+    }
+    
+    if(file.exists(paste0('./', s, '/by_construction_lstm.rds'))){
+      curr_construction_lstm <- readRDS(paste0('./', s, '/by_construction_lmer_lstm.rds')) %>%
+        mutate(ROI = as.character(ROI),
+               mean = as.numeric(mean),
+               upper = as.numeric(upper),
+             lower = as.numeric(lower),
+               type = 'LSTM') %>%
+      select(ROI, coef, mean, lower, upper, type)
+      
+      curr_construction <- dplyr::bind_rows(curr_construction, curr_construction_lstm)
+    }
+    
+    by_construction_lmer[[i]] <- curr_construction
+  
+   }
+  i <- i+1
+}
+```
+
+    ## [1] "GardenPath"
+    ## [1] "RelativeClause"
+    ## [1] "AttachmentAmbiguity"
+    ## [1] "Agreement"
+
+``` r
+by_item_lmer <- dplyr::bind_rows(by_item_lmer)
+by_construction_lmer <- dplyr::bind_rows(by_construction_lmer)
+
+x <- by_item_lmer[[4]]
+```
+
 ## Plot 1: By item variance across subsets
 
 ``` r
@@ -119,6 +236,34 @@ by_item <- merge(by_item, by_item_ROI_summ, by=c('ROI', 'coef')) %>%
          rank = rank(mean),
          greater_than_zero = ifelse(lower > 0, TRUE, FALSE),
          coef = factor(coef, levels = c('GPE_NPS', 'GPE_MVRR', 'GPE_NPZ', 'GPE','Agr', 'GPE_low', 'GPE_high', 'RC')))
+
+
+## for LMER
+
+
+by_item_ROI_summ_lmer <- by_item_lmer %>%
+  group_by(ROI, coef) %>%
+  summarise(mean = mean(mean)) %>%
+  ungroup() %>%
+  group_by(coef) %>%
+  mutate(max = max(mean),
+         max_ROI = ifelse(max == mean, TRUE, FALSE)) %>%
+  select(ROI, coef, max_ROI)
+```
+
+    ## `summarise()` has grouped output by 'ROI'. You can override using the `.groups` argument.
+
+``` r
+x <- by_item_ROI_summ %>%
+  filter(max_ROI)
+  
+  
+by_item_lmer <- merge(by_item_lmer, by_item_ROI_summ_lmer, by=c('ROI', 'coef')) %>%
+  group_by(coef, ROI) %>%
+  mutate(item = reorder_within(item, mean, coef),
+         rank = rank(mean),
+         greater_than_zero = ifelse(lower > 0, TRUE, FALSE),
+         coef = factor(coef, levels = c('GPE_NPS', 'GPE_MVRR', 'GPE_NPZ', 'GPE','Agr', 'GPE_low', 'GPE_high', 'RC')))
 ```
 
 ``` r
@@ -140,10 +285,34 @@ ggplot(by_item %>%
   labs(x = 'Magnitude Rank', y = 'Effect of Interest')
 ```
 
-![](generate_plots_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](generate_plots_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 ``` r
 ggsave('by-item-all-eoi.pdf', width=6,height=4)
+
+
+ggplot(by_item_lmer %>%
+         filter(max_ROI) %>%
+         filter(coef != 'GPE'),
+       aes(x = rank, y = mean, alpha = greater_than_zero)) + 
+  geom_point() +
+  geom_errorbar(aes(ymin=lower,
+                    ymax=upper),
+                width=0.3) +
+  facet_wrap(~coef, nrow=2)  + 
+  geom_hline(yintercept=0, linetype = 'dashed') + 
+  scale_alpha_manual(values=c(0.25, 1)) +
+  theme(
+    # axis.text.x = element_blank(),
+    #     axis.ticks.x = element_blank(),
+        legend.position = 'none') + 
+  labs(x = 'Magnitude Rank', y = 'Effect of Interest')
+```
+
+![](generate_plots_files/figure-gfm/unnamed-chunk-4-2.png)<!-- -->
+
+``` r
+ggsave('by-item-all-eoi-lmer.pdf', width=6,height=4)
 ```
 
 ## Plot 2: Construction level effects
@@ -159,6 +328,22 @@ by_const_maxROIs <- by_construction %>%
 
 
 by_construction <- merge(by_construction, by_const_maxROIs, by = c('coef', 'ROI')) %>%
+         mutate(coef = factor(coef, levels = c('GPE_NPS', 'GPE_MVRR', 'GPE_NPZ', 
+                                               'GPE','Agr', 'GPE_low', 'GPE_high', 'RC')))
+
+
+by_const_lmer_maxROIs <- by_construction_lmer %>%
+  filter(type == 'Empirical') %>%
+  group_by(coef) %>%
+  mutate(max = max(mean),
+         max_ROI = ifelse(max == mean, TRUE, FALSE)) %>%
+  ungroup() %>%
+  select(coef, ROI, max_ROI)
+
+
+by_construction_lmer <- merge(by_construction_lmer,
+                              by_const_lmer_maxROIs,
+                              by = c('coef', 'ROI')) %>%
          mutate(coef = factor(coef, levels = c('GPE_NPS', 'GPE_MVRR', 'GPE_NPZ', 
                                                'GPE','Agr', 'GPE_low', 'GPE_high', 'RC')))
 ```
@@ -180,11 +365,37 @@ ggplot(by_construction %>%
 
     ## Warning: Ignoring unknown parameters: width
 
-![](generate_plots_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](generate_plots_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 ``` r
 ggsave('by-construction-emp-surp.pdf', width=6,height=4)
+
+
+ggplot(by_construction_lmer %>%
+         filter(max_ROI) %>%
+         filter(coef != 'GPE'), 
+       aes(y =coef, x= mean, colour = type, shape = type)) + 
+  geom_point(position = position_dodge(width = 0.9)) + 
+  geom_errorbarh(aes(xmin=lower,
+                     xmax=upper),
+                 position = position_dodge(width = 0.9),
+                 width = 0.2) + 
+  labs(x = 'Mean magnitude of effect of interest', y = 'Effect of interest', colour = '', shape = '') + 
+  theme(legend.position = 'top') + 
+  geom_vline(xintercept = 0, linetype='dashed')
 ```
+
+    ## Warning: Ignoring unknown parameters: width
+
+    ## Warning: Removed 6 rows containing missing values (geom_errorbarh).
+
+![](generate_plots_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
+
+``` r
+ggsave('by-construction-lmer-emp-surp.pdf', width=6,height=4)
+```
+
+    ## Warning: Removed 6 rows containing missing values (geom_errorbarh).
 
 ## Plot 3: Item level correlation
 
@@ -195,20 +406,103 @@ by_item_cor <- by_item %>%
   summarize(LSTM = cor.test(mean, mean_lstm)$estimate,
             GPT2 = cor.test(mean, mean_gpt2)$estimate) %>%
   gather(key = 'model', value = 'cor', LSTM, GPT2)
+
+by_item_cor_boots <- replicate(1000,
+                              by_item_lmer %>%
+                                filter(max_ROI) %>%
+                                group_by(coef) %>%
+                                sample_n(size=n(), replace=TRUE) %>%
+                                summarize(LSTM = cor.test(mean, mean_lstm)$estimate,
+                                          GPT2 = cor.test(mean, mean_gpt2)$estimate) %>%
+                                gather(key = 'model', value = 'cor', LSTM, GPT2) %>%
+                                ungroup(),
+                              simplify=F) %>%
+  bind_rows(.id='Obs') %>%
+  group_by(coef, model) %>%
+  summarize(lower = quantile(cor, c(0.025)),
+            upper = quantile(cor, c(0.975)))
+```
+
+    ## `summarise()` has grouped output by 'coef'. You can override using the `.groups` argument.
+
+``` r
+by_item_cor <- merge(by_item_cor, by_item_cor_boots, by = c('coef', 'model'))
+
+
+
+
+by_item_cor_lmer <- by_item_lmer %>%
+  filter(max_ROI) %>%
+  group_by(coef) %>%
+  summarize(LSTM = cor.test(mean, mean_lstm)$estimate,
+            GPT2 = cor.test(mean, mean_gpt2)$estimate) %>%
+  gather(key = 'model', value = 'cor', LSTM, GPT2)
+
+
+by_item_cor_lmer_boots <- replicate(1000,
+                                    by_item_lmer %>%
+                                      filter(max_ROI) %>%
+                                      group_by(coef) %>%
+                                      sample_n(size=n(), replace=TRUE) %>%
+                                      summarize(LSTM = cor.test(mean, mean_lstm)$estimate,
+                                                GPT2 = cor.test(mean, mean_gpt2)$estimate) %>%
+                                      gather(key = 'model', value = 'cor', LSTM, GPT2) %>%
+                                      ungroup(),
+                                    simplify=F) %>%
+  bind_rows(.id='Obs') %>%
+  group_by(coef, model) %>%
+  summarize(lower = quantile(cor, c(0.025)),
+            upper = quantile(cor, c(0.975)))
+```
+
+    ## `summarise()` has grouped output by 'coef'. You can override using the `.groups` argument.
+
+``` r
+by_item_cor_lmer <- merge(by_item_cor_lmer, by_item_cor_lmer_boots, by = c('coef', 'model'))
 ```
 
 ``` r
 ggplot(by_item_cor %>%
          filter(coef != 'GPE'),
        aes(y=coef, x=cor, colour=model, shape=model)) +
-  geom_point(position = position_dodge(width=0.2)) + 
+  geom_point(position = position_dodge(width=0.5)) + 
+  geom_errorbarh(aes(xmin=lower,
+                     xmax=upper),
+                 position = position_dodge(width = 0.5),
+                 width = 0.2) +
   labs(x='Correlation with empirical data', y = 'Effect of interest', colour='Model', shape = 'Model') + 
   xlim(c(-1,1)) +
-  theme(legend.position = 'top')
+  theme(legend.position = 'top') + 
+  geom_vline(xintercept = 0)
 ```
 
-![](generate_plots_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+    ## Warning: Ignoring unknown parameters: width
+
+![](generate_plots_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 ``` r
 ggsave('by-item-emp-surp-cor.pdf', width=6,height=4)
+
+
+
+ggplot(by_item_cor_lmer %>%
+         filter(coef != 'GPE'),
+       aes(y=coef, x=cor, colour=model, shape=model)) +
+  geom_point(position = position_dodge(width=0.5)) + 
+  geom_errorbarh(aes(xmin=lower,
+                     xmax=upper),
+                 position = position_dodge(width = 0.5),
+                 width = 0.2) +
+  labs(x='Correlation with empirical data', y = 'Effect of interest', colour='Model', shape = 'Model') + 
+  xlim(c(-1,1)) +
+  theme(legend.position = 'top') + 
+  geom_vline(xintercept = 0)
+```
+
+    ## Warning: Ignoring unknown parameters: width
+
+![](generate_plots_files/figure-gfm/unnamed-chunk-8-2.png)<!-- -->
+
+``` r
+ggsave('by-item-emp-surp-cor-lmer.pdf', width=6,height=4)
 ```
