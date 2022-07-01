@@ -294,7 +294,7 @@ ggplot(by_item %>%
         legend.position = 'none') + 
   labs(x = 'Magnitude Rank', y = 'Effect of Interest')
 
-ggsave('by-item-all-eoi.pdf', width=6,height=4)
+ggsave('./pdfs/by-item-all-eoi.pdf', width=6,height=4)
 
 
 ggplot(by_item_lmer %>%
@@ -314,7 +314,7 @@ ggplot(by_item_lmer %>%
         legend.position = 'none') + 
   labs(x = 'Magnitude Rank', y = 'Effect of Interest')
 
-ggsave('by-item-all-eoi-lmer.pdf', width=6,height=4)
+ggsave('./pdfs/by-item-all-eoi-lmer.pdf', width=6,height=4)
 
 ```
 
@@ -371,7 +371,7 @@ ggplot(by_construction %>%
   theme(legend.position = 'top') + 
   geom_vline(xintercept = 0, linetype='dashed')
 
-ggsave('by-construction-emp-surp.pdf', width=6,height=4)
+ggsave('./pdfs/by-construction-emp-surp.pdf', width=6,height=4)
 
 
 ggplot(by_construction_lmer %>%
@@ -387,7 +387,7 @@ ggplot(by_construction_lmer %>%
   theme(legend.position = 'top') + 
   geom_vline(xintercept = 0, linetype='dashed')
 
-ggsave('by-construction-lmer-emp-surp.pdf', width=6,height=4)
+ggsave('./pdfs/by-construction-lmer-emp-surp.pdf', width=6,height=4)
 
 
 ```
@@ -465,9 +465,9 @@ ggplot(by_item_cor %>%
   labs(x='Correlation with empirical data', y = 'Effect of interest', colour='Model', shape = 'Model') + 
   xlim(c(-1,1)) +
   theme(legend.position = 'top') + 
-  geom_vline(xintercept = 0)
+  geom_vline(xintercept = 0, linetype='dashed')
 
-ggsave('by-item-emp-surp-cor.pdf', width=6,height=4)
+ggsave('./pdfs/by-item-emp-surp-cor.pdf', width=6,height=4)
 
 
 
@@ -482,9 +482,9 @@ ggplot(by_item_cor_lmer %>%
   labs(x='Correlation with empirical data', y = 'Effect of interest', colour='Model', shape = 'Model') + 
   xlim(c(-1,1)) +
   theme(legend.position = 'top') + 
-  geom_vline(xintercept = 0)
+  geom_vline(xintercept = 0, linetype='dashed')
 
-ggsave('by-item-emp-surp-cor-lmer.pdf', width=6,height=4)
+ggsave('./pdfs/by-item-emp-surp-cor-lmer.pdf', width=6,height=4)
 
 ```
 

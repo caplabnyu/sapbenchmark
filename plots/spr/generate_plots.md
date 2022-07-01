@@ -288,7 +288,7 @@ ggplot(by_item %>%
 ![](generate_plots_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 ``` r
-ggsave('by-item-all-eoi.pdf', width=6,height=4)
+ggsave('./pdfs/by-item-all-eoi.pdf', width=6,height=4)
 
 
 ggplot(by_item_lmer %>%
@@ -312,7 +312,7 @@ ggplot(by_item_lmer %>%
 ![](generate_plots_files/figure-gfm/unnamed-chunk-4-2.png)<!-- -->
 
 ``` r
-ggsave('by-item-all-eoi-lmer.pdf', width=6,height=4)
+ggsave('./pdfs/by-item-all-eoi-lmer.pdf', width=6,height=4)
 ```
 
 ## Plot 2: Construction level effects
@@ -368,7 +368,7 @@ ggplot(by_construction %>%
 ![](generate_plots_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 ``` r
-ggsave('by-construction-emp-surp.pdf', width=6,height=4)
+ggsave('./pdfs/by-construction-emp-surp.pdf', width=6,height=4)
 
 
 ggplot(by_construction_lmer %>%
@@ -392,7 +392,7 @@ ggplot(by_construction_lmer %>%
 ![](generate_plots_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
 
 ``` r
-ggsave('by-construction-lmer-emp-surp.pdf', width=6,height=4)
+ggsave('./pdfs/by-construction-lmer-emp-surp.pdf', width=6,height=4)
 ```
 
     ## Warning: Removed 6 rows containing missing values (geom_errorbarh).
@@ -473,7 +473,7 @@ ggplot(by_item_cor %>%
   labs(x='Correlation with empirical data', y = 'Effect of interest', colour='Model', shape = 'Model') + 
   xlim(c(-1,1)) +
   theme(legend.position = 'top') + 
-  geom_vline(xintercept = 0)
+  geom_vline(xintercept = 0, linetype='dashed')
 ```
 
     ## Warning: Ignoring unknown parameters: width
@@ -481,7 +481,7 @@ ggplot(by_item_cor %>%
 ![](generate_plots_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 ``` r
-ggsave('by-item-emp-surp-cor.pdf', width=6,height=4)
+ggsave('./pdfs/by-item-emp-surp-cor.pdf', width=6,height=4)
 
 
 
@@ -496,7 +496,7 @@ ggplot(by_item_cor_lmer %>%
   labs(x='Correlation with empirical data', y = 'Effect of interest', colour='Model', shape = 'Model') + 
   xlim(c(-1,1)) +
   theme(legend.position = 'top') + 
-  geom_vline(xintercept = 0)
+  geom_vline(xintercept = 0, linetype='dashed')
 ```
 
     ## Warning: Ignoring unknown parameters: width
@@ -504,5 +504,5 @@ ggplot(by_item_cor_lmer %>%
 ![](generate_plots_files/figure-gfm/unnamed-chunk-8-2.png)<!-- -->
 
 ``` r
-ggsave('by-item-emp-surp-cor-lmer.pdf', width=6,height=4)
+ggsave('./pdfs/by-item-emp-surp-cor-lmer.pdf', width=6,height=4)
 ```
