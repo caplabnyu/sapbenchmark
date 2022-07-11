@@ -145,9 +145,9 @@ Plot_itemwise_by_magnitude <- function(byitem_df,subset_name,ROI_index,axistitle
 }
 ###
 merge_surprisal <- function(rt.data_df, byitem_df, subsetname){
-  surp_files <- c(paste0('./Surprisals/data/gulordava/items_',subsetname,'.lstm.csv'),
-                  paste0('./Surprisals/data/gpt2/items_',subsetname,'.gpt2.csv'),
-                  paste0('./Surprisals/data/rnng/items_',subsetname,'.rnng.csv'))
+  surp_files <- c(paste0('./Surprisals/data/gulordava/items_',subsetname,'.lstm.csv.scaled'),
+                  paste0('./Surprisals/data/gpt2/items_',subsetname,'.gpt2.csv.scaled'),
+                  paste0('./Surprisals/data/rnng/items_',subsetname,'.rnng.csv.scaled'))
   surp_list <- list()
   i <- 1
   for(fname in surp_files){
@@ -179,7 +179,9 @@ merge_surprisal <- function(rt.data_df, byitem_df, subsetname){
       surp.diff <- data.frame(item=surp.diff$item.x[seq(1,nrow(surp.diff),by=2)],coef=rep(c("RC"),(nrow(surp.diff)/2/length(unique(byitem_df$coef)))),ROI=surp.diff$ROI[seq(1,nrow(surp.diff),by=2)],model=surp.diff$model[seq(1,nrow(surp.diff),by=2)],surprisal_diff=surp.diff$sum_surprisal[seq(1,nrow(surp.diff),by=2)]-surp.diff$sum_surprisal[seq(2,nrow(surp.diff),by=2)])    
     }else{
       if(subsetname=="AttachmentAmbiguity"){
-        surp.diff <- data.frame(item=rep(surp.diff$item.x[seq(1,nrow(surp.diff),by=3)],2),coef=rep(c("GPE_high","Low_Cost"),each=(nrow(surp.diff)/length(unique(surp.diff$Type)))),ROI=rep(surp.diff$ROI[seq(1,nrow(surp.diff),by=3)],2),model=rep(surp.diff$model[seq(1,nrow(surp.diff),by=3)],2),surprisal_diff=c(surp.diff$sum_surprisal[seq(1,nrow(surp.diff),by=3)]-surp.diff$sum_surprisal[seq(3,nrow(surp.diff),by=3)],surp.diff$sum_surprisal[seq(2,nrow(surp.diff),by=3)]-surp.diff$sum_surprisal[seq(3,nrow(surp.diff),by=3)]))    
+        surp.diff <- data.frame(item=rep(surp.diff$item.x[seq(1,nrow(surp.diff),by=3)],2),coef=rep(c("GPE_high","GPE_low"),each=(nrow(surp.diff)/length(unique(surp.diff$Type)))),ROI=rep(surp.diff$ROI[seq(1,nrow(surp.diff),by=3)],2),model=rep(surp.diff$model[seq(1,nrow(surp.diff),by=3)],2),surprisal_diff=c(surp.diff$sum_surprisal[seq(1,nrow(surp.diff),by=3)]-surp.diff$sum_surprisal[seq(3,nrow(surp.diff),by=3)],surp.diff$sum_surprisal[seq(2,nrow(surp.diff),by=3)]-surp.diff$sum_surprisal[seq(3,nrow(surp.diff),by=3)]))    
+      }else{
+        surp.diff <- data.frame(item=surp.diff$item.x[seq(1,nrow(surp.diff),by=2)],coef=rep(c("Agr"),(nrow(surp.diff)/2/length(unique(byitem_df$coef)))),ROI=surp.diff$ROI[seq(1,nrow(surp.diff),by=2)],model=surp.diff$model[seq(1,nrow(surp.diff),by=2)],surprisal_diff=surp.diff$sum_surprisal[seq(2,nrow(surp.diff),by=2)]-surp.diff$sum_surprisal[seq(1,nrow(surp.diff),by=2)])    
       }
     }
   }
