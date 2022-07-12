@@ -28,6 +28,8 @@ reshape_item_dat <- function(fit, rand_name){
   
   return(post_samples)
 }
+
+
 ###
 Plot_empirical_construction_level <- function(fixedeffcts_df,subset_name, axistitle.size=14, axistext.size=14,legendtitle.size=14,legendtext.size=14,ROIcolor=c("royalblue3","tan2","forestgreen")){
   if(subset_name=="RelativeClause"){
@@ -218,10 +220,7 @@ Plot_humanresults_surprisaldiff_correlation <- function(merged_df,ROI_index,axis
     )
 }
 
-
-
-
-Predicting_RT_with_spillover_refactored <- function(rt.data_df,subsetname, models = c('gpt2', 'lstm')){
+Predicting_RT_with_spillover <- function(rt.data_df,subsetname, models = c('gpt2', 'lstm')){
   print("This will take a while.")
 
   pred_list <- list()
@@ -240,7 +239,7 @@ Predicting_RT_with_spillover_refactored <- function(rt.data_df,subsetname, model
     
     filler.model <- readRDS(paste0('Surprisals/analysis/filler_models/filler_', model, '_sum.rds')) 
     
-    rt.data.freqs.surps <- merge(x = rt.data.df,
+    rt.data.freqs.surps <- merge(x = rt.data_df,
                                  y = surps,
                                  by.x=c("Sentence" ,"WordPosition"),
                                  by.y=c("Sentence" ,"word_pos"),
@@ -258,7 +257,8 @@ Predicting_RT_with_spillover_refactored <- function(rt.data_df,subsetname, model
              logfreq_p3_s = lag(logfreq_p2_s),
              surprisal_p1_s = lag(surprisal_s),
              surprisal_p2_s = lag(surprisal_p1_s),
-             surprisal_p3_s = lag(surprisal_p2_s))
+             surprisal_p3_s = lag(surprisal_p2_s),
+             model = model)
     
     rt.data.drop <- subset(rt.data.with_lags, !is.na(surprisal_s) & !is.na(surprisal_p1_s) & 
                              !is.na(surprisal_p2_s) & !is.na(surprisal_p3_s) &
@@ -266,7 +266,7 @@ Predicting_RT_with_spillover_refactored <- function(rt.data_df,subsetname, model
                              !is.na(logfreq_p2_s) & !is.na(logfreq_p3_s))
     
     rt.data.drop$predicted <- predict(filler.model, newdata=rt.data.drop, allow.new.levels = TRUE)
-    
+
     pred_list[[i]] <- rt.data.drop
     
     i <- i + 1
@@ -277,8 +277,6 @@ Predicting_RT_with_spillover_refactored <- function(rt.data_df,subsetname, model
   
   return(pred_dat)
 }
-
-
 
 Plot_surprisal_construction_level <- function(coef_surprisal_lstm,coef_surprisal_gpt2,subset_name, axistitle.size=14, axistext.size=14,facetlabel.size=10){
   if(subset_name=="ClassicGP"){
