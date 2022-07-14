@@ -123,9 +123,44 @@ Plot_itemwise_by_magnitude(by_item,"AttachmentAmbiguity",ROI=1)
 Plot_itemwise_by_magnitude(by_item,"AttachmentAmbiguity",ROI=2)
 Plot_humanresults_surprisaldiff_correlation(by_item_surprisalmerged,0)
 PredictedRT_df <- Predicting_RT_with_spillover_refactored(rt.data,"AttachmentAmbiguity")
+PredictedRT_df$ambiguity <- ifelse(
+  PredictedRT_df$AMBIG=="Amb",2/3,-1/3)
+
+PredictedRT_df <- PredictedRT_df %>% 
+  mutate(height = case_when(Type=="AttachMulti" ~ 0, 
+                            Type=="AttachLow" ~ -1/2,
+                            Type=="AttachHigh" ~ 1/2))
+fit_P1_AA <- lmer(RT ~ ambiguity + height + (1+ambiguity+height||item) + (1+ambiguity+height||participant),
+                            data=subset(PredictedRT_df, ROI==1&model=="lstm"&!is.na(RT)),control=lmerControl(optimizer="bobyqa",optCtrl=list(maxfun=2e5)))
+fit_P1_pred_lstm_AA <- lmer(predicted ~ ambiguity + height + (1+ambiguity+height||item) + (1+ambiguity+height||participant),
+    data=subset(PredictedRT_df, ROI==1&model=="lstm"&!is.na(RT)),control=lmerControl(optimizer="bobyqa",optCtrl=list(maxfun=2e5)))
+fit_P1_pred_gpt2_AA <- lmer(predicted ~ ambiguity + height + (1+ambiguity+height||item) + (1+ambiguity+height||participant),
+                            data=subset(PredictedRT_df, ROI==1&model=="gpt2"&!is.na(RT)),control=lmerControl(optimizer="bobyqa",optCtrl=list(maxfun=2e5)))
+
+fit_P0_AA <- lmer(RT ~ ambiguity + height + (1+ambiguity+height||item) + (1+ambiguity+height||participant),
+                  data=subset(PredictedRT_df, ROI==0&model=="lstm"&!is.na(RT)),control=lmerControl(optimizer="bobyqa",optCtrl=list(maxfun=2e5)))
+fit_P0_pred_lstm_AA <- lmer(predicted ~ ambiguity + height + (1+ambiguity+height||item) + (1+ambiguity+height||participant),
+                            data=subset(PredictedRT_df, ROI==0&model=="lstm"&!is.na(RT)),control=lmerControl(optimizer="bobyqa",optCtrl=list(maxfun=2e5)))
+fit_P0_pred_gpt2_AA <- lmer(predicted ~ ambiguity + height + (1+ambiguity+height||item) + (1+ambiguity+height||participant),
+                            data=subset(PredictedRT_df, ROI==0&model=="gpt2"&!is.na(RT)),control=lmerControl(optimizer="bobyqa",optCtrl=list(maxfun=2e5)))
+
+
+
+by_item_lmer_high <- fixef(fit_P1_AA)['ambiguity']+(1/2)*fixef(fit_P1_AA)['height']+
+  ranef(fit_P1_AA)[['item']]$ambiguity+(1/2)*ranef(fit_P1_AA)[['item']]$height
+by_item_lmer_low <- fixef(fit_P0_AA)['ambiguity']-(1/2)*fixef(fit_P0_AA)['height']+
+  ranef(fit_P0_AA)[['item']]$ambiguity-(1/2)*ranef(fit_P0_AA)[['item']]$height
+by_item_lmer_lstm_high <- fixef(fit_P1_pred_lstm_AA)['ambiguity']+(1/2)*fixef(fit_P1_pred_lstm_AA)['height']+
+  ranef(fit_P1_pred_lstm_AA)[['item']]$ambiguity+(1/2)*ranef(fit_P1_pred_lstm_AA)[['item']]$height
+by_item_lmer_lstm_low <- fixef(fit_P0_pred_lstm_AA)['ambiguity']-(1/2)*fixef(fit_P0_pred_lstm_AA)['height']+
+  ranef(fit_P0_pred_lstm_AA)[['item']]$ambiguity-(1/2)*ranef(fit_P0_pred_lstm_AA)[['item']]$height
+by_item_lmer_gpt2_high <- fixef(fit_P1_pred_gpt2_AA)['ambiguity']+(1/2)*fixef(fit_P1_pred_gpt2_AA)['height']+
+  ranef(fit_P1_pred_gpt2_AA)[['item']]$ambiguity+(1/2)*ranef(fit_P1_pred_gpt2_AA)[['item']]$height
+by_item_lmer_gpt2_low <- fixef(fit_P0_pred_gpt2_AA)['ambiguity']-(1/2)*fixef(fit_P0_pred_gpt2_AA)['height']+
+  ranef(fit_P0_pred_gpt2_AA)[['item']]$ambiguity-(1/2)*ranef(fit_P0_pred_gpt2_AA)[['item']]$height
 
 ## Agreement subset
-rt.data <- read.csv("RelativeClauseSet.csv", header=TRUE) %>% mutate(participant=MD5)
+rt.data <- read.csv("AgreementSet.csv", header=TRUE) %>% mutate(participant=MD5)
 rt.data$RT <- ifelse(rt.data$RT>7000,NA,ifelse(rt.data$RT<0,NA,rt.data$RT))
 rt.data$Sentence <- str_replace_all(rt.data$Sentence, "%2C", ",")
 rt.data$EachWord <- str_replace_all(rt.data$EachWord, "%2C", ",")
