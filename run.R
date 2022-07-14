@@ -78,6 +78,12 @@ Plot_itemwise_by_magnitude(by_item,"RelativeClause",ROI=1)
 Plot_itemwise_by_magnitude(by_item,"RelativeClause",ROI=2)
 Plot_humanresults_surprisaldiff_correlation(by_item_surprisalmerged,0)
 PredictedRT_df <- Predicting_RT_with_spillover_refactored(rt.data,"RelativeClause")
+PredictedRT_df <- PredictedRT_df %>%
+  mutate(Type = factor(Type, levels = c('RC_Subj', 'RC_Obj')),
+         Type_num = ifelse(Type == 'RC_Subj', 0, 1))
+fit_verb_lmer_pred_lstm <- lmer(predicted ~ Type_num + (1 + Type_num || participant) + (1 + Type_num || item),data=subset(PredictedRT_df, ROI==0 & model == 'lstm'&!is.na(RT)))
+fit_verb_lmer_pred_gpt2 <- lmer(predicted ~ Type_num + (1 + Type_num || participant) + (1 + Type_num || item),data=subset(PredictedRT_df, ROI==0 & model == 'gpt2'&!is.na(RT)))
+
 
 #AttachmentAmbiguity
 rt.data <- read.csv("AttachmentSet.csv", header=TRUE) %>% mutate(participant=MD5)
