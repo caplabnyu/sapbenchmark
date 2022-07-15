@@ -122,7 +122,7 @@ Plot_itemwise_by_magnitude(by_item,"AttachmentAmbiguity",ROI=0)
 Plot_itemwise_by_magnitude(by_item,"AttachmentAmbiguity",ROI=1)
 Plot_itemwise_by_magnitude(by_item,"AttachmentAmbiguity",ROI=2)
 Plot_humanresults_surprisaldiff_correlation(by_item_surprisalmerged,0)
-PredictedRT_df <- Predicting_RT_with_spillover_refactored(rt.data,"AttachmentAmbiguity")
+PredictedRT_df <- Predicting_RT_with_spillover(rt.data,"AttachmentAmbiguity")
 PredictedRT_df$ambiguity <- ifelse(
   PredictedRT_df$AMBIG=="Amb",2/3,-1/3)
 
@@ -146,17 +146,17 @@ fit_P0_pred_gpt2_AA <- lmer(predicted ~ ambiguity + height + (1+ambiguity+height
 
 
 
-by_item_lmer_high <- fixef(fit_P1_AA)['ambiguity']+(1/2)*fixef(fit_P1_AA)['height']+
+by_item_lmer_high <- (-1)*fixef(fit_P1_AA)['ambiguity']+(1/2)*fixef(fit_P1_AA)['height']-
   ranef(fit_P1_AA)[['item']]$ambiguity+(1/2)*ranef(fit_P1_AA)[['item']]$height
-by_item_lmer_low <- fixef(fit_P0_AA)['ambiguity']-(1/2)*fixef(fit_P0_AA)['height']+
+by_item_lmer_low <- (-1)*fixef(fit_P0_AA)['ambiguity']-(1/2)*fixef(fit_P0_AA)['height']-
   ranef(fit_P0_AA)[['item']]$ambiguity-(1/2)*ranef(fit_P0_AA)[['item']]$height
-by_item_lmer_lstm_high <- fixef(fit_P1_pred_lstm_AA)['ambiguity']+(1/2)*fixef(fit_P1_pred_lstm_AA)['height']+
+by_item_lmer_lstm_high <- (-1)*fixef(fit_P1_pred_lstm_AA)['ambiguity']+(1/2)*fixef(fit_P1_pred_lstm_AA)['height']-
   ranef(fit_P1_pred_lstm_AA)[['item']]$ambiguity+(1/2)*ranef(fit_P1_pred_lstm_AA)[['item']]$height
-by_item_lmer_lstm_low <- fixef(fit_P0_pred_lstm_AA)['ambiguity']-(1/2)*fixef(fit_P0_pred_lstm_AA)['height']+
+by_item_lmer_lstm_low <- (-1)*fixef(fit_P0_pred_lstm_AA)['ambiguity']-(1/2)*fixef(fit_P0_pred_lstm_AA)['height']-
   ranef(fit_P0_pred_lstm_AA)[['item']]$ambiguity-(1/2)*ranef(fit_P0_pred_lstm_AA)[['item']]$height
-by_item_lmer_gpt2_high <- fixef(fit_P1_pred_gpt2_AA)['ambiguity']+(1/2)*fixef(fit_P1_pred_gpt2_AA)['height']+
+by_item_lmer_gpt2_high <- (-1)*fixef(fit_P1_pred_gpt2_AA)['ambiguity']+(1/2)*fixef(fit_P1_pred_gpt2_AA)['height']-
   ranef(fit_P1_pred_gpt2_AA)[['item']]$ambiguity+(1/2)*ranef(fit_P1_pred_gpt2_AA)[['item']]$height
-by_item_lmer_gpt2_low <- fixef(fit_P0_pred_gpt2_AA)['ambiguity']-(1/2)*fixef(fit_P0_pred_gpt2_AA)['height']+
+by_item_lmer_gpt2_low <- (-1)*fixef(fit_P0_pred_gpt2_AA)['ambiguity']-(1/2)*fixef(fit_P0_pred_gpt2_AA)['height']-
   ranef(fit_P0_pred_gpt2_AA)[['item']]$ambiguity-(1/2)*ranef(fit_P0_pred_gpt2_AA)[['item']]$height
 
 ## Agreement subset
