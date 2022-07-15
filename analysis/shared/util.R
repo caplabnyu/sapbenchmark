@@ -12,7 +12,7 @@ load_data <- function(subsetname,RTcutoffhigh=7000,RTcutofflow=0){
                   ifelse(subsetname=="AttachmentAmbiguity","1TShRMEgba4z0tgN5zj48-k-3FB-hl5Gj",
                     ifelse(subsetname=="Agreement","1V6m9d20CbB1GeadR6SQ6yeiRyoqz3zwJ",
                            ifelse(subsetname=="Fillers","16onEVQVsFgusBZXuVPrtwcIiDaJgV6WB","")))))
-  rt.data <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", id), header=TRUE) %>% mutate(participant=MD5)
+  rt.data <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download&confirm=t", id), header=TRUE) %>% mutate(participant=MD5)
   rt.data$RT <- ifelse(rt.data$RT>RTcutoffhigh,NA,ifelse(rt.data$RT<RTcutofflow,NA,rt.data$RT))
   rt.data$Sentence <- str_replace_all(rt.data$Sentence, "%2C", ",")
   rt.data$EachWord <- str_replace_all(rt.data$EachWord, "%2C", ",")
