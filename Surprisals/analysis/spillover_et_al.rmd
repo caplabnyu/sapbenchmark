@@ -13,6 +13,7 @@ library(tidyr)
 library(lme4)
 library(lmerTest)
 library(stringr)
+source("../../analysis/shared/util.R")
 ```
 
 This document will fit the *filler model*, a linear mixed effects model mapping surprisals 0--3 words back (and several nuisance factors) to reading times over the filler items. This model will be used to convert surprisals to reading times in the analysis code in each subset's analysis code.
@@ -21,11 +22,9 @@ This document will fit the *filler model*, a linear mixed effects model mapping 
 
 Load in SPR and surprisal data for a subset
 ```{r}
-spr <- read.csv("./Fillers.csv")
-spr$Sentence <- str_replace_all(spr$Sentence, "%2C", ",")
-spr <- spr %>% filter(RT<=7000) %>% filter(RT>0) %>% rename(participant = MD5)
+spr <- load_data("Fillers")
 
-surps_lstm <- read.csv("../data/gulordava/items_filler.lstm.csv.scaled")
+surps_lstm <- read.csv("../data/lstm/items_filler.lstm.csv.scaled")
 surps_gpt2 <- read.csv("../data/gpt2/items_filler.gpt2.csv.scaled")
 surps_rnng <- read.csv("../data/rnng/items_filler.rnng.csv.scaled")
 surps_lstm$word_pos = surps_lstm$word_pos + 1# adjust to 1-indexing
