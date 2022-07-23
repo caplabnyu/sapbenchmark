@@ -256,7 +256,7 @@ Predicting_RT_with_spillover <- function(rt.data_df,subsetname, models = c('gpt2
         select(Sentence, word_pos, sum_surprisal , sum_surprisal_s,logfreq,logfreq_s,length,length_s)
       surps <- rename(surps, surprisal=sum_surprisal,surprisal_s=sum_surprisal_s)
       surps2 <- read.csv(paste0('./Surprisals/data/', model,'/items_ClassicGP.', model, '.csv.scaled')) %>%
-        filter(condition%in%c("NPZ_UAMB","NPZ_AMB")&item%in%rt.data_df$item) %>%
+        filter(condition%in%c("NPZ_UAMB","NPZ_AMB")&item%in%rt.data$item[rt.data$Type=="AGREE"]) %>%
         mutate(word_pos = word_pos + 1,
                model = model) %>% #adjust to 1-indexing
         select(Sentence, word_pos, sum_surprisal , sum_surprisal_s,logfreq,logfreq_s,length,length_s)
