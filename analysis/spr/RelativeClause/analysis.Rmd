@@ -11,8 +11,9 @@ library(tidyverse)
 library(ggplot2)
 library(brms)
 library(bayestestR)
-
 source('../../shared/util.R')
+source('../../shared/brms_parameters.R')
+
 ```
 
 ## Load in data
@@ -22,27 +23,18 @@ source('../../shared/util.R')
 
 ```{r}
 
-rt.data <- read.csv("../../../preprocessed_data/RelativeClauseSet.csv", header=TRUE) %>%
-  filter(RT <= 7000) %>%
-  filter(RT > 0) %>%
-  rename(participant = MD5)
-
-filler.data <- read.csv("../../../preprocessed_data/Fillers.csv", header = TRUE) %>%
-  filter(RT <=7000) %>%
-  filter(RT > 0) %>%
-  rename(participant = MD5)
-
+rt.data <- load_data("RelativeClause")
+filler.data <- load_data("Fillers")
+  
 ```
 
 **Correcting for the effect of word position**
 ```{r}
 
-# position_fit_lmer <- lmer(RT ~ scale(WordPosition) + (1 + scale(WordPosition) | participant), filler.data)
 position_fit_lmer_nocor <- lmer(RT ~ scale(WordPosition) + (1 + scale(WordPosition) || participant), filler.data)
 
 position_fit_lm <- lm(RT ~ scale(WordPosition), filler.data)
 
-#summary(position_fit_lmer)
 summary(position_fit_lmer_nocor)
 summary(position_fit_lm)
 
@@ -60,7 +52,10 @@ rt.data$corrected_rt_lm <- rt.data$RT - rt.data$wordpos_predrt_lm
 ```{r, cache=TRUE}
 
 predicted_dat_rc <- Predicting_RT_with_spillover(rt.data, 'RelativeClause')
+saveRDS(predicted_dat_rc, 'predicted_dat_rc.rds')
+
 predicted_dat_filler <-  Predicting_RT_with_spillover(filler.data, 'filler')
+saveRDS(predicted_dat_filler, 'predicted_dat_filler.rds')
 
 print(getwd())
 
@@ -69,8 +64,8 @@ temp <- list()
 i <- 1
 for(m in unique(predicted_dat_rc$model)){
   print(m)
-  curr_rc <- subset(predicted_dat_rc, model == m)
-  curr_filler <- subset(predicted_dat_filler, model == m)
+  curr_rc <- subset(predicted_dat_rc, model == m & !is.na(RT))
+  curr_filler <- subset(predicted_dat_filler, model == m & !is.na(RT))
   print(paste(nrow(curr_filler), nrow(predicted_dat_filler)))
   
   curr_fit <-  lmer(predicted ~ scale(WordPosition) + (1 + scale(WordPosition) || participant),
@@ -159,7 +154,7 @@ saveRDS(fit_noun_lmer, './saved_objects/fit_noun_lmer')
 fit_verb_lmer_pred_lstm <- lmer(corrected_predicted ~ Type_num +
                               (0 + Type_num || participant) +
                               (1 + Type_num || item),
-                  data=subset(predicted_dat, ROI==0 & model == 'lstm')
+                  data=subset(predicted_dat, ROI==0 & model == 'lstm' &!is.na(RT))
                   )
 
 saveRDS(fit_verb_lmer_pred_lstm, './saved_objects/fit_verb_lmer_pred_lstm')
@@ -171,7 +166,7 @@ summary(fit_verb_lmer_pred_lstm)
 fit_verb_lmer_pred_gpt2 <- lmer(corrected_predicted ~ Type_num +
                               (0 + Type_num || participant) +
                               (1 + Type_num || item),
-                  data=subset(predicted_dat, ROI==0 & model == 'gpt2')
+                  data=subset(predicted_dat, ROI==0 & model == 'gpt2' &!is.na(RT))
                   )
 
 saveRDS(fit_verb_lmer_pred_gpt2, './saved_objects/fit_verb_lmer_pred_gpt2')
@@ -236,10 +231,7 @@ create_dfs_lmer(fit_verb_lmer_pred_lstm, 'lstm')
 ### Empirical data
 
 ```{r}
-prior1 <- c(prior("normal(300,1000)", class = "Intercept"),
-            prior("normal(0,150)", class = "b"),  
-            prior("normal(0,200)", class = "sd"),    
-            prior("normal(0,500)", class = "sigma"))
+brms_parms <- get_brms_parameters('prior1')
 
 #Note brms automatically truncates the distributions for sd and sigma.
 
@@ -248,12 +240,16 @@ prior1 <- c(prior("normal(300,1000)", class = "Intercept"),
 
 ```{r, cache=TRUE}
 
-fit_verb_bayes <- brm(corrected_rt ~ Type_num + (0 + Type_num || participant) + (1 + Type_num || item),
+fit_verb_bayes <- brm(corrected_rt ~ Type_num +
+                        (0 + Type_num || participant) +
+                        (1 + Type_num || item),
                   data=verb_dat,
-                  prior = prior1,
-                  cores = 4,
-                  iter = 6000,
-                  seed = 117
+                  prior = brms_parms$prior,
+                  cores = brms_parms$ncores,
+                  iter = brms_parms$niters,
+                  seed = brms_pars$seed,
+                  warmup = brms_parms$warmup,
+                  adapt_delta = brms_parms$adapt_delta
                   )
 
 saveRDS(fit_verb_bayes, './saved_objects/fit_verb_bayes_prior1')
@@ -269,10 +265,12 @@ summary(fit_verb_bayes)
 
 fit_det_bayes <- brm(corrected_rt ~ Type_num + (0 + Type_num || participant) + (1 + Type_num || item),
                   data=det_dat,
-                  prior = prior1,
-                  cores = 4,
-                  iter = 6000,
-                  seed = 117
+                  prior = brms_parms$prior,
+                  cores = brms_parms$ncores,
+                  iter = brms_parms$niters,
+                  seed = brms_pars$seed,
+                  warmup = brms_parms$warmup,
+                  adapt_delta = brms_parms$adapt_delta
                   )
 
 saveRDS(fit_det_bayes, './saved_objects/fit_det_bayes_prior1')
@@ -290,10 +288,12 @@ summary(fit_det_bayes)
 
 fit_noun_bayes <- brm(corrected_rt ~ Type_num + (0 + Type_num || participant) + (1 + Type_num || item),
                   data=noun_dat,
-                  prior = prior1,
-                  cores = 4,
-                  iter = 6000,
-                  seed = 117
+                  prior = brms_parms$prior,
+                  cores = brms_parms$ncores,
+                  iter = brms_parms$niters,
+                  seed = brms_pars$seed,
+                  warmup = brms_parms$warmup,
+                  adapt_delta = brms_parms$adapt_delta
                   )
 
 saveRDS(fit_noun_bayes, './saved_objects/fit_noun_bayes_prior1')
@@ -367,7 +367,7 @@ by_item_surprisalmerged <- merge_surprisal(rt.data,by_item,"RelativeClause")
 fit_verb_bayes_pred_gpt2 <- brm(corrected_predicted ~ Type_num +
                               (0 + Type_num || participant) +
                               (1 + Type_num || item),
-                  data=subset(predicted_dat, ROI==0 & model == 'gpt2'),
+                  data=subset(predicted_dat, ROI==0 & model == 'gpt2' &!is.na(RT)),
                   prior = prior1,
                   cores = 4,
                   iter = 12000,
@@ -389,7 +389,7 @@ summary(fit_verb_bayes_pred_gpt2)
 fit_verb_bayes_pred_lstm <- brm(corrected_predicted ~ Type_num +
                               (0 + Type_num || participant) +
                               (1 + Type_num || item),
-                  data=subset(predicted_dat, ROI==0 & model == 'lstm'),
+                  data=subset(predicted_dat, ROI==0 & model == 'lstm' &!is.na(RT)),
                   prior = prior1,
                   cores = 4,
                   iter = 12000,
