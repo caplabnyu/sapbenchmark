@@ -284,7 +284,7 @@ Predicting_RT_with_spillover <- function(rt.data_df,subsetname, models = c('gpt2
                surprisal_p1_s = lag(surprisal_s),
                surprisal_p2_s = lag(surprisal_p1_s),
                surprisal_p3_s = lag(surprisal_p2_s))
-      rt.data.with_lags$sent_length <- lapply(str_split(with_lag$Sentence," "),length)
+      rt.data.with_lags$sent_length <- lapply(str_split(rt.data.with_lag$Sentence," "),length)
       
       rt.data.drop <- subset(rt.data.with_lags, !is.na(surprisal_s) & !is.na(surprisal_p1_s) & 
                                !is.na(surprisal_p2_s) & !is.na(surprisal_p3_s) &
@@ -333,7 +333,7 @@ Predicting_RT_with_spillover <- function(rt.data_df,subsetname, models = c('gpt2
               surprisal_p1_s = lag(surprisal_s),
               surprisal_p2_s = lag(surprisal_p1_s),
               surprisal_p3_s = lag(surprisal_p2_s))
-      rt.data.with_lags$sent_length <- lapply(str_split(with_lag$Sentence," "),length)
+      rt.data.with_lags$sent_length <- lapply(str_split(rt.data.with_lag$Sentence," "),length)
     
       rt.data.drop <- subset(rt.data.with_lags, !is.na(surprisal_s) & !is.na(surprisal_p1_s) & 
                                !is.na(surprisal_p2_s) & !is.na(surprisal_p3_s) &
