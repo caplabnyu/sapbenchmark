@@ -6,52 +6,66 @@ SAP Benchmark (SPR): RC subset
 ### Empirical data
 
 ``` r
-rt.data <- read.csv("../../../preprocessed_data/RelativeClauseSet.csv", header=TRUE) %>%
-  filter(RT <= 7000) %>%
-  filter(RT > 0) %>%
-  rename(participant = MD5)
+rt.data <- load_data("RelativeClause") 
 
-filler.data <- read.csv("../../../preprocessed_data/Fillers.csv", header = TRUE) %>%
-  filter(RT <=7000) %>%
-  filter(RT > 0) %>%
-  rename(participant = MD5)
+filler.data <- load_data("Fillers") 
+
+rt.data <- Predicting_RT_with_spillover(rt.data, 'RelativeClause')
+```
+
+    ## [1] "This will take a while."
+    ## [1] "Processing model gpt2"
+    ## [1] "Processing model lstm"
+
+``` r
+saveRDS(rt.data, './saved_objects/predicted_dat_rc.rds')
+
+filler.data <-  Predicting_RT_with_spillover(filler.data, 'filler')
+```
+
+    ## [1] "This will take a while."
+    ## [1] "Processing model gpt2"
+    ## [1] "Processing model lstm"
+
+``` r
+saveRDS(filler.data, './saved_objects/predicted_dat_filler.rds')
 ```
 
 **Correcting for the effect of word position**
 
 ``` r
-# position_fit_lmer <- lmer(RT ~ scale(WordPosition) + (1 + scale(WordPosition) | participant), filler.data)
-position_fit_lmer_nocor <- lmer(RT ~ scale(WordPosition) + (1 + scale(WordPosition) || participant), filler.data)
+position_fit_lmer_nocor <- lmer(RT ~ scale(WordPosition) + (1 + scale(WordPosition) || participant), subset(filler.data, model=='lstm')) # model doesn't matter for RT. 
+# We want data from only one model to avoid duplicating rows. 
 
-position_fit_lm <- lm(RT ~ scale(WordPosition), filler.data)
+position_fit_lm <- lm(RT ~ scale(WordPosition), subset(filler.data, model=='lstm'))
 
-#summary(position_fit_lmer)
 summary(position_fit_lmer_nocor)
 ```
 
-    ## Linear mixed model fit by REML ['lmerMod']
-    ## Formula: 
-    ## RT ~ scale(WordPosition) + ((1 | participant) + (0 + scale(WordPosition) |  
-    ##     participant))
-    ##    Data: filler.data
+    ## Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+    ## lmerModLmerTest]
+    ## Formula: RT ~ scale(WordPosition) + (1 + scale(WordPosition) || participant)
+    ##    Data: subset(filler.data, model == "lstm")
     ## 
-    ## REML criterion at convergence: 18977703
+    ## REML criterion at convergence: 13194745
     ## 
     ## Scaled residuals: 
     ##    Min     1Q Median     3Q    Max 
-    ## -4.324 -0.400 -0.161  0.145 32.206 
+    ## -4.772 -0.401 -0.150  0.161 35.921 
     ## 
     ## Random effects:
     ##  Groups        Name                Variance Std.Dev.
-    ##  participant   (Intercept)         10812.5  103.98  
-    ##  participant.1 scale(WordPosition)   506.5   22.51  
-    ##  Residual                          43179.9  207.80  
-    ## Number of obs: 1403516, groups:  participant, 2000
+    ##  participant   (Intercept)         10292.4  101.45  
+    ##  participant.1 scale(WordPosition)   256.5   16.01  
+    ##  Residual                          32826.6  181.18  
+    ## Number of obs: 995814, groups:  participant, 2000
     ## 
     ## Fixed effects:
-    ##                     Estimate Std. Error t value
-    ## (Intercept)          388.531      2.332  166.63
-    ## scale(WordPosition)   -7.191      0.533  -13.49
+    ##                      Estimate Std. Error        df t value Pr(>|t|)    
+    ## (Intercept)          374.2622     2.2758 1998.9384  164.46   <2e-16 ***
+    ## scale(WordPosition)   -7.7729     0.4015 1998.3065  -19.36   <2e-16 ***
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##             (Intr)
@@ -63,22 +77,24 @@ summary(position_fit_lm)
 
     ## 
     ## Call:
-    ## lm(formula = RT ~ scale(WordPosition), data = filler.data)
+    ## lm(formula = RT ~ scale(WordPosition), data = subset(filler.data, 
+    ##     model == "lstm"))
     ## 
     ## Residuals:
     ##    Min     1Q Median     3Q    Max 
-    ## -396.1 -117.7  -43.5   48.7 6590.1 
+    ## -378.2 -108.8  -37.8   49.8 6596.4 
     ## 
     ## Coefficients:
     ##                     Estimate Std. Error t value Pr(>|t|)    
-    ## (Intercept)          388.498      0.197 1971.82   <2e-16 ***
-    ## scale(WordPosition)   -7.173      0.197  -36.41   <2e-16 ***
+    ## (Intercept)         374.2437     0.2087 1793.41   <2e-16 ***
+    ## scale(WordPosition)  -7.7650     0.2087  -37.21   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
-    ## Residual standard error: 233.4 on 1403514 degrees of freedom
-    ## Multiple R-squared:  0.0009434,  Adjusted R-squared:  0.0009427 
-    ## F-statistic:  1325 on 1 and 1403514 DF,  p-value: < 2.2e-16
+    ## Residual standard error: 208.2 on 995812 degrees of freedom
+    ##   (186 observations deleted due to missingness)
+    ## Multiple R-squared:  0.001389,   Adjusted R-squared:  0.001388 
+    ## F-statistic:  1385 on 1 and 995812 DF,  p-value: < 2.2e-16
 
 ``` r
 rt.data$wordpos_predrt <- predict(position_fit_lmer_nocor, rt.data)
@@ -91,36 +107,6 @@ rt.data$corrected_rt_lm <- rt.data$RT - rt.data$wordpos_predrt_lm
 ### Predicted data from language models
 
 ``` r
-predicted_dat_rc <- Predicting_RT_with_spillover(rt.data, 'RelativeClause')
-```
-
-    ## [1] "This will take a while."
-    ## [1] "Processing model gpt2"
-
-    ## Loading required package: lmerTest
-
-    ## 
-    ## Attaching package: 'lmerTest'
-
-    ## The following object is masked from 'package:lme4':
-    ## 
-    ##     lmer
-
-    ## The following object is masked from 'package:stats':
-    ## 
-    ##     step
-
-    ## [1] "Processing model lstm"
-
-``` r
-predicted_dat_filler <-  Predicting_RT_with_spillover(filler.data, 'filler')
-```
-
-    ## [1] "This will take a while."
-    ## [1] "Processing model gpt2"
-    ## [1] "Processing model lstm"
-
-``` r
 print(getwd())
 ```
 
@@ -130,11 +116,11 @@ print(getwd())
 temp <- list()
 
 i <- 1
-for(m in unique(predicted_dat_rc$model)){
+for(m in unique(rt.data$model)){
   print(m)
-  curr_rc <- subset(predicted_dat_rc, model == m)
-  curr_filler <- subset(predicted_dat_filler, model == m)
-  print(paste(nrow(curr_filler), nrow(predicted_dat_filler)))
+  curr_rc <- subset(rt.data, model == m & !is.na(RT))
+  curr_filler <- subset(filler.data, model == m & !is.na(RT))
+  print(paste(nrow(curr_filler), nrow(filler.data)))
   
   curr_fit <-  lmer(predicted ~ scale(WordPosition) + (1 + scale(WordPosition) || participant),
                     curr_filler)
@@ -150,38 +136,45 @@ for(m in unique(predicted_dat_rc$model)){
 ```
 
     ## [1] "gpt2"
-    ## [1] "303875 607750"
+    ## [1] "995814 1992000"
+
+    ## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv, :
+    ## Model failed to converge with max|grad| = 0.0128012 (tol = 0.002, component 1)
+
     ## Linear mixed model fit by REML. t-tests use Satterthwaite's method [
     ## lmerModLmerTest]
     ## Formula: predicted ~ scale(WordPosition) + (1 + scale(WordPosition) ||  
     ##     participant)
     ##    Data: curr_filler
     ## 
-    ## REML criterion at convergence: 3098233
+    ## REML criterion at convergence: 10148920
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -6.2543 -0.5927 -0.1022  0.4712 12.8304 
+    ## -6.4469 -0.6213 -0.0626  0.5674 12.9372 
     ## 
     ## Random effects:
     ##  Groups        Name                Variance  Std.Dev.
-    ##  participant   (Intercept)         1.014e+04 100.6949
-    ##  participant.1 scale(WordPosition) 4.404e-01   0.6636
-    ##  Residual                          1.498e+03  38.7050
-    ## Number of obs: 303875, groups:  participant, 2000
+    ##  participant   (Intercept)         10241.646 101.201 
+    ##  participant.1 scale(WordPosition)     4.361   2.088 
+    ##  Residual                           1534.022  39.167 
+    ## Number of obs: 995814, groups:  participant, 2000
     ## 
     ## Fixed effects:
-    ##                       Estimate Std. Error         df t value Pr(>|t|)    
-    ## (Intercept)          373.28858    2.25270 1998.86563   165.7   <2e-16 ***
-    ## scale(WordPosition)   -9.78628    0.07176 1995.89521  -136.4   <2e-16 ***
+    ##                     Estimate Std. Error       df t value Pr(>|t|)    
+    ## (Intercept)          374.260      2.263 1998.136   165.4   <2e-16 ***
+    ## scale(WordPosition)   -7.771      0.061 1998.336  -127.4   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##             (Intr)
     ## scl(WrdPst) 0.000 
+    ## optimizer (nloptwrap) convergence code: 0 (OK)
+    ## Model failed to converge with max|grad| = 0.0128012 (tol = 0.002, component 1)
+    ## 
     ## [1] "lstm"
-    ## [1] "303875 607750"
+    ## [1] "995814 1992000"
 
     ## boundary (singular) fit: see ?isSingular
 
@@ -191,23 +184,23 @@ for(m in unique(predicted_dat_rc$model)){
     ##     participant)
     ##    Data: curr_filler
     ## 
-    ## REML criterion at convergence: 3063604
+    ## REML criterion at convergence: 10087305
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -6.4995 -0.6195 -0.1063  0.5094 10.9276 
+    ## -6.3207 -0.6481 -0.0677  0.5974 11.3308 
     ## 
     ## Random effects:
     ##  Groups        Name                Variance Std.Dev.
-    ##  participant   (Intercept)         10164    100.82  
-    ##  participant.1 scale(WordPosition)     0      0.00  
-    ##  Residual                           1336     36.55  
-    ## Number of obs: 303875, groups:  participant, 2000
+    ##  participant   (Intercept)         10232    101.2   
+    ##  participant.1 scale(WordPosition)     0      0.0   
+    ##  Residual                           1444     38.0   
+    ## Number of obs: 995814, groups:  participant, 2000
     ## 
     ## Fixed effects:
     ##                       Estimate Std. Error         df t value Pr(>|t|)    
-    ## (Intercept)          3.733e+02  2.255e+00  2.000e+03   165.5   <2e-16 ***
-    ## scale(WordPosition) -1.040e+01  6.631e-02  3.019e+05  -156.9   <2e-16 ***
+    ## (Intercept)          3.743e+02  2.262e+00  1.999e+03   165.4   <2e-16 ***
+    ## scale(WordPosition) -7.771e+00  3.808e-02  9.938e+05  -204.1   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -233,6 +226,7 @@ rm(temp)
 
 ``` r
 verb_dat <- rt.data %>%
+  filter(model=='lstm') %>% # empirical data is same for lstm and gpt. 
   filter(ROI == 0) %>%
   mutate(Type = factor(Type, levels = c('RC_Subj', 'RC_Obj')),
          Type_num = ifelse(Type == 'RC_Subj', 0, 1))
@@ -257,30 +251,30 @@ summary(fit_verb_lmer)
     ##     Type_num || item)
     ##    Data: verb_dat
     ## 
-    ## REML criterion at convergence: 225173.8
+    ## REML criterion at convergence: 225159.8
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -4.6278 -0.3539 -0.1501  0.1179 20.4747 
+    ## -4.5887 -0.3544 -0.1532  0.1180 20.5008 
     ## 
     ## Random effects:
     ##  Groups      Name        Variance Std.Dev.
-    ##  participant Type_num    23818    154.33  
-    ##  item        (Intercept)   220     14.83  
-    ##  item.1      Type_num     2338     48.35  
-    ##  Residual                73823    271.70  
+    ##  participant Type_num    23485.7  153.25  
+    ##  item        (Intercept)   215.9   14.69  
+    ##  item.1      Type_num     2314.0   48.10  
+    ##  Residual                73833.5  271.72  
     ## Number of obs: 15908, groups:  participant, 2000; item, 24
     ## 
     ## Fixed effects:
     ##             Estimate Std. Error     df t value Pr(>|t|)    
-    ## (Intercept)   15.835      4.295 24.768   3.686  0.00112 ** 
-    ## Type_num      51.311     11.308 28.088   4.537 9.75e-05 ***
+    ## (Intercept)   26.026      4.276 24.777   6.087 2.41e-06 ***
+    ## Type_num      52.064     11.258 28.107   4.625 7.67e-05 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##          (Intr)
-    ## Type_num -0.191
+    ## Type_num -0.193
 
 ``` r
 saveRDS(fit_verb_lmer, './saved_objects/fit_verb_lmer')
@@ -290,6 +284,7 @@ saveRDS(fit_verb_lmer, './saved_objects/fit_verb_lmer')
 
 ``` r
 det_dat <- rt.data %>%
+  filter(model=='lstm') %>%
   filter(ROI == 1) %>%
   mutate(Type = factor(Type, levels = c('RC_Subj', 'RC_Obj')),
          Type_num = ifelse(Type == 'RC_Subj', 0, 1))
@@ -303,41 +298,39 @@ contrasts(det_dat$Type)
 
 ``` r
 ## part intercept is 0 because we removed out this intercept through word pos correction
-fit_det_lmer <- lmer(corrected_rt ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item), data=det_dat)
+fit_det_lmer <- lmer(corrected_rt ~ Type_num + (0 + Type_num || participant) + (1 + Type_num || item), data=det_dat)
 
 summary(fit_det_lmer)
 ```
 
     ## Linear mixed model fit by REML. t-tests use Satterthwaite's method [
     ## lmerModLmerTest]
-    ## Formula: corrected_rt ~ Type_num + (0 + Type_num | participant) + (1 +  
-    ##     Type_num | item)
+    ## Formula: corrected_rt ~ Type_num + (0 + Type_num || participant) + (1 +  
+    ##     Type_num || item)
     ##    Data: det_dat
     ## 
-    ## REML criterion at convergence: 211632.6
+    ## REML criterion at convergence: 211645
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -3.6181 -0.4032 -0.1280  0.1772 28.8201 
+    ## -3.6886 -0.4010 -0.1339  0.1764 28.7521 
     ## 
     ## Random effects:
-    ##  Groups      Name        Variance Std.Dev. Corr 
-    ##  participant Type_num     3189.63  56.477       
-    ##  item        (Intercept)    94.07   9.699       
-    ##              Type_num      299.77  17.314  -0.75
-    ##  Residual                33536.51 183.130       
+    ##  Groups      Name        Variance Std.Dev.
+    ##  participant Type_num     3227.28  56.809 
+    ##  item        (Intercept)    35.13   5.927 
+    ##  item.1      Type_num      149.67  12.234 
+    ##  Residual                33560.23 183.195 
     ## Number of obs: 15912, groups:  participant, 2000; item, 24
     ## 
     ## Fixed effects:
-    ##             Estimate Std. Error      df t value Pr(>|t|)    
-    ## (Intercept)  -13.025      2.853  22.994  -4.566 0.000137 ***
-    ## Type_num       5.167      4.745  26.031   1.089 0.286157    
-    ## ---
-    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ##             Estimate Std. Error     df t value Pr(>|t|)
+    ## (Intercept)   -2.436      2.384 35.516  -1.022    0.314
+    ## Type_num       4.757      4.036 43.036   1.179    0.245
     ## 
     ## Correlation of Fixed Effects:
     ##          (Intr)
-    ## Type_num -0.698
+    ## Type_num -0.439
 
 ``` r
 saveRDS(fit_det_lmer, './saved_objects/fit_det_lmer')
@@ -345,6 +338,7 @@ saveRDS(fit_det_lmer, './saved_objects/fit_det_lmer')
 
 
 noun_dat <- rt.data %>%
+  filter(model=='lstm') %>%
   filter(ROI == 2) %>%
   mutate(Type = factor(Type, levels = c('RC_Subj', 'RC_Obj')),
          Type_num = ifelse(Type == 'RC_Subj', 0, 1))
@@ -358,48 +352,41 @@ contrasts(noun_dat$Type)
 
 ``` r
 ## part intercept is 0 because we removed out this intercept through word pos correction
-fit_noun_lmer <- lmer(corrected_rt ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item), data=noun_dat)
-```
+fit_noun_lmer <- lmer(corrected_rt ~ Type_num + (0 + Type_num || participant) + (1 + Type_num || item), data=noun_dat)
 
-    ## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv, :
-    ## Model failed to converge with max|grad| = 0.00268602 (tol = 0.002, component 1)
-
-``` r
 summary(fit_noun_lmer)
 ```
 
     ## Linear mixed model fit by REML. t-tests use Satterthwaite's method [
     ## lmerModLmerTest]
-    ## Formula: corrected_rt ~ Type_num + (0 + Type_num | participant) + (1 +  
-    ##     Type_num | item)
+    ## Formula: corrected_rt ~ Type_num + (0 + Type_num || participant) + (1 +  
+    ##     Type_num || item)
     ##    Data: noun_dat
     ## 
-    ## REML criterion at convergence: 221586.8
+    ## REML criterion at convergence: 221546.4
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -2.3810 -0.4189 -0.1906  0.1231 21.0427 
+    ## -2.4450 -0.4179 -0.1954  0.1157 21.0004 
     ## 
     ## Random effects:
-    ##  Groups      Name        Variance Std.Dev. Corr 
-    ##  participant Type_num      960.7   31.00        
-    ##  item        (Intercept)  1220.4   34.93        
-    ##              Type_num      345.3   18.58   -0.32
-    ##  Residual                64708.5  254.38        
+    ##  Groups      Name        Variance Std.Dev.
+    ##  participant Type_num      860.2   29.33  
+    ##  item        (Intercept)  1119.4   33.46  
+    ##  item.1      Type_num      314.2   17.72  
+    ##  Residual                64589.8  254.15  
     ## Number of obs: 15911, groups:  participant, 2000; item, 24
     ## 
     ## Fixed effects:
     ##             Estimate Std. Error     df t value Pr(>|t|)    
-    ## (Intercept)   35.195      7.680 22.979   4.582 0.000132 ***
-    ## Type_num      -5.768      5.580 23.575  -1.034 0.311808    
+    ## (Intercept)   46.148      7.400 24.928   6.236 1.62e-06 ***
+    ## Type_num      -6.177      5.455 25.534  -1.132    0.268    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##          (Intr)
-    ## Type_num -0.389
-    ## optimizer (nloptwrap) convergence code: 0 (OK)
-    ## Model failed to converge with max|grad| = 0.00268602 (tol = 0.002, component 1)
+    ## Type_num -0.201
 
 ``` r
 saveRDS(fit_noun_lmer, './saved_objects/fit_noun_lmer')
@@ -411,7 +398,7 @@ saveRDS(fit_noun_lmer, './saved_objects/fit_noun_lmer')
 fit_verb_lmer_pred_lstm <- lmer(corrected_predicted ~ Type_num +
                               (0 + Type_num || participant) +
                               (1 + Type_num || item),
-                  data=subset(predicted_dat, ROI==0 & model == 'lstm')
+                  data=subset(predicted_dat, ROI==0 & model == 'lstm' &!is.na(RT))
                   )
 
 saveRDS(fit_verb_lmer_pred_lstm, './saved_objects/fit_verb_lmer_pred_lstm')
@@ -423,26 +410,26 @@ summary(fit_verb_lmer_pred_lstm)
     ## lmerModLmerTest]
     ## Formula: corrected_predicted ~ Type_num + (0 + Type_num || participant) +  
     ##     (1 + Type_num || item)
-    ##    Data: subset(predicted_dat, ROI == 0 & model == "lstm")
+    ##    Data: subset(predicted_dat, ROI == 0 & model == "lstm" & !is.na(RT))
     ## 
-    ## REML criterion at convergence: 130973.2
+    ## REML criterion at convergence: 130220.1
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -5.0472 -0.4342 -0.0819  0.2619 13.8462 
+    ## -5.1811 -0.4303 -0.0829  0.2592 13.9264 
     ## 
     ## Random effects:
     ##  Groups      Name        Variance Std.Dev.
-    ##  participant Type_num    270.6    16.45   
-    ##  item        (Intercept) 236.0    15.36   
-    ##  item.1      Type_num    373.5    19.33   
-    ##  Residual                168.4    12.98   
-    ## Number of obs: 15907, groups:  participant, 2000; item, 24
+    ##  participant Type_num    254.5    15.95   
+    ##  item        (Intercept) 232.1    15.23   
+    ##  item.1      Type_num    372.9    19.31   
+    ##  Residual                160.8    12.68   
+    ## Number of obs: 15908, groups:  participant, 2000; item, 24
     ## 
     ## Fixed effects:
     ##             Estimate Std. Error     df t value Pr(>|t|)    
-    ## (Intercept)    8.775      3.139 23.001   2.795   0.0103 *  
-    ## Type_num      26.506      3.968 23.293   6.681 7.64e-07 ***
+    ## (Intercept)   14.274      3.113 23.000   4.585 0.000131 ***
+    ## Type_num      22.590      3.963 23.277   5.700    8e-06 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -454,7 +441,7 @@ summary(fit_verb_lmer_pred_lstm)
 fit_verb_lmer_pred_gpt2 <- lmer(corrected_predicted ~ Type_num +
                               (0 + Type_num || participant) +
                               (1 + Type_num || item),
-                  data=subset(predicted_dat, ROI==0 & model == 'gpt2')
+                  data=subset(predicted_dat, ROI==0 & model == 'gpt2' &!is.na(RT))
                   )
 
 saveRDS(fit_verb_lmer_pred_gpt2, './saved_objects/fit_verb_lmer_pred_gpt2')
@@ -466,26 +453,26 @@ summary(fit_verb_lmer_pred_gpt2)
     ## lmerModLmerTest]
     ## Formula: corrected_predicted ~ Type_num + (0 + Type_num || participant) +  
     ##     (1 + Type_num || item)
-    ##    Data: subset(predicted_dat, ROI == 0 & model == "gpt2")
+    ##    Data: subset(predicted_dat, ROI == 0 & model == "gpt2" & !is.na(RT))
     ## 
-    ## REML criterion at convergence: 142037
+    ## REML criterion at convergence: 139429.9
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -6.0797 -0.4381 -0.0748  0.2205 10.7369 
+    ## -6.8919 -0.4377 -0.0713  0.2186 11.8886 
     ## 
     ## Random effects:
     ##  Groups      Name        Variance Std.Dev.
-    ##  participant Type_num    495.6    22.26   
-    ##  item        (Intercept) 217.2    14.74   
+    ##  participant Type_num    417.3    20.43   
+    ##  item        (Intercept) 215.9    14.69   
     ##  item.1      Type_num    423.4    20.58   
-    ##  Residual                342.2    18.50   
-    ## Number of obs: 15907, groups:  participant, 2000; item, 24
+    ##  Residual                290.4    17.04   
+    ## Number of obs: 15908, groups:  participant, 2000; item, 24
     ## 
     ## Fixed effects:
     ##             Estimate Std. Error     df t value Pr(>|t|)    
-    ## (Intercept)   13.134      3.016 23.001   4.355 0.000232 ***
-    ## Type_num      26.370      4.240 23.486   6.219 2.19e-06 ***
+    ## (Intercept)   17.012      3.005 23.001   5.661 9.20e-06 ***
+    ## Type_num      23.459      4.234 23.415   5.541 1.16e-05 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -537,19 +524,6 @@ create_dfs_lmer <- function(fit, model_name){
 create_dfs_lmer(fit_verb_lmer, 'human')
 ```
 
-    ## Loading required package: lmerTest
-
-    ## 
-    ## Attaching package: 'lmerTest'
-
-    ## The following object is masked from 'package:lme4':
-    ## 
-    ##     lmer
-
-    ## The following object is masked from 'package:stats':
-    ## 
-    ##     step
-
     ## Warning: `add_rownames()` was deprecated in dplyr 1.0.0.
     ## Please use `tibble::rownames_to_column()` instead.
 
@@ -563,23 +537,26 @@ create_dfs_lmer(fit_verb_lmer_pred_lstm, 'lstm')
 ### Empirical data
 
 ``` r
-prior1 <- c(prior("normal(300,1000)", class = "Intercept"),
-            prior("normal(0,150)", class = "b"),  
-            prior("normal(0,200)", class = "sd"),    
-            prior("normal(0,500)", class = "sigma"))
+brms_parms <- get_brms_parameters('prior1')
 
 #Note brms automatically truncates the distributions for sd and sigma.
 ```
 
 ``` r
-fit_verb_bayes <- brm(corrected_rt ~ Type_num + (0 + Type_num || participant) + (1 + Type_num || item),
+fit_verb_bayes <- brm(corrected_rt ~ Type_num +
+                        (0 + Type_num || participant) +
+                        (1 + Type_num || item),
                   data=verb_dat,
-                  prior = prior1,
-                  cores = 4,
-                  iter = 6000,
-                  seed = 117
+                  prior = brms_parms$prior,
+                  cores = brms_parms$ncores,
+                  iter = brms_parms$niters,
+                  seed = brms_parms$seed,
+                  warmup = brms_parms$warmup,
+                  control = list(adapt_delta = brms_parms$adapt_delta)
                   )
 ```
+
+    ## Warning: Rows containing NAs were excluded from the model.
 
     ## Compiling Stan program...
 
@@ -619,27 +596,27 @@ summary(fit_verb_bayes)
     ##   Links: mu = identity; sigma = identity 
     ## Formula: corrected_rt ~ Type_num + (0 + Type_num || participant) + (1 + Type_num || item) 
     ##    Data: verb_dat (Number of observations: 15908) 
-    ##   Draws: 4 chains, each with iter = 6000; warmup = 3000; thin = 1;
-    ##          total post-warmup draws = 12000
+    ##   Draws: 4 chains, each with iter = 12000; warmup = 6000; thin = 1;
+    ##          total post-warmup draws = 24000
     ## 
     ## Group-Level Effects: 
     ## ~item (Number of levels: 24) 
     ##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-    ## sd(Intercept)    15.41      4.88     6.11    25.50 1.00     5121     4316
-    ## sd(Type_num)     51.34      9.66    35.55    73.32 1.00     6111     7226
+    ## sd(Intercept)    15.20      4.87     5.91    25.31 1.00    10030    10078
+    ## sd(Type_num)     51.14      9.46    35.70    72.68 1.00    11660    16341
     ## 
     ## ~participant (Number of levels: 2000) 
     ##              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-    ## sd(Type_num)   154.29      4.40   145.66   163.08 1.00     5086     7904
+    ## sd(Type_num)   153.29      4.41   144.74   161.94 1.00     9919    14369
     ## 
     ## Population-Level Effects: 
     ##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-    ## Intercept    15.84      4.49     7.07    24.78 1.00    14329    10737
-    ## Type_num     51.25     12.04    26.79    74.96 1.00     4763     7118
+    ## Intercept    26.05      4.47    17.27    34.89 1.00    28915    20093
+    ## Type_num     51.63     11.79    28.19    74.61 1.00    10595    13955
     ## 
     ## Family Specific Parameters: 
     ##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-    ## sigma   271.75      1.63   268.53   274.94 1.00    16906     9459
+    ## sigma   271.75      1.63   268.58   274.99 1.00    32138    16982
     ## 
     ## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
     ## and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -652,12 +629,16 @@ summary(fit_verb_bayes)
 ``` r
 fit_det_bayes <- brm(corrected_rt ~ Type_num + (0 + Type_num || participant) + (1 + Type_num || item),
                   data=det_dat,
-                  prior = prior1,
-                  cores = 4,
-                  iter = 6000,
-                  seed = 117
+                  prior = brms_parms$prior,
+                  cores = brms_parms$ncores,
+                  iter = brms_parms$niters,
+                  seed = brms_parms$seed,
+                  warmup = brms_parms$warmup,
+                  control = list(adapt_delta = brms_parms$adapt_delta)
                   )
 ```
+
+    ## Warning: Rows containing NAs were excluded from the model.
 
     ## Compiling Stan program...
 
@@ -697,27 +678,27 @@ summary(fit_det_bayes)
     ##   Links: mu = identity; sigma = identity 
     ## Formula: corrected_rt ~ Type_num + (0 + Type_num || participant) + (1 + Type_num || item) 
     ##    Data: det_dat (Number of observations: 15912) 
-    ##   Draws: 4 chains, each with iter = 6000; warmup = 3000; thin = 1;
-    ##          total post-warmup draws = 12000
+    ##   Draws: 4 chains, each with iter = 12000; warmup = 6000; thin = 1;
+    ##          total post-warmup draws = 24000
     ## 
     ## Group-Level Effects: 
     ## ~item (Number of levels: 24) 
     ##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-    ## sd(Intercept)     6.21      3.02     0.67    12.45 1.00     2873     3958
-    ## sd(Type_num)     13.00      3.88     5.67    21.27 1.00     3952     5216
+    ## sd(Intercept)     6.01      2.98     0.53    12.02 1.00     6509     9652
+    ## sd(Type_num)     13.01      3.90     5.87    21.35 1.00     8434    10189
     ## 
     ## ~participant (Number of levels: 2000) 
     ##              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-    ## sd(Type_num)    56.24      3.44    49.37    62.85 1.00     3959     6493
+    ## sd(Type_num)    56.67      3.46    49.72    63.36 1.00     7681    11129
     ## 
     ## Population-Level Effects: 
     ##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-    ## Intercept   -13.02      2.50   -17.96    -8.06 1.00    16165    10267
-    ## Type_num      5.19      4.21    -3.13    13.52 1.00    12027     9715
+    ## Intercept    -2.43      2.48    -7.34     2.43 1.00    28395    19013
+    ## Type_num      4.74      4.23    -3.50    13.13 1.00    23878    18668
     ## 
     ## Family Specific Parameters: 
     ##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-    ## sigma   183.25      1.10   181.12   185.45 1.00    14987     9640
+    ## sigma   183.25      1.10   181.14   185.42 1.00    28851    17977
     ## 
     ## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
     ## and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -730,12 +711,16 @@ summary(fit_det_bayes)
 ``` r
 fit_noun_bayes <- brm(corrected_rt ~ Type_num + (0 + Type_num || participant) + (1 + Type_num || item),
                   data=noun_dat,
-                  prior = prior1,
-                  cores = 4,
-                  iter = 6000,
-                  seed = 117
+                  prior = brms_parms$prior,
+                  cores = brms_parms$ncores,
+                  iter = brms_parms$niters,
+                  seed = brms_parms$seed,
+                  warmup = brms_parms$warmup,
+                  control = list(adapt_delta = brms_parms$adapt_delta)
                   )
 ```
+
+    ## Warning: Rows containing NAs were excluded from the model.
 
     ## Compiling Stan program...
 
@@ -765,37 +750,47 @@ fit_noun_bayes <- brm(corrected_rt ~ Type_num + (0 + Type_num || participant) + 
 
     ## Start sampling
 
+    ## Warning: There were 348 divergent transitions after warmup. See
+    ## https://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup
+    ## to find out why this is a problem and how to eliminate them.
+
+    ## Warning: Examine the pairs() plot to diagnose sampling problems
+
 ``` r
 saveRDS(fit_noun_bayes, './saved_objects/fit_noun_bayes_prior1')
 
 summary(fit_noun_bayes)
 ```
 
+    ## Warning: There were 348 divergent transitions after warmup. Increasing
+    ## adapt_delta above 0.8 may help. See http://mc-stan.org/misc/
+    ## warnings.html#divergent-transitions-after-warmup
+
     ##  Family: gaussian 
     ##   Links: mu = identity; sigma = identity 
     ## Formula: corrected_rt ~ Type_num + (0 + Type_num || participant) + (1 + Type_num || item) 
     ##    Data: noun_dat (Number of observations: 15911) 
-    ##   Draws: 4 chains, each with iter = 6000; warmup = 3000; thin = 1;
-    ##          total post-warmup draws = 12000
+    ##   Draws: 4 chains, each with iter = 12000; warmup = 6000; thin = 1;
+    ##          total post-warmup draws = 24000
     ## 
     ## Group-Level Effects: 
     ## ~item (Number of levels: 24) 
     ##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-    ## sd(Intercept)    35.43      6.19    25.40    49.38 1.00     3567     7014
-    ## sd(Type_num)     17.25      6.69     3.59    30.87 1.00     2501     1840
+    ## sd(Intercept)    35.66      6.32    25.41    50.37 1.00     5613    10394
+    ## sd(Type_num)     18.25      6.53     4.79    31.36 1.00     4430     3396
     ## 
     ## ~participant (Number of levels: 2000) 
     ##              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-    ## sd(Type_num)    26.67     10.96     3.02    44.84 1.01      924     1494
+    ## sd(Type_num)    24.94     11.03     2.44    43.69 1.00     1690     3318
     ## 
     ## Population-Level Effects: 
     ##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-    ## Intercept    35.38      8.04    19.42    50.87 1.00     2316     4145
-    ## Type_num     -5.78      5.54   -16.81     5.16 1.00     9474     8218
+    ## Intercept    46.16      8.00    30.30    61.91 1.00     4034     7712
+    ## Type_num     -6.16      5.65   -17.27     4.88 1.00    14947    14694
     ## 
     ## Family Specific Parameters: 
     ##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-    ## sigma   254.55      1.50   251.63   257.53 1.00     6648     7595
+    ## sigma   254.30      1.53   251.30   257.33 1.00    10383     9568
     ## 
     ## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
     ## and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -835,6 +830,8 @@ by_construction <- emp_dat %>%
 ``` r
 saveRDS(by_construction, '../../../plots/spr/RelativeClause/by_construction.rds')
 
+by_construction <- readRDS('../../../plots/spr/RelativeClause/by_construction.rds')
+
 by_item <- emp_dat %>%
   mutate(diff = b_Type_num + r_Type_num,
          coef = 'RC',
@@ -850,8 +847,18 @@ by_item <- emp_dat %>%
 ``` r
 saveRDS(by_item, '../../../plots/spr/RelativeClause/by_item.rds')
 
-by_item_surprisalmerged <- merge_surprisal(rt.data,by_item,"RelativeClause")
+by_item <- readRDS('../../../plots/spr/RelativeClause/by_item.rds')
+
+rt.data.human_only <- rt.data %>%
+  filter(model == 'lstm') %>%
+  select(!model)  # because merge_surprisal does not think there is a model
+                  # column in the the rt.data
+
+by_item_surprisalmerged <- merge_surprisal(rt.data.human_only,by_item,"RelativeClause")
 ```
+
+    ## [1] 124672
+    ## [1] 143235
 
     ## `summarise()` has grouped output by 'item.x', 'Type', 'ROI'. You can override using the `.groups` argument.
 
@@ -868,11 +875,13 @@ by_item_surprisalmerged <- merge_surprisal(rt.data,by_item,"RelativeClause")
 fit_verb_bayes_pred_gpt2 <- brm(corrected_predicted ~ Type_num +
                               (0 + Type_num || participant) +
                               (1 + Type_num || item),
-                  data=subset(predicted_dat, ROI==0 & model == 'gpt2'),
-                  prior = prior1,
-                  cores = 4,
-                  iter = 12000,
-                  seed = 117
+                  data=subset(predicted_dat, ROI==0 & model == 'gpt2' &!is.na(RT)),
+                  prior = brms_parms$prior,
+                  cores = brms_parms$ncores,
+                  iter = brms_parms$niters,
+                  seed = brms_parms$seed,
+                  warmup = brms_parms$warmup,
+                  control = list(adapt_delta = brms_parms$adapt_delta)
                   )
 ```
 
@@ -916,28 +925,28 @@ summary(fit_verb_bayes_pred_gpt2)
     ##  Family: gaussian 
     ##   Links: mu = identity; sigma = identity 
     ## Formula: corrected_predicted ~ Type_num + (0 + Type_num || participant) + (1 + Type_num || item) 
-    ##    Data: subset(predicted_dat, ROI == 0 & model == "gpt2") (Number of observations: 15907) 
+    ##    Data: subset(predicted_dat, ROI == 0 & model == "gpt2" & (Number of observations: 15908) 
     ##   Draws: 4 chains, each with iter = 12000; warmup = 6000; thin = 1;
     ##          total post-warmup draws = 24000
     ## 
     ## Group-Level Effects: 
     ## ~item (Number of levels: 24) 
     ##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-    ## sd(Intercept)    15.62      2.50    11.64    21.44 1.00     4763     8905
-    ## sd(Type_num)     21.87      3.54    16.27    30.06 1.00     5535     9809
+    ## sd(Intercept)    15.50      2.47    11.56    21.21 1.00     4270     7828
+    ## sd(Type_num)     21.74      3.48    16.21    29.81 1.00     3713     8055
     ## 
     ## ~participant (Number of levels: 2000) 
     ##              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-    ## sd(Type_num)    22.28      0.42    21.48    23.12 1.00     6538    11293
+    ## sd(Type_num)    20.45      0.38    19.70    21.21 1.00     6689    12837
     ## 
     ## Population-Level Effects: 
     ##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-    ## Intercept    13.07      3.21     6.72    19.44 1.00     2265     4556
-    ## Type_num     26.43      4.52    17.43    35.44 1.00     2144     4860
+    ## Intercept    16.92      3.32    10.40    23.50 1.00     1724     3437
+    ## Type_num     23.39      4.47    14.63    32.36 1.00     1936     4218
     ## 
     ## Family Specific Parameters: 
     ##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-    ## sigma    18.50      0.11    18.28    18.72 1.00    36587    18826
+    ## sigma    17.04      0.10    16.84    17.24 1.00    34438    18600
     ## 
     ## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
     ## and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -947,11 +956,13 @@ summary(fit_verb_bayes_pred_gpt2)
 fit_verb_bayes_pred_lstm <- brm(corrected_predicted ~ Type_num +
                               (0 + Type_num || participant) +
                               (1 + Type_num || item),
-                  data=subset(predicted_dat, ROI==0 & model == 'lstm'),
-                  prior = prior1,
-                  cores = 4,
-                  iter = 12000,
-                  seed = 117
+                  data=subset(predicted_dat, ROI==0 & model == 'lstm' &!is.na(RT)),
+                  prior = brms_parms$prior,
+                  cores = brms_parms$ncores,
+                  iter = brms_parms$niters,
+                  seed = brms_parms$seed,
+                  warmup = brms_parms$warmup,
+                  control = list(adapt_delta = brms_parms$adapt_delta)
                   )
 ```
 
@@ -987,7 +998,7 @@ fit_verb_bayes_pred_lstm <- brm(corrected_predicted ~ Type_num +
 saveRDS(fit_verb_bayes_pred_lstm, './saved_objects/fit_verb_bayes_pred_lstm_prior1')
 
 
-fit_verb_bayes_pred_lstm <- readRDS('./saved_objects/fit_verb_bayes_pred_lstm_prior1')
+#fit_verb_bayes_pred_lstm <- readRDS('./saved_objects/fit_verb_bayes_pred_lstm_prior1')
 
 summary(fit_verb_bayes_pred_lstm)
 ```
@@ -995,28 +1006,28 @@ summary(fit_verb_bayes_pred_lstm)
     ##  Family: gaussian 
     ##   Links: mu = identity; sigma = identity 
     ## Formula: corrected_predicted ~ Type_num + (0 + Type_num || participant) + (1 + Type_num || item) 
-    ##    Data: subset(predicted_dat, ROI == 0 & model == "lstm") (Number of observations: 15907) 
+    ##    Data: subset(predicted_dat, ROI == 0 & model == "lstm" & (Number of observations: 15908) 
     ##   Draws: 4 chains, each with iter = 12000; warmup = 6000; thin = 1;
     ##          total post-warmup draws = 24000
     ## 
     ## Group-Level Effects: 
     ## ~item (Number of levels: 24) 
     ##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-    ## sd(Intercept)    16.36      2.60    12.21    22.26 1.00     2959     5291
-    ## sd(Type_num)     20.44      3.30    15.25    27.94 1.00     2286     5153
+    ## sd(Intercept)    16.12      2.57    12.03    21.99 1.00     3557     7345
+    ## sd(Type_num)     20.38      3.25    15.23    27.86 1.00     3825     6755
     ## 
     ## ~participant (Number of levels: 2000) 
     ##              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-    ## sd(Type_num)    16.46      0.30    15.88    17.06 1.00     4962     9649
+    ## sd(Type_num)    15.97      0.30    15.39    16.55 1.00     5520    10218
     ## 
     ## Population-Level Effects: 
     ##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-    ## Intercept     8.90      3.45     2.11    15.79 1.00     1173     2359
-    ## Type_num     26.30      4.22    18.00    34.44 1.00     1165     2548
+    ## Intercept    14.37      3.25     7.95    20.74 1.00     1644     3419
+    ## Type_num     22.62      4.17    14.26    30.87 1.00     1616     3505
     ## 
     ## Family Specific Parameters: 
     ##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-    ## sigma    12.98      0.08    12.83    13.13 1.00    22569    18694
+    ## sigma    12.68      0.08    12.53    12.83 1.00    24370    18561
     ## 
     ## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
     ## and Tail_ESS are effective sample size measures, and Rhat is the potential

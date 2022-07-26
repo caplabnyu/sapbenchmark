@@ -21,7 +21,7 @@ source('../../shared/brms_parameters.R')
 
 ### Empirical data
 
-```{r}
+```{r, cache=TRUE}
 
 rt.data <- load_data("RelativeClause") 
 
@@ -31,12 +31,12 @@ rt.data <- Predicting_RT_with_spillover(rt.data, 'RelativeClause')
 saveRDS(rt.data, './saved_objects/predicted_dat_rc.rds')
 
 filler.data <-  Predicting_RT_with_spillover(filler.data, 'filler')
-saveRDS(predicted_dat_filler, './saved_objects/predicted_dat_filler.rds')
+saveRDS(filler.data, './saved_objects/predicted_dat_filler.rds')
   
 ```
 
 **Correcting for the effect of word position**
-```{r}
+```{r, cache=TRUE}
 
 position_fit_lmer_nocor <- lmer(RT ~ scale(WordPosition) + (1 + scale(WordPosition) || participant), subset(filler.data, model=='lstm')) # model doesn't matter for RT. 
 # We want data from only one model to avoid duplicating rows. 
@@ -127,7 +127,7 @@ det_dat <- rt.data %>%
 contrasts(det_dat$Type)
 
 ## part intercept is 0 because we removed out this intercept through word pos correction
-fit_det_lmer <- lmer(corrected_rt ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item), data=det_dat)
+fit_det_lmer <- lmer(corrected_rt ~ Type_num + (0 + Type_num || participant) + (1 + Type_num || item), data=det_dat)
 
 summary(fit_det_lmer)
 
@@ -144,7 +144,7 @@ noun_dat <- rt.data %>%
 contrasts(noun_dat$Type)
 
 ## part intercept is 0 because we removed out this intercept through word pos correction
-fit_noun_lmer <- lmer(corrected_rt ~ Type_num + (0 + Type_num | participant) + (1 + Type_num | item), data=noun_dat)
+fit_noun_lmer <- lmer(corrected_rt ~ Type_num + (0 + Type_num || participant) + (1 + Type_num || item), data=noun_dat)
 
 summary(fit_noun_lmer)
 
@@ -252,9 +252,9 @@ fit_verb_bayes <- brm(corrected_rt ~ Type_num +
                   prior = brms_parms$prior,
                   cores = brms_parms$ncores,
                   iter = brms_parms$niters,
-                  seed = brms_pars$seed,
+                  seed = brms_parms$seed,
                   warmup = brms_parms$warmup,
-                  adapt_delta = brms_parms$adapt_delta
+                  control = list(adapt_delta = brms_parms$adapt_delta)
                   )
 
 saveRDS(fit_verb_bayes, './saved_objects/fit_verb_bayes_prior1')
@@ -273,9 +273,9 @@ fit_det_bayes <- brm(corrected_rt ~ Type_num + (0 + Type_num || participant) + (
                   prior = brms_parms$prior,
                   cores = brms_parms$ncores,
                   iter = brms_parms$niters,
-                  seed = brms_pars$seed,
+                  seed = brms_parms$seed,
                   warmup = brms_parms$warmup,
-                  adapt_delta = brms_parms$adapt_delta
+                  control = list(adapt_delta = brms_parms$adapt_delta)
                   )
 
 saveRDS(fit_det_bayes, './saved_objects/fit_det_bayes_prior1')
@@ -296,9 +296,9 @@ fit_noun_bayes <- brm(corrected_rt ~ Type_num + (0 + Type_num || participant) + 
                   prior = brms_parms$prior,
                   cores = brms_parms$ncores,
                   iter = brms_parms$niters,
-                  seed = brms_pars$seed,
+                  seed = brms_parms$seed,
                   warmup = brms_parms$warmup,
-                  adapt_delta = brms_parms$adapt_delta
+                  control = list(adapt_delta = brms_parms$adapt_delta)
                   )
 
 saveRDS(fit_noun_bayes, './saved_objects/fit_noun_bayes_prior1')
@@ -342,6 +342,8 @@ by_construction <- emp_dat %>%
 
 saveRDS(by_construction, '../../../plots/spr/RelativeClause/by_construction.rds')
 
+by_construction <- readRDS('../../../plots/spr/RelativeClause/by_construction.rds')
+
 by_item <- emp_dat %>%
   mutate(diff = b_Type_num + r_Type_num,
          coef = 'RC',
@@ -353,7 +355,14 @@ by_item <- emp_dat %>%
 
 saveRDS(by_item, '../../../plots/spr/RelativeClause/by_item.rds')
 
-by_item_surprisalmerged <- merge_surprisal(rt.data,by_item,"RelativeClause")
+by_item <- readRDS('../../../plots/spr/RelativeClause/by_item.rds')
+
+rt.data.human_only <- rt.data %>%
+  filter(model == 'lstm') %>%
+  select(!model)  # because merge_surprisal does not think there is a model
+                  # column in the the rt.data
+
+by_item_surprisalmerged <- merge_surprisal(rt.data.human_only,by_item,"RelativeClause")
 
 ```
 
@@ -373,10 +382,12 @@ fit_verb_bayes_pred_gpt2 <- brm(corrected_predicted ~ Type_num +
                               (0 + Type_num || participant) +
                               (1 + Type_num || item),
                   data=subset(predicted_dat, ROI==0 & model == 'gpt2' &!is.na(RT)),
-                  prior = prior1,
-                  cores = 4,
-                  iter = 12000,
-                  seed = 117
+                  prior = brms_parms$prior,
+                  cores = brms_parms$ncores,
+                  iter = brms_parms$niters,
+                  seed = brms_parms$seed,
+                  warmup = brms_parms$warmup,
+                  control = list(adapt_delta = brms_parms$adapt_delta)
                   )
 
 saveRDS(fit_verb_bayes_pred_gpt2, './saved_objects/fit_verb_bayes_pred_gpt2_prior1')
@@ -395,16 +406,18 @@ fit_verb_bayes_pred_lstm <- brm(corrected_predicted ~ Type_num +
                               (0 + Type_num || participant) +
                               (1 + Type_num || item),
                   data=subset(predicted_dat, ROI==0 & model == 'lstm' &!is.na(RT)),
-                  prior = prior1,
-                  cores = 4,
-                  iter = 12000,
-                  seed = 117
+                  prior = brms_parms$prior,
+                  cores = brms_parms$ncores,
+                  iter = brms_parms$niters,
+                  seed = brms_parms$seed,
+                  warmup = brms_parms$warmup,
+                  control = list(adapt_delta = brms_parms$adapt_delta)
                   )
 
 saveRDS(fit_verb_bayes_pred_lstm, './saved_objects/fit_verb_bayes_pred_lstm_prior1')
 
 
-fit_verb_bayes_pred_lstm <- readRDS('./saved_objects/fit_verb_bayes_pred_lstm_prior1')
+#fit_verb_bayes_pred_lstm <- readRDS('./saved_objects/fit_verb_bayes_pred_lstm_prior1')
 
 summary(fit_verb_bayes_pred_lstm)
 
