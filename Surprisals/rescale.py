@@ -21,6 +21,7 @@ for row in reader:
 files = os.listdir(args.path)
 for file in files:
     if file.split(".")[-1] != "csv": continue
+    if file.split(".")[-2] == "post": continue
     print(file)
     with open(args.path + file, "r") as surp_f:
         reader = csv.DictReader(surp_f)
