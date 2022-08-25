@@ -5,9 +5,9 @@ library(ggplot2)
 #emp_RC_P0 <- readRDS("RelativeClause/fit_verb_bayes_prior1.rds")
 #emp_RC_P1 <- readRDS("RelativeClause/fit_det_bayes_prior1.rds")
 #emp_RC_P2 <- readRDS("RelativeClause/fit_noun_bayes_prior1.rds")
-#lstm_RC_P0 <- readRDS("RelativeClause/fit_verb_bayes_pred_gpt2_prior1.rds")
+#lstm_RC_P0 <- readRDS("RelativeClause/fit_verb_bayes_pred_lstm_prior1.rds")
 #lstm_RC_P1 <- readRDS("RelativeClause/fit_det_bayes_pred_lstm_prior1.rds")
-#lstm_RC_P2 <- readRDS("RelativeClause/fit_noun_bayes_pred_gpt2_prior1.rds")
+#lstm_RC_P2 <- readRDS("RelativeClause/fit_noun_bayes_pred_lstm_prior1.rds")
 #gpt2_RC_P0 <- readRDS("RelativeClause/fit_verb_bayes_pred_gpt2_prior1.rds")
 #gpt2_RC_P1 <- readRDS("RelativeClause/fit_det_bayes_pred_gpt2_prior1.rds")
 #gpt2_RC_P2 <- readRDS("RelativeClause/fit_noun_bayes_pred_gpt2_prior1.rds")
@@ -160,6 +160,52 @@ for(i in 1:24){
 }
 
 
+by_item <- data.frame(item=c(posterior_emp_RC_P0$item,posterior_emp_RC_P1$item,posterior_emp_RC_P2$item),
+                      ROI=c(posterior_emp_RC_P0$ROI,posterior_emp_RC_P1$ROI,posterior_emp_RC_P2$ROI),
+                      coef="RC",
+                      mean=c(posterior_emp_RC_P0$mean,posterior_emp_RC_P1$mean,posterior_emp_RC_P2$mean),
+                      lower=c(posterior_emp_RC_P0$lower,posterior_emp_RC_P1$lower,posterior_emp_RC_P2$lower),
+                      upper=c(posterior_emp_RC_P0$upper,posterior_emp_RC_P1$upper,posterior_emp_RC_P2$upper))
+by_item_lstm <- data.frame(item=c(posterior_lstm_RC_P0$item,posterior_lstm_RC_P1$item,posterior_lstm_RC_P2$item),
+                           ROI=c(posterior_lstm_RC_P0$ROI,posterior_lstm_RC_P1$ROI,posterior_lstm_RC_P2$ROI),
+                           coef="RC",
+                           mean=c(posterior_lstm_RC_P0$mean,posterior_lstm_RC_P1$mean,posterior_lstm_RC_P2$mean),
+                           lower=c(posterior_lstm_RC_P0$lower,posterior_lstm_RC_P1$lower,posterior_lstm_RC_P2$lower),
+                           upper=c(posterior_lstm_RC_P0$upper,posterior_lstm_RC_P1$upper,posterior_lstm_RC_P2$upper))
+by_item_gpt2 <- data.frame(item=c(posterior_gpt2_RC_P0$item,posterior_gpt2_RC_P1$item,posterior_gpt2_RC_P2$item),
+                           ROI=c(posterior_gpt2_RC_P0$ROI,posterior_gpt2_RC_P1$ROI,posterior_gpt2_RC_P2$ROI),
+                           coef="RC",
+                           mean=c(posterior_gpt2_RC_P0$mean,posterior_gpt2_RC_P1$mean,posterior_gpt2_RC_P2$mean),
+                           lower=c(posterior_gpt2_RC_P0$lower,posterior_gpt2_RC_P1$lower,posterior_gpt2_RC_P2$lower),
+                           upper=c(posterior_gpt2_RC_P0$upper,posterior_gpt2_RC_P1$upper,posterior_gpt2_RC_P2$upper))
+by_item_nosurp <- data.frame(item=c(posterior_nosurp_RC_P0$item,posterior_nosurp_RC_P1$item,posterior_nosurp_RC_P2$item),
+                             ROI=c(posterior_nosurp_RC_P0$ROI,posterior_nosurp_RC_P1$ROI,posterior_nosurp_RC_P2$ROI),
+                             coef="RC",
+                             mean=c(posterior_nosurp_RC_P0$mean,posterior_nosurp_RC_P1$mean,posterior_nosurp_RC_P2$mean),
+                             lower=c(posterior_nosurp_RC_P0$lower,posterior_nosurp_RC_P1$lower,posterior_nosurp_RC_P2$lower),
+                             upper=c(posterior_nosurp_RC_P0$upper,posterior_nosurp_RC_P1$upper,posterior_nosurp_RC_P2$upper))
+saveRDS(by_item,"RelativeClause/by_item.rds")
+saveRDS(by_item_lstm,"RelativeClause/by_item_lstm.rds")
+saveRDS(by_item_gpt2,"RelativeClause/by_item_gpt2.rds")
+saveRDS(by_item_nosurp,"RelativeClause/by_item_nosurp.rds")
+
+by_construction <- data.frame(ROI=c(0,1,2),coef="RC",mean=c(mean(emp_RC_P0_posterior_samp$b_Type_num),mean(emp_RC_P1_posterior_samp$b_Type_num),mean(emp_RC_P2_posterior_samp$b_Type_num)),
+                              lower=c(quantile(emp_RC_P0_posterior_samp$b_Type_num,0.025),quantile(emp_RC_P1_posterior_samp$b_Type_num,0.025),quantile(emp_RC_P2_posterior_samp$b_Type_num,0.025)),
+                              upper=c(quantile(emp_RC_P0_posterior_samp$b_Type_num,0.975),quantile(emp_RC_P1_posterior_samp$b_Type_num,0.975),quantile(emp_RC_P2_posterior_samp$b_Type_num,0.975)))
+by_construction_lstm <- data.frame(ROI=c(0,1,2),coef="RC",mean=c(mean(lstm_RC_P0_posterior_samp$b_Type_num),mean(lstm_RC_P1_posterior_samp$b_Type_num),mean(lstm_RC_P2_posterior_samp$b_Type_num)),
+                                   lower=c(quantile(lstm_RC_P0_posterior_samp$b_Type_num,0.025),quantile(lstm_RC_P1_posterior_samp$b_Type_num,0.025),quantile(lstm_RC_P2_posterior_samp$b_Type_num,0.025)),
+                                   upper=c(quantile(lstm_RC_P0_posterior_samp$b_Type_num,0.975),quantile(lstm_RC_P1_posterior_samp$b_Type_num,0.975),quantile(lstm_RC_P2_posterior_samp$b_Type_num,0.975)))
+by_construction_gpt2 <- data.frame(ROI=c(0,1,2),coef="RC",mean=c(mean(gpt2_RC_P0_posterior_samp$b_Type_num),mean(gpt2_RC_P1_posterior_samp$b_Type_num),mean(gpt2_RC_P2_posterior_samp$b_Type_num)),
+                                   lower=c(quantile(gpt2_RC_P0_posterior_samp$b_Type_num,0.025),quantile(gpt2_RC_P1_posterior_samp$b_Type_num,0.025),quantile(gpt2_RC_P2_posterior_samp$b_Type_num,0.025)),
+                                   upper=c(quantile(gpt2_RC_P0_posterior_samp$b_Type_num,0.975),quantile(gpt2_RC_P1_posterior_samp$b_Type_num,0.975),quantile(gpt2_RC_P2_posterior_samp$b_Type_num,0.975)))
+by_construction_nosurp <- data.frame(ROI=c(0,1,2),coef="RC",mean=c(mean(nosurp_RC_P0_posterior_samp$b_Type_num),mean(nosurp_RC_P1_posterior_samp$b_Type_num),mean(nosurp_RC_P2_posterior_samp$b_Type_num)),
+                                     lower=c(quantile(nosurp_RC_P0_posterior_samp$b_Type_num,0.025),quantile(nosurp_RC_P1_posterior_samp$b_Type_num,0.025),quantile(nosurp_RC_P2_posterior_samp$b_Type_num,0.025)),
+                                     upper=c(quantile(nosurp_RC_P0_posterior_samp$b_Type_num,0.975),quantile(nosurp_RC_P1_posterior_samp$b_Type_num,0.975),quantile(nosurp_RC_P2_posterior_samp$b_Type_num,0.975)))
+
+saveRDS(by_construction,"RelativeClause/by_construction.rds")
+saveRDS(by_construction_lstm,"RelativeClause/by_construction_lstm.rds")
+saveRDS(by_construction_gpt2,"RelativeClause/by_construction_gpt2.rds")
+saveRDS(by_construction_nosurp,"RelativeClause/by_construction_nosurp.rds")
 
 #P0
 sampled_correlations_P0 <- data.frame(Correlation=rep(NA,3000),EOI=rep("RC",3000),model=rep(c("lstm","gpt2","nosurp"),1000),ROI=0)
@@ -244,7 +290,7 @@ temp$ROI <- 2
 for_plotting_RC <- rbind(for_plotting_RC,temp)
 rm(temp)
 
-
+#saveRDS(for_plotting_RC,"for_plotting_RC.rds")
 
 for_plotting_RC_max <- for_plotting_RC[(for_plotting_RC$ROI==1),]
 
@@ -290,10 +336,11 @@ posterior_nosurp_RC_P1$model <- "nosurp"
 posterior_nosurp_RC_P2$model <- "nosurp"
 
 df_pointestimate <- 
-  data.frame(emp=posterior_emp_RC_P0$mean,
-             lstm=posterior_lstm_RC_P0$mean,
-             gpt2=posterior_gpt2_RC_P0$mean,
-             nosurp=posterior_nosurp_RC_P0$mean)
-df_pointestimate$EOI <- "RC"
-df_pointestimate$item <- 25:48
+  data.frame(emp=c(posterior_emp_RC_P0$mean,posterior_emp_RC_P1$mean,posterior_emp_RC_P2$mean),
+             lstm=c(posterior_lstm_RC_P0$mean,posterior_lstm_RC_P1$mean,posterior_lstm_RC_P2$mean),
+             gpt2=c(posterior_gpt2_RC_P0$mean,posterior_lstm_RC_P1$mean,posterior_lstm_RC_P2$mean),
+             nosurp=c(posterior_nosurp_RC_P0$mean,posterior_lstm_RC_P1$mean,posterior_lstm_RC_P2$mean),
+             EOI="RC",
+             item=rep(25:48,3),
+             ROI=rep(c(0,1,2),each=24))
 saveRDS(df_pointestimate,"df_pointestimate_RC.rds")

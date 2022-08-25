@@ -233,7 +233,56 @@ for(i in 1:24){
   posterior_nosurp_low_P2[i,]$lower <- quantile(nosurp_AA_P2_posterior_samp[,i+ncols+24],0.025)
 }
 
+by_item <- data.frame(item=c(posterior_emp_high_P0$item,posterior_emp_high_P1$item,posterior_emp_high_P2$item,posterior_emp_low_P0$item,posterior_emp_low_P1$item,posterior_emp_low_P2$item),
+                      ROI=c(posterior_emp_high_P0$ROI,posterior_emp_high_P1$ROI,posterior_emp_high_P2$ROI,posterior_emp_low_P0$ROI,posterior_emp_low_P1$ROI,posterior_emp_low_P2$ROI),
+                      coef=rep(c("GPE_high","GPE_low"),each=72),
+                      mean=c(posterior_emp_high_P0$mean,posterior_emp_high_P1$mean,posterior_emp_high_P2$mean,posterior_emp_low_P0$mean,posterior_emp_low_P1$mean,posterior_emp_low_P2$mean),
+                      lower=c(posterior_emp_high_P0$lower,posterior_emp_high_P1$lower,posterior_emp_high_P2$lower,posterior_emp_low_P0$lower,posterior_emp_low_P1$lower,posterior_emp_low_P2$lower),
+                      upper=c(posterior_emp_high_P0$upper,posterior_emp_high_P1$upper,posterior_emp_high_P2$upper,posterior_emp_low_P0$upper,posterior_emp_low_P1$upper,posterior_emp_low_P2$upper))
+by_item_lstm <- data.frame(item=c(posterior_lstm_high_P0$item,posterior_lstm_high_P1$item,posterior_lstm_high_P2$item,posterior_lstm_low_P0$item,posterior_lstm_low_P1$item,posterior_lstm_low_P2$item),
+                           ROI=c(posterior_lstm_high_P0$ROI,posterior_lstm_high_P1$ROI,posterior_lstm_high_P2$ROI,posterior_lstm_low_P0$ROI,posterior_lstm_low_P1$ROI,posterior_lstm_low_P2$ROI),
+                           coef=rep(c("GPE_high","GPE_low"),each=72),
+                           mean=c(posterior_lstm_high_P0$mean,posterior_lstm_high_P1$mean,posterior_lstm_high_P2$mean,posterior_lstm_low_P0$mean,posterior_lstm_low_P1$mean,posterior_lstm_low_P2$mean),
+                           lower=c(posterior_lstm_high_P0$lower,posterior_lstm_high_P1$lower,posterior_lstm_high_P2$lower,posterior_lstm_low_P0$lower,posterior_lstm_low_P1$lower,posterior_lstm_low_P2$lower),
+                           upper=c(posterior_lstm_high_P0$upper,posterior_lstm_high_P1$upper,posterior_lstm_high_P2$upper,posterior_lstm_low_P0$upper,posterior_lstm_low_P1$upper,posterior_lstm_low_P2$upper))
+by_item_gpt2 <- data.frame(item=c(posterior_gpt2_high_P0$item,posterior_gpt2_high_P1$item,posterior_gpt2_high_P2$item,posterior_gpt2_low_P0$item,posterior_gpt2_low_P1$item,posterior_gpt2_low_P2$item),
+                           ROI=c(posterior_gpt2_high_P0$ROI,posterior_gpt2_high_P1$ROI,posterior_gpt2_high_P2$ROI,posterior_gpt2_low_P0$ROI,posterior_gpt2_low_P1$ROI,posterior_gpt2_low_P2$ROI),
+                           coef=rep(c("GPE_high","GPE_low"),each=72),
+                           mean=c(posterior_gpt2_high_P0$mean,posterior_gpt2_high_P1$mean,posterior_gpt2_high_P2$mean,posterior_gpt2_low_P0$mean,posterior_gpt2_low_P1$mean,posterior_gpt2_low_P2$mean),
+                           lower=c(posterior_gpt2_high_P0$lower,posterior_gpt2_high_P1$lower,posterior_gpt2_high_P2$lower,posterior_gpt2_low_P0$lower,posterior_gpt2_low_P1$lower,posterior_gpt2_low_P2$lower),
+                           upper=c(posterior_gpt2_high_P0$upper,posterior_gpt2_high_P1$upper,posterior_gpt2_high_P2$upper,posterior_gpt2_low_P0$upper,posterior_gpt2_low_P1$upper,posterior_gpt2_low_P2$upper))
+by_item_nosurp <- data.frame(item=c(posterior_nosurp_high_P0$item,posterior_nosurp_high_P1$item,posterior_nosurp_high_P2$item,posterior_nosurp_low_P0$item,posterior_nosurp_low_P1$item,posterior_nosurp_low_P2$item),
+                             ROI=c(posterior_nosurp_high_P0$ROI,posterior_nosurp_high_P1$ROI,posterior_nosurp_high_P2$ROI,posterior_nosurp_low_P0$ROI,posterior_nosurp_low_P1$ROI,posterior_nosurp_low_P2$ROI),
+                             coef=rep(c("GPE_high","GPE_low"),each=72),
+                             mean=c(posterior_nosurp_high_P0$mean,posterior_nosurp_high_P1$mean,posterior_nosurp_high_P2$mean,posterior_nosurp_low_P0$mean,posterior_nosurp_low_P1$mean,posterior_nosurp_low_P2$mean),
+                             lower=c(posterior_nosurp_high_P0$lower,posterior_nosurp_high_P1$lower,posterior_nosurp_high_P2$lower,posterior_nosurp_low_P0$lower,posterior_nosurp_low_P1$lower,posterior_nosurp_low_P2$lower),
+                             upper=c(posterior_nosurp_high_P0$upper,posterior_nosurp_high_P1$upper,posterior_nosurp_high_P2$upper,posterior_nosurp_low_P0$upper,posterior_nosurp_low_P1$upper,posterior_nosurp_low_P2$upper))
+by_item <- arrange(by_item,item,ROI)
+by_item_lstm <- arrange(by_item_lstm,item,ROI)
+by_item_gpt2 <- arrange(by_item_gpt2,item,ROI)
+by_item_nosurp <- arrange(by_item_nosurp,item,ROI)
+saveRDS(by_item,"AttachmentAmbiguity/by_item.rds")
+saveRDS(by_item_lstm,"AttachmentAmbiguity/by_item_lstm.rds")
+saveRDS(by_item_gpt2,"AttachmentAmbiguity/by_item_gpt2.rds")
+saveRDS(by_item_nosurp,"AttachmentAmbiguity/by_item_nosurp.rds")
 
+by_construction <- data.frame(ROI=rep(c(0,1,2),2),coef=rep(c("GPE_high","GPE_low"),each=3),mean=c(mean(-emp_AA_P0_posterior_samp$b_ambiguity+0.5*emp_AA_P0_posterior_samp$b_height),mean(-emp_AA_P1_posterior_samp$b_ambiguity+0.5*emp_AA_P1_posterior_samp$b_height),mean(-emp_AA_P2_posterior_samp$b_ambiguity+0.5*emp_AA_P2_posterior_samp$b_height),mean(-emp_AA_P0_posterior_samp$b_ambiguity-0.5*emp_AA_P0_posterior_samp$b_height),mean(-emp_AA_P1_posterior_samp$b_ambiguity-0.5*emp_AA_P1_posterior_samp$b_height),mean(-emp_AA_P2_posterior_samp$b_ambiguity-0.5*emp_AA_P2_posterior_samp$b_height)),
+                              lower=c(quantile(-emp_AA_P0_posterior_samp$b_ambiguity+0.5*emp_AA_P0_posterior_samp$b_height,0.025),quantile(-emp_AA_P1_posterior_samp$b_ambiguity+0.5*emp_AA_P1_posterior_samp$b_height,0.025),quantile(-emp_AA_P2_posterior_samp$b_ambiguity+0.5*emp_AA_P2_posterior_samp$b_height,0.025),quantile(-emp_AA_P0_posterior_samp$b_ambiguity-0.5*emp_AA_P0_posterior_samp$b_height,0.025),quantile(-emp_AA_P1_posterior_samp$b_ambiguity-0.5*emp_AA_P1_posterior_samp$b_height,0.025),quantile(-emp_AA_P2_posterior_samp$b_ambiguity-0.5*emp_AA_P2_posterior_samp$b_height,0.025)),
+                              upper=c(quantile(-emp_AA_P0_posterior_samp$b_ambiguity+0.5*emp_AA_P0_posterior_samp$b_height,0.975),quantile(-emp_AA_P1_posterior_samp$b_ambiguity+0.5*emp_AA_P1_posterior_samp$b_height,0.975),quantile(-emp_AA_P2_posterior_samp$b_ambiguity+0.5*emp_AA_P2_posterior_samp$b_height,0.975),quantile(-emp_AA_P0_posterior_samp$b_ambiguity-0.5*emp_AA_P0_posterior_samp$b_height,0.975),quantile(-emp_AA_P1_posterior_samp$b_ambiguity-0.5*emp_AA_P1_posterior_samp$b_height,0.975),quantile(-emp_AA_P2_posterior_samp$b_ambiguity-0.5*emp_AA_P2_posterior_samp$b_height,0.975)))
+by_construction_lstm <- data.frame(ROI=rep(c(0,1,2),2),coef=rep(c("GPE_high","GPE_low"),each=3),mean=c(mean(-lstm_AA_P0_posterior_samp$b_ambiguity+0.5*lstm_AA_P0_posterior_samp$b_height),mean(-lstm_AA_P1_posterior_samp$b_ambiguity+0.5*lstm_AA_P1_posterior_samp$b_height),mean(-lstm_AA_P2_posterior_samp$b_ambiguity+0.5*lstm_AA_P2_posterior_samp$b_height),mean(-lstm_AA_P0_posterior_samp$b_ambiguity-0.5*lstm_AA_P0_posterior_samp$b_height),mean(-lstm_AA_P1_posterior_samp$b_ambiguity-0.5*lstm_AA_P1_posterior_samp$b_height),mean(-lstm_AA_P2_posterior_samp$b_ambiguity-0.5*lstm_AA_P2_posterior_samp$b_height)),
+                                   lower=c(quantile(-lstm_AA_P0_posterior_samp$b_ambiguity+0.5*lstm_AA_P0_posterior_samp$b_height,0.025),quantile(-lstm_AA_P1_posterior_samp$b_ambiguity+0.5*lstm_AA_P1_posterior_samp$b_height,0.025),quantile(-lstm_AA_P2_posterior_samp$b_ambiguity+0.5*lstm_AA_P2_posterior_samp$b_height,0.025),quantile(-lstm_AA_P0_posterior_samp$b_ambiguity-0.5*lstm_AA_P0_posterior_samp$b_height,0.025),quantile(-lstm_AA_P1_posterior_samp$b_ambiguity-0.5*lstm_AA_P1_posterior_samp$b_height,0.025),quantile(-lstm_AA_P2_posterior_samp$b_ambiguity-0.5*lstm_AA_P2_posterior_samp$b_height,0.025)),
+                                   upper=c(quantile(-lstm_AA_P0_posterior_samp$b_ambiguity+0.5*lstm_AA_P0_posterior_samp$b_height,0.975),quantile(-lstm_AA_P1_posterior_samp$b_ambiguity+0.5*lstm_AA_P1_posterior_samp$b_height,0.975),quantile(-lstm_AA_P2_posterior_samp$b_ambiguity+0.5*lstm_AA_P2_posterior_samp$b_height,0.975),quantile(-lstm_AA_P0_posterior_samp$b_ambiguity-0.5*lstm_AA_P0_posterior_samp$b_height,0.975),quantile(-lstm_AA_P1_posterior_samp$b_ambiguity-0.5*lstm_AA_P1_posterior_samp$b_height,0.975),quantile(-lstm_AA_P2_posterior_samp$b_ambiguity-0.5*lstm_AA_P2_posterior_samp$b_height,0.975)))
+by_construction_gpt2 <- data.frame(ROI=rep(c(0,1,2),2),coef=rep(c("GPE_high","GPE_low"),each=3),mean=c(mean(-gpt2_AA_P0_posterior_samp$b_ambiguity+0.5*gpt2_AA_P0_posterior_samp$b_height),mean(-gpt2_AA_P1_posterior_samp$b_ambiguity+0.5*gpt2_AA_P1_posterior_samp$b_height),mean(-gpt2_AA_P2_posterior_samp$b_ambiguity+0.5*gpt2_AA_P2_posterior_samp$b_height),mean(-gpt2_AA_P0_posterior_samp$b_ambiguity-0.5*gpt2_AA_P0_posterior_samp$b_height),mean(-gpt2_AA_P1_posterior_samp$b_ambiguity-0.5*gpt2_AA_P1_posterior_samp$b_height),mean(-gpt2_AA_P2_posterior_samp$b_ambiguity-0.5*gpt2_AA_P2_posterior_samp$b_height)),
+                                   lower=c(quantile(-gpt2_AA_P0_posterior_samp$b_ambiguity+0.5*gpt2_AA_P0_posterior_samp$b_height,0.025),quantile(-gpt2_AA_P1_posterior_samp$b_ambiguity+0.5*gpt2_AA_P1_posterior_samp$b_height,0.025),quantile(-gpt2_AA_P2_posterior_samp$b_ambiguity+0.5*gpt2_AA_P2_posterior_samp$b_height,0.025),quantile(-gpt2_AA_P0_posterior_samp$b_ambiguity-0.5*gpt2_AA_P0_posterior_samp$b_height,0.025),quantile(-gpt2_AA_P1_posterior_samp$b_ambiguity-0.5*gpt2_AA_P1_posterior_samp$b_height,0.025),quantile(-gpt2_AA_P2_posterior_samp$b_ambiguity-0.5*gpt2_AA_P2_posterior_samp$b_height,0.025)),
+                                   upper=c(quantile(-gpt2_AA_P0_posterior_samp$b_ambiguity+0.5*gpt2_AA_P0_posterior_samp$b_height,0.975),quantile(-gpt2_AA_P1_posterior_samp$b_ambiguity+0.5*gpt2_AA_P1_posterior_samp$b_height,0.975),quantile(-gpt2_AA_P2_posterior_samp$b_ambiguity+0.5*gpt2_AA_P2_posterior_samp$b_height,0.975),quantile(-gpt2_AA_P0_posterior_samp$b_ambiguity-0.5*gpt2_AA_P0_posterior_samp$b_height,0.975),quantile(-gpt2_AA_P1_posterior_samp$b_ambiguity-0.5*gpt2_AA_P1_posterior_samp$b_height,0.975),quantile(-gpt2_AA_P2_posterior_samp$b_ambiguity-0.5*gpt2_AA_P2_posterior_samp$b_height,0.975)))
+by_construction_nosurp <- data.frame(ROI=rep(c(0,1,2),2),coef=rep(c("GPE_high","GPE_low"),each=3),mean=c(mean(-nosurp_AA_P0_posterior_samp$b_ambiguity+0.5*nosurp_AA_P0_posterior_samp$b_height),mean(-nosurp_AA_P1_posterior_samp$b_ambiguity+0.5*nosurp_AA_P1_posterior_samp$b_height),mean(-nosurp_AA_P2_posterior_samp$b_ambiguity+0.5*nosurp_AA_P2_posterior_samp$b_height),mean(-nosurp_AA_P0_posterior_samp$b_ambiguity-0.5*nosurp_AA_P0_posterior_samp$b_height),mean(-nosurp_AA_P1_posterior_samp$b_ambiguity-0.5*nosurp_AA_P1_posterior_samp$b_height),mean(-nosurp_AA_P2_posterior_samp$b_ambiguity-0.5*nosurp_AA_P2_posterior_samp$b_height)),
+                                     lower=c(quantile(-nosurp_AA_P0_posterior_samp$b_ambiguity+0.5*nosurp_AA_P0_posterior_samp$b_height,0.025),quantile(-nosurp_AA_P1_posterior_samp$b_ambiguity+0.5*nosurp_AA_P1_posterior_samp$b_height,0.025),quantile(-nosurp_AA_P2_posterior_samp$b_ambiguity+0.5*nosurp_AA_P2_posterior_samp$b_height,0.025),quantile(-nosurp_AA_P0_posterior_samp$b_ambiguity-0.5*nosurp_AA_P0_posterior_samp$b_height,0.025),quantile(-nosurp_AA_P1_posterior_samp$b_ambiguity-0.5*nosurp_AA_P1_posterior_samp$b_height,0.025),quantile(-nosurp_AA_P2_posterior_samp$b_ambiguity-0.5*nosurp_AA_P2_posterior_samp$b_height,0.025)),
+                                     upper=c(quantile(-nosurp_AA_P0_posterior_samp$b_ambiguity+0.5*nosurp_AA_P0_posterior_samp$b_height,0.975),quantile(-nosurp_AA_P1_posterior_samp$b_ambiguity+0.5*nosurp_AA_P1_posterior_samp$b_height,0.975),quantile(-nosurp_AA_P2_posterior_samp$b_ambiguity+0.5*nosurp_AA_P2_posterior_samp$b_height,0.975),quantile(-nosurp_AA_P0_posterior_samp$b_ambiguity-0.5*nosurp_AA_P0_posterior_samp$b_height,0.975),quantile(-nosurp_AA_P1_posterior_samp$b_ambiguity-0.5*nosurp_AA_P1_posterior_samp$b_height,0.975),quantile(-nosurp_AA_P2_posterior_samp$b_ambiguity-0.5*nosurp_AA_P2_posterior_samp$b_height,0.975)))
+
+saveRDS(by_construction,"AttachmentAmbiguity/by_construction.rds")
+saveRDS(by_construction_lstm,"AttachmentAmbiguity/by_construction_lstm.rds")
+saveRDS(by_construction_gpt2,"AttachmentAmbiguity/by_construction_gpt2.rds")
+saveRDS(by_construction_nosurp,"AttachmentAmbiguity/by_construction_nosurp.rds")
 
 #P0
 sampled_correlations_P0 <- data.frame(Correlation=rep(NA,6000),EOI=rep(c("GPE_high","GPE_low"),3000),model=rep(c("lstm","lstm","gpt2","gpt2","nosurp","nosurp"),1000),ROI=0)
@@ -335,7 +384,7 @@ temp$ROI <- 2
 for_plotting_AA <- rbind(for_plotting_AA,temp)
 rm(temp)
 
-
+#saveRDS(for_plotting_AA,"for_plotting_AA.rds")
 
 for_plotting_AA_max <- for_plotting_AA[(for_plotting_AA$EOI=="GPE_low"&for_plotting_AA$ROI==0)|(for_plotting_AA$EOI=="GPE_high"&for_plotting_AA$ROI==1),]
 
@@ -405,10 +454,11 @@ posterior_nosurp_low_P2$model <- "nosurp"
 
 
 df_pointestimate <- 
-  data.frame(emp=c(posterior_emp_high_P1$mean,posterior_emp_low_P0$mean),
-             lstm=c(posterior_lstm_high_P1$mean,posterior_lstm_low_P0$mean),
-             gpt2=c(posterior_gpt2_high_P1$mean,posterior_gpt2_low_P0$mean),
-             nosurp=c(posterior_nosurp_high_P1$mean,posterior_nosurp_low_P0$mean))
-df_pointestimate$EOI <- c(rep("high",24),rep("low",24))
-df_pointestimate$item <- rep(49:72,2)
+  data.frame(emp=c(posterior_emp_high_P0$mean,posterior_emp_low_P0$mean,posterior_emp_high_P1$mean,posterior_emp_low_P1$mean),
+             lstm=c(posterior_lstm_high_P0$mean,posterior_lstm_low_P0$mean,posterior_lstm_high_P1$mean,posterior_lstm_low_P1$mean),
+             gpt2=c(posterior_gpt2_high_P0$mean,posterior_gpt2_low_P0$mean,posterior_gpt2_high_P1$mean,posterior_gpt2_low_P1$mean),
+             nosurp=c(posterior_nosurp_high_P0$mean,posterior_nosurp_low_P0$mean,posterior_nosurp_high_P1$mean,posterior_nosurp_low_P1$mean),
+             EOI=rep(c("GPE_high","GPE_low"),each=24),
+             item = rep(49:72,4),
+             ROI=rep(c(0,1),each=48))
 saveRDS(df_pointestimate,"df_pointestimate_AA.rds")

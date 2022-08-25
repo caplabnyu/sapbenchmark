@@ -2,39 +2,79 @@ library(brms)
 library(dplyr)
 library(ggplot2)
 
-#emp_Agr <- readRDS("Agreement/brm_RT_Agr.rds")
-#lstm_Agr <- readRDS("Agreement/brm_predicted_lstm_Agr.rds")
-#gpt2_Agr <- readRDS("Agreement/brm_predicted_gpt2_Agr.rds")
-#nosurp_Agr <- readRDS("Agreement/brm_predicted_Agr_nosurp.rds")
+#emp_Agr_P0 <- readRDS("Agreement/brm_RT_Agr_P0.rds")
+#emp_Agr_P1 <- readRDS("Agreement/brm_RT_Agr_P1.rds")
+#emp_Agr_P2 <- readRDS("Agreement/brm_RT_Agr_P2.rds")
+#lstm_Agr_P0 <- readRDS("Agreement/brm_predicted_lstm_Agr_P0.rds")
+#lstm_Agr_P1 <- readRDS("Agreement/brm_predicted_lstm_Agr_P1.rds")
+#lstm_Agr_P2 <- readRDS("Agreement/brm_predicted_lstm_Agr_P2.rds")
+#gpt2_Agr_P0 <- readRDS("Agreement/brm_predicted_gpt2_Agr_P0.rds")
+#gpt2_Agr_P1 <- readRDS("Agreement/brm_predicted_gpt2_Agr_P1.rds")
+#gpt2_Agr_P2 <- readRDS("Agreement/brm_predicted_gpt2_Agr_P2.rds")
+#nosurp_Agr_P0 <- readRDS("Agreement/brm_predicted_nosurp_Agr_P0.rds")
+#nosurp_Agr_P1 <- readRDS("Agreement/brm_predicted_nosurp_Agr_P1.rds")
+#nosurp_Agr_P2 <- readRDS("Agreement/brm_predicted_nosurp_Agr_P2.rds")
 
 
 
-#posterior_samp <- posterior_samples(emp_Agr)
-#randomslope_names <- colnames(posterior_samp)[grepl('r_item.+(pGram|position)',colnames(posterior_samp))]
+#posterior_samp <- posterior_samples(emp_Agr_P0)
+#randomslope_names <- colnames(posterior_samp)[grepl('r_item.+(pGram)',colnames(posterior_samp))]
 #saveRDS(randomslope_names,"Agreement/Agr_randomslopesnames.rds")
 randomslope_names <- readRDS("Agreement/Agr_randomslopesnames.rds")
 
-emp_Agr_posterior_samp <- posterior_samples(emp_Agr, fixed=TRUE, pars=
-                                              c("b_pGram.coded","b_position.coded.1","b_position.coded.2","b_pGram.coded:position.coded.1","b_pGram.coded:position.coded.2",randomslope_names))
-lstm_Agr_posterior_samp <- posterior_samples(lstm_Agr, fixed=TRUE, pars=
-                                              c("b_pGram.coded","b_position.coded.1","b_position.coded.2","b_pGram.coded:position.coded.1","b_pGram.coded:position.coded.2",randomslope_names))
-gpt2_Agr_posterior_samp <- posterior_samples(gpt2_Agr, fixed=TRUE, pars=
-                                              c("b_pGram.coded","b_position.coded.1","b_position.coded.2","b_pGram.coded:position.coded.1","b_pGram.coded:position.coded.2",randomslope_names))
-nosurp_Agr_posterior_samp <- posterior_samples(nosurp_Agr, fixed=TRUE, pars=
-                                              c("b_pGram.coded","b_position.coded.1","b_position.coded.2","b_pGram.coded:position.coded.1","b_pGram.coded:position.coded.2",randomslope_names))
+emp_Agr_P0_posterior_samp <- posterior_samples(emp_Agr_P0, fixed=TRUE, pars=
+                                              c("b_pGram.coded",randomslope_names))
+emp_Agr_P1_posterior_samp <- posterior_samples(emp_Agr_P1, fixed=TRUE, pars=
+                                                 c("b_pGram.coded",randomslope_names))
+emp_Agr_P2_posterior_samp <- posterior_samples(emp_Agr_P2, fixed=TRUE, pars=
+                                                 c("b_pGram.coded",randomslope_names))
+lstm_Agr_P0_posterior_samp <- posterior_samples(lstm_Agr_P0, fixed=TRUE, pars=
+                                              c("b_pGram.coded",randomslope_names))
+lstm_Agr_P1_posterior_samp <- posterior_samples(lstm_Agr_P1, fixed=TRUE, pars=
+                                                  c("b_pGram.coded",randomslope_names))
+lstm_Agr_P2_posterior_samp <- posterior_samples(lstm_Agr_P2, fixed=TRUE, pars=
+                                                  c("b_pGram.coded",randomslope_names))
+gpt2_Agr_P0_posterior_samp <- posterior_samples(gpt2_Agr_P0, fixed=TRUE, pars=
+                                              c("b_pGram.coded",randomslope_names))
+gpt2_Agr_P1_posterior_samp <- posterior_samples(gpt2_Agr_P1, fixed=TRUE, pars=
+                                                  c("b_pGram.coded",randomslope_names))
+gpt2_Agr_P2_posterior_samp <- posterior_samples(gpt2_Agr_P2, fixed=TRUE, pars=
+                                                  c("b_pGram.coded",randomslope_names))
+nosurp_Agr_P0_posterior_samp <- posterior_samples(nosurp_Agr_P0, fixed=TRUE, pars=
+                                              c("b_pGram.coded",randomslope_names))
+nosurp_Agr_P1_posterior_samp <- posterior_samples(nosurp_Agr_P1, fixed=TRUE, pars=
+                                                    c("b_pGram.coded",randomslope_names))
+nosurp_Agr_P2_posterior_samp <- posterior_samples(nosurp_Agr_P2, fixed=TRUE, pars=
+                                                    c("b_pGram.coded",randomslope_names))
 
-rm(emp_Agr, lstm_Agr, gpt2_Agr, nosurp_Agr,posterior_samp)
-#saveRDS(emp_Agr_posterior_samp,"Agreement/emp_Agr_posterior_samp.rds")
-#saveRDS(lstm_Agr_posterior_samp,"Agreement/lstm_Agr_posterior_samp.rds")
-#saveRDS(gpt2_Agr_posterior_samp,"Agreement/gpt2_Agr_posterior_samp.rds")
-#saveRDS(nosurp_Agr_posterior_samp,"Agreement/nosurp_Agr_posterior_samp.rds")
+rm(emp_Agr_P0,emp_Agr_P1,emp_Agr_P2, lstm_Agr_P0, lstm_Agr_P1, lstm_Agr_P2, gpt2_Agr_P0, gpt2_Agr_P1, gpt2_Agr_P2,
+   nosurp_Agr_P0, nosurp_Agr_P1, nosurp_Agr_P2, posterior_samp)
+#saveRDS(emp_Agr_P0_posterior_samp,"Agreement/emp_Agr_P0_posterior_samp.rds")
+#saveRDS(emp_Agr_P1_posterior_samp,"Agreement/emp_Agr_P1_posterior_samp.rds")
+#saveRDS(emp_Agr_P2_posterior_samp,"Agreement/emp_Agr_P2_posterior_samp.rds")
+#saveRDS(lstm_Agr_P0_posterior_samp,"Agreement/lstm_Agr_P0_posterior_samp.rds")
+#saveRDS(lstm_Agr_P1_posterior_samp,"Agreement/lstm_Agr_P1_posterior_samp.rds")
+#saveRDS(lstm_Agr_P2_posterior_samp,"Agreement/lstm_Agr_P2_posterior_samp.rds")
+#saveRDS(gpt2_Agr_P0_posterior_samp,"Agreement/gpt2_Agr_P0_posterior_samp.rds")
+#saveRDS(gpt2_Agr_P1_posterior_samp,"Agreement/gpt2_Agr_P1_posterior_samp.rds")
+#saveRDS(gpt2_Agr_P2_posterior_samp,"Agreement/gpt2_Agr_P2_posterior_samp.rds")
+#saveRDS(nosurp_Agr_P0_posterior_samp,"Agreement/nosurp_Agr_P0_posterior_samp.rds")
+#saveRDS(nosurp_Agr_P1_posterior_samp,"Agreement/nosurp_Agr_P1_posterior_samp.rds")
+#saveRDS(nosurp_Agr_P2_posterior_samp,"Agreement/nosurp_Agr_P2_posterior_samp.rds")
 
 
-emp_Agr_posterior_samp <- readRDS("Agreement/emp_Agr_posterior_samp.rds")
-lstm_Agr_posterior_samp <- readRDS("Agreement/lstm_Agr_posterior_samp.rds")
-gpt2_Agr_posterior_samp <- readRDS("Agreement/gpt2_Agr_posterior_samp.rds")
-nosurp_Agr_posterior_samp <- readRDS("Agreement/nosurp_Agr_posterior_samp.rds")
-
+emp_Agr_P0_posterior_samp <- readRDS("Agreement/emp_Agr_P0_posterior_samp.rds")
+emp_Agr_P1_posterior_samp <- readRDS("Agreement/emp_Agr_P1_posterior_samp.rds")
+emp_Agr_P2_posterior_samp <- readRDS("Agreement/emp_Agr_P2_posterior_samp.rds")
+lstm_Agr_P0_posterior_samp <- readRDS("Agreement/lstm_Agr_P0_posterior_samp.rds")
+lstm_Agr_P1_posterior_samp <- readRDS("Agreement/lstm_Agr_P1_posterior_samp.rds")
+lstm_Agr_P2_posterior_samp <- readRDS("Agreement/lstm_Agr_P2_posterior_samp.rds")
+gpt2_Agr_P0_posterior_samp <- readRDS("Agreement/gpt2_Agr_P0_posterior_samp.rds")
+gpt2_Agr_P1_posterior_samp <- readRDS("Agreement/gpt2_Agr_P1_posterior_samp.rds")
+gpt2_Agr_P2_posterior_samp <- readRDS("Agreement/gpt2_Agr_P2_posterior_samp.rds")
+nosurp_Agr_P0_posterior_samp <- readRDS("Agreement/nosurp_Agr_P0_posterior_samp.rds")
+nosurp_Agr_P1_posterior_samp <- readRDS("Agreement/nosurp_Agr_P1_posterior_samp.rds")
+nosurp_Agr_P2_posterior_samp <- readRDS("Agreement/nosurp_Agr_P2_posterior_samp.rds")
 
 posterior_emp_Agr_P0 <- data.frame(mean=rep(NA,18),SE=rep(NA,18),upper=rep(NA,18),lower=rep(NA,18),item=c(1,3,5,6,7,8,9,10,12,14,15,16,17,19,20,21,23,24),EOI="Agr",ROI=0)
 posterior_emp_Agr_P1 <- data.frame(mean=rep(NA,18),SE=rep(NA,18),upper=rep(NA,18),lower=rep(NA,18),item=c(1,3,5,6,7,8,9,10,12,14,15,16,17,19,20,21,23,24),EOI="Agr",ROI=1)
@@ -51,70 +91,123 @@ posterior_nosurp_Agr_P2 <- data.frame(mean=rep(NA,18),SE=rep(NA,18),upper=rep(NA
 
 
 
-ncols <- ncol(emp_Agr_posterior_samp)
-emp_Agr_posterior_samp[,(1+ncols):(18+ncols)] <- emp_Agr_posterior_samp[,1]+(1/2)*emp_Agr_posterior_samp[,4]+emp_Agr_posterior_samp[,(1+5):(18+5)]+(1/2)*emp_Agr_posterior_samp[,(1+59):(18+59)]
-emp_Agr_posterior_samp[,(19+ncols):(36+ncols)] <- emp_Agr_posterior_samp[,1]+(1/2)*emp_Agr_posterior_samp[,5]+emp_Agr_posterior_samp[,(1+5):(18+5)]+(1/2)*emp_Agr_posterior_samp[,(1+77):(18+77)]
-emp_Agr_posterior_samp[,(37+ncols):(54+ncols)] <- emp_Agr_posterior_samp[,1]-(1/2)*emp_Agr_posterior_samp[,4]-(1/2)*emp_Agr_posterior_samp[,5]+emp_Agr_posterior_samp[,(1+5):(18+5)]-(1/2)*emp_Agr_posterior_samp[,(1+59):(18+59)]-(1/2)*emp_Agr_posterior_samp[,(1+77):(18+77)]
-lstm_Agr_posterior_samp[,(1+ncols):(18+ncols)] <- lstm_Agr_posterior_samp[,1]+(1/2)*lstm_Agr_posterior_samp[,4]+lstm_Agr_posterior_samp[,(1+5):(18+5)]+(1/2)*lstm_Agr_posterior_samp[,(1+59):(18+59)]
-lstm_Agr_posterior_samp[,(19+ncols):(36+ncols)] <- lstm_Agr_posterior_samp[,1]+(1/2)*lstm_Agr_posterior_samp[,5]+lstm_Agr_posterior_samp[,(1+5):(18+5)]+(1/2)*lstm_Agr_posterior_samp[,(1+77):(18+77)]
-lstm_Agr_posterior_samp[,(37+ncols):(54+ncols)] <- lstm_Agr_posterior_samp[,1]-(1/2)*lstm_Agr_posterior_samp[,4]-(1/2)*lstm_Agr_posterior_samp[,5]+lstm_Agr_posterior_samp[,(1+5):(18+5)]-(1/2)*lstm_Agr_posterior_samp[,(1+59):(18+59)]-(1/2)*lstm_Agr_posterior_samp[,(1+77):(18+77)]
-gpt2_Agr_posterior_samp[,(1+ncols):(18+ncols)] <- gpt2_Agr_posterior_samp[,1]+(1/2)*gpt2_Agr_posterior_samp[,4]+gpt2_Agr_posterior_samp[,(1+5):(18+5)]+(1/2)*gpt2_Agr_posterior_samp[,(1+59):(18+59)]
-gpt2_Agr_posterior_samp[,(19+ncols):(36+ncols)] <- gpt2_Agr_posterior_samp[,1]+(1/2)*gpt2_Agr_posterior_samp[,5]+gpt2_Agr_posterior_samp[,(1+5):(18+5)]+(1/2)*gpt2_Agr_posterior_samp[,(1+77):(18+77)]
-gpt2_Agr_posterior_samp[,(37+ncols):(54+ncols)] <- gpt2_Agr_posterior_samp[,1]-(1/2)*gpt2_Agr_posterior_samp[,4]-(1/2)*gpt2_Agr_posterior_samp[,5]+gpt2_Agr_posterior_samp[,(1+5):(18+5)]-(1/2)*gpt2_Agr_posterior_samp[,(1+59):(18+59)]-(1/2)*gpt2_Agr_posterior_samp[,(1+77):(18+77)]
-nosurp_Agr_posterior_samp[,(1+ncols):(18+ncols)] <- nosurp_Agr_posterior_samp[,1]+(1/2)*nosurp_Agr_posterior_samp[,4]+nosurp_Agr_posterior_samp[,(1+5):(18+5)]+(1/2)*nosurp_Agr_posterior_samp[,(1+59):(18+59)]
-nosurp_Agr_posterior_samp[,(19+ncols):(36+ncols)] <- nosurp_Agr_posterior_samp[,1]+(1/2)*nosurp_Agr_posterior_samp[,5]+nosurp_Agr_posterior_samp[,(1+5):(18+5)]+(1/2)*nosurp_Agr_posterior_samp[,(1+77):(18+77)]
-nosurp_Agr_posterior_samp[,(37+ncols):(54+ncols)] <- nosurp_Agr_posterior_samp[,1]-(1/2)*nosurp_Agr_posterior_samp[,4]-(1/2)*nosurp_Agr_posterior_samp[,5]+nosurp_Agr_posterior_samp[,(1+5):(18+5)]-(1/2)*nosurp_Agr_posterior_samp[,(1+59):(18+59)]-(1/2)*nosurp_Agr_posterior_samp[,(1+77):(18+77)]
+ncols <- ncol(emp_Agr_P0_posterior_samp)
+emp_Agr_P0_posterior_samp[,(1+ncols):(18+ncols)] <- emp_Agr_P0_posterior_samp[,1]+emp_Agr_P0_posterior_samp[,(1+1):(18+1)]
+emp_Agr_P1_posterior_samp[,(1+ncols):(18+ncols)] <- emp_Agr_P1_posterior_samp[,1]+emp_Agr_P1_posterior_samp[,(1+1):(18+1)]
+emp_Agr_P2_posterior_samp[,(1+ncols):(18+ncols)] <- emp_Agr_P2_posterior_samp[,1]+emp_Agr_P2_posterior_samp[,(1+1):(18+1)]
+lstm_Agr_P0_posterior_samp[,(1+ncols):(18+ncols)] <- lstm_Agr_P0_posterior_samp[,1]+lstm_Agr_P0_posterior_samp[,(1+1):(18+1)]
+lstm_Agr_P1_posterior_samp[,(1+ncols):(18+ncols)] <- lstm_Agr_P1_posterior_samp[,1]+lstm_Agr_P1_posterior_samp[,(1+1):(18+1)]
+lstm_Agr_P2_posterior_samp[,(1+ncols):(18+ncols)] <- lstm_Agr_P2_posterior_samp[,1]+lstm_Agr_P2_posterior_samp[,(1+1):(18+1)]
+gpt2_Agr_P0_posterior_samp[,(1+ncols):(18+ncols)] <- gpt2_Agr_P0_posterior_samp[,1]+gpt2_Agr_P0_posterior_samp[,(1+1):(18+1)]
+gpt2_Agr_P1_posterior_samp[,(1+ncols):(18+ncols)] <- gpt2_Agr_P1_posterior_samp[,1]+gpt2_Agr_P1_posterior_samp[,(1+1):(18+1)]
+gpt2_Agr_P2_posterior_samp[,(1+ncols):(18+ncols)] <- gpt2_Agr_P2_posterior_samp[,1]+gpt2_Agr_P2_posterior_samp[,(1+1):(18+1)]
+nosurp_Agr_P0_posterior_samp[,(1+ncols):(18+ncols)] <- nosurp_Agr_P0_posterior_samp[,1]+nosurp_Agr_P0_posterior_samp[,(1+1):(18+1)]
+nosurp_Agr_P1_posterior_samp[,(1+ncols):(18+ncols)] <- nosurp_Agr_P1_posterior_samp[,1]+nosurp_Agr_P1_posterior_samp[,(1+1):(18+1)]
+nosurp_Agr_P2_posterior_samp[,(1+ncols):(18+ncols)] <- nosurp_Agr_P2_posterior_samp[,1]+nosurp_Agr_P2_posterior_samp[,(1+1):(18+1)]
+
+
+
+
 
 for(i in 1:18){
-  posterior_emp_Agr_P0[i,]$mean <- mean(emp_Agr_posterior_samp[,i+ncols])
-  posterior_emp_Agr_P0[i,]$SE <- sd(emp_Agr_posterior_samp[,i+ncols])
-  posterior_emp_Agr_P0[i,]$upper <- quantile(emp_Agr_posterior_samp[,i+ncols],0.975)
-  posterior_emp_Agr_P0[i,]$lower <- quantile(emp_Agr_posterior_samp[,i+ncols],0.025)
-  posterior_emp_Agr_P1[i,]$mean <- mean(emp_Agr_posterior_samp[,i+ncols+18])
-  posterior_emp_Agr_P1[i,]$SE <- sd(emp_Agr_posterior_samp[,i+ncols+18])
-  posterior_emp_Agr_P1[i,]$upper <- quantile(emp_Agr_posterior_samp[,i+ncols+18],0.975)
-  posterior_emp_Agr_P1[i,]$lower <- quantile(emp_Agr_posterior_samp[,i+ncols+18],0.025)
-  posterior_emp_Agr_P2[i,]$mean <- mean(emp_Agr_posterior_samp[,i+ncols+36])
-  posterior_emp_Agr_P2[i,]$SE <- sd(emp_Agr_posterior_samp[,i+ncols+36])
-  posterior_emp_Agr_P2[i,]$upper <- quantile(emp_Agr_posterior_samp[,i+ncols+36],0.975)
-  posterior_emp_Agr_P2[i,]$lower <- quantile(emp_Agr_posterior_samp[,i+ncols+36],0.025)
-  posterior_lstm_Agr_P0[i,]$mean <- mean(lstm_Agr_posterior_samp[,i+ncols])
-  posterior_lstm_Agr_P0[i,]$SE <- sd(lstm_Agr_posterior_samp[,i+ncols])
-  posterior_lstm_Agr_P0[i,]$upper <- quantile(lstm_Agr_posterior_samp[,i+ncols],0.975)
-  posterior_lstm_Agr_P0[i,]$lower <- quantile(lstm_Agr_posterior_samp[,i+ncols],0.025)
-  posterior_lstm_Agr_P1[i,]$mean <- mean(lstm_Agr_posterior_samp[,i+ncols+18])
-  posterior_lstm_Agr_P1[i,]$SE <- sd(lstm_Agr_posterior_samp[,i+ncols+18])
-  posterior_lstm_Agr_P1[i,]$upper <- quantile(lstm_Agr_posterior_samp[,i+ncols+18],0.975)
-  posterior_lstm_Agr_P1[i,]$lower <- quantile(lstm_Agr_posterior_samp[,i+ncols+18],0.025)
-  posterior_lstm_Agr_P2[i,]$mean <- mean(lstm_Agr_posterior_samp[,i+ncols+36])
-  posterior_lstm_Agr_P2[i,]$SE <- sd(lstm_Agr_posterior_samp[,i+ncols+36])
-  posterior_lstm_Agr_P2[i,]$upper <- quantile(lstm_Agr_posterior_samp[,i+ncols+36],0.975)
-  posterior_lstm_Agr_P2[i,]$lower <- quantile(lstm_Agr_posterior_samp[,i+ncols+36],0.025)
-  posterior_gpt2_Agr_P0[i,]$mean <- mean(gpt2_Agr_posterior_samp[,i+ncols])
-  posterior_gpt2_Agr_P0[i,]$SE <- sd(gpt2_Agr_posterior_samp[,i+ncols])
-  posterior_gpt2_Agr_P0[i,]$upper <- quantile(gpt2_Agr_posterior_samp[,i+ncols],0.975)
-  posterior_gpt2_Agr_P0[i,]$lower <- quantile(gpt2_Agr_posterior_samp[,i+ncols],0.025)
-  posterior_gpt2_Agr_P1[i,]$mean <- mean(gpt2_Agr_posterior_samp[,i+ncols+18])
-  posterior_gpt2_Agr_P1[i,]$SE <- sd(gpt2_Agr_posterior_samp[,i+ncols+18])
-  posterior_gpt2_Agr_P1[i,]$upper <- quantile(gpt2_Agr_posterior_samp[,i+ncols+18],0.975)
-  posterior_gpt2_Agr_P1[i,]$lower <- quantile(gpt2_Agr_posterior_samp[,i+ncols+18],0.025)
-  posterior_gpt2_Agr_P2[i,]$mean <- mean(gpt2_Agr_posterior_samp[,i+ncols+36])
-  posterior_gpt2_Agr_P2[i,]$SE <- sd(gpt2_Agr_posterior_samp[,i+ncols+36])
-  posterior_gpt2_Agr_P2[i,]$upper <- quantile(gpt2_Agr_posterior_samp[,i+ncols+36],0.975)
-  posterior_gpt2_Agr_P2[i,]$lower <- quantile(gpt2_Agr_posterior_samp[,i+ncols+36],0.025)
-  posterior_nosurp_Agr_P0[i,]$mean <- mean(nosurp_Agr_posterior_samp[,i+ncols])
-  posterior_nosurp_Agr_P0[i,]$SE <- sd(nosurp_Agr_posterior_samp[,i+ncols])
-  posterior_nosurp_Agr_P0[i,]$upper <- quantile(nosurp_Agr_posterior_samp[,i+ncols],0.975)
-  posterior_nosurp_Agr_P0[i,]$lower <- quantile(nosurp_Agr_posterior_samp[,i+ncols],0.025)
-  posterior_nosurp_Agr_P1[i,]$mean <- mean(nosurp_Agr_posterior_samp[,i+ncols+18])
-  posterior_nosurp_Agr_P1[i,]$SE <- sd(nosurp_Agr_posterior_samp[,i+ncols+18])
-  posterior_nosurp_Agr_P1[i,]$upper <- quantile(nosurp_Agr_posterior_samp[,i+ncols+18],0.975)
-  posterior_nosurp_Agr_P1[i,]$lower <- quantile(nosurp_Agr_posterior_samp[,i+ncols+18],0.025)
-  posterior_nosurp_Agr_P2[i,]$mean <- mean(nosurp_Agr_posterior_samp[,i+ncols+36])
-  posterior_nosurp_Agr_P2[i,]$SE <- sd(nosurp_Agr_posterior_samp[,i+ncols+36])
-  posterior_nosurp_Agr_P2[i,]$upper <- quantile(nosurp_Agr_posterior_samp[,i+ncols+36],0.975)
-  posterior_nosurp_Agr_P2[i,]$lower <- quantile(nosurp_Agr_posterior_samp[,i+ncols+36],0.025)
+  posterior_emp_Agr_P0[i,]$mean <- mean(emp_Agr_P0_posterior_samp[,i+ncols])
+  posterior_emp_Agr_P0[i,]$SE <- sd(emp_Agr_P0_posterior_samp[,i+ncols])
+  posterior_emp_Agr_P0[i,]$upper <- quantile(emp_Agr_P0_posterior_samp[,i+ncols],0.975)
+  posterior_emp_Agr_P0[i,]$lower <- quantile(emp_Agr_P0_posterior_samp[,i+ncols],0.025)
+  posterior_emp_Agr_P1[i,]$mean <- mean(emp_Agr_P1_posterior_samp[,i+ncols])
+  posterior_emp_Agr_P1[i,]$SE <- sd(emp_Agr_P1_posterior_samp[,i+ncols])
+  posterior_emp_Agr_P1[i,]$upper <- quantile(emp_Agr_P1_posterior_samp[,i+ncols],0.975)
+  posterior_emp_Agr_P1[i,]$lower <- quantile(emp_Agr_P1_posterior_samp[,i+ncols],0.025)
+  posterior_emp_Agr_P2[i,]$mean <- mean(emp_Agr_P2_posterior_samp[,i+ncols])
+  posterior_emp_Agr_P2[i,]$SE <- sd(emp_Agr_P2_posterior_samp[,i+ncols])
+  posterior_emp_Agr_P2[i,]$upper <- quantile(emp_Agr_P2_posterior_samp[,i+ncols],0.975)
+  posterior_emp_Agr_P2[i,]$lower <- quantile(emp_Agr_P2_posterior_samp[,i+ncols],0.025)
+  posterior_lstm_Agr_P0[i,]$mean <- mean(lstm_Agr_P0_posterior_samp[,i+ncols])
+  posterior_lstm_Agr_P0[i,]$SE <- sd(lstm_Agr_P0_posterior_samp[,i+ncols])
+  posterior_lstm_Agr_P0[i,]$upper <- quantile(lstm_Agr_P0_posterior_samp[,i+ncols],0.975)
+  posterior_lstm_Agr_P0[i,]$lower <- quantile(lstm_Agr_P0_posterior_samp[,i+ncols],0.025)
+  posterior_lstm_Agr_P1[i,]$mean <- mean(lstm_Agr_P1_posterior_samp[,i+ncols])
+  posterior_lstm_Agr_P1[i,]$SE <- sd(lstm_Agr_P1_posterior_samp[,i+ncols])
+  posterior_lstm_Agr_P1[i,]$upper <- quantile(lstm_Agr_P1_posterior_samp[,i+ncols],0.975)
+  posterior_lstm_Agr_P1[i,]$lower <- quantile(lstm_Agr_P1_posterior_samp[,i+ncols],0.025)
+  posterior_lstm_Agr_P2[i,]$mean <- mean(lstm_Agr_P2_posterior_samp[,i+ncols])
+  posterior_lstm_Agr_P2[i,]$SE <- sd(lstm_Agr_P2_posterior_samp[,i+ncols])
+  posterior_lstm_Agr_P2[i,]$upper <- quantile(lstm_Agr_P2_posterior_samp[,i+ncols],0.975)
+  posterior_lstm_Agr_P2[i,]$lower <- quantile(lstm_Agr_P2_posterior_samp[,i+ncols],0.025)
+  posterior_gpt2_Agr_P0[i,]$mean <- mean(gpt2_Agr_P0_posterior_samp[,i+ncols])
+  posterior_gpt2_Agr_P0[i,]$SE <- sd(gpt2_Agr_P0_posterior_samp[,i+ncols])
+  posterior_gpt2_Agr_P0[i,]$upper <- quantile(gpt2_Agr_P0_posterior_samp[,i+ncols],0.975)
+  posterior_gpt2_Agr_P0[i,]$lower <- quantile(gpt2_Agr_P0_posterior_samp[,i+ncols],0.025)
+  posterior_gpt2_Agr_P1[i,]$mean <- mean(gpt2_Agr_P1_posterior_samp[,i+ncols])
+  posterior_gpt2_Agr_P1[i,]$SE <- sd(gpt2_Agr_P1_posterior_samp[,i+ncols])
+  posterior_gpt2_Agr_P1[i,]$upper <- quantile(gpt2_Agr_P1_posterior_samp[,i+ncols],0.975)
+  posterior_gpt2_Agr_P1[i,]$lower <- quantile(gpt2_Agr_P1_posterior_samp[,i+ncols],0.025)
+  posterior_gpt2_Agr_P2[i,]$mean <- mean(gpt2_Agr_P2_posterior_samp[,i+ncols])
+  posterior_gpt2_Agr_P2[i,]$SE <- sd(gpt2_Agr_P2_posterior_samp[,i+ncols])
+  posterior_gpt2_Agr_P2[i,]$upper <- quantile(gpt2_Agr_P2_posterior_samp[,i+ncols],0.975)
+  posterior_gpt2_Agr_P2[i,]$lower <- quantile(gpt2_Agr_P2_posterior_samp[,i+ncols],0.025)
+  posterior_nosurp_Agr_P0[i,]$mean <- mean(nosurp_Agr_P0_posterior_samp[,i+ncols])
+  posterior_nosurp_Agr_P0[i,]$SE <- sd(nosurp_Agr_P0_posterior_samp[,i+ncols])
+  posterior_nosurp_Agr_P0[i,]$upper <- quantile(nosurp_Agr_P0_posterior_samp[,i+ncols],0.975)
+  posterior_nosurp_Agr_P0[i,]$lower <- quantile(nosurp_Agr_P0_posterior_samp[,i+ncols],0.025)
+  posterior_nosurp_Agr_P1[i,]$mean <- mean(nosurp_Agr_P1_posterior_samp[,i+ncols])
+  posterior_nosurp_Agr_P1[i,]$SE <- sd(nosurp_Agr_P1_posterior_samp[,i+ncols])
+  posterior_nosurp_Agr_P1[i,]$upper <- quantile(nosurp_Agr_P1_posterior_samp[,i+ncols],0.975)
+  posterior_nosurp_Agr_P1[i,]$lower <- quantile(nosurp_Agr_P1_posterior_samp[,i+ncols],0.025)
+  posterior_nosurp_Agr_P2[i,]$mean <- mean(nosurp_Agr_P2_posterior_samp[,i+ncols])
+  posterior_nosurp_Agr_P2[i,]$SE <- sd(nosurp_Agr_P2_posterior_samp[,i+ncols])
+  posterior_nosurp_Agr_P2[i,]$upper <- quantile(nosurp_Agr_P2_posterior_samp[,i+ncols],0.975)
+  posterior_nosurp_Agr_P2[i,]$lower <- quantile(nosurp_Agr_P2_posterior_samp[,i+ncols],0.025)
 }
+
+by_item <- data.frame(item=c(posterior_emp_Agr_P0$item,posterior_emp_Agr_P1$item,posterior_emp_Agr_P2$item),
+                      ROI=c(posterior_emp_Agr_P0$ROI,posterior_emp_Agr_P1$ROI,posterior_emp_Agr_P2$ROI),
+                      coef="Agr",
+                      mean=c(posterior_emp_Agr_P0$mean,posterior_emp_Agr_P1$mean,posterior_emp_Agr_P2$mean),
+                      lower=c(posterior_emp_Agr_P0$lower,posterior_emp_Agr_P1$lower,posterior_emp_Agr_P2$lower),
+                      upper=c(posterior_emp_Agr_P0$upper,posterior_emp_Agr_P1$upper,posterior_emp_Agr_P2$upper))
+by_item_lstm <- data.frame(item=c(posterior_lstm_Agr_P0$item,posterior_lstm_Agr_P1$item,posterior_lstm_Agr_P2$item),
+                           ROI=c(posterior_lstm_Agr_P0$ROI,posterior_lstm_Agr_P1$ROI,posterior_lstm_Agr_P2$ROI),
+                           coef="Agr",
+                           mean=c(posterior_lstm_Agr_P0$mean,posterior_lstm_Agr_P1$mean,posterior_lstm_Agr_P2$mean),
+                           lower=c(posterior_lstm_Agr_P0$lower,posterior_lstm_Agr_P1$lower,posterior_lstm_Agr_P2$lower),
+                           upper=c(posterior_lstm_Agr_P0$upper,posterior_lstm_Agr_P1$upper,posterior_lstm_Agr_P2$upper))
+by_item_gpt2 <- data.frame(item=c(posterior_gpt2_Agr_P0$item,posterior_gpt2_Agr_P1$item,posterior_gpt2_Agr_P2$item),
+                           ROI=c(posterior_gpt2_Agr_P0$ROI,posterior_gpt2_Agr_P1$ROI,posterior_gpt2_Agr_P2$ROI),
+                           coef="Agr",
+                           mean=c(posterior_gpt2_Agr_P0$mean,posterior_gpt2_Agr_P1$mean,posterior_gpt2_Agr_P2$mean),
+                           lower=c(posterior_gpt2_Agr_P0$lower,posterior_gpt2_Agr_P1$lower,posterior_gpt2_Agr_P2$lower),
+                           upper=c(posterior_gpt2_Agr_P0$upper,posterior_gpt2_Agr_P1$upper,posterior_gpt2_Agr_P2$upper))
+by_item_nosurp <- data.frame(item=c(posterior_nosurp_Agr_P0$item,posterior_nosurp_Agr_P1$item,posterior_nosurp_Agr_P2$item),
+                             ROI=c(posterior_nosurp_Agr_P0$ROI,posterior_nosurp_Agr_P1$ROI,posterior_nosurp_Agr_P2$ROI),
+                             coef="Agr",
+                             mean=c(posterior_nosurp_Agr_P0$mean,posterior_nosurp_Agr_P1$mean,posterior_nosurp_Agr_P2$mean),
+                             lower=c(posterior_nosurp_Agr_P0$lower,posterior_nosurp_Agr_P1$lower,posterior_nosurp_Agr_P2$lower),
+                             upper=c(posterior_nosurp_Agr_P0$upper,posterior_nosurp_Agr_P1$upper,posterior_nosurp_Agr_P2$upper))
+saveRDS(by_item,"Agreement/by_item.rds")
+saveRDS(by_item_lstm,"Agreement/by_item_lstm.rds")
+saveRDS(by_item_gpt2,"Agreement/by_item_gpt2.rds")
+saveRDS(by_item_nosurp,"Agreement/by_item_nosurp.rds")
+
+by_construction <- data.frame(ROI=c(0,1,2),coef="Agr",mean=c(mean(emp_Agr_P0_posterior_samp$b_pGram.coded),mean(emp_Agr_P1_posterior_samp$b_pGram.coded),mean(emp_Agr_P2_posterior_samp$b_pGram.coded)),
+                              lower=c(quantile(emp_Agr_P0_posterior_samp$b_pGram.coded,0.025),quantile(emp_Agr_P1_posterior_samp$b_pGram.coded,0.025),quantile(emp_Agr_P2_posterior_samp$b_pGram.coded,0.025)),
+                              upper=c(quantile(emp_Agr_P0_posterior_samp$b_pGram.coded,0.975),quantile(emp_Agr_P1_posterior_samp$b_pGram.coded,0.975),quantile(emp_Agr_P2_posterior_samp$b_pGram.coded,0.975)))
+by_construction_lstm <- data.frame(ROI=c(0,1,2),coef="Agr",mean=c(mean(lstm_Agr_P0_posterior_samp$b_pGram.coded),mean(lstm_Agr_P1_posterior_samp$b_pGram.coded),mean(lstm_Agr_P2_posterior_samp$b_pGram.coded)),
+                                   lower=c(quantile(lstm_Agr_P0_posterior_samp$b_pGram.coded,0.025),quantile(lstm_Agr_P1_posterior_samp$b_pGram.coded,0.025),quantile(lstm_Agr_P2_posterior_samp$b_pGram.coded,0.025)),
+                                   upper=c(quantile(lstm_Agr_P0_posterior_samp$b_pGram.coded,0.975),quantile(lstm_Agr_P1_posterior_samp$b_pGram.coded,0.975),quantile(lstm_Agr_P2_posterior_samp$b_pGram.coded,0.975)))
+by_construction_gpt2 <- data.frame(ROI=c(0,1,2),coef="Agr",mean=c(mean(gpt2_Agr_P0_posterior_samp$b_pGram.coded),mean(gpt2_Agr_P1_posterior_samp$b_pGram.coded),mean(gpt2_Agr_P2_posterior_samp$b_pGram.coded)),
+                                   lower=c(quantile(gpt2_Agr_P0_posterior_samp$b_pGram.coded,0.025),quantile(gpt2_Agr_P1_posterior_samp$b_pGram.coded,0.025),quantile(gpt2_Agr_P2_posterior_samp$b_pGram.coded,0.025)),
+                                   upper=c(quantile(gpt2_Agr_P0_posterior_samp$b_pGram.coded,0.975),quantile(gpt2_Agr_P1_posterior_samp$b_pGram.coded,0.975),quantile(gpt2_Agr_P2_posterior_samp$b_pGram.coded,0.975)))
+by_construction_nosurp <- data.frame(ROI=c(0,1,2),coef="Agr",mean=c(mean(nosurp_Agr_P0_posterior_samp$b_pGram.coded),mean(nosurp_Agr_P1_posterior_samp$b_pGram.coded),mean(nosurp_Agr_P2_posterior_samp$b_pGram.coded)),
+                                     lower=c(quantile(nosurp_Agr_P0_posterior_samp$b_pGram.coded,0.025),quantile(nosurp_Agr_P1_posterior_samp$b_pGram.coded,0.025),quantile(nosurp_Agr_P2_posterior_samp$b_pGram.coded,0.025)),
+                                     upper=c(quantile(nosurp_Agr_P0_posterior_samp$b_pGram.coded,0.975),quantile(nosurp_Agr_P1_posterior_samp$b_pGram.coded,0.975),quantile(nosurp_Agr_P2_posterior_samp$b_pGram.coded,0.975)))
+
+saveRDS(by_construction,"Agreement/by_construction.rds")
+saveRDS(by_construction_lstm,"Agreement/by_construction_lstm.rds")
+saveRDS(by_construction_gpt2,"Agreement/by_construction_gpt2.rds")
+saveRDS(by_construction_nosurp,"Agreement/by_construction_nosurp.rds")
+
+
 
 
 
@@ -123,10 +216,10 @@ sampled_correlations_P0 <- data.frame(Correlation=rep(NA,3000),EOI=rep("Agr",300
 for(i in 1:1000){
   posterior_onesampleeachitem <- data.frame(emp=rep(NA,18),lstm=rep(NA,18),gpt2=rep(NA,18),nosurp=rep(NA,18),EOI=rep("Agr",18))
   for(j in 1:18){
-    posterior_onesampleeachitem[j,1] <- sample(emp_Agr_posterior_samp[,j+ncols],1)
-    posterior_onesampleeachitem[j,2] <- sample(lstm_Agr_posterior_samp[,j+ncols],1)
-    posterior_onesampleeachitem[j,3] <- sample(gpt2_Agr_posterior_samp[,j+ncols],1)
-    posterior_onesampleeachitem[j,4] <- sample(nosurp_Agr_posterior_samp[,j+ncols],1)
+    posterior_onesampleeachitem[j,1] <- sample(emp_Agr_P0_posterior_samp[,j+ncols],1)
+    posterior_onesampleeachitem[j,2] <- sample(lstm_Agr_P0_posterior_samp[,j+ncols],1)
+    posterior_onesampleeachitem[j,3] <- sample(gpt2_Agr_P0_posterior_samp[,j+ncols],1)
+    posterior_onesampleeachitem[j,4] <- sample(nosurp_Agr_P0_posterior_samp[,j+ncols],1)
   }
   sampled_correlations_P0[((i-1)*3+1):((i-1)*3+3),'Correlation'] <- c(cor.test(posterior_onesampleeachitem[1:18,1],posterior_onesampleeachitem[1:18,2])$estimate,
                                                             cor.test(posterior_onesampleeachitem[1:18,1],posterior_onesampleeachitem[1:18,3])$estimate,
@@ -140,14 +233,14 @@ sampled_correlations_P1 <- data.frame(Correlation=rep(NA,3000),EOI=rep("Agr",300
 for(i in 1:1000){
   posterior_onesampleeachitem <- data.frame(emp=rep(NA,18),lstm=rep(NA,18),gpt2=rep(NA,18),nosurp=rep(NA,18),EOI=rep("Agr",18))
   for(j in 1:18){
-    posterior_onesampleeachitem[j,1] <- sample(emp_Agr_posterior_samp[,j+ncols+18],1)
-    posterior_onesampleeachitem[j,2] <- sample(lstm_Agr_posterior_samp[,j+ncols+18],1)
-    posterior_onesampleeachitem[j,3] <- sample(gpt2_Agr_posterior_samp[,j+ncols+18],1)
-    posterior_onesampleeachitem[j,4] <- sample(nosurp_Agr_posterior_samp[,j+ncols+18],1)
+    posterior_onesampleeachitem[j,1] <- sample(emp_Agr_P1_posterior_samp[,j+ncols],1)
+    posterior_onesampleeachitem[j,2] <- sample(lstm_Agr_P1_posterior_samp[,j+ncols],1)
+    posterior_onesampleeachitem[j,3] <- sample(gpt2_Agr_P1_posterior_samp[,j+ncols],1)
+    posterior_onesampleeachitem[j,4] <- sample(nosurp_Agr_P1_posterior_samp[,j+ncols],1)
   }
   sampled_correlations_P1[((i-1)*3+1):((i-1)*3+3),'Correlation'] <- c(cor.test(posterior_onesampleeachitem[1:18,1],posterior_onesampleeachitem[1:18,2])$estimate,
-                                                                    cor.test(posterior_onesampleeachitem[1:18,1],posterior_onesampleeachitem[1:18,3])$estimate,
-                                                                    cor.test(posterior_onesampleeachitem[1:18,1],posterior_onesampleeachitem[1:18,4])$estimate)
+                                                                      cor.test(posterior_onesampleeachitem[1:18,1],posterior_onesampleeachitem[1:18,3])$estimate,
+                                                                      cor.test(posterior_onesampleeachitem[1:18,1],posterior_onesampleeachitem[1:18,4])$estimate)
 }
 #P1
 
@@ -157,14 +250,14 @@ sampled_correlations_P2 <- data.frame(Correlation=rep(NA,3000),EOI=rep("Agr",300
 for(i in 1:1000){
   posterior_onesampleeachitem <- data.frame(emp=rep(NA,18),lstm=rep(NA,18),gpt2=rep(NA,18),nosurp=rep(NA,18),EOI=rep("Agr",18))
   for(j in 1:18){
-    posterior_onesampleeachitem[j,1] <- sample(emp_Agr_posterior_samp[,j+ncols+36],1)
-    posterior_onesampleeachitem[j,2] <- sample(lstm_Agr_posterior_samp[,j+ncols+36],1)
-    posterior_onesampleeachitem[j,3] <- sample(gpt2_Agr_posterior_samp[,j+ncols+36],1)
-    posterior_onesampleeachitem[j,4] <- sample(nosurp_Agr_posterior_samp[,j+ncols+36],1)
+    posterior_onesampleeachitem[j,1] <- sample(emp_Agr_P2_posterior_samp[,j+ncols],1)
+    posterior_onesampleeachitem[j,2] <- sample(lstm_Agr_P2_posterior_samp[,j+ncols],1)
+    posterior_onesampleeachitem[j,3] <- sample(gpt2_Agr_P2_posterior_samp[,j+ncols],1)
+    posterior_onesampleeachitem[j,4] <- sample(nosurp_Agr_P2_posterior_samp[,j+ncols],1)
   }
   sampled_correlations_P2[((i-1)*3+1):((i-1)*3+3),'Correlation'] <- c(cor.test(posterior_onesampleeachitem[1:18,1],posterior_onesampleeachitem[1:18,2])$estimate,
-                                                                    cor.test(posterior_onesampleeachitem[1:18,1],posterior_onesampleeachitem[1:18,3])$estimate,
-                                                                    cor.test(posterior_onesampleeachitem[1:18,1],posterior_onesampleeachitem[1:18,4])$estimate)
+                                                                      cor.test(posterior_onesampleeachitem[1:18,1],posterior_onesampleeachitem[1:18,3])$estimate,
+                                                                      cor.test(posterior_onesampleeachitem[1:18,1],posterior_onesampleeachitem[1:18,4])$estimate)
 }
 #P2
 
@@ -198,10 +291,10 @@ temp$ROI <- 2
 for_plotting_Agr <- rbind(for_plotting_Agr,temp)
 rm(temp)
 
-for_plotting_Agr$maxregion <- rep(c(FALSE,TRUE,FALSE),each=3)
+#saveRDS(for_plotting_Agr,"for_plotting_Agr.rds")
 
-for_plotting_Agr_max <- for_plotting_Agr[for_plotting_Agr$maxregion==TRUE,]
 
+for_plotting_Agr_max <- for_plotting_Agr[for_plotting_Agr$ROI==1,]
 
 ggplot(for_plotting_Agr_max,aes(x=Correlation,y=EOI,fill=model))+
   geom_bar(stat = "identity",position = "dodge")+
@@ -252,4 +345,4 @@ df_pointestimate <-
              nosurp=posterior_nosurp_Agr_P1$mean)
 df_pointestimate$EOI <- "Agr"
 df_pointestimate$item <- c(1,3,5,6,7,8,9,10,12,14,15,16,17,19,20,21,23,24)
-saveRDS(df_pointestimate,"df_pointestimate_Agr.rds")
+#saveRDS(df_pointestimate,"df_pointestimate_Agr.rds")
