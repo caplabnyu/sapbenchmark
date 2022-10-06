@@ -52,16 +52,6 @@ for(s in subsets){
     select(item, ROI, coef, mean) %>%
     rename(mean_nosurp = mean)
   curr_item <- merge(curr_item, curr_item_nosurp, by=c('item', 'ROI', 'coef'), all.x = TRUE)
-  curr_item_lstmonly <- readRDS(paste0('./', s, '/by_item_lstmonly.rds')) %>%
-    mutate(ROI = as.character(ROI)) %>%
-    select(item, ROI, coef, mean) %>%
-    rename(mean_lstmonly = mean)
-  curr_item <- merge(curr_item, curr_item_lstmonly, by=c('item', 'ROI', 'coef'), all.x = TRUE)
-  curr_item_gpt2only <- readRDS(paste0('./', s, '/by_item_gpt2only.rds')) %>%
-    mutate(ROI = as.character(ROI)) %>%
-    select(item, ROI, coef, mean) %>%
-    rename(mean_gpt2only = mean)
-  curr_item <- merge(curr_item, curr_item_gpt2only, by=c('item', 'ROI', 'coef'), all.x = TRUE)
   by_item[[i]] <- curr_item
   
   ## By construction
@@ -85,16 +75,6 @@ for(s in subsets){
     type = 'nosurp') %>%
     select(ROI, coef, mean, lower, upper, type)
   curr_construction <- dplyr::bind_rows(curr_construction, curr_construction_nosurp)
-    curr_construction_gpt2only <- readRDS(paste0('./', s, '/by_construction_gpt2only.rds'))%>%
-    mutate(ROI = as.character(ROI),
-    type = 'GPT2only') %>%
-    select(ROI, coef, mean, lower, upper, type)
-  curr_construction <- dplyr::bind_rows(curr_construction, curr_construction_gpt2only)
-  curr_construction_lstmonly <- readRDS(paste0('./', s, '/by_construction_lstmonly.rds')) %>%
-    mutate(ROI = as.character(ROI),
-    type = 'LSTMonly') %>%
-    select(ROI, coef, mean, lower, upper, type)
-  curr_construction <- dplyr::bind_rows(curr_construction, curr_construction_lstmonly)
   by_construction[[i]] <- curr_construction
   i <- i+1
 }
@@ -144,16 +124,20 @@ by_construction$EOI <- factor(by_construction$coef,levels=c("GPE_MVRR","GPE_NPS"
 
 EOI.labs <- c("MV/RRC"="Main verb / reduced relative clause","DO/Sent"="Direct object / sentential complement","T/I"="Transitive / intransitive","RC"="Subject / object relative clause","HIGH"="High attachment","LOW"="Low attachment","AGREE"="Subject-verb agreement mismatch")
 
+
+
+CoV_labels <- data.frame(EOI=c("MV/RRC","DO/Sent","T/I","RC","HIGH","LOW","AGREE"),label = c("CoV=.181", "CoV=.610", "CoV=.368","CoV=.869","CoV=.343","CoV=.891","CoV=.177"))
+
+
 ggplot(by_item %>%
-         filter(max_ROI) %>%
-         filter(coef != 'GPE'),
+         filter(max_ROI),
        aes(x = rank, y = mean, alpha = greater_than_zero)) + 
   geom_point(size=3)+
   geom_errorbar(aes(ymin=lower,
                     ymax=upper),
                 width=0.7,size=1.2) +
   facet_wrap(~EOI, nrow=2, labeller=labeller(EOI=EOI.labs))  + 
-  geom_hline(yintercept=0, linetype = 'dashed') + 
+  geom_hline(yintercept=0, linetype = 'dashed')+
   scale_alpha_manual(values=c(0.25, 1)) + theme_bw()+
   theme(
       axis.text.x = element_blank(),
@@ -162,20 +146,20 @@ ggplot(by_item %>%
       strip.text.x = element_text(size = 15), axis.title.y = element_text(size=18,face="bold"),
       axis.title.x = element_text(size=18,face="bold"),
       axis.text.y=element_text(size=15)) + 
-  labs(x = 'Item (sorted by magnitude)', y = 'Posterior estimate of effect size')
+  labs(x = 'Item (sorted by effect magnitude)', y = 'Posterior estimate of magnitude of effect of interest (ms)')
 
 ggsave('./pdfs/by-item-all-eoi.pdf', width=15,height=7)
 
 
 
 #empirical coefficients of variation
-sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="T/I",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="T/I"&by_construction$type=="Empirical",]$mean
+sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="MV/RRC",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="MV/RRC"&by_construction$type=="Empirical",]$mean
 sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="DO/Sent",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="DO/Sent"&by_construction$type=="Empirical",]$mean
+sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="T/I",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="T/I"&by_construction$type=="Empirical",]$mean
 sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="RC",]$mean)/by_construction[by_construction$ROI==0&by_construction$EOI=="RC"&by_construction$type=="Empirical",]$mean
 sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="HIGH",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="HIGH"&by_construction$type=="Empirical",]$mean
 sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="LOW",]$mean)/by_construction[by_construction$ROI==0&by_construction$EOI=="LOW"&by_construction$type=="Empirical",]$mean
 sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="AGREE",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="AGREE"&by_construction$type=="Empirical",]$mean
-sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="MV/RRC",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="MV/RRC"&by_construction$type=="Empirical",]$mean
 
 ```
 
@@ -195,42 +179,30 @@ by_const_maxROIs <- by_construction %>%
 
 
 by_construction <- merge(by_construction, by_const_maxROIs, by = c('coef', 'ROI')) %>%
-         mutate(EOI = factor(coef, levels = c('Agr', 'GPE_low','GPE_high','RC', 'GPE_NPZ', 'GPE_NPS','GPE_MVRR'),labels=c("Subject-verb\n agreement mismatch","Low attachment","High attachment","Subject / object \nrelative clause","Transitive / intransitive","DO/Sent"="Direct object /\n sentential complement","Main verb /\n reduced relative clause")))
+         mutate(EOI = factor(coef, levels = c('GPE_MVRR', 'GPE_NPS', 'GPE_NPZ', 'RC', 'GPE_high', 'GPE_low','Agr'),labels=c("Main verb /\n reduced relative clause","Direct object /\n sentential complement","Transitive / intransitive","Subject / object \nrelative clause","High attachment","Low attachment","Subject-verb\n agreement mismatch")))
 
 
+by_construction$type <- factor(by_construction$type,levels=c("nosurp","LSTM","GPT2","Empirical"),labels=c("No surprisal baseline","Wiki-LSTM","GPT-2","Empirical"))
 
-
-```
-
-
-```{r}
-
-by_construction$type <- factor(by_construction$type,levels=c("GPT2only","GPT2","LSTMonly","LSTM","nosurp","Empirical"),labels=c("GPT-2only","GPT-2","Wiki-LSTMonly","Wiki-LSTM","No surprisal baseline","Empirical"))
-
-
-
-
-ggplot(by_construction[!by_construction$type%in%c("GPT-2only","Wiki-LSTMonly"),] %>%
-         filter(max_ROI) %>%
-         filter(coef != 'GPE'), 
-       aes(y =EOI, x= mean, colour =type)) + 
-  geom_point(position = position_dodge(width = 1), size=2) + 
-  scale_color_manual(values=c("#D81B60","#1E88E5","#FFC107","#004D40"))+
-  geom_errorbarh(aes(xmin=lower,
-                     xmax=upper),
+ggplot(by_construction %>%
+         filter(max_ROI), aes(x=EOI, y=mean, color=type))+
+  geom_point(size=2.5,position = position_dodge(width=1))+ylab("Posterior estimate of empirical/predicted magnitude\n of effect of interest (ms)")+
+  geom_errorbar(aes(ymin=lower,
+                     ymax=upper),
                  position = position_dodge(width = 1),
-                 width = 0.2,size=1.5) + 
-  labs(x = 'Posterior estimate of observed/predicted construction-mean effect size', y = 'Effect of interest', colour = '', shape = '') + 
-   theme_bw() +
-  theme(legend.position = 'top', legend.text = element_text(size=15),
+                 width = 0.2,size=1)+xlab("Effect of interest")+
+  scale_color_manual(labels = c('No surprisal baseline','Wiki-LSTM','GPT-2','Empirical'),values = c("#FFC107","#1E88E5","#D81B60","#004D40"))+
+  scale_x_discrete(labels=c("Main verb /\n reduced relative clause","Direct object /\n sentential complement","Transitive /\n intransitive","Subject / object \nrelative clause","High attachment","Low attachment","Subject-verb\n agreement mismatch","Filler"))+ theme_minimal()+theme(legend.position="top", legend.box = "horizontal",legend.text = element_text(size=15), legend.title = element_text(size=18,face="bold"),
   axis.title.y = element_text(size=18,face="bold"),
       axis.title.x = element_text(size=18,face="bold"),
       axis.text.y=element_text(size=15),
-  axis.text.x=element_text(size=15)) + 
-  geom_vline(xintercept = 0, linetype='dashed')
-
+  axis.text.x=element_text(size=15, angle = 20))+
+    geom_hline(yintercept = 0, linetype='dashed')
 
 ggsave('./pdfs/by-construction-emp-surp.pdf', width=15,height=7)
+
+
+
 
 
 ```
@@ -242,33 +214,22 @@ ggsave('./pdfs/by-construction-emp-surp.pdf', width=15,height=7)
 ggplot(by_item[by_item$max_ROI==TRUE,], aes(x=mean_lstm, y=mean)) + 
   geom_point() + 
   facet_wrap(~EOI)+
-  labs(title="Scatterplot of empirical item EOI by predicted item EOI, Wikitext LSTM+",
+  labs(title="Scatterplot of empirical item EOI by predicted item EOI, Wikitext LSTM",
         x ="Predicted EOI", y = "Empirical EOI")
 
 ggplot(by_item[by_item$max_ROI==TRUE,], aes(x=mean_gpt2, y=mean)) + 
   geom_point() + 
   facet_wrap(~EOI)+
-  labs(title="Scatterplot of empirical item EOI by predicted item EOI, GPT-2+",
+  labs(title="Scatterplot of empirical item EOI by predicted item EOI, GPT-2",
         x ="Predicted EOI", y = "Empirical EOI")
 
-ggplot(by_item[by_item$max_ROI==TRUE,], aes(x=mean_lstmonly, y=mean)) + 
-  geom_point() + 
-  facet_wrap(~EOI)+
-  labs(title="Scatterplot of empirical item EOI by predicted item EOI, Wiki LSTMonly",
-        x ="Predicted EOI", y = "Empirical EOI")
-
-
-ggplot(by_item[by_item$max_ROI==TRUE,], aes(x=mean_gpt2only, y=mean)) + 
-  geom_point() + 
-  facet_wrap(~EOI)+
-  labs(title="Scatterplot of empirical item EOI by predicted item EOI, GPT-2only",
-        x ="Predicted EOI", y = "Empirical EOI")
 
 ggplot(by_item[by_item$max_ROI==TRUE,], aes(x=mean_nosurp, y=mean)) + 
   geom_point() + 
   facet_wrap(~EOI)+
   labs(title="Scatterplot of empirical item EOI by predicted item EOI, No surprisal baseline",
         x ="Predicted EOI", y = "Empirical EOI")
+
 
 ```
 
@@ -299,8 +260,8 @@ cor.summary <- all.data %>%
                   upper.975 = quantile(Correlation,.975)
                 ) %>%
                 rename("Model" = model)
-filler_results <- read.csv("correlation/5 models filler.csv",header=T)
-filler_summary <- data.frame(EOI="Filler",Model=c("lstm","gpt2","nosurp","lstmonly","gpt2only"),mean=NA,ceiling=0.99,lower.25=NA,lower.10=NA,lower.025=NA,upper.75=NA,upper.90=NA,upper.975=NA)
+filler_results <- read.csv("correlation/3 models filler.csv",header=T)
+filler_summary <- data.frame(EOI="Filler",Model=c("lstm","gpt2","nosurp"),mean=NA,ceiling=0.99,lower.25=NA,lower.10=NA,lower.025=NA,upper.75=NA,upper.90=NA,upper.975=NA)
 for(i in 2:ncol(filler_results)){
   filler_summary[i-1,'mean'] <- mean(filler_results[,i])
   filler_summary[i-1,'lower.025'] <- mean(filler_results[,i])-1.96*sd(filler_results[,i])
@@ -312,10 +273,10 @@ for(i in 2:ncol(filler_results)){
 }
 cor.summary <- rbind(cor.summary,filler_summary)
 cor.summary$EOI <- factor(cor.summary$EOI, levels = c("GPE_MVRR","GPE_NPS","GPE_NPZ","RC","GPE_high","GPE_low","Agr","Filler") )
-cor.summary$Model <- factor(cor.summary$Model,levels = c("nosurp","lstmonly","lstm","gpt2only","gpt2"))
+cor.summary$Model <- factor(cor.summary$Model,levels = c("nosurp","lstm","gpt2"))
+cor.summary <- cor.summary[!is.na(cor.summary$Model),]
 
-
-ggplot(cor.summary[cor.summary$Model%in%c("lstm","gpt2","nosurp"),], aes(x=EOI, y=mean, color=Model))+
+ggplot(cor.summary, aes(x=EOI, y=mean, color=Model))+
   geom_rect(inherit.aes=FALSE,
             aes(xmin=as.numeric(EOI)-.25,xmax=as.numeric(EOI)+0.25,ymin=0,ymax=ceiling), alpha=0.1)+
   geom_linerange(aes(ymin=lower.025,ymax=upper.975),lwd=0.5,position = position_dodge(width=.5))+
@@ -393,41 +354,3 @@ for(i in 1:nrow(baselinevsEOI_Agr)){
 }
 
 ```
-
-
-
-```{r}
-
-ggplot(by_construction %>%
-         filter(max_ROI) %>%
-         filter(coef != 'GPE'), 
-       aes(y =EOI, x= mean, colour =type)) + 
-  geom_point(position = position_dodge(width = 0.9)) + 
-  scale_color_manual(values=c("royalblue1","navyBlue","orange","red","chocolate4","black"))+
-  geom_errorbarh(aes(xmin=lower,
-                     xmax=upper),
-                 position = position_dodge(width = 0.9),
-                 width = 0.2) + 
-  labs(x = 'Mean magnitude of effect of interest', y = 'Effect of interest', colour = '', shape = '') + 
-  theme(legend.position = 'top') + 
-  geom_vline(xintercept = 0, linetype='dashed')
-
-ggsave('./pdfs/by-construction-all-emp-surp.pdf', width=6,height=4)
-
-
-
-
-ggplot(cor.summary, aes(x=EOI, y=mean, color=Model))+
-  geom_rect(inherit.aes=FALSE,
-            aes(xmin=as.numeric(EOI)-.25,xmax=as.numeric(EOI)+0.25,ymin=0,ymax=ceiling), alpha=0.1)+
-  geom_linerange(aes(ymin=lower.025,ymax=upper.975),lwd=.5,position = position_dodge(width=.5))+
-  geom_linerange(aes(ymin=lower.25,ymax=upper.75),lwd=1.25,position = position_dodge(width=.5))+
-  geom_point(lwd = 2.5,position = position_dodge(width=.5))+
-  ylim(-.45,1)+ylab("Correlation between model predictions and data")+
-  scale_color_manual(labels = c('No surprisal baseline','Wiki LSTMonly','Wikitext LSTM+','GPT-2only','GPT-2+'),values = c("chocolate4","orange","red","royalblue1","navyBlue"))+
-  scale_x_discrete(labels=c("MV/RR","DO/Sent","T/I","RC","HIGH","LOW","AGREE","Filler"))+theme_minimal()+theme(legend.position="bottom", legend.box = "horizontal")+
-  geom_text(x=1.1, y=1, size=3.5, family = 'sans',inherit.aes = FALSE, label="Explainable variance")+
-  geom_segment(inherit.aes = FALSE, x = 1, y = 0.98, xend = 1, yend = .82, arrow = arrow(length = unit(0.2,"cm")))
-
-```
-
