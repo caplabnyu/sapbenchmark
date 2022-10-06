@@ -1,0 +1,70 @@
+Sentence_cloze,cloze_SZMbias,item,coef,COCA_SZMbias
++ + + After the contestant lost the money ...,0.25,22,GPE_NPZ,0.0075
++ + + After the corrupt politician signed the bill ...,0.111111111,2,GPE_NPZ,0.006579
++ + + After the engineer moved the equipment ...,0.1875,15,GPE_NPZ,0.0492
++ + + After the guitarist began the song ...,0.35483871,9,GPE_NPZ,0.055045872
++ + + After the millionaire signed the lease ...,NA,14,GPE_NPZ,0.006579
++ + + After the new doctor left the operation ...,0.642857143,5,GPE_NPZ,0.014891
++ + + After the technician called the service ...,0.346153846,7,GPE_NPZ,0.00277
++ + + Although the athlete lost the bonus ...,0.210526316,10,GPE_NPZ,0.0075
++ + + Although the boy attacked the chicken ...,0.294117647,4,GPE_NPZ,0.0097
++ + + Although the mayor changed the document ...,0.130434783,13,GPE_NPZ,0.02609
++ + + Although the woman moved the mail ...,0.224489796,3,GPE_NPZ,0.0492
++ + + Because the mechanic stopped the truck ...,0.454545455,8,GPE_NPZ,0.147540984
++ + + Because the suspect changed the file ...,0.346153846,1,GPE_NPZ,0.02609
++ + + Before the patient called the treatment ...,0.226415094,19,GPE_NPZ,0.00277
++ + + Before the yoga instructor left the position ...,0.387096774,17,GPE_NPZ,0.014891
++ + + Once the dancer began the ballet ...,0.541666667,21,GPE_NPZ,0.055045872
++ + + Once the new chef started the restaurant ...,0.571428571,23,GPE_NPZ,0.047945205
++ + + Once the operator stopped the machine ...,0.48,20,GPE_NPZ,0.147540984
++ + + The apprentice baker assigned the oven ...,0.070175439,24,GPE_MVRR,0.040323
++ + + The apprentice baker discovered the oven ...,0.982142857,24,GPE_NPS,0.093864013
++ + + The assistant manager assigned the training ...,0.028571429,12,GPE_MVRR,0.040323
++ + + The assistant manager discovered the training ...,0.958333333,12,GPE_NPS,0.093864013
++ + + The athlete paid the bonus ...,0,10,GPE_MVRR,0.0007289
++ + + The athlete revealed the bonus ...,0.833333333,10,GPE_NPS,0.062665782
++ + + The boy fed the chicken ...,0.038461538,4,GPE_MVRR,0.1248
++ + + The boy found the chicken ...,0.027777778,4,GPE_NPS,0.156424308
++ + + The contestant paid the money ...,0.063829787,22,GPE_MVRR,0.0007289
++ + + The contestant revealed the money ...,0.760869565,22,GPE_NPS,0.062665782
++ + + The corrupt politician handed the bill ...,0.022988506,2,GPE_MVRR,0
++ + + The corrupt politician mentioned the bill ...,0.6875,2,GPE_NPS,0.053935058
++ + + The dancer assigned the ballet ...,0.15,21,GPE_MVRR,0.040323
++ + + The dancer knew the ballet ...,0.365853659,21,GPE_NPS,0.415401433
++ + + The engineer brought the equipment ...,0.016129032,15,GPE_MVRR,0.000369
++ + + The engineer maintained the equipment ...,0.065217391,15,GPE_NPS,0.042127072
++ + + The governor awarded the contract ...,0.014084507,18,GPE_MVRR,0.017699115
++ + + The governor noticed the contract ...,0.933333333,18,GPE_NPS,0.111682243
++ + + The guitarist assigned the song ...,0.096153846,9,GPE_MVRR,0.040323
++ + + The guitarist knew the song ...,0.725490196,9,GPE_NPS,0.415401433
++ + + The little girl fed the lamb ...,0.045977011,16,GPE_MVRR,0.1248
++ + + The little girl found the lamb ...,0.176470588,16,GPE_NPS,0.156424308
++ + + The mayor sent the document ...,0.039215686,13,GPE_MVRR,0
++ + + The mayor showed the document ...,0,13,GPE_NPS,0.073689707
++ + + The mechanic brought the truck ...,0.025316456,8,GPE_MVRR,0.000369
++ + + The mechanic observed the truck ...,0.375,8,GPE_NPS,0.060574949
++ + + The millionaire handed the lease ...,NA,14,GPE_MVRR,0
++ + + The millionaire mentioned the lease ...,NA,14,GPE_NPS,0.053935058
++ + + The new chef claimed the restaurant ...,0.934210526,23,GPE_NPS,0.428981938
++ + + The new chef offered the restaurant ...,0.033333333,23,GPE_MVRR,0.002046277
++ + + The new doctor demonstrated the operation ...,0.282608696,5,GPE_NPS,0.015779093
++ + + The new doctor offered the operation ...,0.038461538,5,GPE_MVRR,0.002046277
++ + + The operator brought the machine ...,0.03125,20,GPE_MVRR,0.000369
++ + + The operator observed the machine ...,0.545454545,20,GPE_NPS,0.060574949
++ + + The patient refused the treatment ...,0.266666667,19,GPE_MVRR,0
++ + + The patient reported the treatment ...,0.681818182,19,GPE_NPS,0.100213756
++ + + The professor awarded the grant ...,0.058823529,6,GPE_MVRR,0.017699115
++ + + The professor noticed the grant ...,1,6,GPE_NPS,0.111682243
++ + + The suspect sent the file ...,0.016129032,1,GPE_MVRR,0
++ + + The suspect showed the file ...,0.030769231,1,GPE_NPS,0.073689707
++ + + The technician refused the service ...,0.029411765,7,GPE_MVRR,0
++ + + The technician reported the service ...,0.638888889,7,GPE_NPS,0.100213756
++ + + The woman brought the mail ...,0,3,GPE_MVRR,0.000369
++ + + The woman maintained the mail ...,0.333333333,3,GPE_NPS,0.042127072
++ + + The yoga instructor demonstrated the position ...,0.083333333,17,GPE_NPS,0.015779093
++ + + The yoga instructor offered the position ...,0.053571429,17,GPE_MVRR,0.002046277
++ + + When the apprentice baker worked the oven ...,0.627906977,24,GPE_NPZ,0.044444444
++ + + When the assistant manager worked the training ...,0.652173913,12,GPE_NPZ,0.044444444
++ + + When the little girl attacked the lamb ...,0.192307692,16,GPE_NPZ,0.009708738
++ + + While the governor read the contract ...,0.115384615,18,GPE_NPZ,0.005682
++ + + While the professor read the grant ...,0.055555556,6,GPE_NPZ,0.005682
