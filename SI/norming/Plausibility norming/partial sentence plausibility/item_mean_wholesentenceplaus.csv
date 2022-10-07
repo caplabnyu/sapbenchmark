@@ -1,0 +1,109 @@
+"Type","Sentence","item","meanrating","numbofpeople","sd","SE","z-score"
+"PlauNPZ","Because the suspect changed%2C the file deserved further investigation during the jury discussions.",1,5,8,2,0.707106781186547,0.260213085018494
+"SingNPZZ","If the supervisor changes%2C the schedule deserves further inspection by the rest of the staff.",1,4.69230769230769,13,1.75045781557356,0.48548964689132,0.411268916620744
+"PluralNPZZ","If the supervisor changes%2C the schedules deserve further inspection by the rest of the staff.",1,5.35294117647059,17,1.36661884182223,0.331453754987784,0.446007746880476
+"PlauNPS","The suspect showed that the file deserved further investigation during the murder trial.",1,6.3,10,0.823272602348565,0.260341655863555,0.915890869257956
+"PlauMVRR","The suspect who was sent the file deserved further investigation given the new evidence.",1,4.92307692307692,13,1.93483584409369,0.536626911191188,0.336783168640055
+"PlauNPZ","After the corrupt politician signed%2C the bill received unwelcome attention from southern voters.",2,6.42857142857143,7,0.786795792469443,0.29738085706659,1.17289572015039
+"PlauNPS","The corrupt politician mentioned that the bill received unwelcome attention from southern voters.",2,5.8,10,1.87379590967403,0.592546294487706,0.769765731645104
+"PlauMVRR","The corrupt politician who was handed the bill received unwelcome attention from southern voters.",2,5.71428571428571,14,1.13872880735639,0.304338075255522,0.663483820893984
+"PlauNPZ","After the woman moved%2C the mail disappeared mysteriously from the delivery system.",3,5.53846153846154,13,1.26592420885458,0.351104203528953,0.495022224574957
+"PlauNPS","The woman maintained that the mail disappeared mysteriously from her front porch.",3,5.11111111111111,9,2.42097317438899,0.806991058129664,0.405610654013207
+"PlauMVRR","The woman who was brought the mail disappeared mysteriously after reading the bad news in it.",3,4.14285714285714,7,1.95180014589707,0.737711113563318,0.109319200078481
+"SingNPZZ","When the magician moves%2C the card disappears mysteriously from his assistant's hand.",3,6.71428571428571,7,0.487950036474267,0.184427778390829,0.961509760974902
+"PluralNPZZ","When the magician moves%2C the cards disappear mysteriously from his assistant's hand.",3,6.42857142857143,7,1.13389341902768,0.428571428571429,1.0090773290154
+"PlauNPZ","Although the boy attacked%2C the chicken stayed surprisingly happy as if nothing happened.",4,4.77777777777778,9,1.7873008824606,0.5957669608202,0.0391010153944537
+"PlauNPS","The boy found that the chicken stayed surprisingly happy in the new barn.",4,6.55555555555556,9,0.52704627669473,0.175682092231577,0.983778118497938
+"PlauMVRR","The boy who was fed the chicken stayed surprisingly happy despite having a mild allergic reaction.",4,5.28571428571429,14,1.72887564301513,0.462061451464366,0.480376171439773
+"PlauNPZ","After the new doctor left%2C the operation appeared increasingly likely to succeed.",5,5.61538461538461,13,1.60926802918084,0.4463306457828,0.537184932380379
+"PlauNPS","The new doctor demonstrated that the operation appeared increasingly likely to succeed.",5,5.9,10,1.59513148186739,0.504424865014052,0.742259007963862
+"PlauMVRR","The new doctor who was offered the operation appeared increasingly likely to succeed in her career.",5,5.66666666666667,6,1.50554530541816,0.614636297152859,0.618644241705477
+"SingNPZZ","Whenever the lawyer leaves%2C his client appears increasingly uncomfortable in the courtroom.",5,6.6,10,0.516397779494322,0.163299316185545,1.077589422607
+"PluralNPZZ","Whenever the lawyer leaves%2C his clients appear increasingly uncomfortable in the courtroom.",5,6.5,8,0.534522483824849,0.188982236504614,0.986888294328184
+"SingNPZZ","After the esteemed reviewer reads%2C the book gains more attention due to his glowing praise.",6,4.35714285714286,14,1.78054195972172,0.475869855432409,0.114908689040378
+"PluralNPZZ","After the esteemed reviewer reads%2C the books gain more attention due to his glowing praise.",6,4.61111111111111,18,2.19997029094616,0.518537970378992,-0.0203319316647614
+"PlauNPZ","After the professor read%2C the grant gained more attention due to her excellent description.",6,2.9,10,1.59513148186739,0.504424865014052,-0.562924336635704
+"PlauNPS","The professor noticed that the grant gained more attention from marine biologists.",6,5.3,10,1.82878222991269,0.578311719096582,0.530110355913096
+"PlauMVRR","The professor who was awarded the grant gained more attention from marine biologists.",6,6.41176470588235,17,0.712287119900726,0.172755001830452,0.809007654206675
+"PlauNPZ","After the technician called%2C the service stopped working almost immediately to his surprise.",7,4.84615384615385,13,1.86396324383261,0.516970388555281,0.282355468457582
+"PlauNPS","The technician reported that the service stopped working almost immediately after the storm started.",7,6.66666666666667,6,0.816496580927726,0.333333333333333,1.23286361834551
+"PlauMVRR","The technician who was refused the service stopped working almost immediately after the argument.",7,5.46666666666667,15,1.12546286774228,0.290593262902712,0.379781605636568
+"SingNPZZ","Whenever the nurse calls%2C the doctor stops working immediately to check on the patient.",7,6.77777777777778,9,0.440958551844098,0.146986183948033,1.15028579484642
+"PluralNPZZ","Whenever the nurse calls%2C the doctors stop working immediately to check on the patient.",7,6.5,6,0.547722557505166,0.223606797749979,0.809420016443332
+"PlauNPZ","Because the mechanic stopped%2C the truck needed several more hours before it could be fully repaired.",8,5.90909090909091,11,1.13618180363404,0.342571703298487,0.791317491936214
+"PlauNPS","The mechanic observed that the truck needed several more hours to be repaired.",8,6.52941176470588,17,0.717430053979439,0.174002346561753,0.877676663543066
+"PlauMVRR","The mechanic who was brought the truck needed several more hours to fully repair it.",8,4.5,6,2.07364413533277,0.84656167328002,0.269790497199849
+"SingNPZZ","When the lecturer stops%2C her audience needs several minutes to reflect on the content.",8,6.1,10,1.91195071996,0.604611904907235,0.839350611889602
+"PluralNPZZ","When the lecturer stops%2C her audiences need several minutes to reflect on the content.",8,6.16666666666667,6,0.752772652709081,0.30731814857643,0.974073377563721
+"PlauNPZ","After the guitarist began%2C the song failed dramatically because he skipped the sound check.",9,5.46153846153846,13,1.6132464481796,0.44743406068244,0.545515250873869
+"PlauNPS","The guitarist knew that the song failed dramatically because of the tensions within the band.",9,5.4,10,1.89736659610103,0.6,0.595536273259294
+"PlauMVRR","The guitarist who was assigned the song failed dramatically because he never practiced enough.",9,6.375,8,0.744023809142845,0.263052140404576,0.935383323151394
+"SingNPZZ","When the actress begins%2C the scene fails dramatically despite the months she spent rehearsing.",9,5,13,1.68325082306035,0.466849780923926,0.281331986845694
+"PluralNPZZ","When the actress begins%2C the scenes fail dramatically despite the months she spent rehearsing.",9,5.14285714285714,7,1.4638501094228,0.553283335172488,0.487876816095785
+"SingNPZZ","After the worst team loses%2C the tournament remains essentially the same for the rest of the year.",10,4.7,10,1.41813649241218,0.448454134902457,0.171353738867648
+"PluralNPZZ","After the worst team loses%2C the tournaments remain essentially the same for the rest of the year.",10,5.4,15,1.54919333848297,0.4,0.502523034177876
+"PlauNPZ","Although the player lost%2C the bonus remained essentially the same as in the original contract.",10,4.875,8,1.95940953204931,0.692755883616815,0.474104581019062
+"PlauNPS","The player revealed that the bonus remained essentially the same as in the original contract.",10,6.66666666666667,9,0.5,0.166666666666667,0.970164478695753
+"PlauMVRR","The player who was paid the bonus remained essentially the same despite his sudden fame and wealth.",10,5.33333333333333,12,1.82574185835055,0.52704627669473,0.574674675290073
+"PlauNPZ","Once the recent hire started%2C the job prepared many students for careers in media.",11,4.66666666666667,12,2.05971460217775,0.594588390010563,0.213782220942905
+"PlauNPS","The recent hire claimed that the job prepared many students for careers in media.",11,6,10,0.816496580927726,0.258198889747161,0.985791141737952
+"PlauMVRR","The recent hire who was offered the job prepared many students for careers in media.",11,5.27272727272727,11,1.1037127426019,0.332781913049511,0.475999487788025
+"PlauNPS","The assistant manager discovered that the training seemed unnecessarily demanding for new staff.",12,6.7,10,0.483045891539648,0.152752523165195,1.07582115162546
+"PlauMVRR","The assistant manager who was assigned the training seemed unnecessarily demanding to new staff.",12,6.57142857142857,7,0.786795792469443,0.29738085706659,1.10176225348553
+"SingNPZZ","When the supervisor works%2C the shift seems unnecessarily stressful on a Friday night.",12,6.1,10,1.19721899973786,0.378593889720018,0.824212338478317
+"PluralNPZZ","When the supervisor works%2C the shifts seem unnecessarily stressful on a Friday night.",12,5.5,14,1.60527975036225,0.429029059698681,0.560276150283148
+"PlauNPZ","While the assistant manager worked%2C the training seemed unnecessarily demanding to him.",12,5.11111111111111,9,1.53659074288215,0.512196914294049,0.247031722932288
+"PlauNPZ","Although the mayor changed%2C the document provided sufficient evidence for what he had promised.",13,4.16666666666667,6,2.13697605664328,0.872416821886827,-0.030343080328081
+"PlauNPS","The mayor showed that the document provided sufficient evidence to prove her innocence.",13,5.11111111111111,9,2.08832734769028,0.696109115896759,0.380090532823955
+"PlauMVRR","The mayor who was sent the document provided sufficient evidence that it was simply blackmail.",13,6.11764705882353,17,1.11143786045242,0.269563276173873,0.77290916821361
+"PlauNPZ","After the basketball player signed%2C the contract created another controversy in the NBA.",14,5,6,1.67332005306815,0.683130051063973,0.45888360923695
+"SingNPZZ","After the diplomat signs%2C the agreement creates another border conflict as a side effect.",14,5.07692307692308,13,1.32045058354705,0.366227098899633,0.328828362134536
+"PluralNPZZ","After the diplomat signs%2C the agreements create another border conflict as a side effect.",14,4.38095238095238,21,1.8835124230063,0.411016107181716,-0.0664766636703197
+"PlauNPS","The basketball player mentioned that the contract created another controversy in the NBA.",14,6.08333333333333,12,1.31137217055151,0.378560537837848,0.769436722796546
+"PlauMVRR","The basketball player who was handed the contract created another controversy in the NBA.",14,5.85714285714286,14,1.35062053300541,0.360968521003447,0.641028133168635
+"PlauNPZ","After the engineer moved%2C the equipment required constant supervision from senior technicians.",15,5.41666666666667,12,1.78164037455442,0.514315274924051,0.401262047127677
+"PlauNPS","The engineer maintained that the equipment required constant supervision from senior technicians.",15,6.53333333333333,15,0.833809387832792,0.215288658199187,0.978340159614436
+"PlauMVRR","The engineer who was brought the equipment required constant supervision from senior technicians.",15,6,6,0.894427190999916,0.365148371670111,0.844064480639368
+"SingNPZZ","Whenever the reporter moves%2C the camera requires constant adjustment from the director.",15,5.71428571428571,7,1.38013111868471,0.521640530957301,0.731323949980523
+"PluralNPZZ","Whenever the reporter moves%2C the cameras require constant adjustment from the director.",15,6,10,1.24721912892465,0.394405318873308,0.772761812100024
+"PlauNPS","The little girl found that the lamb remained relatively calm despite the absence of its mother.",16,6.53846153846154,13,0.776250025806185,0.215293020817265,1.07536141287158
+"PlauMVRR","The little girl who was fed the lamb remained relatively calm despite having asked for beef.",16,6.08333333333333,12,1.67648622440092,0.483959886475286,0.764191098867462
+"SingNPZZ","Unless the dog attacks%2C the cat remains relatively tranquil throughout the day.",16,6.4375,16,1.50416089564913,0.376040223912283,0.812351900317707
+"PluralNPZZ","Unless the dog attacks%2C the cats remain relatively tranquil throughout the day.",16,6.14285714285714,14,1.40642169281549,0.375882008274441,0.903319625812471
+"PlauNPZ","When the little girl attacked%2C the lamb remained relatively calm despite the sudden assault.",16,6.42857142857143,7,1.13389341902768,0.428571428571429,0.900516607238632
+"PlauNPZ","Before the yoga instructor left%2C the position demanded immense physical effort from everyone.",17,5.06666666666667,15,1.94446712004919,0.50205925154656,0.241196147715093
+"PlauNPS","The yoga instructor demonstrated that the position demanded immense physical effort from everyone.",17,6.28571428571429,7,0.755928946018454,0.285714285714286,0.838488408152557
+"PlauMVRR","The yoga instructor who was offered the position demanded immense physical effort from everyone.",17,6,8,1.0690449676497,0.377964473009227,0.800711998519078
+"SingNPZZ","Until the lead architect leaves%2C the project demands immense patience from the engineers.",17,6.42857142857143,7,0.534522483824849,0.202030508910442,0.811683508434004
+"PluralNPZZ","Until the lead architect leaves%2C the projects demand immense patience from the engineers.",17,4.14285714285714,7,2.26778683805536,0.857142857142857,0.161232456766417
+"PlauNPS","The governor noticed that the contract received sweeping support across the entire state.",18,5.9,10,1.10050493461461,0.348010216963685,0.77443066027971
+"PlauMVRR","The governor who was awarded the contract received sweeping support across the entire state.",18,6.15384615384615,13,1.34450448407296,0.372898450570487,0.879156927524218
+"PlauNPZ","While the governor read%2C the contract received sweeping support from the audience at the rally.",18,5.44444444444444,9,1.50923085635624,0.503076952118745,0.619505195252954
+"PlauNPZ","Before the patient called%2C the treatment continued causing uncomfortable side effects like nausea.",19,5.58333333333333,12,1.37895436890245,0.39806983804302,0.644131309602333
+"SingNPZZ","Even if the mother calls%2C her boy continues causing problems with the other kids on the playground.",19,5.5,12,1.16774841624228,0.337099931231621,0.46310221080748
+"PluralNPZZ","Even if the mother calls%2C her boys continue causing problems with the other kids on the playground.",19,4.75,8,1.66904592079256,0.590096844352082,0.319902037695898
+"PlauNPS","The patient reported that the treatment continued causing uncomfortable side effects like nausea.",19,7,9,0,0,1.13038210139688
+"PlauMVRR","The patient who was refused the treatment continued causing uncomfortable scenes in the ER.",19,5.9,10,1.66332999331662,0.525991127935317,0.773877202729002
+"SingNPZZ","After the tutor stops%2C the student starts working independently on the questions.",20,6,8,1.30930734141595,0.462910049886276,0.762560488737406
+"PluralNPZZ","After the tutor stops%2C the students start working independently on the questions.",20,5.83333333333333,6,1.60208197875972,0.65404722901162,0.697730457075565
+"PlauNPZ","Once the operator stopped%2C the machine started working efficiently without any supervision.",20,5.9,10,1.44913767461894,0.458257569495584,0.590073674760409
+"PlauNPS","The operator observed that the machine started working efficiently all of a sudden.",20,5.33333333333333,15,1.29099444873581,0.333333333333333,0.589581464438448
+"PlauMVRR","The operator who was brought the machine started working efficiently with the added automation.",20,5.875,8,0.991031208965115,0.350382444113368,0.643664327163295
+"PlauNPZ","Once the dancer began%2C the ballet achieved incredible success for a show with a new performer.",21,5.5,10,1.17851130197758,0.372677996249965,0.521174089251069
+"SingNPZZ","Once the head surgeon begins%2C the operation achieves incredible results given the risks involved.",21,5,8,1.8516401995451,0.654653670707977,0.316730081855645
+"PluralNPZZ","Once the head surgeon begins%2C the operations achieve incredible results given the risks involved.",21,4.8,10,1.22927259430572,0.38873012632302,0.303055234686995
+"PlauNPS","The dancer knew that the ballet achieved incredible success for a small local production.",21,5.33333333333333,12,2.14617347995464,0.619546918189724,0.491070899471963
+"PlauMVRR","The dancer who was assigned the ballet achieved incredible success for a new performer.",21,3.85714285714286,7,1.67616341969505,0.633530223602384,-0.148713888377383
+"PlauNPZ","After the contestant lost%2C the money became unavailable despite his previous three wins in a row.",22,5.86666666666667,15,1.35576371027375,0.350056684752173,0.688545202920662
+"PlauNPS","The contestant revealed that the money became unavailable to him when the show's budget shrank.",22,5.57142857142857,7,2.14919697074224,0.812320100439618,0.656622206709816
+"PlauMVRR","The contestant who was paid the money became unavailable and suddenly terminated his contract.",22,5.5,16,1.4142135623731,0.353553390593274,0.487471115042111
+"SingNPZZ","After the producer starts%2C the audition separates mediocre actors from talented ones.",23,5.07692307692308,13,1.65637850251377,0.459396740183818,0.146404489957838
+"PluralNPZZ","After the producer starts%2C the auditions separate mediocre actors from talented ones.",23,5,11,1.54919333848297,0.467099366496914,0.327199370730632
+"PlauNPZ","Once the new chef started%2C the restaurant separated mediocre cooks from gifted ones.",23,5.64285714285714,14,1.15072838853303,0.30754509822322,0.677004380064257
+"PlauNPS","The new chef claimed that the restaurant separated mediocre cooks from gifted ones.",23,6.84615384615385,13,0.375533808099405,0.104154338520974,0.992773473724278
+"PlauMVRR","The new chef who was offered the restaurant separated mediocre cooks from gifted ones.",23,4.42857142857143,7,2.07019667802706,0.782460796435952,0.184716964035547
+"SingNPZZ","However hard the scientist works%2C his experiment produces smaller amounts of alcohol than expected.",24,5.25,12,1.48477117918737,0.428616519994413,0.480900193625437
+"PluralNPZZ","However hard the scientist works%2C his experiments produce smaller amounts of alcohol than expected.",24,5.83333333333333,6,1.60208197875972,0.65404722901162,0.68731350394012
+"PlauNPS","The apprentice baker discovered that the oven produced smaller cakes because it heated too fast.",24,5.35714285714286,14,1.64584057818223,0.439869396914845,0.430341618157802
+"PlauMVRR","The apprentice baker who was assigned the oven produced smaller cakes because he lacked experience.",24,5.42857142857143,7,1.39727626201154,0.528120786019496,0.559733510552992
+"PlauNPZ","When the apprentice baker worked%2C the oven produced smaller cakes because he lacked experience.",24,4.61538461538461,13,2.50128172271943,0.693730731203522,0.0489362292373422
