@@ -47,50 +47,54 @@ reshape_item_dat <- function(fit, rand_name){
 ###
 Plot_empirical_construction_level <- function(fixedeffcts_df,subset_name, axistitle.size=14, axistext.size=14,legendtitle.size=14,legendtext.size=14,ROIcolor=c("royalblue3","tan2","forestgreen")){
   if(subset_name=="RelativeClause"){
+    fixedeffcts_df$coef <- factor(fixedeffcts_df$coef,levels=c("RC"),labels=c("Subject / object relative clause"))
     fixedeffcts_df$ROI <- factor(fixedeffcts_df$ROI,levels=c("0","1","2"),labels=c("Verb","Det","Noun"))
     ggplot(data=fixedeffcts_df, aes(x=coef, y=mean, fill=ROI)) +
       geom_bar(stat="identity",position=position_dodge())+
       scale_fill_manual(values = ROIcolor)+
       #scale_fill_discrete(labels=c("Verb","Det","Noun"))+
       geom_errorbar(aes(ymin=lower,ymax=upper),width=.2,position=position_dodge(.9))+
-      xlab("Human_Relative Clause Subset")+
-      ylab("Mean Relative Clause Effect")+
+      xlab("Relative clause subset")+
+      ylab("Empirical relative clause effect size (ms)")+
       theme(axis.title=element_text(size=axistitle.size,face="bold"),
             axis.text = element_text(size=axistext.size,face="bold"),
             legend.title = element_text(size=legendtitle.size),
             legend.text = element_text(size=legendtext.size))
   }else{
     if(subset_name=="AttachmentAmbiguity"){
+      fixedeffcts_df$coef <- factor(fixedeffcts_df$coef,levels=c("GPE_high","GPE_low"),labels=c("High attachment","Low attachment"))
       ggplot(data=fixedeffcts_df, aes(x=coef, y=mean, fill=ROI)) +
         geom_bar(stat="identity",position=position_dodge())+
         scale_fill_manual(values = ROIcolor)+
         geom_errorbar(aes(ymin=lower,ymax=upper),width=.2,position=position_dodge(.9))+
-        xlab("Human_Attachment Ambiguity Subset")+
-        ylab("Attachment Site Effect")+
+        xlab("Attachment ambiguity subset")+
+        ylab("Empirical attachment site effect size (ms)")+
         theme(axis.title=element_text(size=axistitle.size,face="bold"),
               axis.text = element_text(size=axistext.size,face="bold"),
               legend.title = element_text(size=legendtitle.size),
               legend.text = element_text(size=legendtext.size))
     }else{
       if(subset_name=="Agreement"){
+        fixedeffcts_df$coef <- factor(fixedeffcts_df$coef,levels=c("Agr"),labels=c("Subject-verb agreement mismatch"))
         ggplot(data=fixedeffcts_df, aes(x=coef, y=mean, fill=ROI)) +
           geom_bar(stat="identity",position=position_dodge())+
           scale_fill_manual(values = ROIcolor)+
           geom_errorbar(aes(ymin=lower,ymax=upper),width=.2,position=position_dodge(.9))+
-          xlab("Human_Agreement Subset")+
-          ylab("Ungrammaticality Effect")+
+          xlab("Agreement subset")+
+          ylab("Empirical ungrammaticality effect size (ms)")+
           theme(axis.title=element_text(size=axistitle.size,face="bold"),
                 axis.text = element_text(size=axistext.size,face="bold"),
                 legend.title = element_text(size=legendtitle.size),
                 legend.text = element_text(size=legendtext.size))
       }else{
         if(subset_name=="ClassicGP"){
+          fixedeffcts_df$coef <- factor(fixedeffcts_df$coef,levels=c("GPE_MVRR","GPE_NPS","GPE_NPZ"),labels=c("Main verb/\nreduced relative clause","Direct object/\nsentential complement","Transitive/\nintranstive"))
           ggplot(data=fixedeffcts_df, aes(x=coef, y=mean, fill=ROI)) +
             geom_bar(stat="identity",position=position_dodge())+
             scale_fill_manual(values = ROIcolor)+
             geom_errorbar(aes(ymin=lower,ymax=upper),width=.2,position=position_dodge(.9))+
-            xlab("Human_Classic Garden Path Subset")+
-            ylab("Mean Garden Path Effect")+
+            xlab("Classic garden path subset")+
+            ylab("Empirical garden path effect size (ms)")+
             theme(axis.title=element_text(size=axistitle.size,face="bold"),
                   axis.text = element_text(size=axistext.size,face="bold"),
                   legend.title = element_text(size=legendtitle.size),
