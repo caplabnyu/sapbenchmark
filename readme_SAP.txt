@@ -6,7 +6,7 @@ Preprocessed (low accuracy removal, technical errors, etc) data (N=2000) are sto
 (see SAP_preprocessing.R for details)
 
 To ensure correct dependency, the whole sapbenchmark folder should be downloaded as it is from GitHub
-Data from different subsets can be loaded using the load_data function in "analysis/shared/util.R"
+Data from different subsets can be loaded using the load_data() function sourced from "analysis/shared/util.R"
 
 large brm models (rds files) are downloadable at https://drive.google.com/drive/u/0/folders/1OAbjV7X8JvvrIxfxhoAvAkHNhGyxC4uN
 and https://drive.google.com/drive/u/0/folders/1DZn5hnk_mFetL1DKBmgcnHhRzPhy4UaK
