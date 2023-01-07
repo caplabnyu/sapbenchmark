@@ -1,2 +1,0 @@
-# sapbenchmark
-SAP Benchmark
