@@ -1,3 +1,6 @@
+Reference: Huang, K.J., Arehalli, S., Kugemoto, M., Muxica, C., Prasad, G., Linzen, T., & Dillon, B. (under review)
+A large-scale investigation of syntactic processing reveals misalignments between humans and neural language models.
+
 Data analysis and modeling are conducted via R.
 Preprocessed (low accuracy removal, technical errors, etc) data (N=2000) are stored at https://drive.google.com/drive/folders/1g-oyH-XuB2oolo1d8KZfuFtiimuNyhjc
 (see SAP_preprocessing.R for details)
