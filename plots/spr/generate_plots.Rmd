@@ -10,6 +10,8 @@ knitr::opts_chunk$set(echo = TRUE)
 library(lme4)
 library(tidyverse)
 library(ggplot2)
+library(ggthemes)
+library(ggpubr)
 library(brms)
 library(bayestestR)
 library(tidytext)
@@ -138,7 +140,7 @@ ggplot(by_item %>%
                 width=0.7,size=1.2) +
   facet_wrap(~EOI, nrow=2, labeller=labeller(EOI=EOI.labs))  + 
   geom_hline(yintercept=0, linetype = 'dashed')+
-  scale_alpha_manual(values=c(0.25, 1)) + theme_bw()+
+  scale_alpha_manual(values=c(0.25, 1)) + theme_hc()+
   theme(
       axis.text.x = element_blank(),
          axis.ticks.x = element_blank(),
@@ -148,7 +150,7 @@ ggplot(by_item %>%
       axis.text.y=element_text(size=15)) + 
   labs(x = 'Item (sorted by effect magnitude)', y = 'Posterior estimate of magnitude of effect of interest (ms)')
 
-ggsave('./pdfs/by-item-all-eoi.pdf', width=15,height=7)
+# ggsave('./pdfs/by-item-all-eoi.pdf', width=15,height=7)
 
 
 
@@ -199,7 +201,7 @@ ggplot(by_construction %>%
   axis.text.x=element_text(size=15, angle = 20))+
     geom_hline(yintercept = 0, linetype='dashed')
 
-ggsave('./pdfs/by-construction-emp-surp.pdf', width=15,height=7)
+# ggsave('./pdfs/by-construction-emp-surp.pdf', width=15,height=7)
 
 
 
@@ -209,27 +211,126 @@ ggsave('./pdfs/by-construction-emp-surp.pdf', width=15,height=7)
 
 
 
-```{r}
+```{r, fig.width=4, fig.height=4} 
+# LSTM
+lstm_GP_EOI_MV <- ggplot(by_item %>% filter(EOI == "MV/RRC" && ROI==1), aes(x=mean_lstm, y=mean)) +
+  geom_point() +
+  facet_wrap(~EOI) +
+  theme_fivethirtyeight()
 
-ggplot(by_item[by_item$max_ROI==TRUE,], aes(x=mean_lstm, y=mean)) + 
-  geom_point() + 
+lstm_GP_EOI_DO <- ggplot(by_item %>% filter(EOI == "DO/Sent" && ROI==1), aes(x=mean_lstm, y=mean)) +
+  geom_point() +
+  facet_wrap(~EOI) +
+  theme_fivethirtyeight()
+
+lstm_GP_EOI_TI <- ggplot(by_item %>% filter(EOI == "T/I" && ROI==1), aes(x=mean_lstm, y=mean)) +
+  geom_point() +
+  facet_wrap(~EOI) +
+  theme_fivethirtyeight()
+
+lstm_RC_EOI <- ggplot(by_item %>% filter(EOI=="RC" && ROI==1), aes(x=mean_lstm, y=mean)) +
+  geom_point() +
+  facet_wrap(~EOI) +
+  theme_fivethirtyeight()
+
+lstm_AA_EOI_HIGH <- ggplot(by_item %>% filter(EOI=="HIGH" && ROI==1), aes(x=mean_lstm, y=mean)) +
+  geom_point() +
   facet_wrap(~EOI)+
-  labs(title="Scatterplot of empirical item EOI by predicted item EOI, Wikitext LSTM",
-        x ="Predicted EOI", y = "Empirical EOI")
+  theme_fivethirtyeight()
 
-ggplot(by_item[by_item$max_ROI==TRUE,], aes(x=mean_gpt2, y=mean)) + 
-  geom_point() + 
+lstm_AA_EOI_LOW <- ggplot(by_item %>% filter(EOI=="LOW" && ROI==0), aes(x=mean_lstm, y=mean)) +
+  geom_point()+
   facet_wrap(~EOI)+
-  labs(title="Scatterplot of empirical item EOI by predicted item EOI, GPT-2",
-        x ="Predicted EOI", y = "Empirical EOI")
+  theme_fivethirtyeight()
 
-
-ggplot(by_item[by_item$max_ROI==TRUE,], aes(x=mean_nosurp, y=mean)) + 
+lstm_Agr_EOI <- ggplot(by_item %>% filter(EOI=="AGREE" && ROI==1), aes(x=mean_lstm, y=mean)) + 
   geom_point() + 
-  facet_wrap(~EOI)+
-  labs(title="Scatterplot of empirical item EOI by predicted item EOI, No surprisal baseline",
-        x ="Predicted EOI", y = "Empirical EOI")
+  facet_wrap(~EOI) +
+  theme_fivethirtyeight()
 
+lstm_arr<- ggarrange(lstm_GP_EOI_MV, lstm_GP_EOI_DO, lstm_GP_EOI_TI, lstm_AA_EOI_HIGH, lstm_AA_EOI_LOW, lstm_RC_EOI, lstm_Agr_EOI)
+                    
+annotate_figure(lstm_arr, top=text_grob("Scatterplot of empirical item EOI by predicted item EOI, Wikitext LSTM", color="#3C3C3C", size=12, family="sans", face="bold"), bottom=text_grob("Predicted EOI", color="#3C3C3C", size=12, family="sans"), left=text_grob("Empirical EOI" , color="#3C3C3C", size=12, family="sans", rot=90))+theme_fivethirtyeight()
+
+# GPT2
+gpt_GP_EOI_MV <- ggplot(by_item %>% filter(EOI == "MV/RRC" && ROI==1), aes(x=mean_gpt2, y=mean)) +
+  geom_point() +
+  facet_wrap(~EOI) +
+  theme_fivethirtyeight()
+
+gpt_GP_EOI_DO <- ggplot(by_item %>% filter(EOI == "DO/Sent" && ROI==1), aes(x=mean_gpt2, y=mean)) +
+  geom_point() +
+  facet_wrap(~EOI) +
+  theme_fivethirtyeight()
+
+gpt_GP_EOI_TI <- ggplot(by_item %>% filter(EOI == "T/I" && ROI==1), aes(x=mean_gpt2, y=mean)) +
+  geom_point() +
+  facet_wrap(~EOI) +
+  theme_fivethirtyeight()
+
+gpt_RC_EOI <- ggplot(by_item %>% filter(EOI=="RC" && ROI==1), aes(x=mean_gpt2, y=mean)) +
+  geom_point() +
+  facet_wrap(~EOI) +
+  theme_fivethirtyeight()
+
+gpt_AA_EOI_HIGH <- ggplot(by_item %>% filter(EOI=="HIGH" && ROI==1), aes(x=mean_gpt2, y=mean)) +
+  geom_point() +
+  facet_wrap(~EOI)+
+  theme_fivethirtyeight()
+
+gpt_AA_EOI_LOW <- ggplot(by_item %>% filter(EOI=="LOW" && ROI==0), aes(x=mean_gpt2, y=mean)) +
+  geom_point()+
+  facet_wrap(~EOI)+
+  theme_fivethirtyeight()
+
+gpt_Agr_EOI <- ggplot(by_item %>% filter(EOI=="AGREE" && ROI==1), aes(x=mean_gpt2, y=mean)) + 
+  geom_point() + 
+  facet_wrap(~EOI) +
+  theme_fivethirtyeight()
+
+gpt_arr<- ggarrange(gpt_GP_EOI_MV, gpt_GP_EOI_DO, gpt_GP_EOI_TI, gpt_AA_EOI_HIGH, gpt_AA_EOI_LOW, gpt_RC_EOI, gpt_Agr_EOI)
+                    
+annotate_figure(gpt_arr, top=text_grob("Scatterplot of empirical item EOI by predicted item EOI, GPT-2", color="#3C3C3C", size=12, family="sans", face="bold"), bottom=text_grob("Predicted EOI", color="#3C3C3C", size=12, family="sans"), left=text_grob("Empirical EOI" , color="#3C3C3C", size=12, family="sans", rot=90))+theme_fivethirtyeight()
+
+# BASELINE
+nosurp_GP_EOI_MV <- ggplot(by_item %>% filter(EOI == "MV/RRC" && ROI==1), aes(x=mean_nosurp, y=mean)) +
+  geom_point() +
+  facet_wrap(~EOI) +
+  theme_fivethirtyeight()
+
+nosurp_GP_EOI_DO <- ggplot(by_item %>% filter(EOI == "DO/Sent" && ROI==1), aes(x=mean_nosurp, y=mean)) +
+  geom_point() +
+  facet_wrap(~EOI) +
+  theme_fivethirtyeight()
+
+nosurp_GP_EOI_TI <- ggplot(by_item %>% filter(EOI == "T/I" && ROI==1), aes(x=mean_nosurp, y=mean)) +
+  geom_point() +
+  facet_wrap(~EOI) +
+  theme_fivethirtyeight()
+
+nosurp_RC_EOI <- ggplot(by_item %>% filter(EOI=="RC" && ROI==1), aes(x=mean_nosurp, y=mean)) +
+  geom_point() +
+  facet_wrap(~EOI) +
+  theme_fivethirtyeight()
+
+nosurp_AA_EOI_HIGH <- ggplot(by_item %>% filter(EOI=="HIGH" && ROI==1), aes(x=mean_nosurp, y=mean)) +
+  geom_point() +
+  facet_wrap(~EOI)+
+  theme_fivethirtyeight()
+
+nosurp_AA_EOI_LOW <- ggplot(by_item %>% filter(EOI=="LOW" && ROI==0), aes(x=mean_nosurp, y=mean)) +
+  geom_point()+
+  facet_wrap(~EOI)+
+  theme_fivethirtyeight()
+
+nosurp_Agr_EOI <- ggplot(by_item %>% filter(EOI=="AGREE" && ROI==1), aes(x=mean_nosurp, y=mean)) + 
+  geom_point() + 
+  facet_wrap(~EOI) +
+  theme_fivethirtyeight()
+
+nosurp_arr<- ggarrange(nosurp_GP_EOI_MV, nosurp_GP_EOI_DO, nosurp_GP_EOI_TI, nosurp_AA_EOI_HIGH, nosurp_AA_EOI_LOW, nosurp_RC_EOI, nosurp_Agr_EOI)
+                    
+annotate_figure(nosurp_arr, top=text_grob("Scatterplot of empirical item EOI by predicted item EOI, No surprisal baseline", color="#3C3C3C", size=12, family="sans", face="bold"), bottom=text_grob("Predicted EOI", color="#3C3C3C", size=12, family="sans"), left=text_grob("Empirical EOI" , color="#3C3C3C", size=12, family="sans", rot=90))+theme_fivethirtyeight()
 
 ```
 
@@ -292,63 +393,150 @@ ggplot(cor.summary, aes(x=EOI, y=mean, color=Model))+
   geom_text(x=1.4, y=1, size=5, family = 'sans',inherit.aes = FALSE, label="Maximal explainable variance")+
   geom_segment(inherit.aes = FALSE, x = 1, y = 0.98, xend = 1, yend = .82, arrow = arrow(length = unit(0.2,"cm")))
 
-ggsave('./pdfs/by-item-emp-pred-cor.pdf', width=15,height=7)
+# ggsave('./pdfs/by-item-emp-pred-cor.pdf', width=15,height=7)
 
 
 ```
 
-```{r EOI and baseline absolute RT}
+```{r EOI and baseline absolute RT, fig.width=3.5, fig.height=3.5}
+ratio_display = 1
+
 GP_by_item <- cbind(readRDS("ClassicGP/by_item.rds"),
                   unamb_mean=readRDS("ClassicGP/by_item_unamb.rds")[,4])
 GP_by_item$EOI <- factor(GP_by_item$coef,levels=c("GPE_MVRR","GPE_NPS","GPE_NPZ"),labels=c("MV/RR","DO/Sent","T/I"))
 baselinevsEOI_GP <- GP_by_item %>% group_by(ROI,EOI) %>% do(CORR=cor.test(.$mean,.$unamb_mean))
+
+ratio_GP_by_item = (max(GP_by_item$unamb_mean)-min(GP_by_item$unamb_mean))/(max(GP_by_item$mean)-min(GP_by_item$mean))
+
+gp_corr <- baselinevsEOI_GP %>%
+  mutate(paste("corr=",toString(round(CORR[[4]][[1]],3)), sep="")) %>%
+  rename(est = `paste("corr=", toString(round(CORR[[4]][[1]], 3)), sep = "")`)
+
 ggplot(GP_by_item,aes(x=unamb_mean,y=mean))+
   facet_wrap(ROI~EOI)+
   geom_point()+
   geom_smooth(method="lm",formula=y~x)+
-  labs(y="EOI size",x="Unambiguous mean RT")
+  labs(y="EOI size",x="Unambiguous mean RT")+
+  theme_fivethirtyeight()+
+  theme(axis.title = element_text())+
+  coord_fixed(ratio=(ratio_GP_by_item / ratio_display))+
+  facet_grid(ROI~EOI) +
+  geom_label(
+    size    = 4,
+    data    = gp_corr,
+    mapping = aes(x = Inf, y = Inf, label=est),
+    hjust   = 1.05,
+    vjust   = 1.05,
+    color   ="#3C3C3C",
+    family  = "sans",
+  )
+
 for(i in 1:nrow(baselinevsEOI_GP)){
   print(c(baselinevsEOI_GP[i,'ROI'][[1]],as.character(baselinevsEOI_GP[i,'EOI'][[1]]),round(baselinevsEOI_GP[i,'CORR'][[1]][[1]]$estimate,3)))
 }
 
-
-
 RC_by_item <- cbind(readRDS("RelativeClause/by_item.rds"),
                     SRC_mean=readRDS("RelativeClause/by_item_SRC.rds")[,4])
+
 RC_by_item$EOI <- factor(RC_by_item$coef,levels=c("RC"),labels=c("RC"))
 baselinevsEOI_RC <- RC_by_item %>% group_by(ROI,EOI) %>% do(CORR=cor.test(.$mean,.$SRC_mean))
+
+ratio_RC_by_item = (max(RC_by_item$SRC_mean)-min(RC_by_item$SRC_mean))/(max(RC_by_item$mean)-min(RC_by_item$mean))
+
+rc_corr <- baselinevsEOI_RC %>%
+  mutate(paste("corr=",toString(round(CORR[[4]][[1]],3)), sep="")) %>%
+  rename(est = `paste("corr=", toString(round(CORR[[4]][[1]], 3)), sep = "")`)
+
 ggplot(RC_by_item,aes(x=SRC_mean,y=mean))+
   facet_wrap(ROI~EOI,nrow=3)+
   geom_point()+
   geom_smooth(method="lm",formula=y~x)+
-  labs(y="EOI size",x="SRC mean RT")
+  labs(y="EOI size",x="SRC mean RT")+
+  theme_fivethirtyeight()+
+  theme(axis.title = element_text())+
+  coord_fixed(ratio=(ratio_RC_by_item / ratio_display))+
+  facet_grid(ROI~EOI) +
+  geom_label(
+    size    = 4,
+    data    = rc_corr,
+    mapping = aes(x = Inf, y = Inf, label=est),
+    hjust   = 1.05,
+    vjust   = 1.05,
+    color   ="#3C3C3C",
+    family  = "sans",
+  )
+
+
 for(i in 1:nrow(baselinevsEOI_RC)){
   print(c(baselinevsEOI_RC[i,'ROI'][[1]],as.character(baselinevsEOI_RC[i,'EOI'][[1]]),round(baselinevsEOI_RC[i,'CORR'][[1]][[1]]$estimate,3)))
 }
 
-
 AA_by_item <- cbind(readRDS("AttachmentAmbiguity/by_item.rds"),
                     multi_mean=readRDS("AttachmentAmbiguity/by_item_multi.rds")[,4])
+
 AA_by_item$EOI <- factor(AA_by_item$coef,levels=c("GPE_high","GPE_low"),labels=c("HIGH","LOW"))
 baselinevsEOI_AA <- AA_by_item %>% group_by(ROI,EOI) %>% do(CORR=cor.test(.$mean,.$multi_mean))
+
+ratio_AA_by_item = (max(AA_by_item$multi_mean)-min(AA_by_item$multi_mean))/(max(AA_by_item$mean)-min(AA_by_item$mean))
+
+aa_corr <- baselinevsEOI_AA %>%
+  mutate(paste("corr=",toString(round(CORR[[4]][[1]],3)), sep="")) %>%
+  rename(est = `paste("corr=", toString(round(CORR[[4]][[1]], 3)), sep = "")`)
+
 ggplot(AA_by_item,aes(x=multi_mean,y=mean))+
   facet_wrap(ROI~EOI,nrow=3)+
   geom_point()+
   geom_smooth(method="lm",formula=y~x)+
-  labs(y="EOI size",x="MultiAttachment mean RT")
+  labs(y="EOI size",x="MultiAttachment mean RT")+
+  theme_fivethirtyeight()+
+  theme(axis.title = element_text())+
+  coord_fixed(ratio=(ratio_AA_by_item / ratio_display))+
+  facet_grid(ROI~EOI) +
+  geom_label(
+    size    = 4,
+    data    = aa_corr,
+    mapping = aes(x = Inf, y = Inf, label=est),
+    hjust   = 1.05,
+    vjust   = 1.05,
+    color   ="#3C3C3C",
+    family  = "sans",
+  )
+
 for(i in 1:nrow(baselinevsEOI_AA)){
   print(c(baselinevsEOI_AA[i,'ROI'][[1]],as.character(baselinevsEOI_AA[i,'EOI'][[1]]),round(baselinevsEOI_AA[i,'CORR'][[1]][[1]]$estimate,3)))
 }
 
 Agr_by_item <- cbind(readRDS("Agreement/by_item.rds"),
                     Agreed_mean=readRDS("Agreement/by_item_Agreed.rds")[,4])
+
 Agr_by_item$EOI <- factor(Agr_by_item$coef,levels=c("Agr"),labels=c("AGREE"))
 baselinevsEOI_Agr <- Agr_by_item %>% group_by(ROI,EOI) %>% do(CORR=cor.test(.$mean,.$Agreed_mean))
+
+ratio_Agr_by_item = (max(Agr_by_item$Agreed_mean)-min(Agr_by_item$Agreed_mean))/(max(Agr_by_item$mean)-min(Agr_by_item$mean))
+
+agr_corr <- baselinevsEOI_Agr %>%
+  mutate(paste("corr=",toString(round(CORR[[4]][[1]],3)), sep="")) %>%
+  rename(est = `paste("corr=", toString(round(CORR[[4]][[1]], 3)), sep = "")`)
+
 ggplot(Agr_by_item,aes(x=Agreed_mean,y=mean))+
   facet_wrap(ROI~EOI,nrow=3)+
   geom_point()+
   geom_smooth(method="lm",formula=y~x)+
-  labs(y="EOI size",x="Grammatical mean RT")
+  labs(y="EOI size",x="Grammatical mean RT")+
+  theme_fivethirtyeight()+
+  theme(axis.title = element_text())+
+  coord_fixed(ratio=(ratio_Agr_by_item / ratio_display))+
+  facet_grid(ROI~EOI) +
+  geom_label(
+    size    = 4,
+    data    = agr_corr,
+    mapping = aes(x = Inf, y = Inf, label=est, family='sans'),
+    hjust   = 1.05,
+    vjust   = 1.05,
+    color   ="#3C3C3C",
+    family  = "sans",
+  )
+
 for(i in 1:nrow(baselinevsEOI_Agr)){
   print(c(baselinevsEOI_Agr[i,'ROI'][[1]],as.character(baselinevsEOI_Agr[i,'EOI'][[1]]),round(baselinevsEOI_Agr[i,'CORR'][[1]][[1]]$estimate,3)))
 }
