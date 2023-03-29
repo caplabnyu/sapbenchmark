@@ -211,7 +211,7 @@ ggplot(by_construction %>%
 
 
 
-```{r, fig.width=4, fig.height=4} 
+```{r, fig.width=7, fig.height=7} 
 # LSTM
 lstm_GP_EOI_MV <- ggplot(by_item %>% filter(EOI == "MV/RRC" && ROI==1), aes(x=mean_lstm, y=mean)) +
   geom_point() +
@@ -228,7 +228,7 @@ lstm_GP_EOI_TI <- ggplot(by_item %>% filter(EOI == "T/I" && ROI==1), aes(x=mean_
   facet_wrap(~EOI) +
   theme_fivethirtyeight()
 
-lstm_RC_EOI <- ggplot(by_item %>% filter(EOI=="RC" && ROI==1), aes(x=mean_lstm, y=mean)) +
+lstm_RC_EOI <- ggplot(by_item %>% filter(EOI=="RC" && ROI==2), aes(x=mean_lstm, y=mean)) +
   geom_point() +
   facet_wrap(~EOI) +
   theme_fivethirtyeight()
@@ -238,7 +238,7 @@ lstm_AA_EOI_HIGH <- ggplot(by_item %>% filter(EOI=="HIGH" && ROI==1), aes(x=mean
   facet_wrap(~EOI)+
   theme_fivethirtyeight()
 
-lstm_AA_EOI_LOW <- ggplot(by_item %>% filter(EOI=="LOW" && ROI==0), aes(x=mean_lstm, y=mean)) +
+lstm_AA_EOI_LOW <- ggplot(by_item %>% filter(EOI=="LOW" && ROI==1), aes(x=mean_lstm, y=mean)) +
   geom_point()+
   facet_wrap(~EOI)+
   theme_fivethirtyeight()
@@ -268,7 +268,7 @@ gpt_GP_EOI_TI <- ggplot(by_item %>% filter(EOI == "T/I" && ROI==1), aes(x=mean_g
   facet_wrap(~EOI) +
   theme_fivethirtyeight()
 
-gpt_RC_EOI <- ggplot(by_item %>% filter(EOI=="RC" && ROI==1), aes(x=mean_gpt2, y=mean)) +
+gpt_RC_EOI <- ggplot(by_item %>% filter(EOI=="RC" && ROI==2), aes(x=mean_gpt2, y=mean)) +
   geom_point() +
   facet_wrap(~EOI) +
   theme_fivethirtyeight()
@@ -278,7 +278,7 @@ gpt_AA_EOI_HIGH <- ggplot(by_item %>% filter(EOI=="HIGH" && ROI==1), aes(x=mean_
   facet_wrap(~EOI)+
   theme_fivethirtyeight()
 
-gpt_AA_EOI_LOW <- ggplot(by_item %>% filter(EOI=="LOW" && ROI==0), aes(x=mean_gpt2, y=mean)) +
+gpt_AA_EOI_LOW <- ggplot(by_item %>% filter(EOI=="LOW" && ROI==1), aes(x=mean_gpt2, y=mean)) +
   geom_point()+
   facet_wrap(~EOI)+
   theme_fivethirtyeight()
@@ -308,7 +308,7 @@ nosurp_GP_EOI_TI <- ggplot(by_item %>% filter(EOI == "T/I" && ROI==1), aes(x=mea
   facet_wrap(~EOI) +
   theme_fivethirtyeight()
 
-nosurp_RC_EOI <- ggplot(by_item %>% filter(EOI=="RC" && ROI==1), aes(x=mean_nosurp, y=mean)) +
+nosurp_RC_EOI <- ggplot(by_item %>% filter(EOI=="RC" && ROI==2), aes(x=mean_nosurp, y=mean)) +
   geom_point() +
   facet_wrap(~EOI) +
   theme_fivethirtyeight()
@@ -318,7 +318,7 @@ nosurp_AA_EOI_HIGH <- ggplot(by_item %>% filter(EOI=="HIGH" && ROI==1), aes(x=me
   facet_wrap(~EOI)+
   theme_fivethirtyeight()
 
-nosurp_AA_EOI_LOW <- ggplot(by_item %>% filter(EOI=="LOW" && ROI==0), aes(x=mean_nosurp, y=mean)) +
+nosurp_AA_EOI_LOW <- ggplot(by_item %>% filter(EOI=="LOW" && ROI==1), aes(x=mean_nosurp, y=mean)) +
   geom_point()+
   facet_wrap(~EOI)+
   theme_fivethirtyeight()
@@ -398,7 +398,7 @@ ggplot(cor.summary, aes(x=EOI, y=mean, color=Model))+
 
 ```
 
-```{r EOI and baseline absolute RT, fig.width=3.5, fig.height=3.5}
+```{r EOI and baseline absolute RT, fig.width=6, fig.height=6}
 ratio_display = 1
 
 GP_by_item <- cbind(readRDS("ClassicGP/by_item.rds"),
