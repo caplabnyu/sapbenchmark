@@ -48,7 +48,8 @@ reshape_item_dat <- function(fit, rand_name){
 Plot_empirical_construction_level <- function(fixedeffcts_df,subset_name, axistitle.size=14, axistext.size=14,legendtitle.size=14,legendtext.size=14,ROIcolor=c("royalblue3","tan2","forestgreen")){
   if(subset_name=="RelativeClause"){
     fixedeffcts_df$coef <- factor(fixedeffcts_df$coef,levels=c("RC"),labels=c("Subject / object relative clause"))
-    fixedeffcts_df$ROI <- factor(fixedeffcts_df$ROI,levels=c("0","1","2"),labels=c("Verb","Det","Noun"))
+    #determiner is the critical region
+    fixedeffcts_df$ROI <- factor(fixedeffcts_df$ROI,levels=c("1","2","0"),labels=c("Critical","Critical+1","Critical+2"))
     ggplot(data=fixedeffcts_df, aes(x=coef, y=mean, fill=ROI)) +
       geom_bar(stat="identity",position=position_dodge())+
       scale_fill_manual(values = ROIcolor)+
@@ -63,6 +64,7 @@ Plot_empirical_construction_level <- function(fixedeffcts_df,subset_name, axisti
   }else{
     if(subset_name=="AttachmentAmbiguity"){
       fixedeffcts_df$coef <- factor(fixedeffcts_df$coef,levels=c("GPE_high","GPE_low"),labels=c("High attachment","Low attachment"))
+      fixedeffcts_df$ROI <- factor(fixedeffcts_df$ROI,levels=c(0,1,2),labels=c("Critical","Critical+1","Critical+2"))
       ggplot(data=fixedeffcts_df, aes(x=coef, y=mean, fill=ROI)) +
         geom_bar(stat="identity",position=position_dodge())+
         scale_fill_manual(values = ROIcolor)+
@@ -76,6 +78,7 @@ Plot_empirical_construction_level <- function(fixedeffcts_df,subset_name, axisti
     }else{
       if(subset_name=="Agreement"){
         fixedeffcts_df$coef <- factor(fixedeffcts_df$coef,levels=c("Agr"),labels=c("Subject-verb agreement mismatch"))
+        fixedeffcts_df$ROI <- factor(fixedeffcts_df$ROI,levels=c(0,1,2),labels=c("Critical","Critical+1","Critical+2"))
         ggplot(data=fixedeffcts_df, aes(x=coef, y=mean, fill=ROI)) +
           geom_bar(stat="identity",position=position_dodge())+
           scale_fill_manual(values = ROIcolor)+
@@ -89,6 +92,7 @@ Plot_empirical_construction_level <- function(fixedeffcts_df,subset_name, axisti
       }else{
         if(subset_name=="ClassicGP"){
           fixedeffcts_df$coef <- factor(fixedeffcts_df$coef,levels=c("GPE_MVRR","GPE_NPS","GPE_NPZ"),labels=c("Main verb/\nreduced relative clause","Direct object/\nsentential complement","Transitive/\nintranstive"))
+          fixedeffcts_df$ROI <- factor(fixedeffcts_df$ROI,levels=c(0,1,2),labels=c("Critical","Critical+1","Critical+2"))
           ggplot(data=fixedeffcts_df, aes(x=coef, y=mean, fill=ROI)) +
             geom_bar(stat="identity",position=position_dodge())+
             scale_fill_manual(values = ROIcolor)+
@@ -166,13 +170,13 @@ Plot_itemwise_by_magnitude <- function(byitem_df,subset_name,ROI_index,axistitle
 }
 ###
 merge_surprisal <- function(rt.data_df, byitem_df, subsetname){
-  surp_files <- c(paste0('../../../Surprisals/data/lstm/items_',subsetname,'.lstm.csv.scaled'),
-                  paste0('../../../Surprisals/data/gpt2/items_',subsetname,'.gpt2.csv.scaled'),
-                  paste0('../../../Surprisals/data/rnng/items_',subsetname,'.rnng.csv.scaled'))
+  surp_files <- c(paste0('../../Surprisals/data/lstm/items_',subsetname,'.lstm.csv.scaled'),
+                  paste0('../../Surprisals/data/gpt2/items_',subsetname,'.gpt2.csv.scaled'),
+                  paste0('../../Surprisals/data/rnng/items_',subsetname,'.rnng.csv.scaled'))
   surp_list <- list()
   i <- 1
   for(fname in surp_files){
-    model_name <- strsplit(fname, '.', fixed=TRUE)[[1]][8]
+    model_name <- strsplit(fname, '.', fixed=TRUE)[[1]][6]
     curr_surp <- read.csv(fname) %>%
       mutate(model = model_name,
              #surprisal = ifelse(surprisal == -1, NA, surprisal),
@@ -256,12 +260,12 @@ Predicting_RT_with_spillover <- function(rt.data_df,subsetname, models = c('gpt2
         print(paste('Processing model', model))
       
         ## NOTE THIS ASSUMES THE FOLDER NAME FOR LSTM MODELS IS lstm  AND NOT gulordava
-        surps <- read.csv(paste0('../../../Surprisals/data/', model,'/items_',subsetname,'.', model, '.csv.scaled')) %>%
+        surps <- read.csv(paste0('../../Surprisals/data/', model,'/items_',subsetname,'.', model, '.csv.scaled')) %>%
           mutate(word_pos = word_pos + 1,
                  model = model) %>% #adjust to 1-indexing
           select(Sentence, word_pos, sum_surprisal , sum_surprisal_s,logfreq,logfreq_s,length,length_s)
         surps <- rename(surps, surprisal=sum_surprisal,surprisal_s=sum_surprisal_s)
-        surps2 <- read.csv(paste0('../../../Surprisals/data/', model,'/items_ClassicGP.', model, '.csv.scaled')) %>%
+        surps2 <- read.csv(paste0('../../Surprisals/data/', model,'/items_ClassicGP.', model, '.csv.scaled')) %>%
           filter(condition%in%c("NPZ_UAMB","NPZ_AMB")&item%in%unique(rt.data_df$item[rt.data_df$Type=="AGREE"])) %>%
           mutate(word_pos = word_pos + 1,
                  model = model) %>% #adjust to 1-indexing
@@ -269,7 +273,7 @@ Predicting_RT_with_spillover <- function(rt.data_df,subsetname, models = c('gpt2
         surps2 <- rename(surps2, surprisal=sum_surprisal,surprisal_s=sum_surprisal_s)
         surps <- rbind(surps,surps2)
       
-        filler.model <- readRDS(paste0('../../../Surprisals/analysis/filler_models/filler_', model, '_sum.rds')) 
+        filler.model <- readRDS(paste0('../../Surprisals/analysis/filler_models/filler_', model, '_sum.rds')) 
       
         rt.data.freqs.surps <- merge(x = rt.data_df,
                                    y = surps,
@@ -306,12 +310,12 @@ Predicting_RT_with_spillover <- function(rt.data_df,subsetname, models = c('gpt2
       }
       else{
         print(paste('Processing model', model))
-        surps <- read.csv(paste0('../../../Surprisals/data/lstm/items_',subsetname,'.lstm.csv.scaled')) %>%
+        surps <- read.csv(paste0('../../Surprisals/data/lstm/items_',subsetname,'.lstm.csv.scaled')) %>%
           mutate(word_pos = word_pos + 1,
                  model = model) %>% #adjust to 1-indexing
           select(Sentence, word_pos, sum_surprisal , sum_surprisal_s,logfreq,logfreq_s,length,length_s)
         surps <- rename(surps, surprisal=sum_surprisal,surprisal_s=sum_surprisal_s)
-        surps2 <- read.csv(paste0('../../../Surprisals/data/lstm/items_ClassicGP.lstm.csv.scaled')) %>%
+        surps2 <- read.csv(paste0('../../Surprisals/data/lstm/items_ClassicGP.lstm.csv.scaled')) %>%
           filter(condition%in%c("NPZ_UAMB","NPZ_AMB")&item%in%unique(rt.data_df$item[rt.data_df$Type=="AGREE"])) %>%
           mutate(word_pos = word_pos + 1,
                  model = model) %>% #adjust to 1-indexing
@@ -319,7 +323,7 @@ Predicting_RT_with_spillover <- function(rt.data_df,subsetname, models = c('gpt2
         surps2 <- rename(surps2, surprisal=sum_surprisal,surprisal_s=sum_surprisal_s)
         surps <- rbind(surps,surps2)
         
-        filler.model <- readRDS(paste0('../../../Surprisals/analysis/filler_models/filler_sum_nosurp.rds')) 
+        filler.model <- readRDS(paste0('../../Surprisals/analysis/filler_models/filler_sum_nosurp.rds')) 
         
         rt.data.freqs.surps <- merge(x = rt.data_df,
                                      y = surps,
@@ -363,13 +367,13 @@ Predicting_RT_with_spillover <- function(rt.data_df,subsetname, models = c('gpt2
         print(paste('Processing model', model))
     
       ## NOTE THIS ASSUMES THE FOLDER NAME FOR LSTM MODELS IS lstm  AND NOT gulordava
-        surps <- read.csv(paste0('../../../Surprisals/data/', model,'/items_',subsetname,'.', model, '.csv.scaled')) %>%
+        surps <- read.csv(paste0('../../Surprisals/data/', model,'/items_',subsetname,'.', model, '.csv.scaled')) %>%
           mutate(word_pos = word_pos + 1,
                  model = model) %>% #adjust to 1-indexing
           select(Sentence, word_pos, sum_surprisal , sum_surprisal_s,logfreq,logfreq_s,length,length_s)
         surps <- rename(surps, surprisal=sum_surprisal,surprisal_s=sum_surprisal_s)
     
-        filler.model <- readRDS(paste0('../../../Surprisals/analysis/filler_models/filler_', model, '_sum.rds')) 
+        filler.model <- readRDS(paste0('../../Surprisals/analysis/filler_models/filler_', model, '_sum.rds')) 
     
         rt.data.freqs.surps <- merge(x = rt.data_df,
                                     y = surps,
@@ -408,13 +412,13 @@ Predicting_RT_with_spillover <- function(rt.data_df,subsetname, models = c('gpt2
         print(paste('Processing model', model))
         
         ## NOTE THIS ASSUMES THE FOLDER NAME FOR LSTM MODELS IS lstm  AND NOT gulordava
-        surps <- read.csv(paste0('../../../Surprisals/data/lstm/items_',subsetname,'.lstm.csv.scaled')) %>%
+        surps <- read.csv(paste0('../../Surprisals/data/lstm/items_',subsetname,'.lstm.csv.scaled')) %>%
           mutate(word_pos = word_pos + 1,
                  model = model) %>% #adjust to 1-indexing
           select(Sentence, word_pos, sum_surprisal , sum_surprisal_s,logfreq,logfreq_s,length,length_s)
         surps <- rename(surps, surprisal=sum_surprisal,surprisal_s=sum_surprisal_s)
         
-        filler.model <- readRDS(paste0('../../../Surprisals/analysis/filler_models/filler_sum_nosurp.rds')) 
+        filler.model <- readRDS(paste0('../../Surprisals/analysis/filler_models/filler_sum_nosurp.rds')) 
         
         rt.data.freqs.surps <- merge(x = rt.data_df,
                                      y = surps,
