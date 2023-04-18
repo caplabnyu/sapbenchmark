@@ -296,8 +296,8 @@ noise.summary <- read.csv("noiseceiling_summary.csv") %>%
   rename("EOI" = Effect,
          "Ceiling" = Correlation)
 GP.data <- readRDS("correlation/sampled_correlations_maxregion_GP.rds")
-RC.data <- readRDS("correlation/sampled_correlations_maxregion_RC.rds")
-AA.data <- readRDS("correlation/sampled_correlations_maxregion_AA.rds")
+RC.data <- readRDS("correlation/sampled_correlations_P2_RC.rds")
+AA.data <- readRDS("correlation/sampled_correlations_P1_AA.rds")
 Agr.data <- readRDS("correlation/sampled_correlations_maxregion_Agr.rds")
 all.data <- rbind(GP.data,RC.data,AA.data,Agr.data) %>% left_join(noise.summary)
 cor.summary <- all.data %>%
