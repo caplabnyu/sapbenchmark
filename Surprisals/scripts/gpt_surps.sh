@@ -12,3 +12,6 @@ python get_gpt2_full.py --input data/items_RelativeClause.pivot.csv --output dat
 python get_gpt2_full.py --input data/items_filler.pivot.csv --output data/gpt2/items_filler.gpt2.csv --aligned
 
 python get_gpt2_full.py --input data/items_plaus.pivot.csv --output data/gpt2/items_plaus.gpt2.csv --aligned
+
+python rescale.py --path data/gpt2/ --freqs analysis/freqs_coca.csv
+

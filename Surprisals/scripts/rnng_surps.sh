@@ -12,3 +12,6 @@ python get_rnng.py --input data/items_RelativeClause.pivot.csv --output data/rnn
 python get_rnng.py --input data/items_filler.pivot.csv --output data/rnng/items_filler.rnng.csv --model ../../models_pt/rnng/rnng-e80.pt --seed 0 
 
 python get_rnng.py --input data/items_plaus.pivot.csv --output data/rnng/items_plaus.rnng.csv --model ../../models_pt/rnng/rnng-e80.pt --seed 0 
+
+python rescale.py --path data/rnng/ --freqs analysis/freqs_coca.csv
+
