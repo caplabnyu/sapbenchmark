@@ -2,7 +2,7 @@ library(brms)
 library(dplyr)
 library(ggplot2)
 
-#emp_AA_P0 <- readRDS("AttachmentAmbiguity/brm_prior1_0_emp.rds")
+emp_AA_P0 <- readRDS("AttachmentAmbiguity/brm_prior1_0_emp.rds")
 #emp_AA_P1 <- readRDS("AttachmentAmbiguity/brm_prior1_1_emp.rds")
 #emp_AA_P2 <- readRDS("AttachmentAmbiguity/brm_prior1_2_emp.rds")
 #lstm_AA_P0 <- readRDS("AttachmentAmbiguity/brm_prior1_pred_lstm_0.rds")
@@ -152,10 +152,10 @@ posterior_emp_multi_P2 <- data.frame(mean=rep(NA,24),SE=rep(NA,24),upper=rep(NA,
 ncols <- ncol(emp_AA_P0_posterior_samp)
 emp_AA_P0_posterior_samp[,(1+ncols):(24+ncols)] <- (-1)*(emp_AA_P0_posterior_samp[,2])+(1/2)*emp_AA_P0_posterior_samp[,3]+(-1)*emp_AA_P0_posterior_samp[,(1+27):(24+27)]+(1/2)*emp_AA_P0_posterior_samp[,(1+51):(24+51)]
 emp_AA_P0_posterior_samp[,(25+ncols):(48+ncols)] <- (-1)*(emp_AA_P0_posterior_samp[,2])-(1/2)*emp_AA_P0_posterior_samp[,3]+(-1)*emp_AA_P0_posterior_samp[,(1+27):(24+27)]-(1/2)*emp_AA_P0_posterior_samp[,(1+51):(24+51)]
-emp_AA_P0_posterior_samp[,(49+ncols):(72+ncols)] <- emp_AA_P2_posterior_samp[,1]+emp_AA_P2_posterior_samp[,(1+3):(24+3)]+(2/3)*(emp_AA_P0_posterior_samp[,2])+(2/3)*emp_AA_P0_posterior_samp[,(1+27):(24+27)]
+emp_AA_P0_posterior_samp[,(49+ncols):(72+ncols)] <- emp_AA_P0_posterior_samp[,1]+emp_AA_P0_posterior_samp[,(1+3):(24+3)]+(2/3)*(emp_AA_P0_posterior_samp[,2])+(2/3)*emp_AA_P0_posterior_samp[,(1+27):(24+27)]
 emp_AA_P1_posterior_samp[,(1+ncols):(24+ncols)] <- (-1)*(emp_AA_P1_posterior_samp[,2])+(1/2)*emp_AA_P1_posterior_samp[,3]+(-1)*emp_AA_P1_posterior_samp[,(1+27):(24+27)]+(1/2)*emp_AA_P1_posterior_samp[,(1+51):(24+51)]
 emp_AA_P1_posterior_samp[,(25+ncols):(48+ncols)] <- (-1)*(emp_AA_P1_posterior_samp[,2])-(1/2)*emp_AA_P1_posterior_samp[,3]+(-1)*emp_AA_P1_posterior_samp[,(1+27):(24+27)]-(1/2)*emp_AA_P1_posterior_samp[,(1+51):(24+51)]
-emp_AA_P1_posterior_samp[,(49+ncols):(72+ncols)] <- emp_AA_P2_posterior_samp[,1]+emp_AA_P2_posterior_samp[,(1+3):(24+3)]+(2/3)*(emp_AA_P1_posterior_samp[,2])+(2/3)*emp_AA_P1_posterior_samp[,(1+27):(24+27)]
+emp_AA_P1_posterior_samp[,(49+ncols):(72+ncols)] <- emp_AA_P1_posterior_samp[,1]+emp_AA_P1_posterior_samp[,(1+3):(24+3)]+(2/3)*(emp_AA_P1_posterior_samp[,2])+(2/3)*emp_AA_P1_posterior_samp[,(1+27):(24+27)]
 emp_AA_P2_posterior_samp[,(1+ncols):(24+ncols)] <- (-1)*(emp_AA_P2_posterior_samp[,2])+(1/2)*emp_AA_P2_posterior_samp[,3]+(-1)*emp_AA_P2_posterior_samp[,(1+27):(24+27)]+(1/2)*emp_AA_P2_posterior_samp[,(1+51):(24+51)]
 emp_AA_P2_posterior_samp[,(25+ncols):(48+ncols)] <- (-1)*(emp_AA_P2_posterior_samp[,2])-(1/2)*emp_AA_P2_posterior_samp[,3]+(-1)*emp_AA_P2_posterior_samp[,(1+27):(24+27)]-(1/2)*emp_AA_P2_posterior_samp[,(1+51):(24+51)]
 emp_AA_P2_posterior_samp[,(49+ncols):(72+ncols)] <- emp_AA_P2_posterior_samp[,1]+emp_AA_P2_posterior_samp[,(1+3):(24+3)]+(2/3)*(emp_AA_P2_posterior_samp[,2])+(2/3)*emp_AA_P2_posterior_samp[,(1+27):(24+27)]
