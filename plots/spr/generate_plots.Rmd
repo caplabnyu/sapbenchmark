@@ -142,9 +142,9 @@ ggplot(by_item %>%
 sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="MV/RRC",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="MV/RRC"&by_construction$type=="Empirical",]$mean
 sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="DO/Sent",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="DO/Sent"&by_construction$type=="Empirical",]$mean
 sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="T/I",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="T/I"&by_construction$type=="Empirical",]$mean
-sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="RC",]$mean)/by_construction[by_construction$ROI==0&by_construction$EOI=="RC"&by_construction$type=="Empirical",]$mean
+sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="RC",]$mean)/by_construction[by_construction$ROI==2&by_construction$EOI=="RC"&by_construction$type=="Empirical",]$mean
 sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="HIGH",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="HIGH"&by_construction$type=="Empirical",]$mean
-sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="LOW",]$mean)/by_construction[by_construction$ROI==0&by_construction$EOI=="LOW"&by_construction$type=="Empirical",]$mean
+sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="LOW",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="LOW"&by_construction$type=="Empirical",]$mean
 sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="AGREE",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="AGREE"&by_construction$type=="Empirical",]$mean
 ```
 
