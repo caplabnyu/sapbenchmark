@@ -117,7 +117,7 @@ by_item$max_ROI <- ifelse(by_item$coef=="GPE_low"&by_item$ROI==1,TRUE,
 ```{r}
 by_item$EOI <- factor(by_item$coef,levels=c("GPE_MVRR","GPE_NPS","GPE_NPZ","RC","GPE_high","GPE_low","Agr"),labels=c("MV/RRC","DO/Sent","T/I","RC","HIGH","LOW","AGREE"))
 by_construction$EOI <- factor(by_construction$coef,levels=c("GPE_MVRR","GPE_NPS","GPE_NPZ","RC","GPE_high","GPE_low","Agr"),labels=c("MV/RRC","DO/Sent","T/I","RC","HIGH","LOW","AGREE"))
-EOI.labs <- c("MV/RRC"="Main verb / reduced relative clause","DO/Sent"="Direct object / sentential complement","T/I"="Transitive / intransitive","RC"="Subject / object relative clause","HIGH"="High attachment","LOW"="Low attachment","AGREE"="Subject-verb agreement mismatch")
+EOI.labs <- c("MV/RRC"="Main verb / reduced relative","DO/Sent"="Direct object / sentential complement","T/I"="Transitive / intransitive","RC"="Object vs. subject relative clause","HIGH"="High attachment","LOW"="Low attachment","AGREE"="Agreement violation")
 CoV_labels <- data.frame(EOI=c("MV/RRC","DO/Sent","T/I","RC","HIGH","LOW","AGREE"),label = c("CoV=.181", "CoV=.610", "CoV=.368","CoV=.1.92","CoV=.343","CoV=1.86","CoV=.177"))
 ggplot(by_item %>%
          filter(max_ROI),
@@ -136,16 +136,66 @@ ggplot(by_item %>%
       strip.text.x = element_text(size = 15), axis.title.y = element_text(size=18,face="bold"),
       axis.title.x = element_text(size=18,face="bold"),
       axis.text.y=element_text(size=15)) + 
-  labs(x = 'Item (sorted by effect magnitude)', y = 'Posterior estimate of magnitude of effect of interest (ms)')
-# ggsave('./pdfs/by-item-all-eoi.pdf', width=15,height=7)
+  labs(x = 'Item (sorted by effect magnitude)', y = 'Posterior estimate of effect of interest (ms)')
+ggsave('./pdfs/by-item-all-eoi.pdf', width=15,height=7)
 #empirical coefficients of variation
-sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="MV/RRC",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="MV/RRC"&by_construction$type=="Empirical",]$mean
-sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="DO/Sent",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="DO/Sent"&by_construction$type=="Empirical",]$mean
-sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="T/I",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="T/I"&by_construction$type=="Empirical",]$mean
-sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="RC",]$mean)/by_construction[by_construction$ROI==2&by_construction$EOI=="RC"&by_construction$type=="Empirical",]$mean
-sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="HIGH",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="HIGH"&by_construction$type=="Empirical",]$mean
-sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="LOW",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="LOW"&by_construction$type=="Empirical",]$mean
-sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="AGREE",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="AGREE"&by_construction$type=="Empirical",]$mean
+#sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="MV/RRC",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="MV/RRC"&by_construction$type=="Empirical",]$mean
+#sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="DO/Sent",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="DO/Sent"&by_construction$type=="Empirical",]$mean
+#sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="T/I",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="T/I"&by_construction$type=="Empirical",]$mean
+#sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="RC",]$mean)/by_construction[by_construction$ROI==2&by_construction$EOI=="RC"&by_construction$type=="Empirical",]$mean
+#sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="HIGH",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="HIGH"&by_construction$type=="Empirical",]$mean
+#sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="LOW",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="LOW"&by_construction$type=="Empirical",]$mean
+#sd(by_item[by_item$max_ROI==TRUE&by_item$EOI=="AGREE",]$mean)/by_construction[by_construction$ROI==1&by_construction$EOI=="AGREE"&by_construction$type=="Empirical",]$mean
+
+#V_2 empirical
+(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="MV/RRC",]$mean)/(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="MV/RRC",]$mean)+mean(by_item[by_item$max_ROI==TRUE&by_item$EOI=="MV/RRC",]$mean)^2))^(1/2)
+#0.18
+(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="DO/Sent",]$mean)/(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="DO/Sent",]$mean)+mean(by_item[by_item$max_ROI==TRUE&by_item$EOI=="DO/Sent",]$mean)^2))^(1/2)
+#0.52
+(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="T/I",]$mean)/(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="T/I",]$mean)+mean(by_item[by_item$max_ROI==TRUE&by_item$EOI=="T/I",]$mean)^2))^(1/2)
+#0.34
+(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="RC",]$mean)/(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="RC",]$mean)+mean(by_item[by_item$max_ROI==TRUE&by_item$EOI=="RC",]$mean)^2))^(1/2)
+#0.88
+(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="HIGH",]$mean)/(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="HIGH",]$mean)+mean(by_item[by_item$max_ROI==TRUE&by_item$EOI=="HIGH",]$mean)^2))^(1/2)
+#0.32
+(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="LOW",]$mean)/(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="LOW",]$mean)+mean(by_item[by_item$max_ROI==TRUE&by_item$EOI=="LOW",]$mean)^2))^(1/2)
+#0.88
+(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="AGREE",]$mean)/(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="AGREE",]$mean)+mean(by_item[by_item$max_ROI==TRUE&by_item$EOI=="AGREE",]$mean)^2))^(1/2)
+#0.17
+
+
+#V_2 lstm
+(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="MV/RRC",]$mean_lstm)/(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="MV/RRC",]$mean_lstm)+mean(by_item[by_item$max_ROI==TRUE&by_item$EOI=="MV/RRC",]$mean_lstm)^2))^(1/2)
+#0.16
+(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="DO/Sent",]$mean_lstm)/(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="DO/Sent",]$mean_lstm)+mean(by_item[by_item$max_ROI==TRUE&by_item$EOI=="DO/Sent",]$mean_lstm)^2))^(1/2)
+#0.33
+(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="T/I",]$mean_lstm)/(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="T/I",]$mean_lstm)+mean(by_item[by_item$max_ROI==TRUE&by_item$EOI=="T/I",]$mean_lstm)^2))^(1/2)
+#0.34
+(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="RC",]$mean_lstm)/(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="RC",]$mean_lstm)+mean(by_item[by_item$max_ROI==TRUE&by_item$EOI=="RC",]$mean_lstm)^2))^(1/2)
+#0.63
+(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="HIGH",]$mean_lstm)/(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="HIGH",]$mean_lstm)+mean(by_item[by_item$max_ROI==TRUE&by_item$EOI=="HIGH",]$mean_lstm)^2))^(1/2)
+#0.69
+(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="LOW",]$mean_lstm)/(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="LOW",]$mean_lstm)+mean(by_item[by_item$max_ROI==TRUE&by_item$EOI=="LOW",]$mean_lstm)^2))^(1/2)
+#0.84
+(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="AGREE",]$mean_lstm)/(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="AGREE",]$mean_lstm)+mean(by_item[by_item$max_ROI==TRUE&by_item$EOI=="AGREE",]$mean_lstm)^2))^(1/2)
+#0.33
+
+##V_2 gpt2
+(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="MV/RRC",]$mean_gpt2)/(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="MV/RRC",]$mean_gpt2)+mean(by_item[by_item$max_ROI==TRUE&by_item$EOI=="MV/RRC",]$mean_gpt2)^2))^(1/2)
+#0.52
+(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="DO/Sent",]$mean_gpt2)/(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="DO/Sent",]$mean_gpt2)+mean(by_item[by_item$max_ROI==TRUE&by_item$EOI=="DO/Sent",]$mean_gpt2)^2))^(1/2)
+#0.58
+(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="T/I",]$mean_gpt2)/(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="T/I",]$mean_gpt2)+mean(by_item[by_item$max_ROI==TRUE&by_item$EOI=="T/I",]$mean_gpt2)^2))^(1/2)
+#0.33
+(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="RC",]$mean_gpt2)/(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="RC",]$mean_gpt2)+mean(by_item[by_item$max_ROI==TRUE&by_item$EOI=="RC",]$mean_gpt2)^2))^(1/2)
+#0.77
+(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="HIGH",]$mean_gpt2)/(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="HIGH",]$mean_gpt2)+mean(by_item[by_item$max_ROI==TRUE&by_item$EOI=="HIGH",]$mean_gpt2)^2))^(1/2)
+#0.36
+(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="LOW",]$mean_gpt2)/(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="LOW",]$mean_gpt2)+mean(by_item[by_item$max_ROI==TRUE&by_item$EOI=="LOW",]$mean_gpt2)^2))^(1/2)
+#0.67
+(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="AGREE",]$mean_gpt2)/(var(by_item[by_item$max_ROI==TRUE&by_item$EOI=="AGREE",]$mean_gpt2)+mean(by_item[by_item$max_ROI==TRUE&by_item$EOI=="AGREE",]$mean_gpt2)^2))^(1/2)
+#0.16
+
 ```
 
 
@@ -160,7 +210,7 @@ by_const_maxROIs <- by_construction %>%
   ungroup() %>%
   select(coef, ROI, max_ROI)
 by_construction <- merge(by_construction, by_const_maxROIs, by = c('coef', 'ROI')) %>%
-         mutate(EOI = factor(coef, levels = c('GPE_MVRR', 'GPE_NPS', 'GPE_NPZ', 'RC', 'GPE_high', 'GPE_low','Agr'),labels=c("Main verb /\n reduced relative clause","Direct object /\n sentential complement","Transitive / intransitive","Subject / object \nrelative clause","High attachment","Low attachment","Subject-verb\n agreement mismatch")))
+         mutate(EOI = factor(coef, levels = c('GPE_MVRR', 'GPE_NPS', 'GPE_NPZ', 'RC', 'GPE_high', 'GPE_low','Agr'),labels=c("Main verb /\n reduced relative","Direct object /\n sentential complement","Transitive / intransitive","Object vs. subject \nrelative clause","High attachment","Low attachment","Agreement violation")))
 
 #for RC, ROI==2 (noun) is critical +1 region
 by_construction$max_ROI <- ifelse(by_construction$coef=="RC"&by_construction$ROI==2,TRUE,
@@ -173,19 +223,21 @@ by_construction$max_ROI <- ifelse(by_construction$coef=="GPE_low"&by_constructio
 by_construction$type <- factor(by_construction$type,levels=c("nosurp","LSTM","GPT2","Empirical"),labels=c("No surprisal baseline","Wiki-LSTM","GPT-2","Empirical"))
 ggplot(by_construction %>%
          filter(max_ROI), aes(x=EOI, y=mean, color=type))+
-  geom_point(size=2.5,position = position_dodge(width=1))+ylab("Posterior estimate of empirical/predicted magnitude\n of effect of interest (ms)")+
+  geom_point(size=2.5,position = position_dodge(width=1))+ylab("Posterior estimate of \nempirical/predicted effect of interest (ms)")+
   geom_errorbar(aes(ymin=lower,
                      ymax=upper),
                  position = position_dodge(width = 1),
                  width = 0.2,size=1)+xlab("Effect of interest")+
   scale_color_manual(labels = c('No surprisal baseline','Wiki-LSTM','GPT-2','Empirical'),values = c("#FFC107","#1E88E5","#D81B60","#004D40"))+
-  scale_x_discrete(labels=c("Main verb /\n reduced relative clause","Direct object /\n sentential complement","Transitive /\n intransitive","Subject / object \nrelative clause","High attachment","Low attachment","Subject-verb\n agreement mismatch","Filler"))+ theme_minimal()+theme(legend.position="top", legend.box = "horizontal",legend.text = element_text(size=15), legend.title = element_text(size=18,face="bold"),
+  scale_x_discrete(labels=c("Main verb /\n reduced relative","Direct object /\n sentential complement","Transitive /\n intransitive","Object vs. subject \nrelative clause","High attachment","Low attachment","Agreement violation","Filler"))+ theme_minimal()+
+  scale_fill_manual("Region of Interest")+
+theme(legend.position="top", legend.box = "horizontal",legend.text = element_text(size=15), legend.title = element_text(size=18,face="bold"),
   axis.title.y = element_text(size=18,face="bold"),
       axis.title.x = element_text(size=18,face="bold"),
       axis.text.y=element_text(size=15),
   axis.text.x=element_text(size=15, angle = 20))+
     geom_hline(yintercept = 0, linetype='dashed')
-# ggsave('./pdfs/by-construction-emp-surp.pdf', width=15,height=7)
+ggsave('./pdfs/by-construction-emp-surp.pdf', width=15,height=7)
 ```
 
 
@@ -221,8 +273,9 @@ lstm_Agr_EOI <- ggplot(by_item %>% filter(EOI=="AGREE" && ROI==1), aes(x=mean_ls
   facet_wrap(~EOI, labeller=labeller(EOI=EOI.labs)) +
   theme_fivethirtyeight()
 lstm_arr<- ggarrange(lstm_GP_EOI_MV, lstm_GP_EOI_DO, lstm_GP_EOI_TI, lstm_AA_EOI_HIGH, lstm_AA_EOI_LOW, lstm_RC_EOI, lstm_Agr_EOI)
-                    
 annotate_figure(lstm_arr, bottom=text_grob("Predicted EOI", color="#3C3C3C", size=12, family="sans"), left=text_grob("Empirical EOI" , color="#3C3C3C", size=12, family="sans", rot=90))+theme_fivethirtyeight()
+ggsave('./pdfs/SI_scatterplot_emp_vs_predicted_LSTM.pdf', width=9.25,height=9.25)
+
 # GPT2
 gpt_GP_EOI_MV <- ggplot(by_item %>% filter(EOI == "MV/RRC" && ROI==1), aes(x=mean_gpt2, y=mean)) +
   geom_point() +
@@ -253,8 +306,9 @@ gpt_Agr_EOI <- ggplot(by_item %>% filter(EOI=="AGREE" && ROI==1), aes(x=mean_gpt
   facet_wrap(~EOI, labeller=labeller(EOI=EOI.labs)) +
   theme_fivethirtyeight()
 gpt_arr<- ggarrange(gpt_GP_EOI_MV, gpt_GP_EOI_DO, gpt_GP_EOI_TI, gpt_AA_EOI_HIGH, gpt_AA_EOI_LOW, gpt_RC_EOI, gpt_Agr_EOI)
-                    
 annotate_figure(gpt_arr, bottom=text_grob("Predicted EOI", color="#3C3C3C", size=12, family="sans"), left=text_grob("Empirical EOI" , color="#3C3C3C", size=12, family="sans", rot=90))+theme_fivethirtyeight()
+ggsave('./pdfs/SI_scatterplot_emp_vs_predicted_GPT2.pdf', width=9.25,height=9.25)
+
 # BASELINE
 nosurp_GP_EOI_MV <- ggplot(by_item %>% filter(EOI == "MV/RRC" && ROI==1), aes(x=mean_nosurp, y=mean)) +
   geom_point() +
@@ -287,6 +341,7 @@ nosurp_Agr_EOI <- ggplot(by_item %>% filter(EOI=="AGREE" && ROI==1), aes(x=mean_
 nosurp_arr<- ggarrange(nosurp_GP_EOI_MV, nosurp_GP_EOI_DO, nosurp_GP_EOI_TI, nosurp_AA_EOI_HIGH, nosurp_AA_EOI_LOW, nosurp_RC_EOI, nosurp_Agr_EOI)
                     
 annotate_figure(nosurp_arr, bottom=text_grob("Predicted EOI", color="#3C3C3C", size=12, family="sans"), left=text_grob("Empirical EOI" , color="#3C3C3C", size=12, family="sans", rot=90))+theme_fivethirtyeight()
+ggsave('./pdfs/SI_scatterplot_emp_vs_predicted_NOSURP.pdf', width=9.25,height=9.25)
 ```
 
 
@@ -333,38 +388,60 @@ ggplot(cor.summary, aes(x=EOI, y=mean, color=Model))+
             aes(xmin=as.numeric(EOI)-.25,xmax=as.numeric(EOI)+0.25,ymin=0,ymax=ceiling), alpha=0.1)+
   geom_linerange(aes(ymin=lower.025,ymax=upper.975),lwd=0.5,position = position_dodge(width=.5))+
   geom_linerange(aes(ymin=lower.25,ymax=upper.75),lwd=1.75,position = position_dodge(width=.5))+
-  geom_point(lwd=4,position = position_dodge(width=.5))+
+  geom_point(size=4,position = position_dodge(width=.5))+
   ylim(-.45,1)+ylab("Correlation between model predictions and data")+xlab("Effect of Interest")+
   scale_color_manual(labels = c('No surprisal baseline','Wiki-LSTM','GPT-2'),values = c("#FFC107","#1E88E5","#D81B60"))+
-  scale_x_discrete(labels=c("Main verb /\n reduced relative clause","Direct object /\n sentential complement","Transitive /\n intransitive","Subject / object \nrelative clause","High attachment","Low attachment","Subject-verb\n agreement mismatch","Filler"))+ theme_minimal()+theme(legend.position="top", legend.box = "horizontal",legend.text = element_text(size=15), legend.title = element_text(size=18,face="bold"),
+  scale_x_discrete(labels=c("Main verb /\n reduced relative","Direct object /\n sentential complement","Transitive /\n intransitive","Object vs. subject\nrelative clause","High attachment","Low attachment","Agreement violation","Filler"))+ theme_minimal()+theme(legend.position="top", legend.box = "horizontal",legend.text = element_text(size=15), legend.title = element_text(size=18,face="bold"),
   axis.title.y = element_text(size=18,face="bold"),
       axis.title.x = element_text(size=18,face="bold"),
       axis.text.y=element_text(size=15),
   axis.text.x=element_text(size=15, angle = 20, hjust = 0.8))+
   geom_text(x=1.4, y=1, size=5, family = 'sans',inherit.aes = FALSE, label="Maximal explainable variance")+
   geom_segment(inherit.aes = FALSE, x = 1, y = 0.98, xend = 1, yend = .82, arrow = arrow(length = unit(0.2,"cm")))
-# ggsave('./pdfs/by-item-emp-pred-cor.pdf', width=15,height=7)
+ggsave('./pdfs/by-item-emp-pred-cor.pdf', width=15,height=7)
 ```
 
 
 ```{r}
 by_construction_empirical <- by_construction[by_construction$type=="Empirical",]
 by_construction_empirical$ROI <- ifelse(by_construction_empirical$coef=="RC"&by_construction_empirical$ROI==0,2,ifelse(by_construction_empirical$coef=="RC"&by_construction_empirical$ROI==1,0,ifelse(by_construction_empirical$coef=="RC"&by_construction_empirical$ROI==2,1,by_construction_empirical$ROI)))
-by_construction_empirical$ROI <- factor(by_construction_empirical$ROI,levels=c(0,1,2),labels=c("Critical","Critical+1","Critical+2"))
-ggplot(by_construction_empirical, aes(x=EOI, y=mean,fill=ROI))+
+by_construction_empirical$Region_of_Interest <- factor(by_construction_empirical$ROI,levels=c(0,1,2),labels=c("Critical Word","Critical+1 (word following critical word)","Critical+2"))
+ggplot(by_construction_empirical, aes(x=EOI, y=mean,fill=Region_of_Interest))+
   geom_bar(stat="identity",position = position_dodge(width=1))+
   scale_fill_manual(values = c("royalblue3","tan2","forestgreen"))+ylab("Empirical effect size (ms)")+
+  theme_minimal()+
   geom_errorbar(aes(ymin=lower,
                      ymax=upper),
                  position = position_dodge(width = 1),
                  width = 0.2,size=1)+xlab("Effect of interest")+
-  scale_x_discrete(labels=c("Main verb /\n reduced relative clause","Direct object /\n sentential complement","Transitive /\n intransitive","Subject / object \nrelative clause","High attachment","Low attachment","Subject-verb\n agreement mismatch","Filler"))+theme(legend.position="top", legend.box = "horizontal",legend.text = element_text(size=15), legend.title = element_text(size=18,face="bold"),
+  scale_x_discrete(labels=c("Main verb /\n reduced relative","Direct object /\n sentential complement","Transitive /\n intransitive","Object vs. subject\nrelative clause","High attachment","Low attachment","Agreement violation","Filler"))+theme(legend.position="top", legend.box = "horizontal",legend.text = element_text(size=15), legend.title = element_text(size=18,face="bold"),
   axis.title.y = element_text(size=18,face="bold"),
       axis.title.x = element_text(size=18,face="bold"),
       axis.text.y=element_text(size=15),
   axis.text.x=element_text(size=15, angle = 20))+
     geom_hline(yintercept = 0, linetype='dashed')
-#ggsave('./pdfs/SI_EOI_ROI.pdf', width=15,height=7)
+ggsave('./pdfs/SI_EOI_ROI.pdf', width=15,height=7)
+
+
+
+ggplot(by_construction_empirical, aes(x=Region_of_Interest, y=mean, fill=Region_of_Interest))+
+  geom_bar(stat="identity",position = position_dodge(width=1))+
+  scale_fill_manual(values = c("royalblue3","tan2","forestgreen"))+ylab("Empirical effect size (ms)")+
+  theme_minimal()+
+  geom_errorbar(aes(ymin=lower,
+                    ymax=upper),
+                position = position_dodge(width = 1),
+                width = 0.2,size=1)+xlab("Effect of interest")+
+  #scale_x_discrete(labels=c("Main verb /\n reduced relative","Direct object /\n sentential complement","Transitive /\n intransitive","Object vs. subject\nrelative clause","High attachment","Low attachment","Agreement violation","Filler"))+
+  theme(legend.position="bottom", legend.box = "horizontal",legend.text = element_text(size=15), legend.title = element_text(size=18,face="bold"),
+        axis.title.y = element_text(size=18,face="bold"),
+        axis.title.x = element_blank(),
+        axis.text.y=element_text(size=15),
+        axis.text.x=element_blank(),
+        strip.text = element_text(size=12,face="bold"))+
+  geom_hline(yintercept = 0, linetype='dashed')+
+  facet_wrap(~EOI,nrow=1)
+ggsave('./pdfs/SI_EOI_ROI2.pdf', width=15,height=7)
 ```
 
 
@@ -373,7 +450,7 @@ ggplot(by_construction_empirical, aes(x=EOI, y=mean,fill=ROI))+
 ratio_display = 1
 GP_by_item <- cbind(readRDS("ClassicGP/by_item.rds"),
                   unamb_mean=readRDS("ClassicGP/by_item_unamb.rds")[,4])
-GP_by_item$EOI <- factor(GP_by_item$coef,levels=c("GPE_MVRR","GPE_NPS","GPE_NPZ"),labels=c("Main verb / reduced relative clause","Direct object / sentential complement","Transitive / intransitive"))
+GP_by_item$EOI <- factor(GP_by_item$coef,levels=c("GPE_MVRR","GPE_NPS","GPE_NPZ"),labels=c("Main verb / reduced relative","Direct object / sentential complement","Transitive / intransitive"))
 GP_by_item$ROI <- factor(GP_by_item$ROI,levels=c(0, 1, 2),labels=c("critical","critical + 1","critical + 2"))
 baselinevsEOI_GP <- GP_by_item %>% group_by(ROI,EOI) %>% do(CORR=cor.test(.$mean,.$unamb_mean))
 ratio_GP_by_item = (max(GP_by_item$unamb_mean)-min(GP_by_item$unamb_mean))/(max(GP_by_item$mean)-min(GP_by_item$mean))
@@ -398,12 +475,13 @@ ggplot(GP_by_item,aes(x=unamb_mean,y=mean))+
     color   ="#3C3C3C",
     family  = "sans",
   )
+ggsave('./pdfs/SI_scatterplot_EOI_vs_UnamborGrammbaseline_ClassicGP.pdf', width=8.25,height=8.25)
 for(i in 1:nrow(baselinevsEOI_GP)){
   print(c(baselinevsEOI_GP[i,'ROI'][[1]],as.character(baselinevsEOI_GP[i,'EOI'][[1]]),round(baselinevsEOI_GP[i,'CORR'][[1]][[1]]$estimate,3)))
 }
 RC_by_item <- cbind(readRDS("RelativeClause/by_item.rds"),
                     SRC_mean=readRDS("RelativeClause/by_item_SRC.rds")[,4])
-RC_by_item$EOI <- factor(RC_by_item$coef,levels=c("RC"),labels=c("Subject / object relative clause"))
+RC_by_item$EOI <- factor(RC_by_item$coef,levels=c("RC"),labels=c("Object vs. subject relative clause"))
 RC_by_item$ROI <- factor(RC_by_item$ROI,levels=c(0, 1, 2),labels=c("critical","critical + 1","critical + 2"))
 baselinevsEOI_RC <- RC_by_item %>% group_by(ROI,EOI) %>% do(CORR=cor.test(.$mean,.$SRC_mean))
 ratio_RC_by_item = (max(RC_by_item$SRC_mean)-min(RC_by_item$SRC_mean))/(max(RC_by_item$mean)-min(RC_by_item$mean))
@@ -414,7 +492,7 @@ ggplot(RC_by_item,aes(x=SRC_mean,y=mean))+
   facet_wrap(ROI~EOI,nrow=3)+
   geom_point()+
   geom_smooth(method="lm",formula=y~x)+
-  labs(y="Object over subject relative clause difficulty",x="Mean RT in subject relative clauses (ms)")+
+  labs(y="Object vs. subject relative clause difficulty",x="Mean RT in subject relative clauses (ms)")+
   theme_fivethirtyeight()+
   theme(axis.title = element_text())+
   coord_fixed(ratio=(ratio_RC_by_item / ratio_display))+
@@ -428,6 +506,7 @@ ggplot(RC_by_item,aes(x=SRC_mean,y=mean))+
     color   ="#3C3C3C",
     family  = "sans",
   )
+ggsave('./pdfs/SI_scatterplot_EOI_vs_UnamborGrammbaseline_RC.pdf', width=8.25,height=8.25)
 for(i in 1:nrow(baselinevsEOI_RC)){
   print(c(baselinevsEOI_RC[i,'ROI'][[1]],as.character(baselinevsEOI_RC[i,'EOI'][[1]]),round(baselinevsEOI_RC[i,'CORR'][[1]][[1]]$estimate,3)))
 }
@@ -458,12 +537,13 @@ ggplot(AA_by_item,aes(x=multi_mean,y=mean))+
     color   ="#3C3C3C",
     family  = "sans",
   )
+ggsave('./pdfs/SI_scatterplot_EOI_vs_UnamborGrammbaseline_AA.pdf', width=8.25,height=8.25)
 for(i in 1:nrow(baselinevsEOI_AA)){
   print(c(baselinevsEOI_AA[i,'ROI'][[1]],as.character(baselinevsEOI_AA[i,'EOI'][[1]]),round(baselinevsEOI_AA[i,'CORR'][[1]][[1]]$estimate,3)))
 }
 Agr_by_item <- cbind(readRDS("Agreement/by_item.rds"),
                     Agreed_mean=readRDS("Agreement/by_item_Agreed.rds")[,4])
-Agr_by_item$EOI <- factor(Agr_by_item$coef,levels=c("Agr"),labels=c("Subject-verb agreement mismatch"))
+Agr_by_item$EOI <- factor(Agr_by_item$coef,levels=c("Agr"),labels=c("Agreement violation"))
 Agr_by_item$ROI <- factor(Agr_by_item$ROI,levels=c(0, 1, 2),labels=c("critical","critical + 1","critical + 2"))
 baselinevsEOI_Agr <- Agr_by_item %>% group_by(ROI,EOI) %>% do(CORR=cor.test(.$mean,.$Agreed_mean))
 ratio_Agr_by_item = (max(Agr_by_item$Agreed_mean)-min(Agr_by_item$Agreed_mean))/(max(Agr_by_item$mean)-min(Agr_by_item$mean))
@@ -474,7 +554,7 @@ ggplot(Agr_by_item,aes(x=Agreed_mean,y=mean))+
   facet_wrap(ROI~EOI,nrow=3)+
   geom_point()+
   geom_smooth(method="lm",formula=y~x)+
-  labs(y="Agreement mismatch effect",x="Mean RT in the grammatical sentence (ms)")+
+  labs(y="Agreement violation effect",x="Mean RT in the grammatical sentence (ms)")+
   theme_fivethirtyeight()+
   theme(axis.title = element_text())+
   coord_fixed(ratio=(ratio_Agr_by_item / ratio_display))+
@@ -488,6 +568,7 @@ ggplot(Agr_by_item,aes(x=Agreed_mean,y=mean))+
     color   ="#3C3C3C",
     family  = "sans",
   )
+ggsave('./pdfs/SI_scatterplot_EOI_vs_UnamborGrammbaseline_AGREE.pdf', width=8.25,height=8.25)
 for(i in 1:nrow(baselinevsEOI_Agr)){
   print(c(baselinevsEOI_Agr[i,'ROI'][[1]],as.character(baselinevsEOI_Agr[i,'EOI'][[1]]),round(baselinevsEOI_Agr[i,'CORR'][[1]][[1]]$estimate,3)))
 }
