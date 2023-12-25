@@ -1,4 +1,4 @@
-item,Main clause subject number,Condition,disambPosition,Sentence,Question,Option1,Option0,Correct answer,Question target
+item,Main clause subject number,condition,disambPosition,Sentence,Question,Option1,Option0,Correct answer,Question target
 1,plural,UNAGREE,7,"If the supervisor changes, the schedules deserves further inspection by the rest of the staff.",Do the schedules ever deserve closer inspection?,Yes,No,1,Main clause
 1,singular,AGREE,7,"If the supervisor changes, the schedule deserves further inspection by the rest of the staff.",Does the schedule ever deserve closer inspection?,Yes,No,1,Main clause
 3,plural,UNAGREE,7,"When the magician moves, the cards disappears mysteriously from his assistant\'s hand.",Do the cards ever disappear?,Yes,No,1,Main clause

@@ -55,7 +55,6 @@ parser.add_argument("--vocab_path", type=str)
 parser.add_argument("--input", type=str, required=True)
 parser.add_argument("--output", type=str, required=True)
 parser.add_argument("--batch_size", type=int, default=1)
-parser.add_argument("--cuda", action="store_true")
 parser.add_argument("--aligned", action="store_true")
 parser.add_argument("--uncased", action="store_true")
 # TODO option for selecting subword merges to compute
@@ -72,25 +71,30 @@ torch.backends.cudnn.deterministic = True
 torch.backends.cudnn.benchmark = False
 np.random.seed(args.seed)
 
+# Select device
+device = torch.device('cpu')
+if torch.cuda.is_available():
+    device = torch.device('cuda')
+elif torch.backends.mps.is_available() and torch.backends.mps.is_built():
+    device = torch.device('mps')
+
 # Load models from comma-separated arg
 model_fns = args.model.split(",")
 models = []
 for model_fn in model_fns:
-    if args.cuda:
-        model_ = torch.load(model_fn)
-    else:
-        model_ = torch.load(model_fn, map_location=torch.device('cpu'))
 
-    # rebuild for pytorch 1.x
-    model = RNNModel(model_.rnn_type, model_.encoder.num_embeddings, 
-                     model_.nhid, model_.nhid, model_.nlayers, 0.2, False)
-    print(model_.rnn_type, model_.encoder.num_embeddings, model_.nhid, model_.nhid, model_.nlayers, 0.2, False)
-    model.load_state_dict(model_.state_dict())
+    model = RNNModel("LSTM", 50001, 
+                     650, 650, 2, 0.2, False)
+    print(model.rnn_type, model.encoder.num_embeddings, model.nhid, 
+          model.nhid, model.nlayers, 0.2, False)
 
-    if args.cuda:
-        model = model.cuda()
-    else:
-        model = model.cpu()
+    # the model files are now the state_dicts, not the model itself!
+    # see extract_gulordava.py to convert the released model .pt to 
+    # a state dict (must be done in pytorch < 1.4.0 bc of LSTM changes!)
+    state_dict = torch.load(model_fn, map_location=device) 
+    model.load_state_dict(state_dict)
+
+    model = model.to(device)
 
     model.eval()
     models.append(model)
@@ -109,8 +113,8 @@ with torch.no_grad():
         sentence = ["<eos>"] + tokenize(row["Sentence"]) # EOS prepend
         input = torch.LongTensor([indexify(w.lower() if args.uncased else w) for w in sentence])
         
-        if args.cuda:
-            input = input.cuda()
+        input = input.to(device)
+        
 
         out, _ = model(input.view(-1, 1), model.init_hidden(1))
 

@@ -1,49 +1,49 @@
-,item,targetPosition,Sentence,Unnamed: 3,Option1,Option0,Ans,Unnamed: 7,Unnamed: 8,Unnamed: 9,Unnamed: 10,Unnamed: 11,Unnamed: 12,Unnamed: 13
-0,25,5,The bus driver who followed the kids wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,0,RC-Gap,1.0,,,,,
-1,25,7,The bus driver who the kids followed wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,1,RC-Gap,,,,1.0,,
-2,26,4,The chef who distracted the cameraman poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,0,RC-Gap,1.0,,,,,
-3,26,6,The chef who the cameraman distracted poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,1,RC-Gap,,,,1.0,,
-4,27,4,The children who woke the father bothered him about the trip to the beach.,Who was woken up?,The children,The father,0,RC-Gap,,,,1.0,,
-5,27,6,The children who the father woke bothered him about the trip to the beach.,Who was woken up?,The children,The father,1,RC-Gap,1.0,,,,,
-6,28,4,The class that disliked the teacher skimmed the reading for the week.,Who was disliked?,The class,The teacher,0,RC-Gap,,,,1.0,,
-7,28,6,The class that the teacher disliked skimmed the reading for the week.,Who was disliked?,The class,The teacher,1,RC-Gap,1.0,,,,,
-8,29,4,The dancer that loved the audience ignored some basic principles.,Who was loved?,The dancer,The audience,0,RC-Gap,,1.0,,,,
-9,29,6,The dancer that the audience loved ignored some basic principles.,Who was loved?,The dancer,The audience,1,RC-Gap,,,,,1.0,
-10,30,4,The employees that noticed the fireman hurried across the open field.,Who was noticed?,The employees,The fireman,0,RC-Gap,,1.0,,,,
-11,30,6,The employees that the fireman noticed hurried across the open field.,Who was noticed?,The employees,The fireman,1,RC-Gap,,,,,1.0,
-12,31,4,The farmer that approached the customers lifted the chickens from their coop.,Who was approached?,The customers,The farmer,1,RC-Gap,,,,,1.0,
-13,31,6,The farmer that the customers approached lifted the chickens from their coop.,Who was approached?,The customers,The farmer,0,RC-Gap,,1.0,,,,
-14,32,4,The farmer who hired the rancher piled the seeds in long rows.,Who was hired?,The rancher,The farmer,1,RC-Gap,,,,,1.0,
-15,32,6,The farmer who the rancher hired piled the seeds in long rows.,Who was hired?,The rancher,The farmer,0,RC-Gap,,1.0,,,,
-16,33,4,The firemen that called the residents attacked the house with high-powered hoses.,Who got a call?,The residents,The firemen,1,RC-Gap,,,1.0,,,
-17,33,6,The firemen that the residents called attacked the house with high-powered hoses.,Who got a call?,The residents,The firemen,0,RC-Gap,,,,,,1.0
-18,34,4,The girl who watched the parents changed a critical part of the story.,Who was being watched?,The parents,The girl,1,RC-Gap,,,1.0,,,
-19,34,6,The girl who the parents watched changed a critical part of the story.,Who was being watched?,The parents,The girl,0,RC-Gap,,,,,,1.0
-20,35,4,The investigator who phoned the agency considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,1,RC-Gap,,,,,,1.0
-21,35,6,The investigator who the agency phoned considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,0,RC-Gap,,,1.0,,,
-22,36,4,The judge who addressed the witnesses noticed the defense attorneys.,Who was being addressed?,The witnesses,The judge,1,RC-Gap,,,,,,1.0
-23,36,6,The judge who the witnesses addressed noticed the defense attorneys.,Who was being addressed?,The witnesses,The judge,0,RC-Gap,,,1.0,,,
-24,37,4,The manager who visited the boss remembered some inconvenient facts.,Who remembered the facts?,The boss,The manager,0,Matrix subject,1.0,,,,,
-25,37,6,The manager who the boss visited remembered some inconvenient facts.,Who remembered the facts?,The boss,The manager,0,Matrix subject,,,,1.0,,
-26,38,4,The mathematician who visited the chairman created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,1.0,,,,,
-27,38,6,The mathematician who the chairman visited created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,,,,1.0,,
-28,39,4,The monkeys that watched the zookeepers charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,,,,1.0,,
-29,39,6,The monkeys that the zookeepers watched charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,1.0,,,,,
-30,40,5,The movie star who visited the organizers proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,,,,1.0,,
-31,40,7,The movie star who the organizers visited proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,1.0,,,,,
-32,41,4,The neighbor who observed the couple purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,1.0,,,,
-33,41,6,The neighbor who the couple observed purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,,,,1.0,
-34,42,4,The pilot who delayed the ground crew remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,1.0,,,,
-35,42,6,The pilot who the ground crew delayed remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,,,,1.0,
-36,43,4,The soldiers that helped the natives climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,,,,1.0,
-37,43,6,The soldiers that the natives helped climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,1.0,,,,
-38,44,4,The speaker who entertained the economists predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,,,,1.0,
-39,44,6,The speaker who the economists entertained predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,1.0,,,,
-40,45,5,The table top that rested on the box screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,1.0,,,
-41,45,7,The table top that the box rested on screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,,,,1.0
-42,46,4,The trainer who called the jockey rubbed the horse's skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,1.0,,,
-43,46,6,The trainer who the jockey called rubbed the horse's skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,,,,1.0
-44,47,4,The veteran who admired the coach defeated his greatest rival.,Who defeated their rival?,The coach,The veteran,0,Matrix subject,,,,,,1.0
-45,47,6,The veteran who the coach admired defeated his greatest rival.,Who defeated their rival?,The coach,The veteran,0,Matrix subject,,,1.0,,,
-46,48,4,The visitor who introduced the student walked across the quad.,Who walked across the quad?,The visitor,The student,1,Matrix subject,,,,,,1.0
-47,48,6,The visitor who the student introduced walked across the quad.,Who walked across the quad?,The visitor,The student,1,Matrix subject,,,1.0,,,
+,item,condition,targetPosition,Sentence,Unnamed: 4,Option1,Option0,Ans,Unnamed: 8,Unnamed: 9,Unnamed: 10,Unnamed: 11,Unnamed: 12,Unnamed: 13,Unnamed: 14
+0,25,RC_Subj,5,The bus driver who followed the kids wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,0,RC-Gap,1.0,,,,,
+1,25,RC_Obj,7,The bus driver who the kids followed wondered about the location of a hotel.,Who was being followed?,The bus driver,The kids,1,RC-Gap,,,,1.0,,
+2,26,RC_Subj,4,The chef who distracted the cameraman poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,0,RC-Gap,1.0,,,,,
+3,26,RC_Obj,6,The chef who the cameraman distracted poured the flour onto the counter.,Who was being distracted?,The chef,The cameraman,1,RC-Gap,,,,1.0,,
+4,27,RC_Subj,4,The children who woke the father bothered him about the trip to the beach.,Who was woken up?,The children,The father,0,RC-Gap,,,,1.0,,
+5,27,RC_Obj,6,The children who the father woke bothered him about the trip to the beach.,Who was woken up?,The children,The father,1,RC-Gap,1.0,,,,,
+6,28,RC_Subj,4,The class that disliked the teacher skimmed the reading for the week.,Who was disliked?,The class,The teacher,0,RC-Gap,,,,1.0,,
+7,28,RC_Obj,6,The class that the teacher disliked skimmed the reading for the week.,Who was disliked?,The class,The teacher,1,RC-Gap,1.0,,,,,
+8,29,RC_Subj,4,The dancer that loved the audience ignored some basic principles.,Who was loved?,The dancer,The audience,0,RC-Gap,,1.0,,,,
+9,29,RC_Obj,6,The dancer that the audience loved ignored some basic principles.,Who was loved?,The dancer,The audience,1,RC-Gap,,,,,1.0,
+10,30,RC_Subj,4,The employees that noticed the fireman hurried across the open field.,Who was noticed?,The employees,The fireman,0,RC-Gap,,1.0,,,,
+11,30,RC_Obj,6,The employees that the fireman noticed hurried across the open field.,Who was noticed?,The employees,The fireman,1,RC-Gap,,,,,1.0,
+12,31,RC_Subj,4,The farmer that approached the customers lifted the chickens from their coop.,Who was approached?,The customers,The farmer,1,RC-Gap,,,,,1.0,
+13,31,RC_Obj,6,The farmer that the customers approached lifted the chickens from their coop.,Who was approached?,The customers,The farmer,0,RC-Gap,,1.0,,,,
+14,32,RC_Subj,4,The farmer who hired the rancher piled the seeds in long rows.,Who was hired?,The rancher,The farmer,1,RC-Gap,,,,,1.0,
+15,32,RC_Obj,6,The farmer who the rancher hired piled the seeds in long rows.,Who was hired?,The rancher,The farmer,0,RC-Gap,,1.0,,,,
+16,33,RC_Subj,4,The firemen that called the residents attacked the house with high-powered hoses.,Who got a call?,The residents,The firemen,1,RC-Gap,,,1.0,,,
+17,33,RC_Obj,6,The firemen that the residents called attacked the house with high-powered hoses.,Who got a call?,The residents,The firemen,0,RC-Gap,,,,,,1.0
+18,34,RC_Subj,4,The girl who watched the parents changed a critical part of the story.,Who was being watched?,The parents,The girl,1,RC-Gap,,,1.0,,,
+19,34,RC_Obj,6,The girl who the parents watched changed a critical part of the story.,Who was being watched?,The parents,The girl,0,RC-Gap,,,,,,1.0
+20,35,RC_Subj,4,The investigator who phoned the agency considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,1,RC-Gap,,,,,,1.0
+21,35,RC_Obj,6,The investigator who the agency phoned considered Ms. Reynolds from accounting.,Who got a phone call?,The agency,The investigator,0,RC-Gap,,,1.0,,,
+22,36,RC_Subj,4,The judge who addressed the witnesses noticed the defense attorneys.,Who was being addressed?,The witnesses,The judge,1,RC-Gap,,,,,,1.0
+23,36,RC_Obj,6,The judge who the witnesses addressed noticed the defense attorneys.,Who was being addressed?,The witnesses,The judge,0,RC-Gap,,,1.0,,,
+24,37,RC_Subj,4,The manager who visited the boss remembered some inconvenient facts.,Who remembered the facts?,The boss,The manager,0,Matrix subject,1.0,,,,,
+25,37,RC_Obj,6,The manager who the boss visited remembered some inconvenient facts.,Who remembered the facts?,The boss,The manager,0,Matrix subject,,,,1.0,,
+26,38,RC_Subj,4,The mathematician who visited the chairman created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,1.0,,,,,
+27,38,RC_Obj,6,The mathematician who the chairman visited created a solution to the wellknown problem.,Who created the solution?,The mathematician,The chairman,1,Matrix subject,,,,1.0,,
+28,39,RC_Subj,4,The monkeys that watched the zookeepers charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,,,,1.0,,
+29,39,RC_Obj,6,The monkeys that the zookeepers watched charged the bars of their cage.,Who charged the bars of the cage?,The zookeepers,The monkeys,0,Matrix subject,1.0,,,,,
+30,40,RC_Subj,5,The movie star who visited the organizers proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,,,,1.0,,
+31,40,RC_Obj,7,The movie star who the organizers visited proposed an annual prize.,Who proposed a prize?,The movie star,The organizers,1,Matrix subject,1.0,,,,,
+32,41,RC_Subj,4,The neighbor who observed the couple purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,1.0,,,,
+33,41,RC_Obj,6,The neighbor who the couple observed purchased the old Victorian house.,Who purchased the house?,The couple,The neighbor,0,Matrix subject,,,,,1.0,
+34,42,RC_Subj,4,The pilot who delayed the ground crew remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,1.0,,,,
+35,42,RC_Obj,6,The pilot who the ground crew delayed remained on the runway for a long time.,Who was on the runway?,The pilot,The ground crew,1,Matrix subject,,,,,1.0,
+36,43,RC_Subj,4,The soldiers that helped the natives climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,,,,1.0,
+37,43,RC_Obj,6,The soldiers that the natives helped climbed the big rock that blocked the path.,Who climbed the rock?,The natives,The soldiers,0,Matrix subject,,1.0,,,,
+38,44,RC_Subj,4,The speaker who entertained the economists predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,,,,1.0,
+39,44,RC_Obj,6,The speaker who the economists entertained predicted a good year for the industry.,Who predicted a good year?,The speaker,The economists,1,Matrix subject,,1.0,,,,
+40,45,RC_Subj,5,The table top that rested on the box screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,1.0,,,
+41,45,RC_Obj,7,The table top that the box rested on screwed directly to the legs.,What attached to the legs?,The box,The table top,0,Matrix subject,,,,,,1.0
+42,46,RC_Subj,4,The trainer who called the jockey rubbed the horse's skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,1.0,,,
+43,46,RC_Obj,6,The trainer who the jockey called rubbed the horse's skin.,Who pet the horse?,The trainer,The jockey,1,Matrix subject,,,,,,1.0
+44,47,RC_Subj,4,The veteran who admired the coach defeated his greatest rival.,Who defeated their rival?,The coach,The veteran,0,Matrix subject,,,,,,1.0
+45,47,RC_Obj,6,The veteran who the coach admired defeated his greatest rival.,Who defeated their rival?,The coach,The veteran,0,Matrix subject,,,1.0,,,
+46,48,RC_Subj,4,The visitor who introduced the student walked across the quad.,Who walked across the quad?,The visitor,The student,1,Matrix subject,,,,,,1.0
+47,48,RC_Obj,6,The visitor who the student introduced walked across the quad.,Who walked across the quad?,The visitor,The student,1,Matrix subject,,,1.0,,,

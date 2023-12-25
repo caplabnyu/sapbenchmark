@@ -1,618 +1,618 @@
 ,item,Sentence,sum_surprisal,mean_surprisal,token,word,word_pos
 0,1,The suspect showed the file .,5.106276512145996,5.106276512145996,The,The,0
-0,1,The suspect showed the file .,13.296472549438477,13.296472549438477,suspect,suspect,1
-0,1,The suspect showed the file .,7.721066474914551,7.721066474914551,showed,showed,2
+0,1,The suspect showed the file .,13.29647445678711,13.29647445678711,suspect,suspect,1
+0,1,The suspect showed the file .,7.721065998077393,7.721065998077393,showed,showed,2
 0,1,The suspect showed the file .,2.2806077003479004,2.2806077003479004,the,the,3
 0,1,The suspect showed the file .,10.054450988769531,10.054450988769531,file,file,4
-0,1,The suspect showed the file .,2.7438833713531494,2.7438833713531494,.,.,5
+0,1,The suspect showed the file .,2.7438831329345703,2.7438831329345703,.,.,5
 1,1,The suspect changed the file .,5.106276512145996,5.106276512145996,The,The,0
-1,1,The suspect changed the file .,13.296472549438477,13.296472549438477,suspect,suspect,1
-1,1,The suspect changed the file .,8.941362380981445,8.941362380981445,changed,changed,2
-1,1,The suspect changed the file .,1.3832553625106812,1.3832553625106812,the,the,3
-1,1,The suspect changed the file .,8.355741500854492,8.355741500854492,file,file,4
+1,1,The suspect changed the file .,13.29647445678711,13.29647445678711,suspect,suspect,1
+1,1,The suspect changed the file .,8.941363334655762,8.941363334655762,changed,changed,2
+1,1,The suspect changed the file .,1.3832545280456543,1.3832545280456543,the,the,3
+1,1,The suspect changed the file .,8.355743408203125,8.355743408203125,file,file,4
 1,1,The suspect changed the file .,3.166693687438965,3.166693687438965,.,.,5
 2,1,The suspect sent the file .,5.106276512145996,5.106276512145996,The,The,0
-2,1,The suspect sent the file .,13.296472549438477,13.296472549438477,suspect,suspect,1
-2,1,The suspect sent the file .,8.401984214782715,8.401984214782715,sent,sent,2
+2,1,The suspect sent the file .,13.29647445678711,13.29647445678711,suspect,suspect,1
+2,1,The suspect sent the file .,8.401985168457031,8.401985168457031,sent,sent,2
 2,1,The suspect sent the file .,2.3628296852111816,2.3628296852111816,the,the,3
-2,1,The suspect sent the file .,8.507238388061523,8.507238388061523,file,file,4
+2,1,The suspect sent the file .,8.507237434387207,8.507237434387207,file,file,4
 2,1,The suspect sent the file .,2.946526527404785,2.946526527404785,.,.,5
 3,2,The corrupt politician mentioned the bill .,5.106276512145996,5.106276512145996,The,The,0
-3,2,The corrupt politician mentioned the bill .,12.56621265411377,12.56621265411377,corrupt,corrupt,1
-3,2,The corrupt politician mentioned the bill .,5.282761573791504,5.282761573791504,politician,politician,2
-3,2,The corrupt politician mentioned the bill .,10.737541198730469,10.737541198730469,mentioned,mentioned,3
-3,2,The corrupt politician mentioned the bill .,3.27907657623291,3.27907657623291,the,the,4
-3,2,The corrupt politician mentioned the bill .,8.932908058166504,8.932908058166504,bill,bill,5
-3,2,The corrupt politician mentioned the bill .,2.189924955368042,2.189924955368042,.,.,6
+3,2,The corrupt politician mentioned the bill .,12.566213607788086,12.566213607788086,corrupt,corrupt,1
+3,2,The corrupt politician mentioned the bill .,5.282762050628662,5.282762050628662,politician,politician,2
+3,2,The corrupt politician mentioned the bill .,10.737542152404785,10.737542152404785,mentioned,mentioned,3
+3,2,The corrupt politician mentioned the bill .,3.2790768146514893,3.2790768146514893,the,the,4
+3,2,The corrupt politician mentioned the bill .,8.93290901184082,8.93290901184082,bill,bill,5
+3,2,The corrupt politician mentioned the bill .,2.1899242401123047,2.1899242401123047,.,.,6
 4,2,The corrupt politician signed the bill .,5.106276512145996,5.106276512145996,The,The,0
-4,2,The corrupt politician signed the bill .,12.56621265411377,12.56621265411377,corrupt,corrupt,1
-4,2,The corrupt politician signed the bill .,5.282761573791504,5.282761573791504,politician,politician,2
-4,2,The corrupt politician signed the bill .,12.289112091064453,12.289112091064453,signed,signed,3
-4,2,The corrupt politician signed the bill .,2.1088595390319824,2.1088595390319824,the,the,4
-4,2,The corrupt politician signed the bill .,3.021902561187744,3.021902561187744,bill,bill,5
+4,2,The corrupt politician signed the bill .,12.566213607788086,12.566213607788086,corrupt,corrupt,1
+4,2,The corrupt politician signed the bill .,5.282762050628662,5.282762050628662,politician,politician,2
+4,2,The corrupt politician signed the bill .,12.28911304473877,12.28911304473877,signed,signed,3
+4,2,The corrupt politician signed the bill .,2.108858585357666,2.108858585357666,the,the,4
+4,2,The corrupt politician signed the bill .,3.0219006538391113,3.0219006538391113,bill,bill,5
 4,2,The corrupt politician signed the bill .,2.428891181945801,2.428891181945801,.,.,6
 5,2,The corrupt politician handed the bill .,5.106276512145996,5.106276512145996,The,The,0
-5,2,The corrupt politician handed the bill .,12.56621265411377,12.56621265411377,corrupt,corrupt,1
-5,2,The corrupt politician handed the bill .,5.282761573791504,5.282761573791504,politician,politician,2
+5,2,The corrupt politician handed the bill .,12.566213607788086,12.566213607788086,corrupt,corrupt,1
+5,2,The corrupt politician handed the bill .,5.282762050628662,5.282762050628662,politician,politician,2
 5,2,The corrupt politician handed the bill .,12.532787322998047,12.532787322998047,handed,handed,3
-5,2,The corrupt politician handed the bill .,2.2740421295166016,2.2740421295166016,the,the,4
-5,2,The corrupt politician handed the bill .,5.3701491355896,5.3701491355896,bill,bill,5
+5,2,The corrupt politician handed the bill .,2.274043560028076,2.274043560028076,the,the,4
+5,2,The corrupt politician handed the bill .,5.370150089263916,5.370150089263916,bill,bill,5
 5,2,The corrupt politician handed the bill .,3.7574713230133057,3.7574713230133057,.,.,6
 6,3,The woman maintained the mail .,5.106276512145996,5.106276512145996,The,The,0
-6,3,The woman maintained the mail .,10.144597053527832,10.144597053527832,woman,woman,1
-6,3,The woman maintained the mail .,10.07875919342041,10.07875919342041,maintained,maintained,2
-6,3,The woman maintained the mail .,1.7584608793258667,1.7584608793258667,the,the,3
-6,3,The woman maintained the mail .,10.215739250183105,10.215739250183105,mail,mail,4
-6,3,The woman maintained the mail .,2.38043475151062,2.38043475151062,.,.,5
+6,3,The woman maintained the mail .,10.144598007202148,10.144598007202148,woman,woman,1
+6,3,The woman maintained the mail .,10.078758239746094,10.078758239746094,maintained,maintained,2
+6,3,The woman maintained the mail .,1.7584609985351562,1.7584609985351562,the,the,3
+6,3,The woman maintained the mail .,10.215738296508789,10.215738296508789,mail,mail,4
+6,3,The woman maintained the mail .,2.380434513092041,2.380434513092041,.,.,5
 7,3,The woman moved the mail .,5.106276512145996,5.106276512145996,The,The,0
-7,3,The woman moved the mail .,10.144597053527832,10.144597053527832,woman,woman,1
-7,3,The woman moved the mail .,8.269964218139648,8.269964218139648,moved,moved,2
-7,3,The woman moved the mail .,3.0400948524475098,3.0400948524475098,the,the,3
+7,3,The woman moved the mail .,10.144598007202148,10.144598007202148,woman,woman,1
+7,3,The woman moved the mail .,8.269965171813965,8.269965171813965,moved,moved,2
+7,3,The woman moved the mail .,3.0400943756103516,3.0400943756103516,the,the,3
 7,3,The woman moved the mail .,8.584954261779785,8.584954261779785,mail,mail,4
-7,3,The woman moved the mail .,4.145325660705566,4.145325660705566,.,.,5
+7,3,The woman moved the mail .,4.145326614379883,4.145326614379883,.,.,5
 8,3,The woman brought the mail .,5.106276512145996,5.106276512145996,The,The,0
-8,3,The woman brought the mail .,10.144597053527832,10.144597053527832,woman,woman,1
+8,3,The woman brought the mail .,10.144598007202148,10.144598007202148,woman,woman,1
 8,3,The woman brought the mail .,6.937145233154297,6.937145233154297,brought,brought,2
-8,3,The woman brought the mail .,2.176109552383423,2.176109552383423,the,the,3
+8,3,The woman brought the mail .,2.176109790802002,2.176109790802002,the,the,3
 8,3,The woman brought the mail .,7.518551826477051,7.518551826477051,mail,mail,4
-8,3,The woman brought the mail .,3.1668717861175537,3.1668717861175537,.,.,5
+8,3,The woman brought the mail .,3.166872501373291,3.166872501373291,.,.,5
 9,4,The boy found the chicken .,5.106276512145996,5.106276512145996,The,The,0
-9,4,The boy found the chicken .,10.126419067382812,10.126419067382812,boy,boy,1
-9,4,The boy found the chicken .,7.1370697021484375,7.1370697021484375,found,found,2
-9,4,The boy found the chicken .,2.1778576374053955,2.1778576374053955,the,the,3
-9,4,The boy found the chicken .,8.629682540893555,8.629682540893555,chicken,chicken,4
-9,4,The boy found the chicken .,3.528986930847168,3.528986930847168,.,.,5
+9,4,The boy found the chicken .,10.126420974731445,10.126420974731445,boy,boy,1
+9,4,The boy found the chicken .,7.137068271636963,7.137068271636963,found,found,2
+9,4,The boy found the chicken .,2.177856922149658,2.177856922149658,the,the,3
+9,4,The boy found the chicken .,8.629681587219238,8.629681587219238,chicken,chicken,4
+9,4,The boy found the chicken .,3.5289864540100098,3.5289864540100098,.,.,5
 10,4,The boy attacked the chicken .,5.106276512145996,5.106276512145996,The,The,0
-10,4,The boy attacked the chicken .,10.126419067382812,10.126419067382812,boy,boy,1
+10,4,The boy attacked the chicken .,10.126420974731445,10.126420974731445,boy,boy,1
 10,4,The boy attacked the chicken .,10.06289005279541,10.06289005279541,attacked,attacked,2
-10,4,The boy attacked the chicken .,1.4019895792007446,1.4019895792007446,the,the,3
-10,4,The boy attacked the chicken .,9.828263282775879,9.828263282775879,chicken,chicken,4
-10,4,The boy attacked the chicken .,2.687288999557495,2.687288999557495,.,.,5
+10,4,The boy attacked the chicken .,1.4019896984100342,1.4019896984100342,the,the,3
+10,4,The boy attacked the chicken .,9.828264236450195,9.828264236450195,chicken,chicken,4
+10,4,The boy attacked the chicken .,2.687288761138916,2.687288761138916,.,.,5
 11,4,The boy fed the chicken .,5.106276512145996,5.106276512145996,The,The,0
-11,4,The boy fed the chicken .,10.126419067382812,10.126419067382812,boy,boy,1
-11,4,The boy fed the chicken .,10.351991653442383,10.351991653442383,fed,fed,2
+11,4,The boy fed the chicken .,10.126420974731445,10.126420974731445,boy,boy,1
+11,4,The boy fed the chicken .,10.351990699768066,10.351990699768066,fed,fed,2
 11,4,The boy fed the chicken .,2.017986536026001,2.017986536026001,the,the,3
-11,4,The boy fed the chicken .,7.411158561706543,7.411158561706543,chicken,chicken,4
-11,4,The boy fed the chicken .,2.529428005218506,2.529428005218506,.,.,5
+11,4,The boy fed the chicken .,7.411157608032227,7.411157608032227,chicken,chicken,4
+11,4,The boy fed the chicken .,2.5294277667999268,2.5294277667999268,.,.,5
 12,5,The new doctor demonstrated the operation .,5.106276512145996,5.106276512145996,The,The,0
-12,5,The new doctor demonstrated the operation .,6.836735725402832,6.836735725402832,new,new,1
+12,5,The new doctor demonstrated the operation .,6.83673620223999,6.83673620223999,new,new,1
 12,5,The new doctor demonstrated the operation .,10.103126525878906,10.103126525878906,doctor,doctor,2
-12,5,The new doctor demonstrated the operation .,8.484908103942871,8.484908103942871,demonstrated,demonstrated,3
-12,5,The new doctor demonstrated the operation .,2.05625581741333,2.05625581741333,the,the,4
+12,5,The new doctor demonstrated the operation .,8.484907150268555,8.484907150268555,demonstrated,demonstrated,3
+12,5,The new doctor demonstrated the operation .,2.056256055831909,2.056256055831909,the,the,4
 12,5,The new doctor demonstrated the operation .,8.462209701538086,8.462209701538086,operation,operation,5
 12,5,The new doctor demonstrated the operation .,3.359311103820801,3.359311103820801,.,.,6
 13,5,The new doctor left the operation .,5.106276512145996,5.106276512145996,The,The,0
-13,5,The new doctor left the operation .,6.836735725402832,6.836735725402832,new,new,1
+13,5,The new doctor left the operation .,6.83673620223999,6.83673620223999,new,new,1
 13,5,The new doctor left the operation .,10.103126525878906,10.103126525878906,doctor,doctor,2
-13,5,The new doctor left the operation .,7.636247634887695,7.636247634887695,left,left,3
-13,5,The new doctor left the operation .,1.2625666856765747,1.2625666856765747,the,the,4
-13,5,The new doctor left the operation .,6.784307479858398,6.784307479858398,operation,operation,5
-13,5,The new doctor left the operation .,2.518185615539551,2.518185615539551,.,.,6
+13,5,The new doctor left the operation .,7.6362481117248535,7.6362481117248535,left,left,3
+13,5,The new doctor left the operation .,1.2625669240951538,1.2625669240951538,the,the,4
+13,5,The new doctor left the operation .,6.78430700302124,6.78430700302124,operation,operation,5
+13,5,The new doctor left the operation .,2.5181853771209717,2.5181853771209717,.,.,6
 14,5,The new doctor offered the operation .,5.106276512145996,5.106276512145996,The,The,0
-14,5,The new doctor offered the operation .,6.836735725402832,6.836735725402832,new,new,1
+14,5,The new doctor offered the operation .,6.83673620223999,6.83673620223999,new,new,1
 14,5,The new doctor offered the operation .,10.103126525878906,10.103126525878906,doctor,doctor,2
 14,5,The new doctor offered the operation .,7.395556926727295,7.395556926727295,offered,offered,3
-14,5,The new doctor offered the operation .,2.573842763900757,2.573842763900757,the,the,4
+14,5,The new doctor offered the operation .,2.573843002319336,2.573843002319336,the,the,4
 14,5,The new doctor offered the operation .,9.118371963500977,9.118371963500977,operation,operation,5
-14,5,The new doctor offered the operation .,3.3921656608581543,3.3921656608581543,.,.,6
+14,5,The new doctor offered the operation .,3.392164707183838,3.392164707183838,.,.,6
 15,6,The professor noticed the grant .,5.106276512145996,5.106276512145996,The,The,0
-15,6,The professor noticed the grant .,12.072391510009766,12.072391510009766,professor,professor,1
+15,6,The professor noticed the grant .,12.072393417358398,12.072393417358398,professor,professor,1
 15,6,The professor noticed the grant .,9.853837013244629,9.853837013244629,noticed,noticed,2
-15,6,The professor noticed the grant .,2.0233535766601562,2.0233535766601562,the,the,3
+15,6,The professor noticed the grant .,2.023355007171631,2.023355007171631,the,the,3
 15,6,The professor noticed the grant .,11.346847534179688,11.346847534179688,grant,grant,4
-15,6,The professor noticed the grant .,3.4574697017669678,3.4574697017669678,.,.,5
+15,6,The professor noticed the grant .,3.457469940185547,3.457469940185547,.,.,5
 16,6,The professor read the grant .,5.106276512145996,5.106276512145996,The,The,0
-16,6,The professor read the grant .,12.072391510009766,12.072391510009766,professor,professor,1
-16,6,The professor read the grant .,9.7513427734375,9.7513427734375,read,read,2
-16,6,The professor read the grant .,1.4507460594177246,1.4507460594177246,the,the,3
+16,6,The professor read the grant .,12.072393417358398,12.072393417358398,professor,professor,1
+16,6,The professor read the grant .,9.751343727111816,9.751343727111816,read,read,2
+16,6,The professor read the grant .,1.4507458209991455,1.4507458209991455,the,the,3
 16,6,The professor read the grant .,10.887542724609375,10.887542724609375,grant,grant,4
-16,6,The professor read the grant .,2.549229145050049,2.549229145050049,.,.,5
+16,6,The professor read the grant .,2.549229860305786,2.549229860305786,.,.,5
 17,6,The professor awarded the grant .,5.106276512145996,5.106276512145996,The,The,0
-17,6,The professor awarded the grant .,12.072391510009766,12.072391510009766,professor,professor,1
+17,6,The professor awarded the grant .,12.072393417358398,12.072393417358398,professor,professor,1
 17,6,The professor awarded the grant .,9.816542625427246,9.816542625427246,awarded,awarded,2
-17,6,The professor awarded the grant .,1.2698179483413696,1.2698179483413696,the,the,3
+17,6,The professor awarded the grant .,1.269817590713501,1.269817590713501,the,the,3
 17,6,The professor awarded the grant .,5.950790882110596,5.950790882110596,grant,grant,4
 17,6,The professor awarded the grant .,2.59340763092041,2.59340763092041,.,.,5
 18,7,The technician reported the service .,5.106276512145996,5.106276512145996,The,The,0
-18,7,The technician reported the service .,14.302754402160645,14.302754402160645,technician,technician,1
-18,7,The technician reported the service .,7.5276994705200195,7.5276994705200195,reported,reported,2
-18,7,The technician reported the service .,2.2204508781433105,2.2204508781433105,the,the,3
+18,7,The technician reported the service .,14.302755355834961,14.302755355834961,technician,technician,1
+18,7,The technician reported the service .,7.527698516845703,7.527698516845703,reported,reported,2
+18,7,The technician reported the service .,2.220451831817627,2.220451831817627,the,the,3
 18,7,The technician reported the service .,9.010135650634766,9.010135650634766,service,service,4
-18,7,The technician reported the service .,2.6241366863250732,2.6241366863250732,.,.,5
+18,7,The technician reported the service .,2.6241369247436523,2.6241369247436523,.,.,5
 19,7,The technician called the service .,5.106276512145996,5.106276512145996,The,The,0
-19,7,The technician called the service .,14.302754402160645,14.302754402160645,technician,technician,1
+19,7,The technician called the service .,14.302755355834961,14.302755355834961,technician,technician,1
 19,7,The technician called the service .,6.118865966796875,6.118865966796875,called,called,2
-19,7,The technician called the service .,1.716577410697937,1.716577410697937,the,the,3
-19,7,The technician called the service .,7.600790023803711,7.600790023803711,service,service,4
+19,7,The technician called the service .,1.7165777683258057,1.7165777683258057,the,the,3
+19,7,The technician called the service .,7.600790977478027,7.600790977478027,service,service,4
 19,7,The technician called the service .,3.2456867694854736,3.2456867694854736,.,.,5
 20,7,The technician refused the service .,5.106276512145996,5.106276512145996,The,The,0
-20,7,The technician refused the service .,14.302754402160645,14.302754402160645,technician,technician,1
+20,7,The technician refused the service .,14.302755355834961,14.302755355834961,technician,technician,1
 20,7,The technician refused the service .,9.351664543151855,9.351664543151855,refused,refused,2
-20,7,The technician refused the service .,3.4738500118255615,3.4738500118255615,the,the,3
+20,7,The technician refused the service .,3.4738495349884033,3.4738495349884033,the,the,3
 20,7,The technician refused the service .,7.764873027801514,7.764873027801514,service,service,4
-20,7,The technician refused the service .,1.4877480268478394,1.4877480268478394,.,.,5
+20,7,The technician refused the service .,1.4877475500106812,1.4877475500106812,.,.,5
 21,8,The mechanic observed the truck .,5.106276512145996,5.106276512145996,The,The,0
-21,8,The mechanic observed the truck .,13.03471851348877,13.03471851348877,mechanic,mechanic,1
+21,8,The mechanic observed the truck .,13.034720420837402,13.034720420837402,mechanic,mechanic,1
 21,8,The mechanic observed the truck .,11.807395935058594,11.807395935058594,observed,observed,2
-21,8,The mechanic observed the truck .,2.466179132461548,2.466179132461548,the,the,3
+21,8,The mechanic observed the truck .,2.4661800861358643,2.4661800861358643,the,the,3
 21,8,The mechanic observed the truck .,8.285858154296875,8.285858154296875,truck,truck,4
-21,8,The mechanic observed the truck .,2.976102352142334,2.976102352142334,.,.,5
+21,8,The mechanic observed the truck .,2.976102590560913,2.976102590560913,.,.,5
 22,8,The mechanic stopped the truck .,5.106276512145996,5.106276512145996,The,The,0
-22,8,The mechanic stopped the truck .,13.03471851348877,13.03471851348877,mechanic,mechanic,1
-22,8,The mechanic stopped the truck .,9.019067764282227,9.019067764282227,stopped,stopped,2
-22,8,The mechanic stopped the truck .,2.114335060119629,2.114335060119629,the,the,3
-22,8,The mechanic stopped the truck .,6.617997646331787,6.617997646331787,truck,truck,4
-22,8,The mechanic stopped the truck .,2.735525131225586,2.735525131225586,.,.,5
+22,8,The mechanic stopped the truck .,13.034720420837402,13.034720420837402,mechanic,mechanic,1
+22,8,The mechanic stopped the truck .,9.019068717956543,9.019068717956543,stopped,stopped,2
+22,8,The mechanic stopped the truck .,2.114335775375366,2.114335775375366,the,the,3
+22,8,The mechanic stopped the truck .,6.6179962158203125,6.6179962158203125,truck,truck,4
+22,8,The mechanic stopped the truck .,2.735525608062744,2.735525608062744,.,.,5
 23,8,The mechanic brought the truck .,5.106276512145996,5.106276512145996,The,The,0
-23,8,The mechanic brought the truck .,13.03471851348877,13.03471851348877,mechanic,mechanic,1
-23,8,The mechanic brought the truck .,7.590747356414795,7.590747356414795,brought,brought,2
-23,8,The mechanic brought the truck .,1.6252168416976929,1.6252168416976929,the,the,3
-23,8,The mechanic brought the truck .,7.247231960296631,7.247231960296631,truck,truck,4
-23,8,The mechanic brought the truck .,4.40963888168335,4.40963888168335,.,.,5
+23,8,The mechanic brought the truck .,13.034720420837402,13.034720420837402,mechanic,mechanic,1
+23,8,The mechanic brought the truck .,7.590747833251953,7.590747833251953,brought,brought,2
+23,8,The mechanic brought the truck .,1.6252163648605347,1.6252163648605347,the,the,3
+23,8,The mechanic brought the truck .,7.247231483459473,7.247231483459473,truck,truck,4
+23,8,The mechanic brought the truck .,4.409639358520508,4.409639358520508,.,.,5
 24,9,The guitarist knew the song .,5.106276512145996,5.106276512145996,The,The,0
-24,9,The guitarist knew the song .,11.847607612609863,11.847607612609863,guitarist,guitarist,1
+24,9,The guitarist knew the song .,11.84760856628418,11.84760856628418,guitarist,guitarist,1
 24,9,The guitarist knew the song .,8.560532569885254,8.560532569885254,knew,knew,2
-24,9,The guitarist knew the song .,1.9763275384902954,1.9763275384902954,the,the,3
-24,9,The guitarist knew the song .,4.003467559814453,4.003467559814453,song,song,4
-24,9,The guitarist knew the song .,3.4182403087615967,3.4182403087615967,.,.,5
+24,9,The guitarist knew the song .,1.976327896118164,1.976327896118164,the,the,3
+24,9,The guitarist knew the song .,4.003466606140137,4.003466606140137,song,song,4
+24,9,The guitarist knew the song .,3.4182419776916504,3.4182419776916504,.,.,5
 25,9,The guitarist began the song .,5.106276512145996,5.106276512145996,The,The,0
-25,9,The guitarist began the song .,11.847607612609863,11.847607612609863,guitarist,guitarist,1
-25,9,The guitarist began the song .,7.320223331451416,7.320223331451416,began,began,2
-25,9,The guitarist began the song .,3.184438705444336,3.184438705444336,the,the,3
-25,9,The guitarist began the song .,3.7207705974578857,3.7207705974578857,song,song,4
-25,9,The guitarist began the song .,2.422119617462158,2.422119617462158,.,.,5
+25,9,The guitarist began the song .,11.84760856628418,11.84760856628418,guitarist,guitarist,1
+25,9,The guitarist began the song .,7.320222854614258,7.320222854614258,began,began,2
+25,9,The guitarist began the song .,3.184438467025757,3.184438467025757,the,the,3
+25,9,The guitarist began the song .,3.7207717895507812,3.7207717895507812,song,song,4
+25,9,The guitarist began the song .,2.422121047973633,2.422121047973633,.,.,5
 26,9,The guitarist assigned the song .,5.106276512145996,5.106276512145996,The,The,0
-26,9,The guitarist assigned the song .,11.847607612609863,11.847607612609863,guitarist,guitarist,1
+26,9,The guitarist assigned the song .,11.84760856628418,11.84760856628418,guitarist,guitarist,1
 26,9,The guitarist assigned the song .,10.002023696899414,10.002023696899414,assigned,assigned,2
-26,9,The guitarist assigned the song .,2.6582486629486084,2.6582486629486084,the,the,3
-26,9,The guitarist assigned the song .,4.34660005569458,4.34660005569458,song,song,4
-26,9,The guitarist assigned the song .,4.015417098999023,4.015417098999023,.,.,5
+26,9,The guitarist assigned the song .,2.6582493782043457,2.6582493782043457,the,the,3
+26,9,The guitarist assigned the song .,4.346599578857422,4.346599578857422,song,song,4
+26,9,The guitarist assigned the song .,4.015419006347656,4.015419006347656,.,.,5
 27,10,The player revealed the bonus .,5.106276512145996,5.106276512145996,The,The,0
-27,10,The player revealed the bonus .,8.543692588806152,8.543692588806152,player,player,1
-27,10,The player revealed the bonus .,9.722926139831543,9.722926139831543,revealed,revealed,2
-27,10,The player revealed the bonus .,1.8117265701293945,1.8117265701293945,the,the,3
+27,10,The player revealed the bonus .,8.543693542480469,8.543693542480469,player,player,1
+27,10,The player revealed the bonus .,9.722925186157227,9.722925186157227,revealed,revealed,2
+27,10,The player revealed the bonus .,1.8117271661758423,1.8117271661758423,the,the,3
 27,10,The player revealed the bonus .,8.974512100219727,8.974512100219727,bonus,bonus,4
 27,10,The player revealed the bonus .,4.461869239807129,4.461869239807129,.,.,5
 28,10,The player lost the bonus .,5.106276512145996,5.106276512145996,The,The,0
-28,10,The player lost the bonus .,8.543692588806152,8.543692588806152,player,player,1
-28,10,The player lost the bonus .,9.296492576599121,9.296492576599121,lost,lost,2
-28,10,The player lost the bonus .,1.708965539932251,1.708965539932251,the,the,3
-28,10,The player lost the bonus .,7.9383544921875,7.9383544921875,bonus,bonus,4
-28,10,The player lost the bonus .,3.6905746459960938,3.6905746459960938,.,.,5
+28,10,The player lost the bonus .,8.543693542480469,8.543693542480469,player,player,1
+28,10,The player lost the bonus .,9.296493530273438,9.296493530273438,lost,lost,2
+28,10,The player lost the bonus .,1.7089650630950928,1.7089650630950928,the,the,3
+28,10,The player lost the bonus .,7.938355445861816,7.938355445861816,bonus,bonus,4
+28,10,The player lost the bonus .,3.6905758380889893,3.6905758380889893,.,.,5
 29,10,The player paid the bonus .,5.106276512145996,5.106276512145996,The,The,0
-29,10,The player paid the bonus .,8.543692588806152,8.543692588806152,player,player,1
+29,10,The player paid the bonus .,8.543693542480469,8.543693542480469,player,player,1
 29,10,The player paid the bonus .,9.465725898742676,9.465725898742676,paid,paid,2
-29,10,The player paid the bonus .,1.9209614992141724,1.9209614992141724,the,the,3
-29,10,The player paid the bonus .,6.034303188323975,6.034303188323975,bonus,bonus,4
-29,10,The player paid the bonus .,2.738125801086426,2.738125801086426,.,.,5
+29,10,The player paid the bonus .,1.9209625720977783,1.9209625720977783,the,the,3
+29,10,The player paid the bonus .,6.034303665161133,6.034303665161133,bonus,bonus,4
+29,10,The player paid the bonus .,2.738126277923584,2.738126277923584,.,.,5
 30,11,The recent hire claimed the job .,5.106276512145996,5.106276512145996,The,The,0
 30,11,The recent hire claimed the job .,10.689689636230469,10.689689636230469,recent,recent,1
 30,11,The recent hire claimed the job .,12.935623168945312,12.935623168945312,hire,hire,2
-30,11,The recent hire claimed the job .,10.048543930053711,10.048543930053711,claimed,claimed,3
-30,11,The recent hire claimed the job .,2.3432507514953613,2.3432507514953613,the,the,4
-30,11,The recent hire claimed the job .,5.503578186035156,5.503578186035156,job,job,5
-30,11,The recent hire claimed the job .,3.4472815990448,3.4472815990448,.,.,6
+30,11,The recent hire claimed the job .,10.048542976379395,10.048542976379395,claimed,claimed,3
+30,11,The recent hire claimed the job .,2.343250274658203,2.343250274658203,the,the,4
+30,11,The recent hire claimed the job .,5.50357723236084,5.50357723236084,job,job,5
+30,11,The recent hire claimed the job .,3.447281837463379,3.447281837463379,.,.,6
 31,11,The recent hire started the job .,5.106276512145996,5.106276512145996,The,The,0
 31,11,The recent hire started the job .,10.689689636230469,10.689689636230469,recent,recent,1
 31,11,The recent hire started the job .,12.935623168945312,12.935623168945312,hire,hire,2
 31,11,The recent hire started the job .,8.185543060302734,8.185543060302734,started,started,3
-31,11,The recent hire started the job .,4.015913486480713,4.015913486480713,the,the,4
-31,11,The recent hire started the job .,6.2114362716674805,6.2114362716674805,job,job,5
+31,11,The recent hire started the job .,4.015914440155029,4.015914440155029,the,the,4
+31,11,The recent hire started the job .,6.211434841156006,6.211434841156006,job,job,5
 31,11,The recent hire started the job .,2.411259174346924,2.411259174346924,.,.,6
 32,11,The recent hire offered the job .,5.106276512145996,5.106276512145996,The,The,0
 32,11,The recent hire offered the job .,10.689689636230469,10.689689636230469,recent,recent,1
 32,11,The recent hire offered the job .,12.935623168945312,12.935623168945312,hire,hire,2
-32,11,The recent hire offered the job .,7.954092025756836,7.954092025756836,offered,offered,3
-32,11,The recent hire offered the job .,2.9844789505004883,2.9844789505004883,the,the,4
-32,11,The recent hire offered the job .,5.820561408996582,5.820561408996582,job,job,5
-32,11,The recent hire offered the job .,3.2076942920684814,3.2076942920684814,.,.,6
+32,11,The recent hire offered the job .,7.954092502593994,7.954092502593994,offered,offered,3
+32,11,The recent hire offered the job .,2.98447847366333,2.98447847366333,the,the,4
+32,11,The recent hire offered the job .,5.820560932159424,5.820560932159424,job,job,5
+32,11,The recent hire offered the job .,3.2076947689056396,3.2076947689056396,.,.,6
 33,12,The assistant manager discovered the training .,5.106276512145996,5.106276512145996,The,The,0
-33,12,The assistant manager discovered the training .,13.126769065856934,13.126769065856934,assistant,assistant,1
-33,12,The assistant manager discovered the training .,4.547752380371094,4.547752380371094,manager,manager,2
+33,12,The assistant manager discovered the training .,13.12677001953125,13.12677001953125,assistant,assistant,1
+33,12,The assistant manager discovered the training .,4.547750473022461,4.547750473022461,manager,manager,2
 33,12,The assistant manager discovered the training .,11.152503967285156,11.152503967285156,discovered,discovered,3
-33,12,The assistant manager discovered the training .,1.7369569540023804,1.7369569540023804,the,the,4
+33,12,The assistant manager discovered the training .,1.7369558811187744,1.7369558811187744,the,the,4
 33,12,The assistant manager discovered the training .,9.13669204711914,9.13669204711914,training,training,5
-33,12,The assistant manager discovered the training .,3.362318754196167,3.362318754196167,.,.,6
+33,12,The assistant manager discovered the training .,3.362319231033325,3.362319231033325,.,.,6
 34,12,The assistant manager worked the training .,5.106276512145996,5.106276512145996,The,The,0
-34,12,The assistant manager worked the training .,13.126769065856934,13.126769065856934,assistant,assistant,1
-34,12,The assistant manager worked the training .,4.547752380371094,4.547752380371094,manager,manager,2
+34,12,The assistant manager worked the training .,13.12677001953125,13.12677001953125,assistant,assistant,1
+34,12,The assistant manager worked the training .,4.547750473022461,4.547750473022461,manager,manager,2
 34,12,The assistant manager worked the training .,8.60082721710205,8.60082721710205,worked,worked,3
-34,12,The assistant manager worked the training .,3.784101724624634,3.784101724624634,the,the,4
-34,12,The assistant manager worked the training .,8.120335578918457,8.120335578918457,training,training,5
-34,12,The assistant manager worked the training .,2.9374139308929443,2.9374139308929443,.,.,6
+34,12,The assistant manager worked the training .,3.784102439880371,3.784102439880371,the,the,4
+34,12,The assistant manager worked the training .,8.12033462524414,8.12033462524414,training,training,5
+34,12,The assistant manager worked the training .,2.9374144077301025,2.9374144077301025,.,.,6
 35,12,The assistant manager assigned the training .,5.106276512145996,5.106276512145996,The,The,0
-35,12,The assistant manager assigned the training .,13.126769065856934,13.126769065856934,assistant,assistant,1
-35,12,The assistant manager assigned the training .,4.547752380371094,4.547752380371094,manager,manager,2
-35,12,The assistant manager assigned the training .,9.014744758605957,9.014744758605957,assigned,assigned,3
-35,12,The assistant manager assigned the training .,2.5460996627807617,2.5460996627807617,the,the,4
+35,12,The assistant manager assigned the training .,13.12677001953125,13.12677001953125,assistant,assistant,1
+35,12,The assistant manager assigned the training .,4.547750473022461,4.547750473022461,manager,manager,2
+35,12,The assistant manager assigned the training .,9.01474380493164,9.01474380493164,assigned,assigned,3
+35,12,The assistant manager assigned the training .,2.546099901199341,2.546099901199341,the,the,4
 35,12,The assistant manager assigned the training .,7.350488662719727,7.350488662719727,training,training,5
-35,12,The assistant manager assigned the training .,4.4587931632995605,4.4587931632995605,.,.,6
+35,12,The assistant manager assigned the training .,4.458793640136719,4.458793640136719,.,.,6
 36,13,The mayor showed the document .,5.106276512145996,5.106276512145996,The,The,0
 36,13,The mayor showed the document .,10.979560852050781,10.979560852050781,mayor,mayor,1
 36,13,The mayor showed the document .,9.69465446472168,9.69465446472168,showed,showed,2
-36,13,The mayor showed the document .,2.1367921829223633,2.1367921829223633,the,the,3
-36,13,The mayor showed the document .,7.881800174713135,7.881800174713135,document,document,4
-36,13,The mayor showed the document .,3.6073524951934814,3.6073524951934814,.,.,5
+36,13,The mayor showed the document .,2.136791706085205,2.136791706085205,the,the,3
+36,13,The mayor showed the document .,7.881799697875977,7.881799697875977,document,document,4
+36,13,The mayor showed the document .,3.6073529720306396,3.6073529720306396,.,.,5
 37,13,The mayor changed the document .,5.106276512145996,5.106276512145996,The,The,0
 37,13,The mayor changed the document .,10.979560852050781,10.979560852050781,mayor,mayor,1
-37,13,The mayor changed the document .,9.36156940460205,9.36156940460205,changed,changed,2
-37,13,The mayor changed the document .,1.0936387777328491,1.0936387777328491,the,the,3
-37,13,The mayor changed the document .,8.924633026123047,8.924633026123047,document,document,4
-37,13,The mayor changed the document .,2.399704933166504,2.399704933166504,.,.,5
+37,13,The mayor changed the document .,9.361570358276367,9.361570358276367,changed,changed,2
+37,13,The mayor changed the document .,1.0936386585235596,1.0936386585235596,the,the,3
+37,13,The mayor changed the document .,8.924633979797363,8.924633979797363,document,document,4
+37,13,The mayor changed the document .,2.3997068405151367,2.3997068405151367,.,.,5
 38,13,The mayor sent the document .,5.106276512145996,5.106276512145996,The,The,0
 38,13,The mayor sent the document .,10.979560852050781,10.979560852050781,mayor,mayor,1
-38,13,The mayor sent the document .,8.982904434204102,8.982904434204102,sent,sent,2
-38,13,The mayor sent the document .,2.246878147125244,2.246878147125244,the,the,3
+38,13,The mayor sent the document .,8.982905387878418,8.982905387878418,sent,sent,2
+38,13,The mayor sent the document .,2.2468786239624023,2.2468786239624023,the,the,3
 38,13,The mayor sent the document .,6.6663312911987305,6.6663312911987305,document,document,4
 38,13,The mayor sent the document .,2.910322666168213,2.910322666168213,.,.,5
 39,14,The basketball player mentioned the contract .,5.106276512145996,5.106276512145996,The,The,0
-39,14,The basketball player mentioned the contract .,12.520532608032227,12.520532608032227,basketball,basketball,1
-39,14,The basketball player mentioned the contract .,2.96159029006958,2.96159029006958,player,player,2
-39,14,The basketball player mentioned the contract .,10.024679183959961,10.024679183959961,mentioned,mentioned,3
+39,14,The basketball player mentioned the contract .,12.520533561706543,12.520533561706543,basketball,basketball,1
+39,14,The basketball player mentioned the contract .,2.9615907669067383,2.9615907669067383,player,player,2
+39,14,The basketball player mentioned the contract .,10.024680137634277,10.024680137634277,mentioned,mentioned,3
 39,14,The basketball player mentioned the contract .,2.4480934143066406,2.4480934143066406,the,the,4
-39,14,The basketball player mentioned the contract .,7.710394382476807,7.710394382476807,contract,contract,5
-39,14,The basketball player mentioned the contract .,2.162893056869507,2.162893056869507,.,.,6
+39,14,The basketball player mentioned the contract .,7.710394859313965,7.710394859313965,contract,contract,5
+39,14,The basketball player mentioned the contract .,2.1628923416137695,2.1628923416137695,.,.,6
 40,14,The basketball player signed the contract .,5.106276512145996,5.106276512145996,The,The,0
-40,14,The basketball player signed the contract .,12.520532608032227,12.520532608032227,basketball,basketball,1
-40,14,The basketball player signed the contract .,2.96159029006958,2.96159029006958,player,player,2
-40,14,The basketball player signed the contract .,9.5347900390625,9.5347900390625,signed,signed,3
-40,14,The basketball player signed the contract .,1.871940016746521,1.871940016746521,the,the,4
-40,14,The basketball player signed the contract .,2.3609941005706787,2.3609941005706787,contract,contract,5
-40,14,The basketball player signed the contract .,1.9126070737838745,1.9126070737838745,.,.,6
+40,14,The basketball player signed the contract .,12.520533561706543,12.520533561706543,basketball,basketball,1
+40,14,The basketball player signed the contract .,2.9615907669067383,2.9615907669067383,player,player,2
+40,14,The basketball player signed the contract .,9.534790992736816,9.534790992736816,signed,signed,3
+40,14,The basketball player signed the contract .,1.8719403743743896,1.8719403743743896,the,the,4
+40,14,The basketball player signed the contract .,2.3609933853149414,2.3609933853149414,contract,contract,5
+40,14,The basketball player signed the contract .,1.912606954574585,1.912606954574585,.,.,6
 41,14,The basketball player handed the contract .,5.106276512145996,5.106276512145996,The,The,0
-41,14,The basketball player handed the contract .,12.520532608032227,12.520532608032227,basketball,basketball,1
-41,14,The basketball player handed the contract .,2.96159029006958,2.96159029006958,player,player,2
-41,14,The basketball player handed the contract .,11.641180038452148,11.641180038452148,handed,handed,3
-41,14,The basketball player handed the contract .,1.8071995973587036,1.8071995973587036,the,the,4
+41,14,The basketball player handed the contract .,12.520533561706543,12.520533561706543,basketball,basketball,1
+41,14,The basketball player handed the contract .,2.9615907669067383,2.9615907669067383,player,player,2
+41,14,The basketball player handed the contract .,11.641180992126465,11.641180992126465,handed,handed,3
+41,14,The basketball player handed the contract .,1.8071997165679932,1.8071997165679932,the,the,4
 41,14,The basketball player handed the contract .,6.485049247741699,6.485049247741699,contract,contract,5
-41,14,The basketball player handed the contract .,2.7908782958984375,2.7908782958984375,.,.,6
+41,14,The basketball player handed the contract .,2.7908778190612793,2.7908778190612793,.,.,6
 42,15,The engineer maintained the equipment .,5.106276512145996,5.106276512145996,The,The,0
-42,15,The engineer maintained the equipment .,12.082074165344238,12.082074165344238,engineer,engineer,1
-42,15,The engineer maintained the equipment .,10.052225112915039,10.052225112915039,maintained,maintained,2
-42,15,The engineer maintained the equipment .,1.65731680393219,1.65731680393219,the,the,3
+42,15,The engineer maintained the equipment .,12.082075119018555,12.082075119018555,engineer,engineer,1
+42,15,The engineer maintained the equipment .,10.052226066589355,10.052226066589355,maintained,maintained,2
+42,15,The engineer maintained the equipment .,1.6573165655136108,1.6573165655136108,the,the,3
 42,15,The engineer maintained the equipment .,7.317732810974121,7.317732810974121,equipment,equipment,4
-42,15,The engineer maintained the equipment .,2.8934879302978516,2.8934879302978516,.,.,5
+42,15,The engineer maintained the equipment .,2.893488645553589,2.893488645553589,.,.,5
 43,15,The engineer moved the equipment .,5.106276512145996,5.106276512145996,The,The,0
-43,15,The engineer moved the equipment .,12.082074165344238,12.082074165344238,engineer,engineer,1
-43,15,The engineer moved the equipment .,8.561147689819336,8.561147689819336,moved,moved,2
-43,15,The engineer moved the equipment .,1.5612066984176636,1.5612066984176636,the,the,3
-43,15,The engineer moved the equipment .,7.05375337600708,7.05375337600708,equipment,equipment,4
-43,15,The engineer moved the equipment .,3.932241916656494,3.932241916656494,.,.,5
+43,15,The engineer moved the equipment .,12.082075119018555,12.082075119018555,engineer,engineer,1
+43,15,The engineer moved the equipment .,8.561148643493652,8.561148643493652,moved,moved,2
+43,15,The engineer moved the equipment .,1.5612070560455322,1.5612070560455322,the,the,3
+43,15,The engineer moved the equipment .,7.053753852844238,7.053753852844238,equipment,equipment,4
+43,15,The engineer moved the equipment .,3.9322421550750732,3.9322421550750732,.,.,5
 44,15,The engineer brought the equipment .,5.106276512145996,5.106276512145996,The,The,0
-44,15,The engineer brought the equipment .,12.082074165344238,12.082074165344238,engineer,engineer,1
+44,15,The engineer brought the equipment .,12.082075119018555,12.082075119018555,engineer,engineer,1
 44,15,The engineer brought the equipment .,8.05501937866211,8.05501937866211,brought,brought,2
 44,15,The engineer brought the equipment .,1.8361726999282837,1.8361726999282837,the,the,3
-44,15,The engineer brought the equipment .,7.560016632080078,7.560016632080078,equipment,equipment,4
-44,15,The engineer brought the equipment .,3.736487865447998,3.736487865447998,.,.,5
+44,15,The engineer brought the equipment .,7.56001615524292,7.56001615524292,equipment,equipment,4
+44,15,The engineer brought the equipment .,3.7364883422851562,3.7364883422851562,.,.,5
 45,16,The little girl found the lamb .,5.106276512145996,5.106276512145996,The,The,0
-45,16,The little girl found the lamb .,10.337385177612305,10.337385177612305,little,little,1
-45,16,The little girl found the lamb .,1.9513967037200928,1.9513967037200928,girl,girl,2
-45,16,The little girl found the lamb .,6.673834800720215,6.673834800720215,found,found,3
-45,16,The little girl found the lamb .,2.552948474884033,2.552948474884033,the,the,4
+45,16,The little girl found the lamb .,10.337387084960938,10.337387084960938,little,little,1
+45,16,The little girl found the lamb .,1.9513968229293823,1.9513968229293823,girl,girl,2
+45,16,The little girl found the lamb .,6.673833847045898,6.673833847045898,found,found,3
+45,16,The little girl found the lamb .,2.5529489517211914,2.5529489517211914,the,the,4
 45,16,The little girl found the lamb .,10.331162452697754,10.331162452697754,lamb,lamb,5
-45,16,The little girl found the lamb .,2.626622200012207,2.626622200012207,.,.,6
+45,16,The little girl found the lamb .,2.626621961593628,2.626621961593628,.,.,6
 46,16,The little girl attacked the lamb .,5.106276512145996,5.106276512145996,The,The,0
-46,16,The little girl attacked the lamb .,10.337385177612305,10.337385177612305,little,little,1
-46,16,The little girl attacked the lamb .,1.9513967037200928,1.9513967037200928,girl,girl,2
-46,16,The little girl attacked the lamb .,9.728354454040527,9.728354454040527,attacked,attacked,3
+46,16,The little girl attacked the lamb .,10.337387084960938,10.337387084960938,little,little,1
+46,16,The little girl attacked the lamb .,1.9513968229293823,1.9513968229293823,girl,girl,2
+46,16,The little girl attacked the lamb .,9.728355407714844,9.728355407714844,attacked,attacked,3
 46,16,The little girl attacked the lamb .,1.739013910293579,1.739013910293579,the,the,4
-46,16,The little girl attacked the lamb .,11.867522239685059,11.867522239685059,lamb,lamb,5
-46,16,The little girl attacked the lamb .,2.278963327407837,2.278963327407837,.,.,6
+46,16,The little girl attacked the lamb .,11.867523193359375,11.867523193359375,lamb,lamb,5
+46,16,The little girl attacked the lamb .,2.278963565826416,2.278963565826416,.,.,6
 47,16,The little girl fed the lamb .,5.106276512145996,5.106276512145996,The,The,0
-47,16,The little girl fed the lamb .,10.337385177612305,10.337385177612305,little,little,1
-47,16,The little girl fed the lamb .,1.9513967037200928,1.9513967037200928,girl,girl,2
+47,16,The little girl fed the lamb .,10.337387084960938,10.337387084960938,little,little,1
+47,16,The little girl fed the lamb .,1.9513968229293823,1.9513968229293823,girl,girl,2
 47,16,The little girl fed the lamb .,10.792536735534668,10.792536735534668,fed,fed,3
 47,16,The little girl fed the lamb .,2.377333641052246,2.377333641052246,the,the,4
 47,16,The little girl fed the lamb .,8.721240997314453,8.721240997314453,lamb,lamb,5
-47,16,The little girl fed the lamb .,2.145843029022217,2.145843029022217,.,.,6
+47,16,The little girl fed the lamb .,2.1458427906036377,2.1458427906036377,.,.,6
 48,17,The yoga instructor demonstrated the position .,5.106276512145996,5.106276512145996,The,The,0
-48,17,The yoga instructor demonstrated the position .,14.492329597473145,14.492329597473145,yoga,yoga,1
-48,17,The yoga instructor demonstrated the position .,5.130216598510742,5.130216598510742,instructor,instructor,2
-48,17,The yoga instructor demonstrated the position .,10.599435806274414,10.599435806274414,demonstrated,demonstrated,3
-48,17,The yoga instructor demonstrated the position .,2.0470428466796875,2.0470428466796875,the,the,4
-48,17,The yoga instructor demonstrated the position .,6.218552589416504,6.218552589416504,position,position,5
-48,17,The yoga instructor demonstrated the position .,3.797389507293701,3.797389507293701,.,.,6
+48,17,The yoga instructor demonstrated the position .,14.492330551147461,14.492330551147461,yoga,yoga,1
+48,17,The yoga instructor demonstrated the position .,5.130217552185059,5.130217552185059,instructor,instructor,2
+48,17,The yoga instructor demonstrated the position .,10.59943675994873,10.59943675994873,demonstrated,demonstrated,3
+48,17,The yoga instructor demonstrated the position .,2.047041893005371,2.047041893005371,the,the,4
+48,17,The yoga instructor demonstrated the position .,6.2185540199279785,6.2185540199279785,position,position,5
+48,17,The yoga instructor demonstrated the position .,3.797391891479492,3.797391891479492,.,.,6
 49,17,The yoga instructor left the position .,5.106276512145996,5.106276512145996,The,The,0
-49,17,The yoga instructor left the position .,14.492329597473145,14.492329597473145,yoga,yoga,1
-49,17,The yoga instructor left the position .,5.130216598510742,5.130216598510742,instructor,instructor,2
-49,17,The yoga instructor left the position .,8.920914649963379,8.920914649963379,left,left,3
-49,17,The yoga instructor left the position .,1.3463619947433472,1.3463619947433472,the,the,4
+49,17,The yoga instructor left the position .,14.492330551147461,14.492330551147461,yoga,yoga,1
+49,17,The yoga instructor left the position .,5.130217552185059,5.130217552185059,instructor,instructor,2
+49,17,The yoga instructor left the position .,8.920915603637695,8.920915603637695,left,left,3
+49,17,The yoga instructor left the position .,1.3463621139526367,1.3463621139526367,the,the,4
 49,17,The yoga instructor left the position .,6.233318328857422,6.233318328857422,position,position,5
-49,17,The yoga instructor left the position .,1.962304949760437,1.962304949760437,.,.,6
+49,17,The yoga instructor left the position .,1.9623057842254639,1.9623057842254639,.,.,6
 50,17,The yoga instructor offered the position .,5.106276512145996,5.106276512145996,The,The,0
-50,17,The yoga instructor offered the position .,14.492329597473145,14.492329597473145,yoga,yoga,1
-50,17,The yoga instructor offered the position .,5.130216598510742,5.130216598510742,instructor,instructor,2
+50,17,The yoga instructor offered the position .,14.492330551147461,14.492330551147461,yoga,yoga,1
+50,17,The yoga instructor offered the position .,5.130217552185059,5.130217552185059,instructor,instructor,2
 50,17,The yoga instructor offered the position .,7.952615737915039,7.952615737915039,offered,offered,3
-50,17,The yoga instructor offered the position .,2.430382251739502,2.430382251739502,the,the,4
-50,17,The yoga instructor offered the position .,5.581243515014648,5.581243515014648,position,position,5
-50,17,The yoga instructor offered the position .,2.996674060821533,2.996674060821533,.,.,6
+50,17,The yoga instructor offered the position .,2.43038272857666,2.43038272857666,the,the,4
+50,17,The yoga instructor offered the position .,5.581242561340332,5.581242561340332,position,position,5
+50,17,The yoga instructor offered the position .,2.9966750144958496,2.9966750144958496,.,.,6
 51,18,The governor noticed the contract .,5.106276512145996,5.106276512145996,The,The,0
-51,18,The governor noticed the contract .,10.72192668914795,10.72192668914795,governor,governor,1
+51,18,The governor noticed the contract .,10.721927642822266,10.721927642822266,governor,governor,1
 51,18,The governor noticed the contract .,11.356510162353516,11.356510162353516,noticed,noticed,2
-51,18,The governor noticed the contract .,1.6459132432937622,1.6459132432937622,the,the,3
+51,18,The governor noticed the contract .,1.645913004875183,1.645913004875183,the,the,3
 51,18,The governor noticed the contract .,9.9188232421875,9.9188232421875,contract,contract,4
-51,18,The governor noticed the contract .,3.237018585205078,3.237018585205078,.,.,5
+51,18,The governor noticed the contract .,3.2370190620422363,3.2370190620422363,.,.,5
 52,18,The governor read the contract .,5.106276512145996,5.106276512145996,The,The,0
-52,18,The governor read the contract .,10.72192668914795,10.72192668914795,governor,governor,1
-52,18,The governor read the contract .,11.312768936157227,11.312768936157227,read,read,2
-52,18,The governor read the contract .,1.4792793989181519,1.4792793989181519,the,the,3
+52,18,The governor read the contract .,10.721927642822266,10.721927642822266,governor,governor,1
+52,18,The governor read the contract .,11.312769889831543,11.312769889831543,read,read,2
+52,18,The governor read the contract .,1.4792786836624146,1.4792786836624146,the,the,3
 52,18,The governor read the contract .,8.82843017578125,8.82843017578125,contract,contract,4
-52,18,The governor read the contract .,2.205026149749756,2.205026149749756,.,.,5
+52,18,The governor read the contract .,2.2050259113311768,2.2050259113311768,.,.,5
 53,18,The governor awarded the contract .,5.106276512145996,5.106276512145996,The,The,0
-53,18,The governor awarded the contract .,10.72192668914795,10.72192668914795,governor,governor,1
-53,18,The governor awarded the contract .,10.379802703857422,10.379802703857422,awarded,awarded,2
-53,18,The governor awarded the contract .,1.0669751167297363,1.0669751167297363,the,the,3
-53,18,The governor awarded the contract .,5.070528507232666,5.070528507232666,contract,contract,4
-53,18,The governor awarded the contract .,3.223069667816162,3.223069667816162,.,.,5
+53,18,The governor awarded the contract .,10.721927642822266,10.721927642822266,governor,governor,1
+53,18,The governor awarded the contract .,10.379803657531738,10.379803657531738,awarded,awarded,2
+53,18,The governor awarded the contract .,1.0669748783111572,1.0669748783111572,the,the,3
+53,18,The governor awarded the contract .,5.070528984069824,5.070528984069824,contract,contract,4
+53,18,The governor awarded the contract .,3.2230701446533203,3.2230701446533203,.,.,5
 54,19,The patient reported the treatment .,5.106276512145996,5.106276512145996,The,The,0
-54,19,The patient reported the treatment .,12.194842338562012,12.194842338562012,patient,patient,1
-54,19,The patient reported the treatment .,8.213175773620605,8.213175773620605,reported,reported,2
-54,19,The patient reported the treatment .,2.0291757583618164,2.0291757583618164,the,the,3
-54,19,The patient reported the treatment .,7.316826820373535,7.316826820373535,treatment,treatment,4
-54,19,The patient reported the treatment .,2.343060255050659,2.343060255050659,.,.,5
+54,19,The patient reported the treatment .,12.194843292236328,12.194843292236328,patient,patient,1
+54,19,The patient reported the treatment .,8.213176727294922,8.213176727294922,reported,reported,2
+54,19,The patient reported the treatment .,2.0291755199432373,2.0291755199432373,the,the,3
+54,19,The patient reported the treatment .,7.316827297210693,7.316827297210693,treatment,treatment,4
+54,19,The patient reported the treatment .,2.343059539794922,2.343059539794922,.,.,5
 55,19,The patient called the treatment .,5.106276512145996,5.106276512145996,The,The,0
-55,19,The patient called the treatment .,12.194842338562012,12.194842338562012,patient,patient,1
+55,19,The patient called the treatment .,12.194843292236328,12.194843292236328,patient,patient,1
 55,19,The patient called the treatment .,6.5587873458862305,6.5587873458862305,called,called,2
-55,19,The patient called the treatment .,1.5073237419128418,1.5073237419128418,the,the,3
+55,19,The patient called the treatment .,1.507323145866394,1.507323145866394,the,the,3
 55,19,The patient called the treatment .,8.046684265136719,8.046684265136719,treatment,treatment,4
-55,19,The patient called the treatment .,2.4699926376342773,2.4699926376342773,.,.,5
+55,19,The patient called the treatment .,2.469991683959961,2.469991683959961,.,.,5
 56,19,The patient refused the treatment .,5.106276512145996,5.106276512145996,The,The,0
-56,19,The patient refused the treatment .,12.194842338562012,12.194842338562012,patient,patient,1
-56,19,The patient refused the treatment .,9.230907440185547,9.230907440185547,refused,refused,2
-56,19,The patient refused the treatment .,3.785634994506836,3.785634994506836,the,the,3
-56,19,The patient refused the treatment .,5.6822333335876465,5.6822333335876465,treatment,treatment,4
-56,19,The patient refused the treatment .,1.6074589490890503,1.6074589490890503,.,.,5
+56,19,The patient refused the treatment .,12.194843292236328,12.194843292236328,patient,patient,1
+56,19,The patient refused the treatment .,9.230908393859863,9.230908393859863,refused,refused,2
+56,19,The patient refused the treatment .,3.785635232925415,3.785635232925415,the,the,3
+56,19,The patient refused the treatment .,5.682231903076172,5.682231903076172,treatment,treatment,4
+56,19,The patient refused the treatment .,1.6074588298797607,1.6074588298797607,.,.,5
 57,20,The operator observed the machine .,5.106276512145996,5.106276512145996,The,The,0
-57,20,The operator observed the machine .,12.07065486907959,12.07065486907959,operator,operator,1
+57,20,The operator observed the machine .,12.070656776428223,12.070656776428223,operator,operator,1
 57,20,The operator observed the machine .,9.086060523986816,9.086060523986816,observed,observed,2
-57,20,The operator observed the machine .,1.4537566900253296,1.4537566900253296,the,the,3
+57,20,The operator observed the machine .,1.4537571668624878,1.4537571668624878,the,the,3
 57,20,The operator observed the machine .,7.1511125564575195,7.1511125564575195,machine,machine,4
-57,20,The operator observed the machine .,2.264518976211548,2.264518976211548,.,.,5
+57,20,The operator observed the machine .,2.264519453048706,2.264519453048706,.,.,5
 58,20,The operator stopped the machine .,5.106276512145996,5.106276512145996,The,The,0
-58,20,The operator stopped the machine .,12.07065486907959,12.07065486907959,operator,operator,1
-58,20,The operator stopped the machine .,8.568854331970215,8.568854331970215,stopped,stopped,2
-58,20,The operator stopped the machine .,2.197308301925659,2.197308301925659,the,the,3
+58,20,The operator stopped the machine .,12.070656776428223,12.070656776428223,operator,operator,1
+58,20,The operator stopped the machine .,8.568853378295898,8.568853378295898,stopped,stopped,2
+58,20,The operator stopped the machine .,2.1973087787628174,2.1973087787628174,the,the,3
 58,20,The operator stopped the machine .,6.551624298095703,6.551624298095703,machine,machine,4
-58,20,The operator stopped the machine .,2.691040515899658,2.691040515899658,.,.,5
+58,20,The operator stopped the machine .,2.6910412311553955,2.6910412311553955,.,.,5
 59,20,The operator brought the machine .,5.106276512145996,5.106276512145996,The,The,0
-59,20,The operator brought the machine .,12.07065486907959,12.07065486907959,operator,operator,1
-59,20,The operator brought the machine .,8.5531644821167,8.5531644821167,brought,brought,2
-59,20,The operator brought the machine .,1.738153100013733,1.738153100013733,the,the,3
-59,20,The operator brought the machine .,7.150984764099121,7.150984764099121,machine,machine,4
-59,20,The operator brought the machine .,4.516796588897705,4.516796588897705,.,.,5
+59,20,The operator brought the machine .,12.070656776428223,12.070656776428223,operator,operator,1
+59,20,The operator brought the machine .,8.553163528442383,8.553163528442383,brought,brought,2
+59,20,The operator brought the machine .,1.7381534576416016,1.7381534576416016,the,the,3
+59,20,The operator brought the machine .,7.150983810424805,7.150983810424805,machine,machine,4
+59,20,The operator brought the machine .,4.516798496246338,4.516798496246338,.,.,5
 60,21,The dancer knew the ballet .,5.106276512145996,5.106276512145996,The,The,0
-60,21,The dancer knew the ballet .,13.221335411071777,13.221335411071777,dancer,dancer,1
-60,21,The dancer knew the ballet .,7.907098293304443,7.907098293304443,knew,knew,2
-60,21,The dancer knew the ballet .,2.045710802078247,2.045710802078247,the,the,3
+60,21,The dancer knew the ballet .,13.221336364746094,13.221336364746094,dancer,dancer,1
+60,21,The dancer knew the ballet .,7.907100200653076,7.907100200653076,knew,knew,2
+60,21,The dancer knew the ballet .,2.045711040496826,2.045711040496826,the,the,3
 60,21,The dancer knew the ballet .,8.157379150390625,8.157379150390625,ballet,ballet,4
-60,21,The dancer knew the ballet .,2.886406421661377,2.886406421661377,.,.,5
+60,21,The dancer knew the ballet .,2.886406898498535,2.886406898498535,.,.,5
 61,21,The dancer began the ballet .,5.106276512145996,5.106276512145996,The,The,0
-61,21,The dancer began the ballet .,13.221335411071777,13.221335411071777,dancer,dancer,1
-61,21,The dancer began the ballet .,7.24543571472168,7.24543571472168,began,began,2
-61,21,The dancer began the ballet .,3.2712762355804443,3.2712762355804443,the,the,3
+61,21,The dancer began the ballet .,13.221336364746094,13.221336364746094,dancer,dancer,1
+61,21,The dancer began the ballet .,7.245436191558838,7.245436191558838,began,began,2
+61,21,The dancer began the ballet .,3.2712771892547607,3.2712771892547607,the,the,3
 61,21,The dancer began the ballet .,6.642695903778076,6.642695903778076,ballet,ballet,4
-61,21,The dancer began the ballet .,2.6190671920776367,2.6190671920776367,.,.,5
+61,21,The dancer began the ballet .,2.619067430496216,2.619067430496216,.,.,5
 62,21,The dancer assigned the ballet .,5.106276512145996,5.106276512145996,The,The,0
-62,21,The dancer assigned the ballet .,13.221335411071777,13.221335411071777,dancer,dancer,1
+62,21,The dancer assigned the ballet .,13.221336364746094,13.221336364746094,dancer,dancer,1
 62,21,The dancer assigned the ballet .,9.662063598632812,9.662063598632812,assigned,assigned,2
 62,21,The dancer assigned the ballet .,2.0386452674865723,2.0386452674865723,the,the,3
 62,21,The dancer assigned the ballet .,7.597076416015625,7.597076416015625,ballet,ballet,4
 62,21,The dancer assigned the ballet .,4.44876766204834,4.44876766204834,.,.,5
 63,22,The contestant revealed the money .,5.106276512145996,5.106276512145996,The,The,0
-63,22,The contestant revealed the money .,12.98922061920166,12.98922061920166,contestant,contestant,1
-63,22,The contestant revealed the money .,8.217548370361328,8.217548370361328,revealed,revealed,2
-63,22,The contestant revealed the money .,2.232809543609619,2.232809543609619,the,the,3
-63,22,The contestant revealed the money .,4.840855598449707,4.840855598449707,money,money,4
+63,22,The contestant revealed the money .,12.989222526550293,12.989222526550293,contestant,contestant,1
+63,22,The contestant revealed the money .,8.217549324035645,8.217549324035645,revealed,revealed,2
+63,22,The contestant revealed the money .,2.2328102588653564,2.2328102588653564,the,the,3
+63,22,The contestant revealed the money .,4.840855121612549,4.840855121612549,money,money,4
 63,22,The contestant revealed the money .,3.4910080432891846,3.4910080432891846,.,.,5
 64,22,The contestant lost the money .,5.106276512145996,5.106276512145996,The,The,0
-64,22,The contestant lost the money .,12.98922061920166,12.98922061920166,contestant,contestant,1
-64,22,The contestant lost the money .,7.098319053649902,7.098319053649902,lost,lost,2
-64,22,The contestant lost the money .,1.5242598056793213,1.5242598056793213,the,the,3
-64,22,The contestant lost the money .,3.3095147609710693,3.3095147609710693,money,money,4
+64,22,The contestant lost the money .,12.989222526550293,12.989222526550293,contestant,contestant,1
+64,22,The contestant lost the money .,7.0983195304870605,7.0983195304870605,lost,lost,2
+64,22,The contestant lost the money .,1.5242605209350586,1.5242605209350586,the,the,3
+64,22,The contestant lost the money .,3.3095149993896484,3.3095149993896484,money,money,4
 64,22,The contestant lost the money .,2.109797716140747,2.109797716140747,.,.,5
 65,22,The contestant paid the money .,5.106276512145996,5.106276512145996,The,The,0
-65,22,The contestant paid the money .,12.98922061920166,12.98922061920166,contestant,contestant,1
-65,22,The contestant paid the money .,7.947955131530762,7.947955131530762,paid,paid,2
-65,22,The contestant paid the money .,2.0116357803344727,2.0116357803344727,the,the,3
-65,22,The contestant paid the money .,3.516921043395996,3.516921043395996,money,money,4
-65,22,The contestant paid the money .,2.5207607746124268,2.5207607746124268,.,.,5
+65,22,The contestant paid the money .,12.989222526550293,12.989222526550293,contestant,contestant,1
+65,22,The contestant paid the money .,7.94795560836792,7.94795560836792,paid,paid,2
+65,22,The contestant paid the money .,2.0116360187530518,2.0116360187530518,the,the,3
+65,22,The contestant paid the money .,3.516921281814575,3.516921281814575,money,money,4
+65,22,The contestant paid the money .,2.5207605361938477,2.5207605361938477,.,.,5
 66,23,The new chef claimed the restaurant .,5.106276512145996,5.106276512145996,The,The,0
-66,23,The new chef claimed the restaurant .,6.836735725402832,6.836735725402832,new,new,1
+66,23,The new chef claimed the restaurant .,6.83673620223999,6.83673620223999,new,new,1
 66,23,The new chef claimed the restaurant .,12.097336769104004,12.097336769104004,chef,chef,2
 66,23,The new chef claimed the restaurant .,8.621428489685059,8.621428489685059,claimed,claimed,3
-66,23,The new chef claimed the restaurant .,2.254955768585205,2.254955768585205,the,the,4
+66,23,The new chef claimed the restaurant .,2.2549562454223633,2.2549562454223633,the,the,4
 66,23,The new chef claimed the restaurant .,5.447299003601074,5.447299003601074,restaurant,restaurant,5
-66,23,The new chef claimed the restaurant .,3.517523765563965,3.517523765563965,.,.,6
+66,23,The new chef claimed the restaurant .,3.5175251960754395,3.5175251960754395,.,.,6
 67,23,The new chef started the restaurant .,5.106276512145996,5.106276512145996,The,The,0
-67,23,The new chef started the restaurant .,6.836735725402832,6.836735725402832,new,new,1
+67,23,The new chef started the restaurant .,6.83673620223999,6.83673620223999,new,new,1
 67,23,The new chef started the restaurant .,12.097336769104004,12.097336769104004,chef,chef,2
-67,23,The new chef started the restaurant .,6.728557109832764,6.728557109832764,started,started,3
-67,23,The new chef started the restaurant .,2.3040413856506348,2.3040413856506348,the,the,4
-67,23,The new chef started the restaurant .,4.474449157714844,4.474449157714844,restaurant,restaurant,5
-67,23,The new chef started the restaurant .,2.922391891479492,2.922391891479492,.,.,6
+67,23,The new chef started the restaurant .,6.7285566329956055,6.7285566329956055,started,started,3
+67,23,The new chef started the restaurant .,2.3040409088134766,2.3040409088134766,the,the,4
+67,23,The new chef started the restaurant .,4.474448204040527,4.474448204040527,restaurant,restaurant,5
+67,23,The new chef started the restaurant .,2.9223921298980713,2.9223921298980713,.,.,6
 68,23,The new chef offered the restaurant .,5.106276512145996,5.106276512145996,The,The,0
-68,23,The new chef offered the restaurant .,6.836735725402832,6.836735725402832,new,new,1
+68,23,The new chef offered the restaurant .,6.83673620223999,6.83673620223999,new,new,1
 68,23,The new chef offered the restaurant .,12.097336769104004,12.097336769104004,chef,chef,2
-68,23,The new chef offered the restaurant .,7.1820549964904785,7.1820549964904785,offered,offered,3
-68,23,The new chef offered the restaurant .,2.064220428466797,2.064220428466797,the,the,4
-68,23,The new chef offered the restaurant .,5.830836772918701,5.830836772918701,restaurant,restaurant,5
+68,23,The new chef offered the restaurant .,7.182055473327637,7.182055473327637,offered,offered,3
+68,23,The new chef offered the restaurant .,2.064220905303955,2.064220905303955,the,the,4
+68,23,The new chef offered the restaurant .,5.830837249755859,5.830837249755859,restaurant,restaurant,5
 68,23,The new chef offered the restaurant .,4.510061264038086,4.510061264038086,.,.,6
 69,24,The apprentice baker discovered the oven .,5.106276512145996,5.106276512145996,The,The,0
-69,24,The apprentice baker discovered the oven .,12.739585876464844,12.739585876464844,apprentice,apprentice,1
+69,24,The apprentice baker discovered the oven .,12.73958683013916,12.73958683013916,apprentice,apprentice,1
 69,24,The apprentice baker discovered the oven .,9.144941329956055,9.144941329956055,baker,baker,2
 69,24,The apprentice baker discovered the oven .,9.736498832702637,9.736498832702637,discovered,discovered,3
-69,24,The apprentice baker discovered the oven .,1.7289382219314575,1.7289382219314575,the,the,4
+69,24,The apprentice baker discovered the oven .,1.7289386987686157,1.7289386987686157,the,the,4
 69,24,The apprentice baker discovered the oven .,8.972017288208008,8.972017288208008,oven,oven,5
-69,24,The apprentice baker discovered the oven .,2.2483863830566406,2.2483863830566406,.,.,6
+69,24,The apprentice baker discovered the oven .,2.2483859062194824,2.2483859062194824,.,.,6
 70,24,The apprentice baker worked the oven .,5.106276512145996,5.106276512145996,The,The,0
-70,24,The apprentice baker worked the oven .,12.739585876464844,12.739585876464844,apprentice,apprentice,1
+70,24,The apprentice baker worked the oven .,12.73958683013916,12.73958683013916,apprentice,apprentice,1
 70,24,The apprentice baker worked the oven .,9.144941329956055,9.144941329956055,baker,baker,2
-70,24,The apprentice baker worked the oven .,8.78724193572998,8.78724193572998,worked,worked,3
+70,24,The apprentice baker worked the oven .,8.787242889404297,8.787242889404297,worked,worked,3
 70,24,The apprentice baker worked the oven .,4.110921859741211,4.110921859741211,the,the,4
-70,24,The apprentice baker worked the oven .,7.811767578125,7.811767578125,oven,oven,5
-70,24,The apprentice baker worked the oven .,2.341038465499878,2.341038465499878,.,.,6
+70,24,The apprentice baker worked the oven .,7.811768054962158,7.811768054962158,oven,oven,5
+70,24,The apprentice baker worked the oven .,2.3410398960113525,2.3410398960113525,.,.,6
 71,24,The apprentice baker assigned the oven .,5.106276512145996,5.106276512145996,The,The,0
-71,24,The apprentice baker assigned the oven .,12.739585876464844,12.739585876464844,apprentice,apprentice,1
+71,24,The apprentice baker assigned the oven .,12.73958683013916,12.73958683013916,apprentice,apprentice,1
 71,24,The apprentice baker assigned the oven .,9.144941329956055,9.144941329956055,baker,baker,2
 71,24,The apprentice baker assigned the oven .,10.29554557800293,10.29554557800293,assigned,assigned,3
-71,24,The apprentice baker assigned the oven .,1.62600576877594,1.62600576877594,the,the,4
-71,24,The apprentice baker assigned the oven .,10.17508602142334,10.17508602142334,oven,oven,5
-71,24,The apprentice baker assigned the oven .,3.756147623062134,3.756147623062134,.,.,6
+71,24,The apprentice baker assigned the oven .,1.6260058879852295,1.6260058879852295,the,the,4
+71,24,The apprentice baker assigned the oven .,10.175085067749023,10.175085067749023,oven,oven,5
+71,24,The apprentice baker assigned the oven .,3.756148338317871,3.756148338317871,.,.,6
 72,73,The wealthy man starved .,5.106276512145996,5.106276512145996,The,The,0
-72,73,The wealthy man starved .,11.697257995605469,11.697257995605469,wealthy,wealthy,1
-72,73,The wealthy man starved .,4.037693977355957,4.037693977355957,man,man,2
-72,73,The wealthy man starved .,10.791958808898926,10.791958808898926,starved,starved,3
-72,73,The wealthy man starved .,4.086728572845459,4.086728572845459,.,.,4
+72,73,The wealthy man starved .,11.697258949279785,11.697258949279785,wealthy,wealthy,1
+72,73,The wealthy man starved .,4.037693023681641,4.037693023681641,man,man,2
+72,73,The wealthy man starved .,10.791959762573242,10.791959762573242,starved,starved,3
+72,73,The wealthy man starved .,4.086729049682617,4.086729049682617,.,.,4
 73,74,The chair melted .,5.106276512145996,5.106276512145996,The,The,0
-73,74,The chair melted .,11.915288925170898,11.915288925170898,chair,chair,1
+73,74,The chair melted .,11.915289878845215,11.915289878845215,chair,chair,1
 73,74,The chair melted .,14.33118724822998,14.33118724822998,melted,melted,2
-73,74,The chair melted .,2.452951192855835,2.452951192855835,.,.,3
+73,74,The chair melted .,2.452951431274414,2.452951431274414,.,.,3
 74,75,The dog hatched .,5.106276512145996,5.106276512145996,The,The,0
-74,75,The dog hatched .,10.930047988891602,10.930047988891602,dog,dog,1
+74,75,The dog hatched .,10.930048942565918,10.930048942565918,dog,dog,1
 74,75,The dog hatched .,11.478902816772461,11.478902816772461,hatched,hatched,2
-74,75,The dog hatched .,3.625397205352783,3.625397205352783,.,.,3
+74,75,The dog hatched .,3.625396966934204,3.625396966934204,.,.,3
 75,76,The toddler lectured .,5.106276512145996,5.106276512145996,The,The,0
-75,76,The toddler lectured .,14.077813148498535,14.077813148498535,toddler,toddler,1
-75,76,The toddler lectured .,14.647242546081543,14.647242546081543,lectured,lectured,2
+75,76,The toddler lectured .,14.077814102172852,14.077814102172852,toddler,toddler,1
+75,76,The toddler lectured .,14.64724349975586,14.64724349975586,lectured,lectured,2
 75,76,The toddler lectured .,4.160170555114746,4.160170555114746,.,.,3
 76,77,The door jumped .,5.106276512145996,5.106276512145996,The,The,0
-76,77,The door jumped .,11.741596221923828,11.741596221923828,door,door,1
+76,77,The door jumped .,11.741597175598145,11.741597175598145,door,door,1
 76,77,The door jumped .,11.330135345458984,11.330135345458984,jumped,jumped,2
-76,77,The door jumped .,3.9749019145965576,3.9749019145965576,.,.,3
+76,77,The door jumped .,3.974902391433716,3.974902391433716,.,.,3
 77,78,The elephant barked .,5.106276512145996,5.106276512145996,The,The,0
-77,78,The elephant barked .,12.384906768798828,12.384906768798828,elephant,elephant,1
-77,78,The elephant barked .,3.97387957572937,3.97387957572937,<UNK>,barked,2
-77,78,The elephant barked .,2.817197561264038,2.817197561264038,.,.,3
+77,78,The elephant barked .,12.384907722473145,12.384907722473145,elephant,elephant,1
+77,78,The elephant barked .,3.9738800525665283,3.9738800525665283,<UNK>,barked,2
+77,78,The elephant barked .,2.81719708442688,2.81719708442688,.,.,3
 78,79,The chef was cooked the breakfast .,5.106276512145996,5.106276512145996,The,The,0
-78,79,The chef was cooked the breakfast .,13.03238582611084,13.03238582611084,chef,chef,1
-78,79,The chef was cooked the breakfast .,3.484769582748413,3.484769582748413,was,was,2
+78,79,The chef was cooked the breakfast .,13.032386779785156,13.032386779785156,chef,chef,1
+78,79,The chef was cooked the breakfast .,3.484769105911255,3.484769105911255,was,was,2
 78,79,The chef was cooked the breakfast .,9.880134582519531,9.880134582519531,cooked,cooked,3
-78,79,The chef was cooked the breakfast .,4.882691860198975,4.882691860198975,the,the,4
+78,79,The chef was cooked the breakfast .,4.882693290710449,4.882693290710449,the,the,4
 78,79,The chef was cooked the breakfast .,5.53037691116333,5.53037691116333,breakfast,breakfast,5
 78,79,The chef was cooked the breakfast .,2.925382137298584,2.925382137298584,.,.,6
 79,80,The government was provided the birds .,5.106276512145996,5.106276512145996,The,The,0
-79,80,The government was provided the birds .,8.939436912536621,8.939436912536621,government,government,1
-79,80,The government was provided the birds .,2.8534891605377197,2.8534891605377197,was,was,2
+79,80,The government was provided the birds .,8.939437866210938,8.939437866210938,government,government,1
+79,80,The government was provided the birds .,2.8534889221191406,2.8534889221191406,was,was,2
 79,80,The government was provided the birds .,7.927168846130371,7.927168846130371,provided,provided,3
-79,80,The government was provided the birds .,4.794580459594727,4.794580459594727,the,the,4
+79,80,The government was provided the birds .,4.794580936431885,4.794580936431885,the,the,4
 79,80,The government was provided the birds .,11.794346809387207,11.794346809387207,birds,birds,5
 79,80,The government was provided the birds .,3.676287889480591,3.676287889480591,.,.,6
 80,81,The artist was suggested the fire .,5.106276512145996,5.106276512145996,The,The,0
 80,81,The artist was suggested the fire .,9.547713279724121,9.547713279724121,artist,artist,1
 80,81,The artist was suggested the fire .,3.097815990447998,3.097815990447998,was,was,2
-80,81,The artist was suggested the fire .,9.809995651245117,9.809995651245117,suggested,suggested,3
-80,81,The artist was suggested the fire .,4.748126983642578,4.748126983642578,the,the,4
+80,81,The artist was suggested the fire .,9.8099946975708,9.8099946975708,suggested,suggested,3
+80,81,The artist was suggested the fire .,4.748128890991211,4.748128890991211,the,the,4
 80,81,The artist was suggested the fire .,8.578241348266602,8.578241348266602,fire,fire,5
-80,81,The artist was suggested the fire .,2.4066059589385986,2.4066059589385986,.,.,6
+80,81,The artist was suggested the fire .,2.4066061973571777,2.4066061973571777,.,.,6
 81,82,The secretary was presented the rice .,5.106276512145996,5.106276512145996,The,The,0
-81,82,The secretary was presented the rice .,12.70551872253418,12.70551872253418,secretary,secretary,1
-81,82,The secretary was presented the rice .,3.945236921310425,3.945236921310425,was,was,2
+81,82,The secretary was presented the rice .,12.705519676208496,12.705519676208496,secretary,secretary,1
+81,82,The secretary was presented the rice .,3.945237398147583,3.945237398147583,was,was,2
 81,82,The secretary was presented the rice .,6.713949680328369,6.713949680328369,presented,presented,3
 81,82,The secretary was presented the rice .,4.3052215576171875,4.3052215576171875,the,the,4
-81,82,The secretary was presented the rice .,12.725333213806152,12.725333213806152,rice,rice,5
+81,82,The secretary was presented the rice .,12.725334167480469,12.725334167480469,rice,rice,5
 81,82,The secretary was presented the rice .,3.0425291061401367,3.0425291061401367,.,.,6
 82,83,The infant was taught the cream .,5.106276512145996,5.106276512145996,The,The,0
-82,83,The infant was taught the cream .,12.188557624816895,12.188557624816895,infant,infant,1
-82,83,The infant was taught the cream .,3.76609468460083,3.76609468460083,was,was,2
+82,83,The infant was taught the cream .,12.188558578491211,12.188558578491211,infant,infant,1
+82,83,The infant was taught the cream .,3.766094923019409,3.766094923019409,was,was,2
 82,83,The infant was taught the cream .,6.071311950683594,6.071311950683594,taught,taught,3
 82,83,The infant was taught the cream .,3.371356248855591,3.371356248855591,the,the,4
 82,83,The infant was taught the cream .,10.59874153137207,10.59874153137207,cream,cream,5
-82,83,The infant was taught the cream .,4.381649494171143,4.381649494171143,.,.,6
+82,83,The infant was taught the cream .,4.381650447845459,4.381650447845459,.,.,6
 83,84,The clerk was granted the finger .,5.106276512145996,5.106276512145996,The,The,0
-83,84,The clerk was granted the finger .,12.60792350769043,12.60792350769043,clerk,clerk,1
-83,84,The clerk was granted the finger .,3.366482734680176,3.366482734680176,was,was,2
-83,84,The clerk was granted the finger .,5.976936340332031,5.976936340332031,granted,granted,3
-83,84,The clerk was granted the finger .,1.5599884986877441,1.5599884986877441,the,the,4
-83,84,The clerk was granted the finger .,11.052549362182617,11.052549362182617,finger,finger,5
-83,84,The clerk was granted the finger .,3.007948637008667,3.007948637008667,.,.,6
+83,84,The clerk was granted the finger .,12.607924461364746,12.607924461364746,clerk,clerk,1
+83,84,The clerk was granted the finger .,3.366483211517334,3.366483211517334,was,was,2
+83,84,The clerk was granted the finger .,5.9769368171691895,5.9769368171691895,granted,granted,3
+83,84,The clerk was granted the finger .,1.5599887371063232,1.5599887371063232,the,the,4
+83,84,The clerk was granted the finger .,11.05255126953125,11.05255126953125,finger,finger,5
+83,84,The clerk was granted the finger .,3.007948875427246,3.007948875427246,.,.,6
 84,85,The woman washed the magazine .,5.106276512145996,5.106276512145996,The,The,0
-84,85,The woman washed the magazine .,10.144597053527832,10.144597053527832,woman,woman,1
+84,85,The woman washed the magazine .,10.144598007202148,10.144598007202148,woman,woman,1
 84,85,The woman washed the magazine .,11.168960571289062,11.168960571289062,washed,washed,2
-84,85,The woman washed the magazine .,2.5601553916931152,2.5601553916931152,the,the,3
+84,85,The woman washed the magazine .,2.5601563453674316,2.5601563453674316,the,the,3
 84,85,The woman washed the magazine .,10.523820877075195,10.523820877075195,magazine,magazine,4
 84,85,The woman washed the magazine .,3.3480546474456787,3.3480546474456787,.,.,5
 85,86,The motorist parked the story .,5.106276512145996,5.106276512145996,The,The,0
-85,86,The motorist parked the story .,14.256730079650879,14.256730079650879,motorist,motorist,1
+85,86,The motorist parked the story .,14.256731033325195,14.256731033325195,motorist,motorist,1
 85,86,The motorist parked the story .,10.389408111572266,10.389408111572266,parked,parked,2
 85,86,The motorist parked the story .,2.153475046157837,2.153475046157837,the,the,3
-85,86,The motorist parked the story .,10.262350082397461,10.262350082397461,story,story,4
+85,86,The motorist parked the story .,10.262351036071777,10.262351036071777,story,story,4
 85,86,The motorist parked the story .,2.8607144355773926,2.8607144355773926,.,.,5
 86,87,The cleaner ate the book .,5.106276512145996,5.106276512145996,The,The,0
-86,87,The cleaner ate the book .,15.515755653381348,15.515755653381348,cleaner,cleaner,1
-86,87,The cleaner ate the book .,10.107332229614258,10.107332229614258,ate,ate,2
-86,87,The cleaner ate the book .,1.2410985231399536,1.2410985231399536,the,the,3
+86,87,The cleaner ate the book .,15.51575756072998,15.51575756072998,cleaner,cleaner,1
+86,87,The cleaner ate the book .,10.107331275939941,10.107331275939941,ate,ate,2
+86,87,The cleaner ate the book .,1.2410979270935059,1.2410979270935059,the,the,3
 86,87,The cleaner ate the book .,8.68891716003418,8.68891716003418,book,book,4
-86,87,The cleaner ate the book .,1.8806120157241821,1.8806120157241821,.,.,5
+86,87,The cleaner ate the book .,1.8806126117706299,1.8806126117706299,.,.,5
 87,88,The folk singer sang the picture .,5.106276512145996,5.106276512145996,The,The,0
-87,88,The folk singer sang the picture .,11.177058219909668,11.177058219909668,folk,folk,1
-87,88,The folk singer sang the picture .,3.702681064605713,3.702681064605713,singer,singer,2
+87,88,The folk singer sang the picture .,11.177059173583984,11.177059173583984,folk,folk,1
+87,88,The folk singer sang the picture .,3.7026803493499756,3.7026803493499756,singer,singer,2
 87,88,The folk singer sang the picture .,8.430198669433594,8.430198669433594,sang,sang,3
-87,88,The folk singer sang the picture .,1.5935112237930298,1.5935112237930298,the,the,4
-87,88,The folk singer sang the picture .,9.96251106262207,9.96251106262207,picture,picture,5
-87,88,The folk singer sang the picture .,1.9320160150527954,1.9320160150527954,.,.,6
+87,88,The folk singer sang the picture .,1.5935114622116089,1.5935114622116089,the,the,4
+87,88,The folk singer sang the picture .,9.962512016296387,9.962512016296387,picture,picture,5
+87,88,The folk singer sang the picture .,1.932016372680664,1.932016372680664,.,.,6
 88,89,The janitor read the sandwich .,5.106276512145996,5.106276512145996,The,The,0
-88,89,The janitor read the sandwich .,13.655447959899902,13.655447959899902,janitor,janitor,1
-88,89,The janitor read the sandwich .,9.529560089111328,9.529560089111328,read,read,2
-88,89,The janitor read the sandwich .,1.4979093074798584,1.4979093074798584,the,the,3
-88,89,The janitor read the sandwich .,10.626468658447266,10.626468658447266,sandwich,sandwich,4
-88,89,The janitor read the sandwich .,2.008732795715332,2.008732795715332,.,.,5
+88,89,The janitor read the sandwich .,13.655448913574219,13.655448913574219,janitor,janitor,1
+88,89,The janitor read the sandwich .,9.529559135437012,9.529559135437012,read,read,2
+88,89,The janitor read the sandwich .,1.4979099035263062,1.4979099035263062,the,the,3
+88,89,The janitor read the sandwich .,10.62646770477295,10.62646770477295,sandwich,sandwich,4
+88,89,The janitor read the sandwich .,2.0087332725524902,2.0087332725524902,.,.,5
 89,90,The handler follows the salon .,5.106276512145996,5.106276512145996,The,The,0
-89,90,The handler follows the salon .,13.972342491149902,13.972342491149902,handler,handler,1
+89,90,The handler follows the salon .,13.972343444824219,13.972343444824219,handler,handler,1
 89,90,The handler follows the salon .,9.424674987792969,9.424674987792969,follows,follows,2
-89,90,The handler follows the salon .,0.8908126354217529,0.8908126354217529,the,the,3
+89,90,The handler follows the salon .,0.890812873840332,0.890812873840332,the,the,3
 89,90,The handler follows the salon .,13.16077995300293,13.16077995300293,salon,salon,4
-89,90,The handler follows the salon .,2.718144178390503,2.718144178390503,.,.,5
+89,90,The handler follows the salon .,2.7181434631347656,2.7181434631347656,.,.,5
 90,91,The gardener built the chocolate .,5.106276512145996,5.106276512145996,The,The,0
-90,91,The gardener built the chocolate .,13.664360046386719,13.664360046386719,gardener,gardener,1
+90,91,The gardener built the chocolate .,13.664361000061035,13.664361000061035,gardener,gardener,1
 90,91,The gardener built the chocolate .,8.122285842895508,8.122285842895508,built,built,2
-90,91,The gardener built the chocolate .,1.9245398044586182,1.9245398044586182,the,the,3
-90,91,The gardener built the chocolate .,10.486092567443848,10.486092567443848,chocolate,chocolate,4
-90,91,The gardener built the chocolate .,4.252315521240234,4.252315521240234,.,.,5
+90,91,The gardener built the chocolate .,1.92453932762146,1.92453932762146,the,the,3
+90,91,The gardener built the chocolate .,10.486093521118164,10.486093521118164,chocolate,chocolate,4
+90,91,The gardener built the chocolate .,4.252315998077393,4.252315998077393,.,.,5
 91,92,The judge edited the verdict .,5.106276512145996,5.106276512145996,The,The,0
-91,92,The judge edited the verdict .,11.057250022888184,11.057250022888184,judge,judge,1
+91,92,The judge edited the verdict .,11.0572509765625,11.0572509765625,judge,judge,1
 91,92,The judge edited the verdict .,11.403409957885742,11.403409957885742,edited,edited,2
-91,92,The judge edited the verdict .,0.8574255704879761,0.8574255704879761,the,the,3
+91,92,The judge edited the verdict .,0.8574259877204895,0.8574259877204895,the,the,3
 91,92,The judge edited the verdict .,6.708490371704102,6.708490371704102,verdict,verdict,4
-91,92,The judge edited the verdict .,1.1089633703231812,1.1089633703231812,.,.,5
+91,92,The judge edited the verdict .,1.1089632511138916,1.1089632511138916,.,.,5
 92,93,The guy painted the ice .,5.106276512145996,5.106276512145996,The,The,0
-92,93,The guy painted the ice .,12.626310348510742,12.626310348510742,guy,guy,1
-92,93,The guy painted the ice .,10.499051094055176,10.499051094055176,painted,painted,2
-92,93,The guy painted the ice .,1.7965240478515625,1.7965240478515625,the,the,3
+92,93,The guy painted the ice .,12.626311302185059,12.626311302185059,guy,guy,1
+92,93,The guy painted the ice .,10.499052047729492,10.499052047729492,painted,painted,2
+92,93,The guy painted the ice .,1.7965242862701416,1.7965242862701416,the,the,3
 92,93,The guy painted the ice .,8.951484680175781,8.951484680175781,ice,ice,4
-92,93,The guy painted the ice .,3.6878809928894043,3.6878809928894043,.,.,5
+92,93,The guy painted the ice .,3.687882661819458,3.687882661819458,.,.,5
 93,94,The bookkeeper flushed the camera .,5.106276512145996,5.106276512145996,The,The,0
-93,94,The bookkeeper flushed the camera .,15.341172218322754,15.341172218322754,bookkeeper,bookkeeper,1
-93,94,The bookkeeper flushed the camera .,15.329671859741211,15.329671859741211,flushed,flushed,2
-93,94,The bookkeeper flushed the camera .,1.818764090538025,1.818764090538025,the,the,3
-93,94,The bookkeeper flushed the camera .,6.106841087341309,6.106841087341309,camera,camera,4
-93,94,The bookkeeper flushed the camera .,3.7412495613098145,3.7412495613098145,.,.,5
+93,94,The bookkeeper flushed the camera .,15.341174125671387,15.341174125671387,bookkeeper,bookkeeper,1
+93,94,The bookkeeper flushed the camera .,15.329672813415527,15.329672813415527,flushed,flushed,2
+93,94,The bookkeeper flushed the camera .,1.8187651634216309,1.8187651634216309,the,the,3
+93,94,The bookkeeper flushed the camera .,6.106839179992676,6.106839179992676,camera,camera,4
+93,94,The bookkeeper flushed the camera .,3.7412500381469727,3.7412500381469727,.,.,5
 94,95,The bear stole the password .,5.106276512145996,5.106276512145996,The,The,0
-94,95,The bear stole the password .,12.450509071350098,12.450509071350098,bear,bear,1
-94,95,The bear stole the password .,10.062981605529785,10.062981605529785,stole,stole,2
-94,95,The bear stole the password .,1.2013291120529175,1.2013291120529175,the,the,3
-94,95,The bear stole the password .,8.971185684204102,8.971185684204102,password,password,4
-94,95,The bear stole the password .,1.4373209476470947,1.4373209476470947,.,.,5
+94,95,The bear stole the password .,12.45051097869873,12.45051097869873,bear,bear,1
+94,95,The bear stole the password .,10.062980651855469,10.062980651855469,stole,stole,2
+94,95,The bear stole the password .,1.2013287544250488,1.2013287544250488,the,the,3
+94,95,The bear stole the password .,8.971184730529785,8.971184730529785,password,password,4
+94,95,The bear stole the password .,1.4373211860656738,1.4373211860656738,.,.,5
 95,96,The kid fired the waitress .,5.106276512145996,5.106276512145996,The,The,0
-95,96,The kid fired the waitress .,12.624234199523926,12.624234199523926,kid,kid,1
-95,96,The kid fired the waitress .,10.585582733154297,10.585582733154297,fired,fired,2
-95,96,The kid fired the waitress .,2.675415277481079,2.675415277481079,the,the,3
+95,96,The kid fired the waitress .,12.624235153198242,12.624235153198242,kid,kid,1
+95,96,The kid fired the waitress .,10.58558177947998,10.58558177947998,fired,fired,2
+95,96,The kid fired the waitress .,2.6754157543182373,2.6754157543182373,the,the,3
 95,96,The kid fired the waitress .,11.74522590637207,11.74522590637207,waitress,waitress,4
-95,96,The kid fired the waitress .,2.2101564407348633,2.2101564407348633,.,.,5
+95,96,The kid fired the waitress .,2.2101571559906006,2.2101571559906006,.,.,5
 96,97,The president caught the weather .,5.106276512145996,5.106276512145996,The,The,0
-96,97,The president caught the weather .,10.537346839904785,10.537346839904785,president,president,1
-96,97,The president caught the weather .,10.740918159484863,10.740918159484863,caught,caught,2
-96,97,The president caught the weather .,1.293696641921997,1.293696641921997,the,the,3
-96,97,The president caught the weather .,10.700246810913086,10.700246810913086,weather,weather,4
-96,97,The president caught the weather .,1.871677279472351,1.871677279472351,.,.,5
+96,97,The president caught the weather .,10.537348747253418,10.537348747253418,president,president,1
+96,97,The president caught the weather .,10.740917205810547,10.740917205810547,caught,caught,2
+96,97,The president caught the weather .,1.2936961650848389,1.2936961650848389,the,the,3
+96,97,The president caught the weather .,10.700247764587402,10.700247764587402,weather,weather,4
+96,97,The president caught the weather .,1.8716776371002197,1.8716776371002197,.,.,5
 97,98,The captain shot the cloud .,5.106276512145996,5.106276512145996,The,The,0
-97,98,The captain shot the cloud .,10.557530403137207,10.557530403137207,captain,captain,1
+97,98,The captain shot the cloud .,10.557531356811523,10.557531356811523,captain,captain,1
 97,98,The captain shot the cloud .,9.227645874023438,9.227645874023438,shot,shot,2
-97,98,The captain shot the cloud .,1.8410155773162842,1.8410155773162842,the,the,3
-97,98,The captain shot the cloud .,10.83051586151123,10.83051586151123,cloud,cloud,4
+97,98,The captain shot the cloud .,1.8410158157348633,1.8410158157348633,the,the,3
+97,98,The captain shot the cloud .,10.830516815185547,10.830516815185547,cloud,cloud,4
 97,98,The captain shot the cloud .,2.0930652618408203,2.0930652618408203,.,.,5
 98,99,The teenager dried the cake .,5.106276512145996,5.106276512145996,The,The,0
-98,99,The teenager dried the cake .,13.327559471130371,13.327559471130371,teenager,teenager,1
+98,99,The teenager dried the cake .,13.327561378479004,13.327561378479004,teenager,teenager,1
 98,99,The teenager dried the cake .,14.816580772399902,14.816580772399902,dried,dried,2
 98,99,The teenager dried the cake .,4.763049125671387,4.763049125671387,the,the,3
-98,99,The teenager dried the cake .,5.706622123718262,5.706622123718262,cake,cake,4
-98,99,The teenager dried the cake .,1.6375150680541992,1.6375150680541992,.,.,5
+98,99,The teenager dried the cake .,5.7066216468811035,5.7066216468811035,cake,cake,4
+98,99,The teenager dried the cake .,1.6375148296356201,1.6375148296356201,.,.,5
