@@ -130,8 +130,12 @@ with torch.no_grad():
                     # correct for misalignment (thus out[k] rather than out[k-1], input[k+1] instead of input[k]).
                     surps = [-F.log_softmax(out[k], dim=-1).view(-1)[input[k+1]].item() 
                              for k in range(breaks[i], breaks[i+1])]
+                    surps_b2 = [surp/np.log(2.0) for surp in surps]
                     for merge_fn, merge_f in merge_fs.items():
                         new_row[merge_fn +  "surprisal" + tag] = merge_f(surps)
+                        
+                        # Surprisal in bits from base-change formula
+                        new_row[merge_fn +  "surprisal_base2" + tag] = merge_f(surps_b2)
                 new_row["token"] = ".".join([w if w in dictionary.word2idx 
                                              else "<UNK>" for w in pieces])
                 new_row["word"] = word
@@ -144,6 +148,7 @@ with torch.no_grad():
                 for j, model in enumerate(models):
                     tag = "_m{}".format(j) if len(models) > 1 else ""
                     new_row["surprisal" + tag] = -F.log_softmax(out[i], dim=-1).view(-1)[word_idx].item()
+                    new_row["surprisal_b2" + tag] = -F.log_softmax(out[i], dim=-1).view(-1)[word_idx].item()/np.log(2.0)
                 new_row["token"] = word if word in dictionary.w2idx else "<UNK>"
                 new_row["word"] = word
                 new_row["word_pos"] = i 

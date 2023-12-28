@@ -5,6 +5,7 @@ import torch.nn.functional as F
 import argparse
 import csv
 import re
+import numpy as np
 
 from util import clean, align
 
@@ -53,8 +54,10 @@ for stim_row in stims:
             row["word_pos"] = i
             # correct for alignment difference due to initial EOS in the model input. see get_lstm.py for details
             surps = [-logprobs[j][ids[0][j+1]].item() for j in range(breaks[i], breaks[i+1])]
+            surps_base2 = [surp/np.log(2.0) for surp in surps]
             for merge_fn, merge_f in merge_fs.items():
                 row[merge_fn + "surprisal"] = merge_f(surps)
+                row[merge_fn + "surprisal_base2"] = merge_f(surps_base2)
 
             out.append(row)
 
