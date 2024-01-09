@@ -17,6 +17,8 @@ main_df = main_df.melt(id_vars=["item", "condition", "disambPositionAmb", "disam
 main_df["disambPosition_0idx"] = [ambpos-1 if cond == "ambiguous" else unambpos-1 #0 indexing  
                              for (ambpos, unambpos, cond) 
                              in zip(main_df["disambPositionAmb"], main_df["disambPositionUnamb"], main_df["ambiguity"])]
+main_df["condition"] = ["{}_{}".format(cond.split("_")[0], "AMB" if amb == "ambiguous" else "UAMB")
+                        for (cond, amb) in zip(main_df["condition"], main_df["ambiguity"])]  
 
 main_df = main_df[main_df["Sentence"] != ""] 
 main_df["Sentence"] = main_df["Sentence"].apply(clean_sent)
