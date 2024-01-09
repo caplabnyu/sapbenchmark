@@ -8,11 +8,22 @@ library(lme4)
 library(lmerTest)
 library(stringr)
 library(brms)
+library(argparse)
 
-## Load in shard functions and variables
+## Load in shared functions and variables
 
 source("../../shared/brms_parameters.R")
 params <- get_brms_parameters("prior_bernoulli") #since this is regout
+
+## Argument parser
+
+parser <- ArgumentParser()
+parser$add_argument("--model", help = "lstm, gpt2, baseline")
+parser$add_argument("--region", help = "0, 1, 2")
+args <- parser$parse_args()
+
+roi_offset <- as.numeric(args$region)
+model <- args$model
 
 ## Custom
 preprocess <- function(data) {
@@ -25,38 +36,24 @@ preprocess <- function(data) {
 }
 
 ## Load in data
-data.lstm.raw <- read.csv("../predicted/items_ClassicGP_ro_lstm_pred.csv")
-data.gpt2.raw <- read.csv("../predicted/items_ClassicGP_ro_gpt2_pred.csv")
-
-data.lstm <- preprocess(data.lstm.raw)
-data.gpt2 <- preprocess(data.gpt2.raw)
+data.raw <- read.csv(paste0("../predicted/items_ClassicGP_ro_", model, "_pred.csv"))
+data <- preprocess(data.raw)
 
 formula = predicted ~ AMB * (MVS + MVZ) + 
   (1 + AMB * (MVS + MVZ) || item) + 
-  (1 | subj)
+  (1 + AMB * (MVS + MVZ) | subj)
 
-rois <- c(0, 1, 2)
-lms <- c("lstm", "gpt2")
 
-for (roi_offset in rois) {
-  for (lm in lms) {
-    model <- brm(formula,
-                 data=subset(get(paste0("data.", lm)), 
-                             region == ROI + roi_offset), 
-                 iter=2,
-                 cores=params$ncores,
-                 #warmup = 7500,
-                 seed = params$seed,
-                 prior = params$prior,
-                 control = list(adapt_delta=params$adapt_delta))
-    
-    saveRDS(model,
-            paste0("../brms_models/classicGP_", 
-                   measure, "_",
-                   lm, "_p", 
-                   roi_offset, ".rds")
-    )
-    #stat_models[paste0(measure, ".", lm, ".p", roi_offset)] <- model
-    
-  }
-}
+fit <- brm(formula,
+             data=subset(data, 
+                         region == ROI + roi_offset), 
+             iter=15000,
+             cores=params$ncores,
+             warmup = 7500,
+             seed = params$seed,
+             prior = params$prior,
+             control = list(adapt_delta=params$adapt_delta))
+
+saveRDS(fit, paste0("../brms_models/classicGP_ro_",model,
+                    "_p", roi_offset, ".rds"))
+
