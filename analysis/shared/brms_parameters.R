@@ -20,7 +20,11 @@ get_brms_parameters <- function(prior_type){
                   prior("normal(0,100)", class = "b"),  
                   prior("normal(0,150)", class = "sd"),
                   prior("normal(0,300)", class = "sigma"))
-  }else{
+  }else if(prior_type == 'prior_bernoulli'){
+    curr_prior = c(prior(normal(-1.5,1),class='Intercept')
+                   ,prior(normal(0, 0.75),class = 'b'))
+  }
+  else{
     print('ENTER A VALID PRIOR')
   }
   
