@@ -40,7 +40,7 @@ data.raw <- read.csv(paste0("../predicted/items_ClassicGP_ro_", model, "_pred.cs
 data <- preprocess(data.raw)
 
 formula = predicted ~ AMB * (MVS + MVZ) + 
-  (1 + AMB * (MVS + MVZ) || item) + 
+  (1 + AMB * (MVS + MVZ) | item) + 
   (1 + AMB * (MVS + MVZ) | subj)
 
 
