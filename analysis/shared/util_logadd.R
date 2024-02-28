@@ -9,11 +9,21 @@ library(brms, lib.loc="../../rpackages")
 
 
 load_data <- function(subsetname,RTcutoffhigh=7000,RTcutofflow=0){
-  id <- ifelse(subsetname=="ClassicGP","1TanAUeI1x_G0mkFsFnpru0udi8oRvxNH",
-                ifelse(subsetname=="RelativeClause","1ndHGJxTV51AEpJ2MKQxpHUpmCuj-Lm-W",
-                  ifelse(subsetname=="AttachmentAmbiguity","1TShRMEgba4z0tgN5zj48-k-3FB-hl5Gj",
-                    ifelse(subsetname=="Agreement","1V6m9d20CbB1GeadR6SQ6yeiRyoqz3zwJ",
-                           ifelse(subsetname=="Fillers","16onEVQVsFgusBZXuVPrtwcIiDaJgV6WB","")))))
+  
+  #id <- ifelse(subsetname=="ClassicGP","1TanAUeI1x_G0mkFsFnpru0udi8oRvxNH",
+  #              ifelse(subsetname=="RelativeClause","1ndHGJxTV51AEpJ2MKQxpHUpmCuj-Lm-W",
+  #                ifelse(subsetname=="AttachmentAmbiguity","1TShRMEgba4z0tgN5zj48-k-3FB-hl5Gj",
+  #                  ifelse(subsetname=="Agreement","1V6m9d20CbB1GeadR6SQ6yeiRyoqz3zwJ",
+  #                         ifelse(subsetname=="Fillers","16onEVQVsFgusBZXuVPrtwcIiDaJgV6WB","")))))
+  #rt.data <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download&confirm=t", id), header=TRUE) %>% mutate(participant=MD5)
+  #please note currently large files on google drive can't be loaded with url (due to the virus scanning warning)
+  #please download the file manually first to the local folder
+
+  id <- ifelse(subsetname=="ClassicGP","ClassicGardenPathSet.csv",
+               ifelse(subsetname=="RelativeClause","RelativeClauseSet.csv",
+                      ifelse(subsetname=="AttachmentAmbiguity","AttachmentSet.csv",
+                             ifelse(subsetname=="Agreement","AgreementSet.csv",
+                                    ifelse(subsetname=="Fillers","Fillers.csv","")))))
   rt.data <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download&confirm=t", id), header=TRUE) %>% mutate(participant=MD5)
   rt.data$RT <- ifelse(rt.data$RT>RTcutoffhigh,NA,ifelse(rt.data$RT<RTcutofflow,NA,rt.data$RT))
   rt.data$Sentence <- str_replace_all(rt.data$Sentence, "%2C", ",")
