@@ -1,42 +1,46 @@
 #This is a script to preprocessing data downloaded from PCIbex farm
-#The preprocessing includes: removing inattentive participants, removing trials involving typos earlier in the experiment script
+#The preprocessing includes:
+#removing non-NorthAmerican
+#removing trials involving typos earlier in the experiment script
 #removing trials that were accidentally preceded by trials of the same construction (syntactic priming; the experiment script was later fixed)
 #and marking critical word positions for each trial (this requires the "Position_Info.csv" file)
-
+#removing inattentive participants
 mycols = c("Time","MD5","Controller","Element","Type","Group","PennElementType","PennElementName","WordPosition","EachWord","EventTime","Sentence","Question","Answer","List","item","KeyPress","RT_Answering","EachWordRT","DontKnow","Sentenceagain","Comments")
 #PCIbex added an automatically stored column on Dec 5th; data collected after that have one additional column
-results_intact=read.csv("all_data_unprocessed.csv",header = 0, sep = ",", comment.char = "#", stringsAsFactors = F,col.names = mycols)
-#store one row for each trial (ignoring word-by-word reading)
-onerowpertrial <- results_intact[results_intact$EachWordRT=="Wait success"&results_intact$Type!="Practice",]
+results_intact=read.csv("rawdata_unprocessed.csv",header = 0, sep = ",", comment.char = "#", stringsAsFactors = F,col.names = mycols)%>%mutate(item=as.numeric(item))
 
 library(dplyr)
-#accuracy (attention check) is based on fillers only
+#accuracy(attention check) is based on fillers only
 FILLERS_only <- results_intact[results_intact$PennElementName=="KP"&results_intact$Type!="Practice",] %>% filter(Type%in%c("FILLER1","FILLER2"))
 FILLERS_only$correct <- ifelse(FILLERS_only$EachWord==FILLERS_only$Answer,1,0)
 aggregate(FILLERS_only$correct,by=list(FILLERS_only$MD5),FUN=mean) %>% filter(x <.8)
-bad_participants <- aggregate(FILLERS_only$correct,by=list(FILLERS_only$MD5),FUN=mean) %>% filter(x <.8) %>% select(Group.1)
-bad_participants <- bad_participants$Group.1
+AccLow_participants <- aggregate(FILLERS_only$correct,by=list(FILLERS_only$MD5),FUN=mean) %>% filter(x <.8) %>% select(Group.1)
+AccLow_participants <- AccLow_participants$Group.1
+#participants from non-English-speaking regions (n=16)
+nonEnglishspeaking <- c("e6096fabb70c159e5128f57182c43ff7","25fcdacfc02a73e28a0daa96edcd2fb9","62a8e6449a6c1d29205b7eebb4014451","d2e9e7997a4710b1f5090c0ca7b2b3fd","de065e25c1ad04810f19c6b67aef4e96","53d69bb6d24b53e9c828ed0fe9718b30","9f506a52e3f03d2cb1d4f26e14270a36","31a8ac145a396b08a9f9358b3ef14808","1a03c2b5cd36c01c02cf2561a786c7b7","9d3d8ec6208556f44d561631c57c81f7","73f60f0219b4af900b5079722c9d438b","d090e1e5f5136c2732411f3b084edc6c","1c2abc27ed1d232911c2820ac49495bb","5361f24ee76265761711ae6b7c784a45","f3bbc390c08639e1d732b465814fea7b","430a54a44e7f68f50895d5460e7dad61")
 
-#remove bad participants
-results <- results_intact[!results_intact$MD5%in%bad_participants,]
-#remove those participants from non-English-speaking regions (n=16)
-nonNorthAmerican <- c("e6096fabb70c159e5128f57182c43ff7","25fcdacfc02a73e28a0daa96edcd2fb9","62a8e6449a6c1d29205b7eebb4014451","d2e9e7997a4710b1f5090c0ca7b2b3fd","de065e25c1ad04810f19c6b67aef4e96","53d69bb6d24b53e9c828ed0fe9718b30","9f506a52e3f03d2cb1d4f26e14270a36","31a8ac145a396b08a9f9358b3ef14808","1a03c2b5cd36c01c02cf2561a786c7b7","9d3d8ec6208556f44d561631c57c81f7","73f60f0219b4af900b5079722c9d438b","d090e1e5f5136c2732411f3b084edc6c","1c2abc27ed1d232911c2820ac49495bb","5361f24ee76265761711ae6b7c784a45","f3bbc390c08639e1d732b465814fea7b","430a54a44e7f68f50895d5460e7dad61")
-results <- results[!results$MD5%in%nonNorthAmerican,]
-#update the onerowpertrial
+#mark bad participants
+results <- results_intact
+results$AccLow <- ifelse(results$MD5%in%AccLow_participants,"yes","no")
+results$nonEng <- ifelse(results$MD5%in%nonEnglishspeaking,"yes","no")
+
+
+#store one row for each trial (ignoring word-by-word reading)
 onerowpertrial <- results[results$EachWordRT=="Wait success"&results$Type!="Practice",]
-
+incomplete <- (onerowpertrial%>%group_by(MD5)%>%summarise(L=length(Time))%>%filter(L!=92))$MD5
+onerowpertrial <- onerowpertrial[!onerowpertrial$MD5%in%incomplete,]
+results <- results[!results$MD5%in%incomplete,]
 
 ###remove additional participants due to a very weird glitch on PCIbex farm
-###16 of participants had wrong presentation blocks (not having agreement-error trials in the end of the experiment)
+###19 of participants had wrong presentation blocks (not having agreement-error trials in the end of the experiment)
 v <- vector()
 for(i in seq(1,nrow(onerowpertrial),92)){
   v <- c(v, i:(i+73))
 }
 wrongblock <- unique(onerowpertrial[v,'MD5'][which(onerowpertrial[v,'Type']%in%c("AGREE","AGREE_UNG"))])
-bad_participants <- c(bad_participants,wrongblock)
-results <- results[!results$MD5%in%bad_participants,]
+results <- results[!results$MD5%in%wrongblock,]
 onerowpertrial <- results[results$EachWordRT=="Wait success"&results$Type!="Practice",]
-#184000/92= 2000 subjs
+#201480/92= 2190 subjs
 #aggregate(onerowpertrial$Time,by=list(onerowpertrial$List),FUN=length)$x/92  #check if lists were equally presented
 
 #for the first 40 participants there are some coding errors & typos (trivial; not influencing the results!)
@@ -113,7 +117,7 @@ secondbatch <- onerowpertrial[onerowpertrial$Time>=1634584174,]
 which(secondbatch$consec=="yes")
 
 
-results_corrected <- results
+results_corrected <- results%>%mutate(item=as.numeric(item))
 #Position_Infor.csv stores information about which words are the target word for each sentence
 position_info <- read.csv("Position_Info.csv")
 results_corrected <- full_join(results_corrected,position_info)
@@ -144,21 +148,28 @@ rt.data <- results_corrected[results_corrected$consec=="no",] %>%
 #instead the verb and noun within the relative clause are aligned across Subj and Obj relative clauses.
 #0 = verb, 1 = determiner, 2 = noun
 rt.data$ROI <- ifelse(
-  rt.data$Type=="RC_Subj",ifelse(grepl("rested on",rt.data$Sentence)&rt.data$ROI==1,NA,ifelse(
-    grepl("rested on", rt.data$Sentence)&rt.data$ROI==2,1,ifelse(
-      grepl("rested on", rt.data$Sentence)&rt.data$ROI==3,2,rt.data$ROI
-    )
-  )),ifelse(rt.data$Type=="RC_Obj"&rt.data$ROI%in%c(1,2),NA,ifelse(
-      rt.data$Type=="RC_Obj"&rt.data$ROI==-2,1,ifelse(
-        rt.data$Type=="RC_Obj"&rt.data$ROI==-1,2, ifelse(
-          rt.data$Type=="RC_Obj"&rt.data$ROI==-3,-1,ifelse(
-            rt.data$Type=="RC_Obj"&rt.data$ROI==-4,-2,rt.data$ROI
-          )
-        )
-      )
-    )
-  )
-) %>% as.factor()
+  rt.data$Type=="RC_Subj"&rt.data$item==45,ifelse(rt.data$ROI==1,NA,
+                                                  ifelse(rt.data$ROI==2,1,ifelse(
+      rt.data$ROI==3,2,rt.data$ROI))),rt.data$ROI)
+  
+rt.data$ROI <- ifelse(!grepl("ground crew delayed",rt.data$Sentence),rt.data$ROI,
+                  ifelse(rt.data$ROI%in%c(-1,1,2),NA,ifelse(
+                        rt.data$ROI==-3,1,ifelse(
+                          rt.data$ROI==-2,2,ifelse(
+                            rt.data$ROI==-4,-1,ifelse(
+                              rt.data$ROI==-5,-2,rt.data$ROI
+                            )
+                          )
+                        )
+                      )
+                    )
+                   )
+rt.data$ROI <-    ifelse(rt.data$Type=="RC_Obj"&rt.data$item!=42,ifelse(rt.data$ROI%in%c(1,2),NA,
+                                    ifelse(rt.data$ROI==-2,1,
+                                           ifelse(rt.data$ROI==-1,2,ifelse(
+                                             rt.data$ROI==-3,-1,ifelse(
+                                               rt.data$ROI==-4,-2,rt.data$ROI
+                                             ))))),rt.data$ROI) %>% as.factor()
 
 rt.data$AMBIG <- ifelse(rt.data$Type%in%c("FILLER1","FILLER2"),NA,ifelse(rt.data$Type %in% c("AGREE","NPS_UAMB","NPZ_UAMB","MVRR_UAMB","RC_Subj","AttachHigh","AttachLow"),"Unamb","Amb"))
 rt.data$AMBUAMB <- ifelse(rt.data$AMBIG=="Unamb",0,1)
@@ -174,10 +185,12 @@ rt.data <- left_join(rt.data,ROIcombined[,c('MD5','item','Type','RTacross3words'
 onerowpertrial$trialnumber <- 1:92
 onerowpertrial$item <- as.factor(onerowpertrial$item)
 rt.data <- left_join(rt.data, onerowpertrial[,c('MD5','item','Type','trialnumber')])
+JML_exclusion_criteria <- rt.data[!rt.data$MD5%in%c(AccLow_participants,nonEnglishspeaking),]
 
-#write.csv(rt.data,"N2000_allconditions_preprocessed.csv",row.names=F)
-#write.csv(rt.data[rt.data$CONSTRUCTION%in%c("NPS","NPZ","MVRR"),],"ClassicGardenPathSet.csv",row.names=F)
-#write.csv(rt.data[rt.data$CONSTRUCTION=="RelativeClause",],"RelativeClauseSet.csv",row.names=F)
-#write.csv(rt.data[rt.data$CONSTRUCTION=="Attachment",],"AttachmentSet.csv",row.names=F)
-#write.csv(rt.data[rt.data$CONSTRUCTION%in%c("NPZ","NP/Z Agreement"),],"AgreementSet.csv",row.names=F)
-#write.csv(rt.data[rt.data$CONSTRUCTION%in%c("FILLER1","FILLER2"),],"Fillers.csv",row.names=F)
+#write.csv(rt.data,"SPR_allconditions_preprocessed.csv",row.names=F)
+#write.csv(JML_exclusion_criteria,"SPR_allconditions_preprocessed_JMLExclCrit_N2000.csv",row.names=F)
+#write.csv(JML_exclusion_criteria[JML_exclusion_criteria$CONSTRUCTION%in%c("NPS","NPZ","MVRR"),],"ClassicGP.csv",row.names=F)
+#write.csv(JML_exclusion_criteria[JML_exclusion_criteria$CONSTRUCTION=="RelativeClause",],"RelativeClause.csv",row.names=F)
+#write.csv(JML_exclusion_criteria[JML_exclusion_criteria$CONSTRUCTION=="Attachment",],"AttachmentAmbiguity.csv",row.names=F)
+#write.csv(JML_exclusion_criteria[JML_exclusion_criteria$CONSTRUCTION%in%c("NPZ","NP/Z Agreement"),],"Agreement.csv",row.names=F)
+#write.csv(JML_exclusion_criteria[JML_exclusion_criteria$CONSTRUCTION%in%c("FILLER1","FILLER2"),],"Fillers.csv",row.names=F)
