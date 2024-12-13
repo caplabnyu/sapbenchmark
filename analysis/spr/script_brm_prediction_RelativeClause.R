@@ -4,8 +4,8 @@ library(tidyverse)
 library(ggplot2)
 library(brms)
 library(bayestestR)
-source('../util.R')
-source('../brms_parameters.R')
+source("../shared/util.R")
+source("../shared/brms_parameters.R")
 
 rt.data <- load_data("RelativeClause") 
 

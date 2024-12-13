@@ -1,6 +1,6 @@
 #These scripts are run with NYU greene high performance computing service
-source("../util.R")
-source("../brms_parameters.R")
+source("../shared/util.R")
+source("../shared/brms_parameters.R")
 library(brms)
 rt.data <- load_data("Agreement")
 PredictedRT_df <- Predicting_RT_with_spillover(rt.data,"Agreement")

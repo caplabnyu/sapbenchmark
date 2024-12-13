@@ -1,0 +1,571 @@
+,item,condition,targetPosition,Sentence,Option1,Option0,Ans,token,word,word_pos,logfreq,logfreq_s,length,length_s
+0,25,RC_Subj,5,The bus driver who followed the kids wondered about the location of a hotel.,The bus driver,The kids,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+1,25,RC_Subj,5,The bus driver who followed the kids wondered about the location of a hotel.,The bus driver,The kids,0,bus,bus,1,8.389814262086407,-0.8157995771157849,3,-0.8352420354837095
+2,25,RC_Subj,5,The bus driver who followed the kids wondered about the location of a hotel.,The bus driver,The kids,0,driver,driver,2,8.810161268297255,-0.6883928413257152,6,0.2866949754802561
+3,25,RC_Subj,5,The bus driver who followed the kids wondered about the location of a hotel.,The bus driver,The kids,0,who,who,3,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+4,25,RC_Subj,5,The bus driver who followed the kids wondered about the location of a hotel.,The bus driver,The kids,0,followed,followed,4,9.325720523016257,-0.5321273730826497,8,1.0346529827895663
+5,25,RC_Subj,5,The bus driver who followed the kids wondered about the location of a hotel.,The bus driver,The kids,0,the,the,5,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+6,25,RC_Subj,5,The bus driver who followed the kids wondered about the location of a hotel.,The bus driver,The kids,0,kids,kids,6,10.482065278352938,-0.1816404930797178,4,-0.4612630318290542
+7,25,RC_Subj,5,The bus driver who followed the kids wondered about the location of a hotel.,The bus driver,The kids,0,wondered,wondered,7,7.894318063841624,-0.9659839540281564,8,1.0346529827895663
+8,25,RC_Subj,5,The bus driver who followed the kids wondered about the location of a hotel.,The bus driver,The kids,0,about,about,8,12.600500398855342,0.4604549654302672,5,-0.087284028174399
+9,25,RC_Subj,5,The bus driver who followed the kids wondered about the location of a hotel.,The bus driver,The kids,0,the,the,9,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+10,25,RC_Subj,5,The bus driver who followed the kids wondered about the location of a hotel.,The bus driver,The kids,0,location,location,10,8.849944227235596,-0.676334668284126,8,1.0346529827895663
+11,25,RC_Subj,5,The bus driver who followed the kids wondered about the location of a hotel.,The bus driver,The kids,0,of,of,11,14.959542893887448,1.1754782662774268,2,-1.2092210391383649
+12,25,RC_Subj,5,The bus driver who followed the kids wondered about the location of a hotel.,The bus driver,The kids,0,a,a,12,14.90068259642208,1.1576377719789293,1,-1.5832000427930195
+13,25,RC_Subj,5,The bus driver who followed the kids wondered about the location of a hotel.,The bus driver,The kids,0,hotel..,hotel.,13,9.29090601981575,-0.5426796124120395,6,0.2866949754802561
+14,25,RC_Obj,7,The bus driver who the kids followed wondered about the location of a hotel.,The bus driver,The kids,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+15,25,RC_Obj,7,The bus driver who the kids followed wondered about the location of a hotel.,The bus driver,The kids,1,bus,bus,1,8.389814262086407,-0.8157995771157849,3,-0.8352420354837095
+16,25,RC_Obj,7,The bus driver who the kids followed wondered about the location of a hotel.,The bus driver,The kids,1,driver,driver,2,8.810161268297255,-0.6883928413257152,6,0.2866949754802561
+17,25,RC_Obj,7,The bus driver who the kids followed wondered about the location of a hotel.,The bus driver,The kids,1,who,who,3,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+18,25,RC_Obj,7,The bus driver who the kids followed wondered about the location of a hotel.,The bus driver,The kids,1,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+19,25,RC_Obj,7,The bus driver who the kids followed wondered about the location of a hotel.,The bus driver,The kids,1,kids,kids,5,10.482065278352938,-0.1816404930797178,4,-0.4612630318290542
+20,25,RC_Obj,7,The bus driver who the kids followed wondered about the location of a hotel.,The bus driver,The kids,1,followed,followed,6,9.325720523016257,-0.5321273730826497,8,1.0346529827895663
+21,25,RC_Obj,7,The bus driver who the kids followed wondered about the location of a hotel.,The bus driver,The kids,1,wondered,wondered,7,7.894318063841624,-0.9659839540281564,8,1.0346529827895663
+22,25,RC_Obj,7,The bus driver who the kids followed wondered about the location of a hotel.,The bus driver,The kids,1,about,about,8,12.600500398855342,0.4604549654302672,5,-0.087284028174399
+23,25,RC_Obj,7,The bus driver who the kids followed wondered about the location of a hotel.,The bus driver,The kids,1,the,the,9,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+24,25,RC_Obj,7,The bus driver who the kids followed wondered about the location of a hotel.,The bus driver,The kids,1,location,location,10,8.849944227235596,-0.676334668284126,8,1.0346529827895663
+25,25,RC_Obj,7,The bus driver who the kids followed wondered about the location of a hotel.,The bus driver,The kids,1,of,of,11,14.959542893887448,1.1754782662774268,2,-1.2092210391383649
+26,25,RC_Obj,7,The bus driver who the kids followed wondered about the location of a hotel.,The bus driver,The kids,1,a,a,12,14.90068259642208,1.1576377719789293,1,-1.5832000427930195
+27,25,RC_Obj,7,The bus driver who the kids followed wondered about the location of a hotel.,The bus driver,The kids,1,hotel..,hotel.,13,9.29090601981575,-0.5426796124120395,6,0.2866949754802561
+28,26,RC_Subj,4,The chef who distracted the cameraman poured the flour onto the counter.,The chef,The cameraman,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+29,26,RC_Subj,4,The chef who distracted the cameraman poured the flour onto the counter.,The chef,The cameraman,0,chef,chef,1,8.03365842788615,-0.9237500361355472,4,-0.4612630318290542
+30,26,RC_Subj,4,The chef who distracted the cameraman poured the flour onto the counter.,The chef,The cameraman,0,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+31,26,RC_Subj,4,The chef who distracted the cameraman poured the flour onto the counter.,The chef,The cameraman,0,distracted,distracted,3,6.706862336602747,-1.32590053691644,10,1.7826109900988767
+32,26,RC_Subj,4,The chef who distracted the cameraman poured the flour onto the counter.,The chef,The cameraman,0,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+33,26,RC_Subj,4,The chef who distracted the cameraman poured the flour onto the counter.,The chef,The cameraman,0,camer.aman,cameraman,5,5.1298987149230735,-1.8038765532297645,9,1.4086319864442216
+34,26,RC_Subj,4,The chef who distracted the cameraman poured the flour onto the counter.,The chef,The cameraman,0,poured,poured,6,7.350516171833998,-1.1308097359498726,6,0.2866949754802561
+35,26,RC_Subj,4,The chef who distracted the cameraman poured the flour onto the counter.,The chef,The cameraman,0,the,the,7,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+36,26,RC_Subj,4,The chef who distracted the cameraman poured the flour onto the counter.,The chef,The cameraman,0,flour,flour,8,8.757311846936409,-0.7044114453944735,5,-0.087284028174399
+37,26,RC_Subj,4,The chef who distracted the cameraman poured the flour onto the counter.,The chef,The cameraman,0,onto,onto,9,9.512738628263644,-0.4754423819416364,4,-0.4612630318290542
+38,26,RC_Subj,4,The chef who distracted the cameraman poured the flour onto the counter.,The chef,The cameraman,0,the,the,10,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+39,26,RC_Subj,4,The chef who distracted the cameraman poured the flour onto the counter.,The chef,The cameraman,0,counter..,counter.,11,8.057060681965766,-0.9166568375202157,8,1.0346529827895663
+40,26,RC_Obj,6,The chef who the cameraman distracted poured the flour onto the counter.,The chef,The cameraman,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+41,26,RC_Obj,6,The chef who the cameraman distracted poured the flour onto the counter.,The chef,The cameraman,1,chef,chef,1,8.03365842788615,-0.9237500361355472,4,-0.4612630318290542
+42,26,RC_Obj,6,The chef who the cameraman distracted poured the flour onto the counter.,The chef,The cameraman,1,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+43,26,RC_Obj,6,The chef who the cameraman distracted poured the flour onto the counter.,The chef,The cameraman,1,the,the,3,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+44,26,RC_Obj,6,The chef who the cameraman distracted poured the flour onto the counter.,The chef,The cameraman,1,camer.aman,cameraman,4,5.1298987149230735,-1.8038765532297645,9,1.4086319864442216
+45,26,RC_Obj,6,The chef who the cameraman distracted poured the flour onto the counter.,The chef,The cameraman,1,distracted,distracted,5,6.706862336602747,-1.32590053691644,10,1.7826109900988767
+46,26,RC_Obj,6,The chef who the cameraman distracted poured the flour onto the counter.,The chef,The cameraman,1,poured,poured,6,7.350516171833998,-1.1308097359498726,6,0.2866949754802561
+47,26,RC_Obj,6,The chef who the cameraman distracted poured the flour onto the counter.,The chef,The cameraman,1,the,the,7,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+48,26,RC_Obj,6,The chef who the cameraman distracted poured the flour onto the counter.,The chef,The cameraman,1,flour,flour,8,8.757311846936409,-0.7044114453944735,5,-0.087284028174399
+49,26,RC_Obj,6,The chef who the cameraman distracted poured the flour onto the counter.,The chef,The cameraman,1,onto,onto,9,9.512738628263644,-0.4754423819416364,4,-0.4612630318290542
+50,26,RC_Obj,6,The chef who the cameraman distracted poured the flour onto the counter.,The chef,The cameraman,1,the,the,10,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+51,26,RC_Obj,6,The chef who the cameraman distracted poured the flour onto the counter.,The chef,The cameraman,1,counter..,counter.,11,8.057060681965766,-0.9166568375202157,8,1.0346529827895663
+52,27,RC_Subj,4,The children who woke the father bothered him about the trip to the beach.,The children,The father,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+53,27,RC_Subj,4,The children who woke the father bothered him about the trip to the beach.,The children,The father,0,children,children,1,10.946128957265577,-0.0409832797407627,8,1.0346529827895663
+54,27,RC_Subj,4,The children who woke the father bothered him about the trip to the beach.,The children,The father,0,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+55,27,RC_Subj,4,The children who woke the father bothered him about the trip to the beach.,The children,The father,0,woke,woke,3,7.21081845347222,-1.173151967560455,4,-0.4612630318290542
+56,27,RC_Subj,4,The children who woke the father bothered him about the trip to the beach.,The children,The father,0,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+57,27,RC_Subj,4,The children who woke the father bothered him about the trip to the beach.,The children,The father,0,father,father,5,10.232107612780684,-0.2574023988045618,6,0.2866949754802561
+58,27,RC_Subj,4,The children who woke the father bothered him about the trip to the beach.,The children,The father,0,bothered,bothered,6,7.046647277848756,-1.2229120783450005,8,1.0346529827895663
+59,27,RC_Subj,4,The children who woke the father bothered him about the trip to the beach.,The children,The father,0,him,him,7,11.779120842880276,0.2114956852992527,3,-0.8352420354837095
+60,27,RC_Subj,4,The children who woke the father bothered him about the trip to the beach.,The children,The father,0,about,about,8,12.600500398855342,0.4604549654302672,5,-0.087284028174399
+61,27,RC_Subj,4,The children who woke the father bothered him about the trip to the beach.,The children,The father,0,the,the,9,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+62,27,RC_Subj,4,The children who woke the father bothered him about the trip to the beach.,The children,The father,0,trip,trip,10,9.42424134192346,-0.5022658164190698,4,-0.4612630318290542
+63,27,RC_Subj,4,The children who woke the father bothered him about the trip to the beach.,The children,The father,0,to,to,11,14.928149018365476,1.1659628156022577,2,-1.2092210391383649
+64,27,RC_Subj,4,The children who woke the father bothered him about the trip to the beach.,The children,The father,0,the,the,12,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+65,27,RC_Subj,4,The children who woke the father bothered him about the trip to the beach.,The children,The father,0,beach..,beach.,13,9.298625936843544,-0.5403397136746906,6,0.2866949754802561
+66,27,RC_Obj,6,The children who the father woke bothered him about the trip to the beach.,The children,The father,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+67,27,RC_Obj,6,The children who the father woke bothered him about the trip to the beach.,The children,The father,1,children,children,1,10.946128957265577,-0.0409832797407627,8,1.0346529827895663
+68,27,RC_Obj,6,The children who the father woke bothered him about the trip to the beach.,The children,The father,1,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+69,27,RC_Obj,6,The children who the father woke bothered him about the trip to the beach.,The children,The father,1,the,the,3,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+70,27,RC_Obj,6,The children who the father woke bothered him about the trip to the beach.,The children,The father,1,father,father,4,10.232107612780684,-0.2574023988045618,6,0.2866949754802561
+71,27,RC_Obj,6,The children who the father woke bothered him about the trip to the beach.,The children,The father,1,woke,woke,5,7.21081845347222,-1.173151967560455,4,-0.4612630318290542
+72,27,RC_Obj,6,The children who the father woke bothered him about the trip to the beach.,The children,The father,1,bothered,bothered,6,7.046647277848756,-1.2229120783450005,8,1.0346529827895663
+73,27,RC_Obj,6,The children who the father woke bothered him about the trip to the beach.,The children,The father,1,him,him,7,11.779120842880276,0.2114956852992527,3,-0.8352420354837095
+74,27,RC_Obj,6,The children who the father woke bothered him about the trip to the beach.,The children,The father,1,about,about,8,12.600500398855342,0.4604549654302672,5,-0.087284028174399
+75,27,RC_Obj,6,The children who the father woke bothered him about the trip to the beach.,The children,The father,1,the,the,9,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+76,27,RC_Obj,6,The children who the father woke bothered him about the trip to the beach.,The children,The father,1,trip,trip,10,9.42424134192346,-0.5022658164190698,4,-0.4612630318290542
+77,27,RC_Obj,6,The children who the father woke bothered him about the trip to the beach.,The children,The father,1,to,to,11,14.928149018365476,1.1659628156022577,2,-1.2092210391383649
+78,27,RC_Obj,6,The children who the father woke bothered him about the trip to the beach.,The children,The father,1,the,the,12,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+79,27,RC_Obj,6,The children who the father woke bothered him about the trip to the beach.,The children,The father,1,beach..,beach.,13,9.298625936843544,-0.5403397136746906,6,0.2866949754802561
+80,28,RC_Subj,4,The class that disliked the teacher skimmed the reading for the week.,The class,The teacher,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+81,28,RC_Subj,4,The class that disliked the teacher skimmed the reading for the week.,The class,The teacher,0,class,class,1,9.621655004873238,-0.4424299426643845,5,-0.087284028174399
+82,28,RC_Subj,4,The class that disliked the teacher skimmed the reading for the week.,The class,The teacher,0,that,that,2,14.11010071456357,0.9180132345037209,4,-0.4612630318290542
+83,28,RC_Subj,4,The class that disliked the teacher skimmed the reading for the week.,The class,The teacher,0,disliked,disliked,3,5.648974238161206,-1.646545307694213,8,1.0346529827895663
+84,28,RC_Subj,4,The class that disliked the teacher skimmed the reading for the week.,The class,The teacher,0,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+85,28,RC_Subj,4,The class that disliked the teacher skimmed the reading for the week.,The class,The teacher,0,teacher,teacher,5,8.837536046107568,-0.6800955749428048,7,0.6606739791349112
+86,28,RC_Subj,4,The class that disliked the teacher skimmed the reading for the week.,The class,The teacher,0,skim.med,skimmed,6,4.691347882229144,-1.9368008496943,7,0.6606739791349112
+87,28,RC_Subj,4,The class that disliked the teacher skimmed the reading for the week.,The class,The teacher,0,the,the,7,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+88,28,RC_Subj,4,The class that disliked the teacher skimmed the reading for the week.,The class,The teacher,0,reading,reading,8,9.42294862137501,-0.502657638658632,7,0.6606739791349112
+89,28,RC_Subj,4,The class that disliked the teacher skimmed the reading for the week.,The class,The teacher,0,for,for,9,13.908199122518193,0.8568170741570548,3,-0.8352420354837095
+90,28,RC_Subj,4,The class that disliked the teacher skimmed the reading for the week.,The class,The teacher,0,the,the,10,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+91,28,RC_Subj,4,The class that disliked the teacher skimmed the reading for the week.,The class,The teacher,0,week..,week.,11,10.4521868287302,-0.1906966197575691,5,-0.087284028174399
+92,28,RC_Obj,6,The class that the teacher disliked skimmed the reading for the week.,The class,The teacher,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+93,28,RC_Obj,6,The class that the teacher disliked skimmed the reading for the week.,The class,The teacher,1,class,class,1,9.621655004873238,-0.4424299426643845,5,-0.087284028174399
+94,28,RC_Obj,6,The class that the teacher disliked skimmed the reading for the week.,The class,The teacher,1,that,that,2,14.11010071456357,0.9180132345037209,4,-0.4612630318290542
+95,28,RC_Obj,6,The class that the teacher disliked skimmed the reading for the week.,The class,The teacher,1,the,the,3,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+96,28,RC_Obj,6,The class that the teacher disliked skimmed the reading for the week.,The class,The teacher,1,teacher,teacher,4,8.837536046107568,-0.6800955749428048,7,0.6606739791349112
+97,28,RC_Obj,6,The class that the teacher disliked skimmed the reading for the week.,The class,The teacher,1,disliked,disliked,5,5.648974238161206,-1.646545307694213,8,1.0346529827895663
+98,28,RC_Obj,6,The class that the teacher disliked skimmed the reading for the week.,The class,The teacher,1,skim.med,skimmed,6,4.691347882229144,-1.9368008496943,7,0.6606739791349112
+99,28,RC_Obj,6,The class that the teacher disliked skimmed the reading for the week.,The class,The teacher,1,the,the,7,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+100,28,RC_Obj,6,The class that the teacher disliked skimmed the reading for the week.,The class,The teacher,1,reading,reading,8,9.42294862137501,-0.502657638658632,7,0.6606739791349112
+101,28,RC_Obj,6,The class that the teacher disliked skimmed the reading for the week.,The class,The teacher,1,for,for,9,13.908199122518193,0.8568170741570548,3,-0.8352420354837095
+102,28,RC_Obj,6,The class that the teacher disliked skimmed the reading for the week.,The class,The teacher,1,the,the,10,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+103,28,RC_Obj,6,The class that the teacher disliked skimmed the reading for the week.,The class,The teacher,1,week..,week.,11,10.4521868287302,-0.1906966197575691,5,-0.087284028174399
+104,29,RC_Subj,4,The dancer that loved the audience ignored some basic principles.,The dancer,The audience,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+105,29,RC_Subj,4,The dancer that loved the audience ignored some basic principles.,The dancer,The audience,0,dancer,dancer,1,6.754604099487962,-1.3114300587634025,6,0.2866949754802561
+106,29,RC_Subj,4,The dancer that loved the audience ignored some basic principles.,The dancer,The audience,0,that,that,2,14.11010071456357,0.9180132345037209,4,-0.4612630318290542
+107,29,RC_Subj,4,The dancer that loved the audience ignored some basic principles.,The dancer,The audience,0,loved,loved,3,9.05893591781695,-0.6129895065230304,5,-0.087284028174399
+108,29,RC_Subj,4,The dancer that loved the audience ignored some basic principles.,The dancer,The audience,0,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+109,29,RC_Subj,4,The dancer that loved the audience ignored some basic principles.,The dancer,The audience,0,audience,audience,5,8.989818381366925,-0.6339389591772301,8,1.0346529827895663
+110,29,RC_Subj,4,The dancer that loved the audience ignored some basic principles.,The dancer,The audience,0,ignored,ignored,6,7.8826922062890254,-0.9695077392333588,7,0.6606739791349112
+111,29,RC_Subj,4,The dancer that loved the audience ignored some basic principles.,The dancer,The audience,0,some,some,7,12.138088193988304,0.3202983121388039,4,-0.4612630318290542
+112,29,RC_Subj,4,The dancer that loved the audience ignored some basic principles.,The dancer,The audience,0,basic,basic,8,9.382274835883653,-0.5149858202921659,5,-0.087284028174399
+113,29,RC_Subj,4,The dancer that loved the audience ignored some basic principles.,The dancer,The audience,0,principles..,principles.,9,8.192016914536875,-0.8757517452693959,11,2.156589993753532
+114,29,RC_Obj,6,The dancer that the audience loved ignored some basic principles.,The dancer,The audience,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+115,29,RC_Obj,6,The dancer that the audience loved ignored some basic principles.,The dancer,The audience,1,dancer,dancer,1,6.754604099487962,-1.3114300587634025,6,0.2866949754802561
+116,29,RC_Obj,6,The dancer that the audience loved ignored some basic principles.,The dancer,The audience,1,that,that,2,14.11010071456357,0.9180132345037209,4,-0.4612630318290542
+117,29,RC_Obj,6,The dancer that the audience loved ignored some basic principles.,The dancer,The audience,1,the,the,3,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+118,29,RC_Obj,6,The dancer that the audience loved ignored some basic principles.,The dancer,The audience,1,audience,audience,4,8.989818381366925,-0.6339389591772301,8,1.0346529827895663
+119,29,RC_Obj,6,The dancer that the audience loved ignored some basic principles.,The dancer,The audience,1,loved,loved,5,9.05893591781695,-0.6129895065230304,5,-0.087284028174399
+120,29,RC_Obj,6,The dancer that the audience loved ignored some basic principles.,The dancer,The audience,1,ignored,ignored,6,7.8826922062890254,-0.9695077392333588,7,0.6606739791349112
+121,29,RC_Obj,6,The dancer that the audience loved ignored some basic principles.,The dancer,The audience,1,some,some,7,12.138088193988304,0.3202983121388039,4,-0.4612630318290542
+122,29,RC_Obj,6,The dancer that the audience loved ignored some basic principles.,The dancer,The audience,1,basic,basic,8,9.382274835883653,-0.5149858202921659,5,-0.087284028174399
+123,29,RC_Obj,6,The dancer that the audience loved ignored some basic principles.,The dancer,The audience,1,principles..,principles.,9,8.192016914536875,-0.8757517452693959,11,2.156589993753532
+124,30,RC_Subj,4,The employees that noticed the fireman hurried across the open field.,The employees,The fireman,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+125,30,RC_Subj,4,The employees that noticed the fireman hurried across the open field.,The employees,The fireman,0,employees,employees,1,9.27902652976463,-0.5462802733609714,9,1.4086319864442216
+126,30,RC_Subj,4,The employees that noticed the fireman hurried across the open field.,The employees,The fireman,0,that,that,2,14.11010071456357,0.9180132345037209,4,-0.4612630318290542
+127,30,RC_Subj,4,The employees that noticed the fireman hurried across the open field.,The employees,The fireman,0,noticed,noticed,3,8.504918160540624,-0.780911706470627,7,0.6606739791349112
+128,30,RC_Subj,4,The employees that noticed the fireman hurried across the open field.,The employees,The fireman,0,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+129,30,RC_Subj,4,The employees that noticed the fireman hurried across the open field.,The employees,The fireman,0,fire.man,fireman,5,5.44673737166631,-1.707843089374148,7,0.6606739791349112
+130,30,RC_Subj,4,The employees that noticed the fireman hurried across the open field.,The employees,The fireman,0,hurried,hurried,6,6.102558594613569,-1.5090643659790068,7,0.6606739791349112
+131,30,RC_Subj,4,The employees that noticed the fireman hurried across the open field.,The employees,The fireman,0,across,across,7,10.393753262336755,-0.2084077723166682,6,0.2866949754802561
+132,30,RC_Subj,4,The employees that noticed the fireman hurried across the open field.,The employees,The fireman,0,the,the,8,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+133,30,RC_Subj,4,The employees that noticed the fireman hurried across the open field.,The employees,The fireman,0,open,open,9,10.368918241811729,-0.2159352409357413,4,-0.4612630318290542
+134,30,RC_Subj,4,The employees that noticed the fireman hurried across the open field.,The employees,The fireman,0,field..,field.,10,10.010681386638243,-0.3245164552252974,6,0.2866949754802561
+135,30,RC_Obj,6,The employees that the fireman noticed hurried across the open field.,The employees,The fireman,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+136,30,RC_Obj,6,The employees that the fireman noticed hurried across the open field.,The employees,The fireman,1,employees,employees,1,9.27902652976463,-0.5462802733609714,9,1.4086319864442216
+137,30,RC_Obj,6,The employees that the fireman noticed hurried across the open field.,The employees,The fireman,1,that,that,2,14.11010071456357,0.9180132345037209,4,-0.4612630318290542
+138,30,RC_Obj,6,The employees that the fireman noticed hurried across the open field.,The employees,The fireman,1,the,the,3,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+139,30,RC_Obj,6,The employees that the fireman noticed hurried across the open field.,The employees,The fireman,1,fire.man,fireman,4,5.44673737166631,-1.707843089374148,7,0.6606739791349112
+140,30,RC_Obj,6,The employees that the fireman noticed hurried across the open field.,The employees,The fireman,1,noticed,noticed,5,8.504918160540624,-0.780911706470627,7,0.6606739791349112
+141,30,RC_Obj,6,The employees that the fireman noticed hurried across the open field.,The employees,The fireman,1,hurried,hurried,6,6.102558594613569,-1.5090643659790068,7,0.6606739791349112
+142,30,RC_Obj,6,The employees that the fireman noticed hurried across the open field.,The employees,The fireman,1,across,across,7,10.393753262336755,-0.2084077723166682,6,0.2866949754802561
+143,30,RC_Obj,6,The employees that the fireman noticed hurried across the open field.,The employees,The fireman,1,the,the,8,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+144,30,RC_Obj,6,The employees that the fireman noticed hurried across the open field.,The employees,The fireman,1,open,open,9,10.368918241811729,-0.2159352409357413,4,-0.4612630318290542
+145,30,RC_Obj,6,The employees that the fireman noticed hurried across the open field.,The employees,The fireman,1,field..,field.,10,10.010681386638243,-0.3245164552252974,6,0.2866949754802561
+146,31,RC_Subj,4,The farmer that approached the customers lifted the chickens from their coop.,The customers,The farmer,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+147,31,RC_Subj,4,The farmer that approached the customers lifted the chickens from their coop.,The customers,The farmer,1,farmer,farmer,1,7.718240951959316,-1.0193527415793997,6,0.2866949754802561
+148,31,RC_Subj,4,The farmer that approached the customers lifted the chickens from their coop.,The customers,The farmer,1,that,that,2,14.11010071456357,0.9180132345037209,4,-0.4612630318290542
+149,31,RC_Subj,4,The farmer that approached the customers lifted the chickens from their coop.,The customers,The farmer,1,approached,approached,3,7.873217054862741,-0.972379647672107,10,1.7826109900988767
+150,31,RC_Subj,4,The farmer that approached the customers lifted the chickens from their coop.,The customers,The farmer,1,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+151,31,RC_Subj,4,The farmer that approached the customers lifted the chickens from their coop.,The customers,The farmer,1,customers,customers,5,9.240966565517944,-0.5578162085224193,9,1.4086319864442216
+152,31,RC_Subj,4,The farmer that approached the customers lifted the chickens from their coop.,The customers,The farmer,1,lifted,lifted,6,7.711101251840158,-1.02151677718156,6,0.2866949754802561
+153,31,RC_Subj,4,The farmer that approached the customers lifted the chickens from their coop.,The customers,The farmer,1,the,the,7,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+154,31,RC_Subj,4,The farmer that approached the customers lifted the chickens from their coop.,The customers,The farmer,1,chickens,chickens,8,7.299797366758161,-1.1461825524619615,8,1.0346529827895663
+155,31,RC_Subj,4,The farmer that approached the customers lifted the chickens from their coop.,The customers,The farmer,1,from,from,9,13.161822523668638,0.630591111501295,4,-0.4612630318290542
+156,31,RC_Subj,4,The farmer that approached the customers lifted the chickens from their coop.,The customers,The farmer,1,their,their,10,12.71071619962035,0.4938612588033065,5,-0.087284028174399
+157,31,RC_Subj,4,The farmer that approached the customers lifted the chickens from their coop.,The customers,The farmer,1,co.op..,coop.,11,5.765191102784844,-1.6113200981728515,5,-0.087284028174399
+158,31,RC_Obj,6,The farmer that the customers approached lifted the chickens from their coop.,The customers,The farmer,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+159,31,RC_Obj,6,The farmer that the customers approached lifted the chickens from their coop.,The customers,The farmer,0,farmer,farmer,1,7.718240951959316,-1.0193527415793997,6,0.2866949754802561
+160,31,RC_Obj,6,The farmer that the customers approached lifted the chickens from their coop.,The customers,The farmer,0,that,that,2,14.11010071456357,0.9180132345037209,4,-0.4612630318290542
+161,31,RC_Obj,6,The farmer that the customers approached lifted the chickens from their coop.,The customers,The farmer,0,the,the,3,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+162,31,RC_Obj,6,The farmer that the customers approached lifted the chickens from their coop.,The customers,The farmer,0,customers,customers,4,9.240966565517944,-0.5578162085224193,9,1.4086319864442216
+163,31,RC_Obj,6,The farmer that the customers approached lifted the chickens from their coop.,The customers,The farmer,0,approached,approached,5,7.873217054862741,-0.972379647672107,10,1.7826109900988767
+164,31,RC_Obj,6,The farmer that the customers approached lifted the chickens from their coop.,The customers,The farmer,0,lifted,lifted,6,7.711101251840158,-1.02151677718156,6,0.2866949754802561
+165,31,RC_Obj,6,The farmer that the customers approached lifted the chickens from their coop.,The customers,The farmer,0,the,the,7,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+166,31,RC_Obj,6,The farmer that the customers approached lifted the chickens from their coop.,The customers,The farmer,0,chickens,chickens,8,7.299797366758161,-1.1461825524619615,8,1.0346529827895663
+167,31,RC_Obj,6,The farmer that the customers approached lifted the chickens from their coop.,The customers,The farmer,0,from,from,9,13.161822523668638,0.630591111501295,4,-0.4612630318290542
+168,31,RC_Obj,6,The farmer that the customers approached lifted the chickens from their coop.,The customers,The farmer,0,their,their,10,12.71071619962035,0.4938612588033065,5,-0.087284028174399
+169,31,RC_Obj,6,The farmer that the customers approached lifted the chickens from their coop.,The customers,The farmer,0,co.op..,coop.,11,5.765191102784844,-1.6113200981728515,5,-0.087284028174399
+170,32,RC_Subj,4,The farmer who hired the rancher piled the seeds in long rows.,The rancher,The farmer,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+171,32,RC_Subj,4,The farmer who hired the rancher piled the seeds in long rows.,The rancher,The farmer,1,farmer,farmer,1,7.718240951959316,-1.0193527415793997,6,0.2866949754802561
+172,32,RC_Subj,4,The farmer who hired the rancher piled the seeds in long rows.,The rancher,The farmer,1,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+173,32,RC_Subj,4,The farmer who hired the rancher piled the seeds in long rows.,The rancher,The farmer,1,hired,hired,3,8.313852267398207,-0.838823577868324,5,-0.087284028174399
+174,32,RC_Subj,4,The farmer who hired the rancher piled the seeds in long rows.,The rancher,The farmer,1,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+175,32,RC_Subj,4,The farmer who hired the rancher piled the seeds in long rows.,The rancher,The farmer,1,ranc.her,rancher,5,5.840641657373398,-1.5884511143769822,7,0.6606739791349112
+176,32,RC_Subj,4,The farmer who hired the rancher piled the seeds in long rows.,The rancher,The farmer,1,piled,piled,6,6.83087423464618,-1.2883126609582625,5,-0.087284028174399
+177,32,RC_Subj,4,The farmer who hired the rancher piled the seeds in long rows.,The rancher,The farmer,1,the,the,7,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+178,32,RC_Subj,4,The farmer who hired the rancher piled the seeds in long rows.,The rancher,The farmer,1,seeds,seeds,8,8.914760527397261,-0.6566889158282495,5,-0.087284028174399
+179,32,RC_Subj,4,The farmer who hired the rancher piled the seeds in long rows.,The rancher,The farmer,1,in,in,9,14.60582619067051,1.0682671052951365,2,-1.2092210391383649
+180,32,RC_Subj,4,The farmer who hired the rancher piled the seeds in long rows.,The rancher,The farmer,1,long,long,10,11.202547784586258,0.0367369973192297,4,-0.4612630318290542
+181,32,RC_Subj,4,The farmer who hired the rancher piled the seeds in long rows.,The rancher,The farmer,1,rows..,rows.,11,7.409741954080923,-1.1128584635982166,5,-0.087284028174399
+182,32,RC_Obj,6,The farmer who the rancher hired piled the seeds in long rows.,The rancher,The farmer,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+183,32,RC_Obj,6,The farmer who the rancher hired piled the seeds in long rows.,The rancher,The farmer,0,farmer,farmer,1,7.718240951959316,-1.0193527415793997,6,0.2866949754802561
+184,32,RC_Obj,6,The farmer who the rancher hired piled the seeds in long rows.,The rancher,The farmer,0,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+185,32,RC_Obj,6,The farmer who the rancher hired piled the seeds in long rows.,The rancher,The farmer,0,the,the,3,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+186,32,RC_Obj,6,The farmer who the rancher hired piled the seeds in long rows.,The rancher,The farmer,0,ranc.her,rancher,4,5.840641657373398,-1.5884511143769822,7,0.6606739791349112
+187,32,RC_Obj,6,The farmer who the rancher hired piled the seeds in long rows.,The rancher,The farmer,0,hired,hired,5,8.313852267398207,-0.838823577868324,5,-0.087284028174399
+188,32,RC_Obj,6,The farmer who the rancher hired piled the seeds in long rows.,The rancher,The farmer,0,piled,piled,6,6.83087423464618,-1.2883126609582625,5,-0.087284028174399
+189,32,RC_Obj,6,The farmer who the rancher hired piled the seeds in long rows.,The rancher,The farmer,0,the,the,7,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+190,32,RC_Obj,6,The farmer who the rancher hired piled the seeds in long rows.,The rancher,The farmer,0,seeds,seeds,8,8.914760527397261,-0.6566889158282495,5,-0.087284028174399
+191,32,RC_Obj,6,The farmer who the rancher hired piled the seeds in long rows.,The rancher,The farmer,0,in,in,9,14.60582619067051,1.0682671052951365,2,-1.2092210391383649
+192,32,RC_Obj,6,The farmer who the rancher hired piled the seeds in long rows.,The rancher,The farmer,0,long,long,10,11.202547784586258,0.0367369973192297,4,-0.4612630318290542
+193,32,RC_Obj,6,The farmer who the rancher hired piled the seeds in long rows.,The rancher,The farmer,0,rows..,rows.,11,7.409741954080923,-1.1128584635982166,5,-0.087284028174399
+194,33,RC_Subj,4,The firemen that called the residents attacked the house with high-powered hoses.,The residents,The firemen,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+195,33,RC_Subj,4,The firemen that called the residents attacked the house with high-powered hoses.,The residents,The firemen,1,fire.men,firemen,1,4.990432586778736,-1.846148590088846,7,0.6606739791349112
+196,33,RC_Subj,4,The firemen that called the residents attacked the house with high-powered hoses.,The residents,The firemen,1,that,that,2,14.11010071456357,0.9180132345037209,4,-0.4612630318290542
+197,33,RC_Subj,4,The firemen that called the residents attacked the house with high-powered hoses.,The residents,The firemen,1,called,called,3,10.839227908231596,-0.0733848753479927,6,0.2866949754802561
+198,33,RC_Subj,4,The firemen that called the residents attacked the house with high-powered hoses.,The residents,The firemen,1,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+199,33,RC_Subj,4,The firemen that called the residents attacked the house with high-powered hoses.,The residents,The firemen,1,residents,residents,5,8.65817178467581,-0.7344606940676313,9,1.4086319864442216
+200,33,RC_Subj,4,The firemen that called the residents attacked the house with high-powered hoses.,The residents,The firemen,1,attacked,attacked,6,7.793999089503996,-0.9963905297128036,8,1.0346529827895663
+201,33,RC_Subj,4,The firemen that called the residents attacked the house with high-powered hoses.,The residents,The firemen,1,the,the,7,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+202,33,RC_Subj,4,The firemen that called the residents attacked the house with high-powered hoses.,The residents,The firemen,1,house,house,8,10.928022637807922,-0.0464712861383029,5,-0.087284028174399
+203,33,RC_Subj,4,The firemen that called the residents attacked the house with high-powered hoses.,The residents,The firemen,1,with,with,9,13.689502791749778,0.7905304461550167,4,-0.4612630318290542
+204,33,RC_Subj,4,The firemen that called the residents attacked the house with high-powered hoses.,The residents,The firemen,1,high.-.powered,high-powered,10,6.135564891081739,-1.4990601922097295,12,2.530568997408188
+205,33,RC_Subj,4,The firemen that called the residents attacked the house with high-powered hoses.,The residents,The firemen,1,h.oses..,hoses.,11,5.976350909297934,-1.5473177827515765,6,0.2866949754802561
+206,33,RC_Obj,6,The firemen that the residents called attacked the house with high-powered hoses.,The residents,The firemen,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+207,33,RC_Obj,6,The firemen that the residents called attacked the house with high-powered hoses.,The residents,The firemen,0,fire.men,firemen,1,4.990432586778736,-1.846148590088846,7,0.6606739791349112
+208,33,RC_Obj,6,The firemen that the residents called attacked the house with high-powered hoses.,The residents,The firemen,0,that,that,2,14.11010071456357,0.9180132345037209,4,-0.4612630318290542
+209,33,RC_Obj,6,The firemen that the residents called attacked the house with high-powered hoses.,The residents,The firemen,0,the,the,3,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+210,33,RC_Obj,6,The firemen that the residents called attacked the house with high-powered hoses.,The residents,The firemen,0,residents,residents,4,8.65817178467581,-0.7344606940676313,9,1.4086319864442216
+211,33,RC_Obj,6,The firemen that the residents called attacked the house with high-powered hoses.,The residents,The firemen,0,called,called,5,10.839227908231596,-0.0733848753479927,6,0.2866949754802561
+212,33,RC_Obj,6,The firemen that the residents called attacked the house with high-powered hoses.,The residents,The firemen,0,attacked,attacked,6,7.793999089503996,-0.9963905297128036,8,1.0346529827895663
+213,33,RC_Obj,6,The firemen that the residents called attacked the house with high-powered hoses.,The residents,The firemen,0,the,the,7,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+214,33,RC_Obj,6,The firemen that the residents called attacked the house with high-powered hoses.,The residents,The firemen,0,house,house,8,10.928022637807922,-0.0464712861383029,5,-0.087284028174399
+215,33,RC_Obj,6,The firemen that the residents called attacked the house with high-powered hoses.,The residents,The firemen,0,with,with,9,13.689502791749778,0.7905304461550167,4,-0.4612630318290542
+216,33,RC_Obj,6,The firemen that the residents called attacked the house with high-powered hoses.,The residents,The firemen,0,high.-.powered,high-powered,10,6.135564891081739,-1.4990601922097295,12,2.530568997408188
+217,33,RC_Obj,6,The firemen that the residents called attacked the house with high-powered hoses.,The residents,The firemen,0,h.oses..,hoses.,11,5.976350909297934,-1.5473177827515765,6,0.2866949754802561
+218,34,RC_Subj,4,The girl who watched the parents changed a critical part of the story.,The parents,The girl,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+219,34,RC_Subj,4,The girl who watched the parents changed a critical part of the story.,The parents,The girl,1,girl,girl,1,9.440419814291506,-0.4973621384481874,4,-0.4612630318290542
+220,34,RC_Subj,4,The girl who watched the parents changed a critical part of the story.,The parents,The girl,1,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+221,34,RC_Subj,4,The girl who watched the parents changed a critical part of the story.,The parents,The girl,1,watched,watched,3,8.738895704934043,-0.7099933586796864,7,0.6606739791349112
+222,34,RC_Subj,4,The girl who watched the parents changed a critical part of the story.,The parents,The girl,1,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+223,34,RC_Subj,4,The girl who watched the parents changed a critical part of the story.,The parents,The girl,1,parents,parents,5,10.244307467150762,-0.2537046357672627,7,0.6606739791349112
+224,34,RC_Subj,4,The girl who watched the parents changed a critical part of the story.,The parents,The girl,1,changed,changed,6,9.47616019757083,-0.486529265840025,7,0.6606739791349112
+225,34,RC_Subj,4,The girl who watched the parents changed a critical part of the story.,The parents,The girl,1,a,a,7,14.90068259642208,1.1576377719789293,1,-1.5832000427930195
+226,34,RC_Subj,4,The girl who watched the parents changed a critical part of the story.,The parents,The girl,1,critical,critical,8,9.07096335550754,-0.6093440028000705,8,1.0346529827895663
+227,34,RC_Subj,4,The girl who watched the parents changed a critical part of the story.,The parents,The girl,1,part,part,9,10.98334166827565,-0.0297041461448538,4,-0.4612630318290542
+228,34,RC_Subj,4,The girl who watched the parents changed a critical part of the story.,The parents,The girl,1,of,of,10,14.959542893887448,1.1754782662774268,2,-1.2092210391383649
+229,34,RC_Subj,4,The girl who watched the parents changed a critical part of the story.,The parents,The girl,1,the,the,11,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+230,34,RC_Subj,4,The girl who watched the parents changed a critical part of the story.,The parents,The girl,1,story..,story.,12,10.402443003731632,-0.2057739208329598,6,0.2866949754802561
+231,34,RC_Obj,6,The girl who the parents watched changed a critical part of the story.,The parents,The girl,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+232,34,RC_Obj,6,The girl who the parents watched changed a critical part of the story.,The parents,The girl,0,girl,girl,1,9.440419814291506,-0.4973621384481874,4,-0.4612630318290542
+233,34,RC_Obj,6,The girl who the parents watched changed a critical part of the story.,The parents,The girl,0,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+234,34,RC_Obj,6,The girl who the parents watched changed a critical part of the story.,The parents,The girl,0,the,the,3,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+235,34,RC_Obj,6,The girl who the parents watched changed a critical part of the story.,The parents,The girl,0,parents,parents,4,10.244307467150762,-0.2537046357672627,7,0.6606739791349112
+236,34,RC_Obj,6,The girl who the parents watched changed a critical part of the story.,The parents,The girl,0,watched,watched,5,8.738895704934043,-0.7099933586796864,7,0.6606739791349112
+237,34,RC_Obj,6,The girl who the parents watched changed a critical part of the story.,The parents,The girl,0,changed,changed,6,9.47616019757083,-0.486529265840025,7,0.6606739791349112
+238,34,RC_Obj,6,The girl who the parents watched changed a critical part of the story.,The parents,The girl,0,a,a,7,14.90068259642208,1.1576377719789293,1,-1.5832000427930195
+239,34,RC_Obj,6,The girl who the parents watched changed a critical part of the story.,The parents,The girl,0,critical,critical,8,9.07096335550754,-0.6093440028000705,8,1.0346529827895663
+240,34,RC_Obj,6,The girl who the parents watched changed a critical part of the story.,The parents,The girl,0,part,part,9,10.98334166827565,-0.0297041461448538,4,-0.4612630318290542
+241,34,RC_Obj,6,The girl who the parents watched changed a critical part of the story.,The parents,The girl,0,of,of,10,14.959542893887448,1.1754782662774268,2,-1.2092210391383649
+242,34,RC_Obj,6,The girl who the parents watched changed a critical part of the story.,The parents,The girl,0,the,the,11,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+243,34,RC_Obj,6,The girl who the parents watched changed a critical part of the story.,The parents,The girl,0,story..,story.,12,10.402443003731632,-0.2057739208329598,6,0.2866949754802561
+244,35,RC_Subj,4,The investigator who phoned the agency considered Ms. Reynolds from accounting.,The agency,The investigator,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+245,35,RC_Subj,4,The investigator who phoned the agency considered Ms. Reynolds from accounting.,The agency,The investigator,1,investigator,investigator,1,6.919683849847411,-1.2613945599313088,12,2.530568997408188
+246,35,RC_Subj,4,The investigator who phoned the agency considered Ms. Reynolds from accounting.,The agency,The investigator,1,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+247,35,RC_Subj,4,The investigator who phoned the agency considered Ms. Reynolds from accounting.,The agency,The investigator,1,ph.oned,phoned,3,6.07073772800249,-1.5187092372045088,6,0.2866949754802561
+248,35,RC_Subj,4,The investigator who phoned the agency considered Ms. Reynolds from accounting.,The agency,The investigator,1,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+249,35,RC_Subj,4,The investigator who phoned the agency considered Ms. Reynolds from accounting.,The agency,The investigator,1,agency,agency,5,9.260938424739274,-0.5517627589832256,6,0.2866949754802561
+250,35,RC_Subj,4,The investigator who phoned the agency considered Ms. Reynolds from accounting.,The agency,The investigator,1,considered,considered,6,9.315960853839869,-0.5350855185524215,10,1.7826109900988767
+251,35,RC_Subj,4,The investigator who phoned the agency considered Ms. Reynolds from accounting.,The agency,The investigator,1,Ms..,Ms.,7,7.592366128519796,-1.0575052682671622,3,-0.8352420354837095
+252,35,RC_Subj,4,The investigator who phoned the agency considered Ms. Reynolds from accounting.,The agency,The investigator,1,Reynolds,Reynolds,8,7.1891677384203225,-1.1797142765373851,8,1.0346529827895663
+253,35,RC_Subj,4,The investigator who phoned the agency considered Ms. Reynolds from accounting.,The agency,The investigator,1,from,from,9,13.161822523668638,0.630591111501295,4,-0.4612630318290542
+254,35,RC_Subj,4,The investigator who phoned the agency considered Ms. Reynolds from accounting.,The agency,The investigator,1,accounting..,accounting.,10,7.814399633804487,-0.9902071461766722,11,2.156589993753532
+255,35,RC_Obj,6,The investigator who the agency phoned considered Ms. Reynolds from accounting.,The agency,The investigator,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+256,35,RC_Obj,6,The investigator who the agency phoned considered Ms. Reynolds from accounting.,The agency,The investigator,0,investigator,investigator,1,6.919683849847411,-1.2613945599313088,12,2.530568997408188
+257,35,RC_Obj,6,The investigator who the agency phoned considered Ms. Reynolds from accounting.,The agency,The investigator,0,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+258,35,RC_Obj,6,The investigator who the agency phoned considered Ms. Reynolds from accounting.,The agency,The investigator,0,the,the,3,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+259,35,RC_Obj,6,The investigator who the agency phoned considered Ms. Reynolds from accounting.,The agency,The investigator,0,agency,agency,4,9.260938424739274,-0.5517627589832256,6,0.2866949754802561
+260,35,RC_Obj,6,The investigator who the agency phoned considered Ms. Reynolds from accounting.,The agency,The investigator,0,ph.oned,phoned,5,6.07073772800249,-1.5187092372045088,6,0.2866949754802561
+261,35,RC_Obj,6,The investigator who the agency phoned considered Ms. Reynolds from accounting.,The agency,The investigator,0,considered,considered,6,9.315960853839869,-0.5350855185524215,10,1.7826109900988767
+262,35,RC_Obj,6,The investigator who the agency phoned considered Ms. Reynolds from accounting.,The agency,The investigator,0,Ms..,Ms.,7,7.592366128519796,-1.0575052682671622,3,-0.8352420354837095
+263,35,RC_Obj,6,The investigator who the agency phoned considered Ms. Reynolds from accounting.,The agency,The investigator,0,Reynolds,Reynolds,8,7.1891677384203225,-1.1797142765373851,8,1.0346529827895663
+264,35,RC_Obj,6,The investigator who the agency phoned considered Ms. Reynolds from accounting.,The agency,The investigator,0,from,from,9,13.161822523668638,0.630591111501295,4,-0.4612630318290542
+265,35,RC_Obj,6,The investigator who the agency phoned considered Ms. Reynolds from accounting.,The agency,The investigator,0,accounting..,accounting.,10,7.814399633804487,-0.9902071461766722,11,2.156589993753532
+266,36,RC_Subj,4,The judge who addressed the witnesses noticed the defense attorneys.,The witnesses,The judge,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+267,36,RC_Subj,4,The judge who addressed the witnesses noticed the defense attorneys.,The witnesses,The judge,1,judge,judge,1,8.859363449152088,-0.6734797120210129,5,-0.087284028174399
+268,36,RC_Subj,4,The judge who addressed the witnesses noticed the defense attorneys.,The witnesses,The judge,1,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+269,36,RC_Subj,4,The judge who addressed the witnesses noticed the defense attorneys.,The witnesses,The judge,1,addressed,addressed,3,7.699842407396986,-1.024929321099033,9,1.4086319864442216
+270,36,RC_Subj,4,The judge who addressed the witnesses noticed the defense attorneys.,The witnesses,The judge,1,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+271,36,RC_Subj,4,The judge who addressed the witnesses noticed the defense attorneys.,The witnesses,The judge,1,witnesses,witnesses,5,7.226936018493289,-1.1682667505424265,9,1.4086319864442216
+272,36,RC_Subj,4,The judge who addressed the witnesses noticed the defense attorneys.,The witnesses,The judge,1,noticed,noticed,6,8.504918160540624,-0.780911706470627,7,0.6606739791349112
+273,36,RC_Subj,4,The judge who addressed the witnesses noticed the defense attorneys.,The witnesses,The judge,1,the,the,7,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+274,36,RC_Subj,4,The judge who addressed the witnesses noticed the defense attorneys.,The witnesses,The judge,1,defense,defense,8,9.50151633368222,-0.478843847634428,7,0.6606739791349112
+275,36,RC_Subj,4,The judge who addressed the witnesses noticed the defense attorneys.,The witnesses,The judge,1,attorneys..,attorneys.,9,7.322510433997394,-1.1392982456536016,10,1.7826109900988767
+276,36,RC_Obj,6,The judge who the witnesses addressed noticed the defense attorneys.,The witnesses,The judge,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+277,36,RC_Obj,6,The judge who the witnesses addressed noticed the defense attorneys.,The witnesses,The judge,0,judge,judge,1,8.859363449152088,-0.6734797120210129,5,-0.087284028174399
+278,36,RC_Obj,6,The judge who the witnesses addressed noticed the defense attorneys.,The witnesses,The judge,0,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+279,36,RC_Obj,6,The judge who the witnesses addressed noticed the defense attorneys.,The witnesses,The judge,0,the,the,3,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+280,36,RC_Obj,6,The judge who the witnesses addressed noticed the defense attorneys.,The witnesses,The judge,0,witnesses,witnesses,4,7.226936018493289,-1.1682667505424265,9,1.4086319864442216
+281,36,RC_Obj,6,The judge who the witnesses addressed noticed the defense attorneys.,The witnesses,The judge,0,addressed,addressed,5,7.699842407396986,-1.024929321099033,9,1.4086319864442216
+282,36,RC_Obj,6,The judge who the witnesses addressed noticed the defense attorneys.,The witnesses,The judge,0,noticed,noticed,6,8.504918160540624,-0.780911706470627,7,0.6606739791349112
+283,36,RC_Obj,6,The judge who the witnesses addressed noticed the defense attorneys.,The witnesses,The judge,0,the,the,7,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+284,36,RC_Obj,6,The judge who the witnesses addressed noticed the defense attorneys.,The witnesses,The judge,0,defense,defense,8,9.50151633368222,-0.478843847634428,7,0.6606739791349112
+285,36,RC_Obj,6,The judge who the witnesses addressed noticed the defense attorneys.,The witnesses,The judge,0,attorneys..,attorneys.,9,7.322510433997394,-1.1392982456536016,10,1.7826109900988767
+286,37,RC_Subj,4,The manager who visited the boss remembered some inconvenient facts.,The boss,The manager,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+287,37,RC_Subj,4,The manager who visited the boss remembered some inconvenient facts.,The boss,The manager,0,manager,manager,1,9.265301930050155,-0.5504401851096214,7,0.6606739791349112
+288,37,RC_Subj,4,The manager who visited the boss remembered some inconvenient facts.,The boss,The manager,0,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+289,37,RC_Subj,4,The manager who visited the boss remembered some inconvenient facts.,The boss,The manager,0,visited,visited,3,8.447199819595703,-0.7984060749479943,7,0.6606739791349112
+290,37,RC_Subj,4,The manager who visited the boss remembered some inconvenient facts.,The boss,The manager,0,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+291,37,RC_Subj,4,The manager who visited the boss remembered some inconvenient facts.,The boss,The manager,0,boss,boss,5,8.49596955496461,-0.7836240194155678,4,-0.4612630318290542
+292,37,RC_Subj,4,The manager who visited the boss remembered some inconvenient facts.,The boss,The manager,0,remembered,remembered,6,7.937017489515454,-0.9530418029843007,10,1.7826109900988767
+293,37,RC_Subj,4,The manager who visited the boss remembered some inconvenient facts.,The boss,The manager,0,some,some,7,12.138088193988304,0.3202983121388039,4,-0.4612630318290542
+294,37,RC_Subj,4,The manager who visited the boss remembered some inconvenient facts.,The boss,The manager,0,inconvenient,inconvenient,8,5.918893854273146,-1.564732955741167,12,2.530568997408188
+295,37,RC_Subj,4,The manager who visited the boss remembered some inconvenient facts.,The boss,The manager,0,facts..,facts.,9,8.357493812658563,-0.8255958713679775,6,0.2866949754802561
+296,37,RC_Obj,6,The manager who the boss visited remembered some inconvenient facts.,The boss,The manager,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+297,37,RC_Obj,6,The manager who the boss visited remembered some inconvenient facts.,The boss,The manager,0,manager,manager,1,9.265301930050155,-0.5504401851096214,7,0.6606739791349112
+298,37,RC_Obj,6,The manager who the boss visited remembered some inconvenient facts.,The boss,The manager,0,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+299,37,RC_Obj,6,The manager who the boss visited remembered some inconvenient facts.,The boss,The manager,0,the,the,3,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+300,37,RC_Obj,6,The manager who the boss visited remembered some inconvenient facts.,The boss,The manager,0,boss,boss,4,8.49596955496461,-0.7836240194155678,4,-0.4612630318290542
+301,37,RC_Obj,6,The manager who the boss visited remembered some inconvenient facts.,The boss,The manager,0,visited,visited,5,8.447199819595703,-0.7984060749479943,7,0.6606739791349112
+302,37,RC_Obj,6,The manager who the boss visited remembered some inconvenient facts.,The boss,The manager,0,remembered,remembered,6,7.937017489515454,-0.9530418029843007,10,1.7826109900988767
+303,37,RC_Obj,6,The manager who the boss visited remembered some inconvenient facts.,The boss,The manager,0,some,some,7,12.138088193988304,0.3202983121388039,4,-0.4612630318290542
+304,37,RC_Obj,6,The manager who the boss visited remembered some inconvenient facts.,The boss,The manager,0,inconvenient,inconvenient,8,5.918893854273146,-1.564732955741167,12,2.530568997408188
+305,37,RC_Obj,6,The manager who the boss visited remembered some inconvenient facts.,The boss,The manager,0,facts..,facts.,9,8.357493812658563,-0.8255958713679775,6,0.2866949754802561
+306,38,RC_Subj,4,The mathematician who visited the chairman created a solution to the wellknown problem.,The mathematician,The chairman,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+307,38,RC_Subj,4,The mathematician who visited the chairman created a solution to the wellknown problem.,The mathematician,The chairman,1,mathematician,mathematician,1,5.953243334287785,-1.554321664450666,13,2.9045480010628424
+308,38,RC_Subj,4,The mathematician who visited the chairman created a solution to the wellknown problem.,The mathematician,The chairman,1,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+309,38,RC_Subj,4,The mathematician who visited the chairman created a solution to the wellknown problem.,The mathematician,The chairman,1,visited,visited,3,8.447199819595703,-0.7984060749479943,7,0.6606739791349112
+310,38,RC_Subj,4,The mathematician who visited the chairman created a solution to the wellknown problem.,The mathematician,The chairman,1,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+311,38,RC_Subj,4,The mathematician who visited the chairman created a solution to the wellknown problem.,The mathematician,The chairman,1,chairman,chairman,5,8.784315349902657,-0.696226712026582,8,1.0346529827895663
+312,38,RC_Subj,4,The mathematician who visited the chairman created a solution to the wellknown problem.,The mathematician,The chairman,1,created,created,6,9.70259461015674,-0.41789723337197,7,0.6606739791349112
+313,38,RC_Subj,4,The mathematician who visited the chairman created a solution to the wellknown problem.,The mathematician,The chairman,1,a,a,7,14.90068259642208,1.1576377719789293,1,-1.5832000427930195
+314,38,RC_Subj,4,The mathematician who visited the chairman created a solution to the wellknown problem.,The mathematician,The chairman,1,solution,solution,8,8.94715577112479,-0.6468699515024331,8,1.0346529827895663
+315,38,RC_Subj,4,The mathematician who visited the chairman created a solution to the wellknown problem.,The mathematician,The chairman,1,to,to,9,14.928149018365476,1.1659628156022577,2,-1.2092210391383649
+316,38,RC_Subj,4,The mathematician who visited the chairman created a solution to the wellknown problem.,The mathematician,The chairman,1,the,the,10,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+317,38,RC_Subj,4,The mathematician who visited the chairman created a solution to the wellknown problem.,The mathematician,The chairman,1,well.known,wellknown,11,4.356708826689592,-2.0382295957165324,9,1.4086319864442216
+318,38,RC_Subj,4,The mathematician who visited the chairman created a solution to the wellknown problem.,The mathematician,The chairman,1,problem..,problem.,12,10.347467996872629,-0.2224367876321803,8,1.0346529827895663
+319,38,RC_Obj,6,The mathematician who the chairman visited created a solution to the wellknown problem.,The mathematician,The chairman,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+320,38,RC_Obj,6,The mathematician who the chairman visited created a solution to the wellknown problem.,The mathematician,The chairman,1,mathematician,mathematician,1,5.953243334287785,-1.554321664450666,13,2.9045480010628424
+321,38,RC_Obj,6,The mathematician who the chairman visited created a solution to the wellknown problem.,The mathematician,The chairman,1,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+322,38,RC_Obj,6,The mathematician who the chairman visited created a solution to the wellknown problem.,The mathematician,The chairman,1,the,the,3,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+323,38,RC_Obj,6,The mathematician who the chairman visited created a solution to the wellknown problem.,The mathematician,The chairman,1,chairman,chairman,4,8.784315349902657,-0.696226712026582,8,1.0346529827895663
+324,38,RC_Obj,6,The mathematician who the chairman visited created a solution to the wellknown problem.,The mathematician,The chairman,1,visited,visited,5,8.447199819595703,-0.7984060749479943,7,0.6606739791349112
+325,38,RC_Obj,6,The mathematician who the chairman visited created a solution to the wellknown problem.,The mathematician,The chairman,1,created,created,6,9.70259461015674,-0.41789723337197,7,0.6606739791349112
+326,38,RC_Obj,6,The mathematician who the chairman visited created a solution to the wellknown problem.,The mathematician,The chairman,1,a,a,7,14.90068259642208,1.1576377719789293,1,-1.5832000427930195
+327,38,RC_Obj,6,The mathematician who the chairman visited created a solution to the wellknown problem.,The mathematician,The chairman,1,solution,solution,8,8.94715577112479,-0.6468699515024331,8,1.0346529827895663
+328,38,RC_Obj,6,The mathematician who the chairman visited created a solution to the wellknown problem.,The mathematician,The chairman,1,to,to,9,14.928149018365476,1.1659628156022577,2,-1.2092210391383649
+329,38,RC_Obj,6,The mathematician who the chairman visited created a solution to the wellknown problem.,The mathematician,The chairman,1,the,the,10,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+330,38,RC_Obj,6,The mathematician who the chairman visited created a solution to the wellknown problem.,The mathematician,The chairman,1,well.known,wellknown,11,4.356708826689592,-2.0382295957165324,9,1.4086319864442216
+331,38,RC_Obj,6,The mathematician who the chairman visited created a solution to the wellknown problem.,The mathematician,The chairman,1,problem..,problem.,12,10.347467996872629,-0.2224367876321803,8,1.0346529827895663
+332,39,RC_Subj,4,The monkeys that watched the zookeepers charged the bars of their cage.,The zookeepers,The monkeys,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+333,39,RC_Subj,4,The monkeys that watched the zookeepers charged the bars of their cage.,The zookeepers,The monkeys,0,monkeys,monkeys,1,7.001245622069476,-1.2366732724937246,7,0.6606739791349112
+334,39,RC_Subj,4,The monkeys that watched the zookeepers charged the bars of their cage.,The zookeepers,The monkeys,0,that,that,2,14.11010071456357,0.9180132345037209,4,-0.4612630318290542
+335,39,RC_Subj,4,The monkeys that watched the zookeepers charged the bars of their cage.,The zookeepers,The monkeys,0,watched,watched,3,8.738895704934043,-0.7099933586796864,7,0.6606739791349112
+336,39,RC_Subj,4,The monkeys that watched the zookeepers charged the bars of their cage.,The zookeepers,The monkeys,0,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+337,39,RC_Subj,4,The monkeys that watched the zookeepers charged the bars of their cage.,The zookeepers,The monkeys,0,zo.oke.ep.ers,zookeepers,5,3.1780538303479458,-2.395478686319596,10,1.7826109900988767
+338,39,RC_Subj,4,The monkeys that watched the zookeepers charged the bars of their cage.,The zookeepers,The monkeys,0,charged,charged,6,8.551208070003515,-0.7668812835639714,7,0.6606739791349112
+339,39,RC_Subj,4,The monkeys that watched the zookeepers charged the bars of their cage.,The zookeepers,The monkeys,0,the,the,7,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+340,39,RC_Subj,4,The monkeys that watched the zookeepers charged the bars of their cage.,The zookeepers,The monkeys,0,bars,bars,8,8.281977058867758,-0.8484849200724724,4,-0.4612630318290542
+341,39,RC_Subj,4,The monkeys that watched the zookeepers charged the bars of their cage.,The zookeepers,The monkeys,0,of,of,9,14.959542893887448,1.1754782662774268,2,-1.2092210391383649
+342,39,RC_Subj,4,The monkeys that watched the zookeepers charged the bars of their cage.,The zookeepers,The monkeys,0,their,their,10,12.71071619962035,0.4938612588033065,5,-0.087284028174399
+343,39,RC_Subj,4,The monkeys that watched the zookeepers charged the bars of their cage.,The zookeepers,The monkeys,0,cage..,cage.,11,7.234177179749849,-1.1660719621761568,5,-0.087284028174399
+344,39,RC_Obj,6,The monkeys that the zookeepers watched charged the bars of their cage.,The zookeepers,The monkeys,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+345,39,RC_Obj,6,The monkeys that the zookeepers watched charged the bars of their cage.,The zookeepers,The monkeys,0,monkeys,monkeys,1,7.001245622069476,-1.2366732724937246,7,0.6606739791349112
+346,39,RC_Obj,6,The monkeys that the zookeepers watched charged the bars of their cage.,The zookeepers,The monkeys,0,that,that,2,14.11010071456357,0.9180132345037209,4,-0.4612630318290542
+347,39,RC_Obj,6,The monkeys that the zookeepers watched charged the bars of their cage.,The zookeepers,The monkeys,0,the,the,3,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+348,39,RC_Obj,6,The monkeys that the zookeepers watched charged the bars of their cage.,The zookeepers,The monkeys,0,zo.oke.ep.ers,zookeepers,4,3.1780538303479458,-2.395478686319596,10,1.7826109900988767
+349,39,RC_Obj,6,The monkeys that the zookeepers watched charged the bars of their cage.,The zookeepers,The monkeys,0,watched,watched,5,8.738895704934043,-0.7099933586796864,7,0.6606739791349112
+350,39,RC_Obj,6,The monkeys that the zookeepers watched charged the bars of their cage.,The zookeepers,The monkeys,0,charged,charged,6,8.551208070003515,-0.7668812835639714,7,0.6606739791349112
+351,39,RC_Obj,6,The monkeys that the zookeepers watched charged the bars of their cage.,The zookeepers,The monkeys,0,the,the,7,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+352,39,RC_Obj,6,The monkeys that the zookeepers watched charged the bars of their cage.,The zookeepers,The monkeys,0,bars,bars,8,8.281977058867758,-0.8484849200724724,4,-0.4612630318290542
+353,39,RC_Obj,6,The monkeys that the zookeepers watched charged the bars of their cage.,The zookeepers,The monkeys,0,of,of,9,14.959542893887448,1.1754782662774268,2,-1.2092210391383649
+354,39,RC_Obj,6,The monkeys that the zookeepers watched charged the bars of their cage.,The zookeepers,The monkeys,0,their,their,10,12.71071619962035,0.4938612588033065,5,-0.087284028174399
+355,39,RC_Obj,6,The monkeys that the zookeepers watched charged the bars of their cage.,The zookeepers,The monkeys,0,cage..,cage.,11,7.234177179749849,-1.1660719621761568,5,-0.087284028174399
+356,40,RC_Subj,5,The movie star who visited the organizers proposed an annual prize.,The movie star,The organizers,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+357,40,RC_Subj,5,The movie star who visited the organizers proposed an annual prize.,The movie star,The organizers,1,movie,movie,1,9.71063069382679,-0.4154615048576494,5,-0.087284028174399
+358,40,RC_Subj,5,The movie star who visited the organizers proposed an annual prize.,The movie star,The organizers,1,star,star,2,10.09703750100326,-0.2983420077231264,4,-0.4612630318290542
+359,40,RC_Subj,5,The movie star who visited the organizers proposed an annual prize.,The movie star,The organizers,1,who,who,3,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+360,40,RC_Subj,5,The movie star who visited the organizers proposed an annual prize.,The movie star,The organizers,1,visited,visited,4,8.447199819595703,-0.7984060749479943,7,0.6606739791349112
+361,40,RC_Subj,5,The movie star who visited the organizers proposed an annual prize.,The movie star,The organizers,1,the,the,5,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+362,40,RC_Subj,5,The movie star who visited the organizers proposed an annual prize.,The movie star,The organizers,1,organizers,organizers,6,6.813444599510896,-1.2935955650488995,10,1.7826109900988767
+363,40,RC_Subj,5,The movie star who visited the organizers proposed an annual prize.,The movie star,The organizers,1,proposed,proposed,7,8.66561319653451,-0.73220520995432,8,1.0346529827895663
+364,40,RC_Subj,5,The movie star who visited the organizers proposed an annual prize.,The movie star,The organizers,1,an,an,8,12.984709212105534,0.5769082529158677,2,-1.2092210391383649
+365,40,RC_Subj,5,The movie star who visited the organizers proposed an annual prize.,The movie star,The organizers,1,annual,annual,9,9.375176614429115,-0.5171372837546738,6,0.2866949754802561
+366,40,RC_Subj,5,The movie star who visited the organizers proposed an annual prize.,The movie star,The organizers,1,prize..,prize.,10,8.204124932574041,-0.8720818177280807,6,0.2866949754802561
+367,40,RC_Obj,7,The movie star who the organizers visited proposed an annual prize.,The movie star,The organizers,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+368,40,RC_Obj,7,The movie star who the organizers visited proposed an annual prize.,The movie star,The organizers,1,movie,movie,1,9.71063069382679,-0.4154615048576494,5,-0.087284028174399
+369,40,RC_Obj,7,The movie star who the organizers visited proposed an annual prize.,The movie star,The organizers,1,star,star,2,10.09703750100326,-0.2983420077231264,4,-0.4612630318290542
+370,40,RC_Obj,7,The movie star who the organizers visited proposed an annual prize.,The movie star,The organizers,1,who,who,3,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+371,40,RC_Obj,7,The movie star who the organizers visited proposed an annual prize.,The movie star,The organizers,1,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+372,40,RC_Obj,7,The movie star who the organizers visited proposed an annual prize.,The movie star,The organizers,1,organizers,organizers,5,6.813444599510896,-1.2935955650488995,10,1.7826109900988767
+373,40,RC_Obj,7,The movie star who the organizers visited proposed an annual prize.,The movie star,The organizers,1,visited,visited,6,8.447199819595703,-0.7984060749479943,7,0.6606739791349112
+374,40,RC_Obj,7,The movie star who the organizers visited proposed an annual prize.,The movie star,The organizers,1,proposed,proposed,7,8.66561319653451,-0.73220520995432,8,1.0346529827895663
+375,40,RC_Obj,7,The movie star who the organizers visited proposed an annual prize.,The movie star,The organizers,1,an,an,8,12.984709212105534,0.5769082529158677,2,-1.2092210391383649
+376,40,RC_Obj,7,The movie star who the organizers visited proposed an annual prize.,The movie star,The organizers,1,annual,annual,9,9.375176614429115,-0.5171372837546738,6,0.2866949754802561
+377,40,RC_Obj,7,The movie star who the organizers visited proposed an annual prize.,The movie star,The organizers,1,prize..,prize.,10,8.204124932574041,-0.8720818177280807,6,0.2866949754802561
+378,41,RC_Subj,4,The neighbor who observed the couple purchased the old Victorian house.,The couple,The neighbor,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+379,41,RC_Subj,4,The neighbor who observed the couple purchased the old Victorian house.,The couple,The neighbor,0,neighbor,neighbor,1,7.948031990637284,-0.9497033192707176,8,1.0346529827895663
+380,41,RC_Subj,4,The neighbor who observed the couple purchased the old Victorian house.,The couple,The neighbor,0,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+381,41,RC_Subj,4,The neighbor who observed the couple purchased the old Victorian house.,The couple,The neighbor,0,observed,observed,3,8.438582790834326,-0.8010178873089117,8,1.0346529827895663
+382,41,RC_Subj,4,The neighbor who observed the couple purchased the old Victorian house.,The couple,The neighbor,0,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+383,41,RC_Subj,4,The neighbor who observed the couple purchased the old Victorian house.,The couple,The neighbor,0,couple,couple,5,9.863030074904852,-0.3692694126274425,6,0.2866949754802561
+384,41,RC_Subj,4,The neighbor who observed the couple purchased the old Victorian house.,The couple,The neighbor,0,purchased,purchased,6,8.142645185942795,-0.8907162643156663,9,1.4086319864442216
+385,41,RC_Subj,4,The neighbor who observed the couple purchased the old Victorian house.,The couple,The neighbor,0,the,the,7,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+386,41,RC_Subj,4,The neighbor who observed the couple purchased the old Victorian house.,The couple,The neighbor,0,old,old,8,10.78987562305597,-0.0883435011145651,3,-0.8352420354837095
+387,41,RC_Subj,4,The neighbor who observed the couple purchased the old Victorian house.,The couple,The neighbor,0,Victorian,Victorian,9,7.110696122978827,-1.203498940702591,9,1.4086319864442216
+388,41,RC_Subj,4,The neighbor who observed the couple purchased the old Victorian house.,The couple,The neighbor,0,house..,house.,10,10.928022637807922,-0.0464712861383029,6,0.2866949754802561
+389,41,RC_Obj,6,The neighbor who the couple observed purchased the old Victorian house.,The couple,The neighbor,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+390,41,RC_Obj,6,The neighbor who the couple observed purchased the old Victorian house.,The couple,The neighbor,0,neighbor,neighbor,1,7.948031990637284,-0.9497033192707176,8,1.0346529827895663
+391,41,RC_Obj,6,The neighbor who the couple observed purchased the old Victorian house.,The couple,The neighbor,0,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+392,41,RC_Obj,6,The neighbor who the couple observed purchased the old Victorian house.,The couple,The neighbor,0,the,the,3,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+393,41,RC_Obj,6,The neighbor who the couple observed purchased the old Victorian house.,The couple,The neighbor,0,couple,couple,4,9.863030074904852,-0.3692694126274425,6,0.2866949754802561
+394,41,RC_Obj,6,The neighbor who the couple observed purchased the old Victorian house.,The couple,The neighbor,0,observed,observed,5,8.438582790834326,-0.8010178873089117,8,1.0346529827895663
+395,41,RC_Obj,6,The neighbor who the couple observed purchased the old Victorian house.,The couple,The neighbor,0,purchased,purchased,6,8.142645185942795,-0.8907162643156663,9,1.4086319864442216
+396,41,RC_Obj,6,The neighbor who the couple observed purchased the old Victorian house.,The couple,The neighbor,0,the,the,7,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+397,41,RC_Obj,6,The neighbor who the couple observed purchased the old Victorian house.,The couple,The neighbor,0,old,old,8,10.78987562305597,-0.0883435011145651,3,-0.8352420354837095
+398,41,RC_Obj,6,The neighbor who the couple observed purchased the old Victorian house.,The couple,The neighbor,0,Victorian,Victorian,9,7.110696122978827,-1.203498940702591,9,1.4086319864442216
+399,41,RC_Obj,6,The neighbor who the couple observed purchased the old Victorian house.,The couple,The neighbor,0,house..,house.,10,10.928022637807922,-0.0464712861383029,6,0.2866949754802561
+400,42,RC_Subj,4,The pilot who delayed the ground crew remained on the runway for a long time.,The pilot,The ground crew,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+401,42,RC_Subj,4,The pilot who delayed the ground crew remained on the runway for a long time.,The pilot,The ground crew,1,pilot,pilot,1,8.371936178759098,-0.8212184053820977,5,-0.087284028174399
+402,42,RC_Subj,4,The pilot who delayed the ground crew remained on the runway for a long time.,The pilot,The ground crew,1,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+403,42,RC_Subj,4,The pilot who delayed the ground crew remained on the runway for a long time.,The pilot,The ground crew,1,delayed,delayed,3,7.655390644826152,-1.038402603614632,7,0.6606739791349112
+404,42,RC_Subj,4,The pilot who delayed the ground crew remained on the runway for a long time.,The pilot,The ground crew,1,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+405,42,RC_Subj,4,The pilot who delayed the ground crew remained on the runway for a long time.,The pilot,The ground crew,1,ground,ground,5,10.132215482144238,-0.2876795986120012,6,0.2866949754802561
+406,42,RC_Subj,4,The pilot who delayed the ground crew remained on the runway for a long time.,The pilot,The ground crew,1,crew,crew,6,8.75384509275524,-0.7054622149431633,4,-0.4612630318290542
+407,42,RC_Subj,4,The pilot who delayed the ground crew remained on the runway for a long time.,The pilot,The ground crew,1,remained,remained,7,8.742893471512136,-0.7087816398315925,8,1.0346529827895663
+408,42,RC_Subj,4,The pilot who delayed the ground crew remained on the runway for a long time.,The pilot,The ground crew,1,on,on,8,13.632841740882444,0.7733565411889349,2,-1.2092210391383649
+409,42,RC_Subj,4,The pilot who delayed the ground crew remained on the runway for a long time.,The pilot,The ground crew,1,the,the,9,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+410,42,RC_Subj,4,The pilot who delayed the ground crew remained on the runway for a long time.,The pilot,The ground crew,1,runway,runway,10,7.255591274253665,-1.1595813726386577,6,0.2866949754802561
+411,42,RC_Subj,4,The pilot who delayed the ground crew remained on the runway for a long time.,The pilot,The ground crew,1,for,for,11,13.908199122518193,0.8568170741570548,3,-0.8352420354837095
+412,42,RC_Subj,4,The pilot who delayed the ground crew remained on the runway for a long time.,The pilot,The ground crew,1,a,a,12,14.90068259642208,1.1576377719789293,1,-1.5832000427930195
+413,42,RC_Subj,4,The pilot who delayed the ground crew remained on the runway for a long time.,The pilot,The ground crew,1,long,long,13,11.202547784586258,0.0367369973192297,4,-0.4612630318290542
+414,42,RC_Subj,4,The pilot who delayed the ground crew remained on the runway for a long time.,The pilot,The ground crew,1,time..,time.,14,12.165474584268328,0.3285990982490793,5,-0.087284028174399
+415,42,RC_Obj,6,The pilot who the ground crew delayed remained on the runway for a long time.,The pilot,The ground crew,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+416,42,RC_Obj,6,The pilot who the ground crew delayed remained on the runway for a long time.,The pilot,The ground crew,1,pilot,pilot,1,8.371936178759098,-0.8212184053820977,5,-0.087284028174399
+417,42,RC_Obj,6,The pilot who the ground crew delayed remained on the runway for a long time.,The pilot,The ground crew,1,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+418,42,RC_Obj,6,The pilot who the ground crew delayed remained on the runway for a long time.,The pilot,The ground crew,1,the,the,3,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+419,42,RC_Obj,6,The pilot who the ground crew delayed remained on the runway for a long time.,The pilot,The ground crew,1,ground,ground,4,10.132215482144238,-0.2876795986120012,6,0.2866949754802561
+420,42,RC_Obj,6,The pilot who the ground crew delayed remained on the runway for a long time.,The pilot,The ground crew,1,crew,crew,5,8.75384509275524,-0.7054622149431633,4,-0.4612630318290542
+421,42,RC_Obj,6,The pilot who the ground crew delayed remained on the runway for a long time.,The pilot,The ground crew,1,delayed,delayed,6,7.655390644826152,-1.038402603614632,7,0.6606739791349112
+422,42,RC_Obj,6,The pilot who the ground crew delayed remained on the runway for a long time.,The pilot,The ground crew,1,remained,remained,7,8.742893471512136,-0.7087816398315925,8,1.0346529827895663
+423,42,RC_Obj,6,The pilot who the ground crew delayed remained on the runway for a long time.,The pilot,The ground crew,1,on,on,8,13.632841740882444,0.7733565411889349,2,-1.2092210391383649
+424,42,RC_Obj,6,The pilot who the ground crew delayed remained on the runway for a long time.,The pilot,The ground crew,1,the,the,9,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+425,42,RC_Obj,6,The pilot who the ground crew delayed remained on the runway for a long time.,The pilot,The ground crew,1,runway,runway,10,7.255591274253665,-1.1595813726386577,6,0.2866949754802561
+426,42,RC_Obj,6,The pilot who the ground crew delayed remained on the runway for a long time.,The pilot,The ground crew,1,for,for,11,13.908199122518193,0.8568170741570548,3,-0.8352420354837095
+427,42,RC_Obj,6,The pilot who the ground crew delayed remained on the runway for a long time.,The pilot,The ground crew,1,a,a,12,14.90068259642208,1.1576377719789293,1,-1.5832000427930195
+428,42,RC_Obj,6,The pilot who the ground crew delayed remained on the runway for a long time.,The pilot,The ground crew,1,long,long,13,11.202547784586258,0.0367369973192297,4,-0.4612630318290542
+429,42,RC_Obj,6,The pilot who the ground crew delayed remained on the runway for a long time.,The pilot,The ground crew,1,time..,time.,14,12.165474584268328,0.3285990982490793,5,-0.087284028174399
+430,43,RC_Subj,4,The soldiers that helped the natives climbed the big rock that blocked the path.,The natives,The soldiers,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+431,43,RC_Subj,4,The soldiers that helped the natives climbed the big rock that blocked the path.,The natives,The soldiers,0,soldiers,soldiers,1,8.993799971795545,-0.6327321433030404,8,1.0346529827895663
+432,43,RC_Subj,4,The soldiers that helped the natives climbed the big rock that blocked the path.,The natives,The soldiers,0,that,that,2,14.11010071456357,0.9180132345037209,4,-0.4612630318290542
+433,43,RC_Subj,4,The soldiers that helped the natives climbed the big rock that blocked the path.,The natives,The soldiers,0,helped,helped,3,9.598116617213265,-0.4495644032248445,6,0.2866949754802561
+434,43,RC_Subj,4,The soldiers that helped the natives climbed the big rock that blocked the path.,The natives,The soldiers,0,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+435,43,RC_Subj,4,The soldiers that helped the natives climbed the big rock that blocked the path.,The natives,The soldiers,0,natives,natives,5,6.594413459749778,-1.359983673304736,7,0.6606739791349112
+436,43,RC_Subj,4,The soldiers that helped the natives climbed the big rock that blocked the path.,The natives,The soldiers,0,climbed,climbed,6,7.724446645633537,-1.0174718023490412,7,0.6606739791349112
+437,43,RC_Subj,4,The soldiers that helped the natives climbed the big rock that blocked the path.,The natives,The soldiers,0,the,the,7,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+438,43,RC_Subj,4,The soldiers that helped the natives climbed the big rock that blocked the path.,The natives,The soldiers,0,big,big,8,10.97724346520537,-0.0315525050861316,3,-0.8352420354837095
+439,43,RC_Subj,4,The soldiers that helped the natives climbed the big rock that blocked the path.,The natives,The soldiers,0,rock,rock,9,9.655538882302949,-0.4321597750280185,4,-0.4612630318290542
+440,43,RC_Subj,4,The soldiers that helped the natives climbed the big rock that blocked the path.,The natives,The soldiers,0,that,that,10,14.11010071456357,0.9180132345037209,4,-0.4612630318290542
+441,43,RC_Subj,4,The soldiers that helped the natives climbed the big rock that blocked the path.,The natives,The soldiers,0,blocked,blocked,11,7.473069088032197,-1.093664075855569,7,0.6606739791349112
+442,43,RC_Subj,4,The soldiers that helped the natives climbed the big rock that blocked the path.,The natives,The soldiers,0,the,the,12,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+443,43,RC_Subj,4,The soldiers that helped the natives climbed the big rock that blocked the path.,The natives,The soldiers,0,path..,path.,13,9.026056891868688,-0.6229551047314872,5,-0.087284028174399
+444,43,RC_Obj,6,The soldiers that the natives helped climbed the big rock that blocked the path.,The natives,The soldiers,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+445,43,RC_Obj,6,The soldiers that the natives helped climbed the big rock that blocked the path.,The natives,The soldiers,0,soldiers,soldiers,1,8.993799971795545,-0.6327321433030404,8,1.0346529827895663
+446,43,RC_Obj,6,The soldiers that the natives helped climbed the big rock that blocked the path.,The natives,The soldiers,0,that,that,2,14.11010071456357,0.9180132345037209,4,-0.4612630318290542
+447,43,RC_Obj,6,The soldiers that the natives helped climbed the big rock that blocked the path.,The natives,The soldiers,0,the,the,3,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+448,43,RC_Obj,6,The soldiers that the natives helped climbed the big rock that blocked the path.,The natives,The soldiers,0,natives,natives,4,6.594413459749778,-1.359983673304736,7,0.6606739791349112
+449,43,RC_Obj,6,The soldiers that the natives helped climbed the big rock that blocked the path.,The natives,The soldiers,0,helped,helped,5,9.598116617213265,-0.4495644032248445,6,0.2866949754802561
+450,43,RC_Obj,6,The soldiers that the natives helped climbed the big rock that blocked the path.,The natives,The soldiers,0,climbed,climbed,6,7.724446645633537,-1.0174718023490412,7,0.6606739791349112
+451,43,RC_Obj,6,The soldiers that the natives helped climbed the big rock that blocked the path.,The natives,The soldiers,0,the,the,7,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+452,43,RC_Obj,6,The soldiers that the natives helped climbed the big rock that blocked the path.,The natives,The soldiers,0,big,big,8,10.97724346520537,-0.0315525050861316,3,-0.8352420354837095
+453,43,RC_Obj,6,The soldiers that the natives helped climbed the big rock that blocked the path.,The natives,The soldiers,0,rock,rock,9,9.655538882302949,-0.4321597750280185,4,-0.4612630318290542
+454,43,RC_Obj,6,The soldiers that the natives helped climbed the big rock that blocked the path.,The natives,The soldiers,0,that,that,10,14.11010071456357,0.9180132345037209,4,-0.4612630318290542
+455,43,RC_Obj,6,The soldiers that the natives helped climbed the big rock that blocked the path.,The natives,The soldiers,0,blocked,blocked,11,7.473069088032197,-1.093664075855569,7,0.6606739791349112
+456,43,RC_Obj,6,The soldiers that the natives helped climbed the big rock that blocked the path.,The natives,The soldiers,0,the,the,12,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+457,43,RC_Obj,6,The soldiers that the natives helped climbed the big rock that blocked the path.,The natives,The soldiers,0,path..,path.,13,9.026056891868688,-0.6229551047314872,5,-0.087284028174399
+458,44,RC_Subj,4,The speaker who entertained the economists predicted a good year for the industry.,The speaker,The economists,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+459,44,RC_Subj,4,The speaker who entertained the economists predicted a good year for the industry.,The speaker,The economists,1,speaker,speaker,1,7.967973179662935,-0.9436591658355992,7,0.6606739791349112
+460,44,RC_Subj,4,The speaker who entertained the economists predicted a good year for the industry.,The speaker,The economists,1,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+461,44,RC_Subj,4,The speaker who entertained the economists predicted a good year for the industry.,The speaker,The economists,1,entertained,entertained,3,6.249975242259483,-1.4643825350151398,11,2.156589993753532
+462,44,RC_Subj,4,The speaker who entertained the economists predicted a good year for the industry.,The speaker,The economists,1,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+463,44,RC_Subj,4,The speaker who entertained the economists predicted a good year for the industry.,The speaker,The economists,1,economists,economists,5,7.412160334945205,-1.1121254549000157,10,1.7826109900988767
+464,44,RC_Subj,4,The speaker who entertained the economists predicted a good year for the industry.,The speaker,The economists,1,predicted,predicted,6,7.907283609426348,-0.9620541107884536,9,1.4086319864442216
+465,44,RC_Subj,4,The speaker who entertained the economists predicted a good year for the industry.,The speaker,The economists,1,a,a,7,14.90068259642208,1.1576377719789293,1,-1.5832000427930195
+466,44,RC_Subj,4,The speaker who entertained the economists predicted a good year for the industry.,The speaker,The economists,1,good,good,8,11.481414157830972,0.1212611019560127,4,-0.4612630318290542
+467,44,RC_Subj,4,The speaker who entertained the economists predicted a good year for the industry.,The speaker,The economists,1,year,year,9,11.594588397831304,0.1555640951519044,4,-0.4612630318290542
+468,44,RC_Subj,4,The speaker who entertained the economists predicted a good year for the industry.,The speaker,The economists,1,for,for,10,13.908199122518193,0.8568170741570548,3,-0.8352420354837095
+469,44,RC_Subj,4,The speaker who entertained the economists predicted a good year for the industry.,The speaker,The economists,1,the,the,11,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+470,44,RC_Subj,4,The speaker who entertained the economists predicted a good year for the industry.,The speaker,The economists,1,industry..,industry.,12,10.00419224665776,-0.3264833067331761,9,1.4086319864442216
+471,44,RC_Obj,6,The speaker who the economists entertained predicted a good year for the industry.,The speaker,The economists,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+472,44,RC_Obj,6,The speaker who the economists entertained predicted a good year for the industry.,The speaker,The economists,1,speaker,speaker,1,7.967973179662935,-0.9436591658355992,7,0.6606739791349112
+473,44,RC_Obj,6,The speaker who the economists entertained predicted a good year for the industry.,The speaker,The economists,1,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+474,44,RC_Obj,6,The speaker who the economists entertained predicted a good year for the industry.,The speaker,The economists,1,the,the,3,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+475,44,RC_Obj,6,The speaker who the economists entertained predicted a good year for the industry.,The speaker,The economists,1,economists,economists,4,7.412160334945205,-1.1121254549000157,10,1.7826109900988767
+476,44,RC_Obj,6,The speaker who the economists entertained predicted a good year for the industry.,The speaker,The economists,1,entertained,entertained,5,6.249975242259483,-1.4643825350151398,11,2.156589993753532
+477,44,RC_Obj,6,The speaker who the economists entertained predicted a good year for the industry.,The speaker,The economists,1,predicted,predicted,6,7.907283609426348,-0.9620541107884536,9,1.4086319864442216
+478,44,RC_Obj,6,The speaker who the economists entertained predicted a good year for the industry.,The speaker,The economists,1,a,a,7,14.90068259642208,1.1576377719789293,1,-1.5832000427930195
+479,44,RC_Obj,6,The speaker who the economists entertained predicted a good year for the industry.,The speaker,The economists,1,good,good,8,11.481414157830972,0.1212611019560127,4,-0.4612630318290542
+480,44,RC_Obj,6,The speaker who the economists entertained predicted a good year for the industry.,The speaker,The economists,1,year,year,9,11.594588397831304,0.1555640951519044,4,-0.4612630318290542
+481,44,RC_Obj,6,The speaker who the economists entertained predicted a good year for the industry.,The speaker,The economists,1,for,for,10,13.908199122518193,0.8568170741570548,3,-0.8352420354837095
+482,44,RC_Obj,6,The speaker who the economists entertained predicted a good year for the industry.,The speaker,The economists,1,the,the,11,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+483,44,RC_Obj,6,The speaker who the economists entertained predicted a good year for the industry.,The speaker,The economists,1,industry..,industry.,12,10.00419224665776,-0.3264833067331761,9,1.4086319864442216
+484,45,RC_Subj,5,The table top that rested on the box screwed directly to the legs.,The box,The table top,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+485,45,RC_Subj,5,The table top that rested on the box screwed directly to the legs.,The box,The table top,0,table,table,1,10.251111660954445,-0.2516422917766998,5,-0.087284028174399
+486,45,RC_Subj,5,The table top that rested on the box screwed directly to the legs.,The box,The table top,0,top,top,2,10.826793619304189,-0.0771536952532234,3,-0.8352420354837095
+487,45,RC_Subj,5,The table top that rested on the box screwed directly to the legs.,The box,The table top,0,that,that,3,14.11010071456357,0.9180132345037209,4,-0.4612630318290542
+488,45,RC_Subj,5,The table top that rested on the box screwed directly to the legs.,The box,The table top,0,rested,rested,4,6.568077911411976,-1.367965950326778,6,0.2866949754802561
+489,45,RC_Subj,5,The table top that rested on the box screwed directly to the legs.,The box,The table top,0,on,on,5,13.632841740882444,0.7733565411889349,2,-1.2092210391383649
+490,45,RC_Subj,5,The table top that rested on the box screwed directly to the legs.,The box,The table top,0,the,the,6,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+491,45,RC_Subj,5,The table top that rested on the box screwed directly to the legs.,The box,The table top,0,box,box,7,9.71842223507111,-0.4130998968955493,3,-0.8352420354837095
+492,45,RC_Subj,5,The table top that rested on the box screwed directly to the legs.,The box,The table top,0,screwed,screwed,8,6.408528791059498,-1.4163251210165526,7,0.6606739791349112
+493,45,RC_Subj,5,The table top that rested on the box screwed directly to the legs.,The box,The table top,0,directly,directly,9,9.321344930019094,-0.5334536107212607,8,1.0346529827895663
+494,45,RC_Subj,5,The table top that rested on the box screwed directly to the legs.,The box,The table top,0,to,to,10,14.928149018365476,1.1659628156022577,2,-1.2092210391383649
+495,45,RC_Subj,5,The table top that rested on the box screwed directly to the legs.,The box,The table top,0,the,the,11,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+496,45,RC_Subj,5,The table top that rested on the box screwed directly to the legs.,The box,The table top,0,legs..,legs.,12,9.11063052782717,-0.5973209245609187,5,-0.087284028174399
+497,45,RC_Obj,7,The table top that the box rested on screwed directly to the legs.,The box,The table top,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+498,45,RC_Obj,7,The table top that the box rested on screwed directly to the legs.,The box,The table top,0,table,table,1,10.251111660954445,-0.2516422917766998,5,-0.087284028174399
+499,45,RC_Obj,7,The table top that the box rested on screwed directly to the legs.,The box,The table top,0,top,top,2,10.826793619304189,-0.0771536952532234,3,-0.8352420354837095
+500,45,RC_Obj,7,The table top that the box rested on screwed directly to the legs.,The box,The table top,0,that,that,3,14.11010071456357,0.9180132345037209,4,-0.4612630318290542
+501,45,RC_Obj,7,The table top that the box rested on screwed directly to the legs.,The box,The table top,0,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+502,45,RC_Obj,7,The table top that the box rested on screwed directly to the legs.,The box,The table top,0,box,box,5,9.71842223507111,-0.4130998968955493,3,-0.8352420354837095
+503,45,RC_Obj,7,The table top that the box rested on screwed directly to the legs.,The box,The table top,0,rested,rested,6,6.568077911411976,-1.367965950326778,6,0.2866949754802561
+504,45,RC_Obj,7,The table top that the box rested on screwed directly to the legs.,The box,The table top,0,on,on,7,13.632841740882444,0.7733565411889349,2,-1.2092210391383649
+505,45,RC_Obj,7,The table top that the box rested on screwed directly to the legs.,The box,The table top,0,screwed,screwed,8,6.408528791059498,-1.4163251210165526,7,0.6606739791349112
+506,45,RC_Obj,7,The table top that the box rested on screwed directly to the legs.,The box,The table top,0,directly,directly,9,9.321344930019094,-0.5334536107212607,8,1.0346529827895663
+507,45,RC_Obj,7,The table top that the box rested on screwed directly to the legs.,The box,The table top,0,to,to,10,14.928149018365476,1.1659628156022577,2,-1.2092210391383649
+508,45,RC_Obj,7,The table top that the box rested on screwed directly to the legs.,The box,The table top,0,the,the,11,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+509,45,RC_Obj,7,The table top that the box rested on screwed directly to the legs.,The box,The table top,0,legs..,legs.,12,9.11063052782717,-0.5973209245609187,5,-0.087284028174399
+510,46,RC_Subj,4,The trainer who called the jockey rubbed the horse's skin.,The trainer,The jockey,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+511,46,RC_Subj,4,The trainer who called the jockey rubbed the horse's skin.,The trainer,The jockey,1,trainer,trainer,1,7.602401335665818,-1.0544636075283902,7,0.6606739791349112
+512,46,RC_Subj,4,The trainer who called the jockey rubbed the horse's skin.,The trainer,The jockey,1,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+513,46,RC_Subj,4,The trainer who called the jockey rubbed the horse's skin.,The trainer,The jockey,1,called,called,3,10.839227908231596,-0.0733848753479927,6,0.2866949754802561
+514,46,RC_Subj,4,The trainer who called the jockey rubbed the horse's skin.,The trainer,The jockey,1,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+515,46,RC_Subj,4,The trainer who called the jockey rubbed the horse's skin.,The trainer,The jockey,1,j.ockey,jockey,5,5.75890177387728,-1.6132263871545338,6,0.2866949754802561
+516,46,RC_Subj,4,The trainer who called the jockey rubbed the horse's skin.,The trainer,The jockey,1,rubbed,rubbed,6,6.302618975744905,-1.448426274725241,6,0.2866949754802561
+517,46,RC_Subj,4,The trainer who called the jockey rubbed the horse's skin.,The trainer,The jockey,1,the,the,7,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+518,46,RC_Subj,4,The trainer who called the jockey rubbed the horse's skin.,The trainer,The jockey,1,horse,horse's,8,,,7,0.6606739791349112
+519,46,RC_Subj,4,The trainer who called the jockey rubbed the horse's skin.,The trainer,The jockey,1,s.skin..,skin.,9,9.821626526055809,-0.3818187847676964,5,-0.087284028174399
+520,46,RC_Obj,6,The trainer who the jockey called rubbed the horse's skin.,The trainer,The jockey,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+521,46,RC_Obj,6,The trainer who the jockey called rubbed the horse's skin.,The trainer,The jockey,1,trainer,trainer,1,7.602401335665818,-1.0544636075283902,7,0.6606739791349112
+522,46,RC_Obj,6,The trainer who the jockey called rubbed the horse's skin.,The trainer,The jockey,1,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+523,46,RC_Obj,6,The trainer who the jockey called rubbed the horse's skin.,The trainer,The jockey,1,the,the,3,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+524,46,RC_Obj,6,The trainer who the jockey called rubbed the horse's skin.,The trainer,The jockey,1,j.ockey,jockey,4,5.75890177387728,-1.6132263871545338,6,0.2866949754802561
+525,46,RC_Obj,6,The trainer who the jockey called rubbed the horse's skin.,The trainer,The jockey,1,called,called,5,10.839227908231596,-0.0733848753479927,6,0.2866949754802561
+526,46,RC_Obj,6,The trainer who the jockey called rubbed the horse's skin.,The trainer,The jockey,1,rubbed,rubbed,6,6.302618975744905,-1.448426274725241,6,0.2866949754802561
+527,46,RC_Obj,6,The trainer who the jockey called rubbed the horse's skin.,The trainer,The jockey,1,the,the,7,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+528,46,RC_Obj,6,The trainer who the jockey called rubbed the horse's skin.,The trainer,The jockey,1,horse,horse's,8,,,7,0.6606739791349112
+529,46,RC_Obj,6,The trainer who the jockey called rubbed the horse's skin.,The trainer,The jockey,1,s.skin..,skin.,9,9.821626526055809,-0.3818187847676964,5,-0.087284028174399
+530,47,RC_Subj,4,The veteran who admired the coach defeated his greatest rival.,The coach,The veteran,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+531,47,RC_Subj,4,The veteran who admired the coach defeated his greatest rival.,The coach,The veteran,0,veteran,veteran,1,8.246695943718557,-0.8591785889930942,7,0.6606739791349112
+532,47,RC_Subj,4,The veteran who admired the coach defeated his greatest rival.,The coach,The veteran,0,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+533,47,RC_Subj,4,The veteran who admired the coach defeated his greatest rival.,The coach,The veteran,0,admired,admired,3,7.135687347028144,-1.1959241269594791,7,0.6606739791349112
+534,47,RC_Subj,4,The veteran who admired the coach defeated his greatest rival.,The coach,The veteran,0,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+535,47,RC_Subj,4,The veteran who admired the coach defeated his greatest rival.,The coach,The veteran,0,coach,coach,5,9.138951775888527,-0.5887367840396739,5,-0.087284028174399
+536,47,RC_Subj,4,The veteran who admired the coach defeated his greatest rival.,The coach,The veteran,0,defeated,defeated,6,7.330405211844402,-1.1369053467857302,8,1.0346529827895663
+537,47,RC_Subj,4,The veteran who admired the coach defeated his greatest rival.,The coach,The veteran,0,his,his,7,13.034853694462726,0.5921069928155588,3,-0.8352420354837095
+538,47,RC_Subj,4,The veteran who admired the coach defeated his greatest rival.,The coach,The veteran,0,greatest,greatest,8,9.12347443895452,-0.5934279485974059,8,1.0346529827895663
+539,47,RC_Subj,4,The veteran who admired the coach defeated his greatest rival.,The coach,The veteran,0,rival..,rival.,9,7.837948916025283,-0.9830693834862778,6,0.2866949754802561
+540,47,RC_Obj,6,The veteran who the coach admired defeated his greatest rival.,The coach,The veteran,0,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+541,47,RC_Obj,6,The veteran who the coach admired defeated his greatest rival.,The coach,The veteran,0,veteran,veteran,1,8.246695943718557,-0.8591785889930942,7,0.6606739791349112
+542,47,RC_Obj,6,The veteran who the coach admired defeated his greatest rival.,The coach,The veteran,0,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+543,47,RC_Obj,6,The veteran who the coach admired defeated his greatest rival.,The coach,The veteran,0,the,the,3,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+544,47,RC_Obj,6,The veteran who the coach admired defeated his greatest rival.,The coach,The veteran,0,coach,coach,4,9.138951775888527,-0.5887367840396739,5,-0.087284028174399
+545,47,RC_Obj,6,The veteran who the coach admired defeated his greatest rival.,The coach,The veteran,0,admired,admired,5,7.135687347028144,-1.1959241269594791,7,0.6606739791349112
+546,47,RC_Obj,6,The veteran who the coach admired defeated his greatest rival.,The coach,The veteran,0,defeated,defeated,6,7.330405211844402,-1.1369053467857302,8,1.0346529827895663
+547,47,RC_Obj,6,The veteran who the coach admired defeated his greatest rival.,The coach,The veteran,0,his,his,7,13.034853694462726,0.5921069928155588,3,-0.8352420354837095
+548,47,RC_Obj,6,The veteran who the coach admired defeated his greatest rival.,The coach,The veteran,0,greatest,greatest,8,9.12347443895452,-0.5934279485974059,8,1.0346529827895663
+549,47,RC_Obj,6,The veteran who the coach admired defeated his greatest rival.,The coach,The veteran,0,rival..,rival.,9,7.837948916025283,-0.9830693834862778,6,0.2866949754802561
+550,48,RC_Subj,4,The visitor who introduced the student walked across the quad.,The visitor,The student,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+551,48,RC_Subj,4,The visitor who introduced the student walked across the quad.,The visitor,The student,1,visitor,visitor,1,7.643482907077201,-1.0420118264110878,7,0.6606739791349112
+552,48,RC_Subj,4,The visitor who introduced the student walked across the quad.,The visitor,The student,1,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+553,48,RC_Subj,4,The visitor who introduced the student walked across the quad.,The visitor,The student,1,introduced,introduced,3,8.840001065843392,-0.6793484300516576,10,1.7826109900988767
+554,48,RC_Subj,4,The visitor who introduced the student walked across the quad.,The visitor,The student,1,the,the,4,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+555,48,RC_Subj,4,The visitor who introduced the student walked across the quad.,The visitor,The student,1,student,student,5,9.25272913846797,-0.5542509850239471,7,0.6606739791349112
+556,48,RC_Subj,4,The visitor who introduced the student walked across the quad.,The visitor,The student,1,walked,walked,6,8.81358720447004,-0.6873544436724665,6,0.2866949754802561
+557,48,RC_Subj,4,The visitor who introduced the student walked across the quad.,The visitor,The student,1,across,across,7,10.393753262336755,-0.2084077723166682,6,0.2866949754802561
+558,48,RC_Subj,4,The visitor who introduced the student walked across the quad.,The visitor,The student,1,the,the,8,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+559,48,RC_Subj,4,The visitor who introduced the student walked across the quad.,The visitor,The student,1,quad..,quad.,9,6.104793232414985,-1.508387049610043,5,-0.087284028174399
+560,48,RC_Obj,6,The visitor who the student introduced walked across the quad.,The visitor,The student,1,The,The,0,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+561,48,RC_Obj,6,The visitor who the student introduced walked across the quad.,The visitor,The student,1,visitor,visitor,1,7.643482907077201,-1.0420118264110878,7,0.6606739791349112
+562,48,RC_Obj,6,The visitor who the student introduced walked across the quad.,The visitor,The student,1,who,who,2,12.587907409973832,0.4566380437357446,3,-0.8352420354837095
+563,48,RC_Obj,6,The visitor who the student introduced walked across the quad.,The visitor,The student,1,the,the,3,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+564,48,RC_Obj,6,The visitor who the student introduced walked across the quad.,The visitor,The student,1,student,student,4,9.25272913846797,-0.5542509850239471,7,0.6606739791349112
+565,48,RC_Obj,6,The visitor who the student introduced walked across the quad.,The visitor,The student,1,introduced,introduced,5,8.840001065843392,-0.6793484300516576,10,1.7826109900988767
+566,48,RC_Obj,6,The visitor who the student introduced walked across the quad.,The visitor,The student,1,walked,walked,6,8.81358720447004,-0.6873544436724665,6,0.2866949754802561
+567,48,RC_Obj,6,The visitor who the student introduced walked across the quad.,The visitor,The student,1,across,across,7,10.393753262336755,-0.2084077723166682,6,0.2866949754802561
+568,48,RC_Obj,6,The visitor who the student introduced walked across the quad.,The visitor,The student,1,the,the,8,15.687451186819413,1.396106504820095,3,-0.8352420354837095
+569,48,RC_Obj,6,The visitor who the student introduced walked across the quad.,The visitor,The student,1,quad..,quad.,9,6.104793232414985,-1.508387049610043,5,-0.087284028174399

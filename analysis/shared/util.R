@@ -473,6 +473,110 @@ Predicting_RT_with_spillover <- function(rt.data_df,subsetname, models = c('gpt2
 
 
 
+Predicting_RT_with_spillover_anysurp <- function(rt.data_df, subsetname, model){
+  print("This will take a while.")
+  # model_surp <- paste0(gsub("-", ".", model), '_surp')
+  model_surp <- gsub("-", ".", model)
+
+  if(subsetname=="Agreement"){
+    print(paste('Processing model', model))
+
+    ## NOTE THIS ASSUMES THE FOLDER NAME FOR LSTM MODELS IS lstm  AND NOT gulordava
+    # print(read.csv(paste0('../../Surprisals/data/oh/items_',subsetname,'.oh.csv.scaled')))
+    surps <- read.csv(paste0('../../Surprisals/data/anysurp/items_byword_',subsetname,'.csv')) %>%
+      mutate(word_pos = word_pos + 1,
+             model = model) %>% #adjust to 1-indexing
+      select(Sentence, word_pos, model_surp, logfreq, logfreq_s, length, length_s)
+    surps <- rename(surps, surprisal_s=model_surp)
+    # surps2 <- read.csv(paste0('../../Surprisals/data/oh/items_ClassicGP.oh.csv.scaled')) %>%
+    surps2 <- read.csv(paste0('../../Surprisals/data/anysurp/items_byword_ClassicGP.csv')) %>%
+      filter(condition%in%c("NPZ_UAMB","NPZ_AMB")&item%in%unique(rt.data_df$item[rt.data_df$Type=="AGREE"])) %>%
+      mutate(word_pos = word_pos + 1,
+             model = model) %>% #adjust to 1-indexing
+      select(Sentence, word_pos, model_surp, logfreq, logfreq_s, length, length_s)
+    surps2 <- rename(surps2, surprisal_s=model_surp)
+    surps <- rbind(surps,surps2)
+
+    filler.model <- readRDS(paste0('../spr/filler_models/filler_model_', model, '.rds'))
+
+    rt.data.freqs.surps <- merge(x = rt.data_df,
+                               y = surps,
+                               by.x=c("Sentence" ,"WordPosition"),
+                               by.y=c("Sentence" ,"word_pos"),
+                               all.x=TRUE) %>% arrange(Type,item,WordPosition,participant)
+
+    rt.data.with_lags <-  rt.data.freqs.surps %>% group_by_at(vars(item, participant)) %>%
+      mutate(RT_p1 = lag(RT),
+           RT_p2 = lag(RT_p1),
+           RT_p3 = lag(RT_p2),
+           length_p1_s = lag(length_s),
+           length_p2_s = lag(length_p1_s),
+           length_p3_s = lag(length_p2_s),
+           logfreq_p1_s = lag(logfreq_s),
+           logfreq_p2_s = lag(logfreq_p1_s),
+           logfreq_p3_s = lag(logfreq_p2_s),
+           surprisal_p1_s = lag(surprisal_s),
+           surprisal_p2_s = lag(surprisal_p1_s),
+           surprisal_p3_s = lag(surprisal_p2_s))
+    rt.data.with_lags$sent_length <- lapply(str_split(rt.data.with_lags$Sentence," "),length)
+
+    rt.data.drop <- subset(rt.data.with_lags, !is.na(surprisal_s) & !is.na(surprisal_p1_s) &
+                           !is.na(surprisal_p2_s) & !is.na(surprisal_p3_s) &
+                           !is.na(logfreq_s) & !is.na(logfreq_p1_s) &
+                           !is.na(logfreq_p2_s) & !is.na(logfreq_p3_s)&
+                           (rt.data.with_lags$sent_length!=rt.data.with_lags$WordPosition))
+
+    rt.data.drop$predicted <- predict(filler.model, newdata=rt.data.drop, allow.new.levels = TRUE)
+    rt.data.drop$model <- model
+  }
+  else{
+    print(paste('Processing model', model))
+
+  ## NOTE THIS ASSUMES THE FOLDER NAME FOR LSTM MODELS IS lstm  AND NOT gulordava
+    # print(read.csv(paste0('../../Surprisals/data/oh/items_',subsetname,'.oh.csv.scaled')))
+    surps <- read.csv(paste0('../../Surprisals/data/anysurp/items_byword_',subsetname,'.csv')) %>%
+      mutate(word_pos = word_pos + 1,
+             model = model) %>% #adjust to 1-indexing
+      select(Sentence, word_pos, model_surp, logfreq, logfreq_s, length, length_s)
+    surps <- rename(surps, surprisal_s=model_surp)
+
+    filler.model <- readRDS(paste0('../spr/filler_models/filler_model_', model, '.rds'))
+
+    rt.data.freqs.surps <- merge(x = rt.data_df,
+                                y = surps,
+                                by.x=c("Sentence" ,"WordPosition"),
+                                by.y=c("Sentence" ,"word_pos"),
+                                all.x=TRUE) %>% arrange(Type,item,WordPosition,participant)
+
+    rt.data.with_lags <-  rt.data.freqs.surps %>% group_by_at(vars(item, participant)) %>%
+      mutate(RT_p1 = lag(RT),
+            RT_p2 = lag(RT_p1),
+            RT_p3 = lag(RT_p2),
+            length_p1_s = lag(length_s),
+            length_p2_s = lag(length_p1_s),
+            length_p3_s = lag(length_p2_s),
+            logfreq_p1_s = lag(logfreq_s),
+            logfreq_p2_s = lag(logfreq_p1_s),
+            logfreq_p3_s = lag(logfreq_p2_s),
+            surprisal_p1_s = lag(surprisal_s),
+            surprisal_p2_s = lag(surprisal_p1_s),
+            surprisal_p3_s = lag(surprisal_p2_s))
+    rt.data.with_lags$sent_length <- lapply(str_split(rt.data.with_lags$Sentence," "),length)
+
+    rt.data.drop <- subset(rt.data.with_lags, !is.na(surprisal_s) & !is.na(surprisal_p1_s) &
+                           !is.na(surprisal_p2_s) & !is.na(surprisal_p3_s) &
+                           !is.na(logfreq_s) & !is.na(logfreq_p1_s) &
+                           !is.na(logfreq_p2_s) & !is.na(logfreq_p3_s)&
+                           (rt.data.with_lags$sent_length!=rt.data.with_lags$WordPosition))
+
+    rt.data.drop$predicted <- predict(filler.model, newdata=rt.data.drop, allow.new.levels = TRUE)
+    rt.data.drop$model <- model
+  }
+  return(rt.data.drop)
+}
+
+
+
 Plot_surprisal_construction_level <- function(coef_surprisal_lstm,coef_surprisal_gpt2,subset_name, axistitle.size=14, axistext.size=14,facetlabel.size=10){
   if(subset_name=="ClassicGP"){
     coef_surprisal <- rbind(coef_surprisal_lstm,coef_surprisal_gpt2) %>% mutate(model=rep(c("lstm","gpt2"),each=nrow(coef_surprisal_lstm)))

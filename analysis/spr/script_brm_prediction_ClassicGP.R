@@ -1,6 +1,6 @@
 #These scripts are run with NYU greene high performance computing service
-source("../util.R")
-source("../brms_parameters.R")
+source("../shared/util.R")
+source("../shared/brms_parameters.R")
 library(brms)
 rt.data <- load_data("ClassicGP")
 rt.data$SZM1 <- ifelse(rt.data$CONSTRUCTION=="NPS",1,0)
